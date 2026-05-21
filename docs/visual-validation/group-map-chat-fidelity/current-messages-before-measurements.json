@@ -1,0 +1,1301 @@
+{
+  "url": "http://127.0.0.1:5173/messages",
+  "viewport": {
+    "width": 1440,
+    "height": 1100
+  },
+  "body": {
+    "text": "Home Cursos Aulas Membros Ranking VS Mensagens diretas Inbox Não lidas Agentes SO society Olá, seja muito bem-vindo(a) ao Project Six. 5 d VS Vítor Santos Araujo Online agora nixon Visto pela última vez há 2 dias PH Pedro Henrique Visto pela última vez há 2 dias Enzo Jacob Visto pela última vez há 2 dias Gabriel Amarante Visto pela última vez há 2 dias pablito escobalito Visto pela última vez há 2 dias lhz Visto pela última vez há 2 dias reiltuo Online agora toppan15k Visto pela última vez há 2 dias Walker15k Visto pela última vez há 2 dias Anya Visto pela última vez há 2 dias Suaves Visto pela última vez há 2 dias Kali15k Visto pela última vez há 2 dias Goat Visto pela última vez há 2 dias ",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 1100
+    },
+    "style": {
+      "backgroundColor": "rgb(247, 249, 250)",
+      "color": "rgb(59, 59, 59)",
+      "fontSize": "16px",
+      "lineHeight": "24px",
+      "fontWeight": "400",
+      "borderRadius": "0px",
+      "border": "0px none rgb(59, 59, 59)",
+      "padding": "0px",
+      "boxShadow": "none"
+    }
+  },
+  "controls": [
+    {
+      "index": 0,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Home",
+      "rect": {
+        "x": 497,
+        "y": 15,
+        "width": 72,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 1,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Cursos",
+      "rect": {
+        "x": 578,
+        "y": 15,
+        "width": 80,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 2,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Aulas",
+      "rect": {
+        "x": 668,
+        "y": 15,
+        "width": 69,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 3,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Membros",
+      "rect": {
+        "x": 747,
+        "y": 15,
+        "width": 95,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgb(240, 243, 245)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 4,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Ranking",
+      "rect": {
+        "x": 852,
+        "y": 15,
+        "width": 86,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 5,
+      "tag": "input",
+      "placeholder": "Pesquisar",
+      "href": null,
+      "text": "Pesquisar no topo",
+      "rect": {
+        "x": 1111,
+        "y": 20,
+        "width": 74,
+        "height": 23
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "0px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "1px 2px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 6,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Notificações",
+      "rect": {
+        "x": 1215,
+        "y": 14,
+        "width": 36,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 7,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Mensagens",
+      "rect": {
+        "x": 1251,
+        "y": 14,
+        "width": 36,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 8,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Conexões",
+      "rect": {
+        "x": 1287,
+        "y": 14,
+        "width": 36,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 9,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Salvos",
+      "rect": {
+        "x": 1323,
+        "y": 14,
+        "width": 36,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 10,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "VS",
+      "rect": {
+        "x": 1377,
+        "y": 16,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(39, 54, 190)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "0px none rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 11,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Marcar como lidas",
+      "rect": {
+        "x": 233,
+        "y": 82,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(52, 64, 84)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "7px",
+        "border": "0px none rgb(52, 64, 84)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 12,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Nova mensagem",
+      "rect": {
+        "x": 271,
+        "y": 82,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(52, 64, 84)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "7px",
+        "border": "0px none rgb(52, 64, 84)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 13,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Inbox",
+      "rect": {
+        "x": 20,
+        "y": 128,
+        "width": 37,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(17, 24, 39)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "600",
+        "borderRadius": "0px",
+        "border": "0px none rgb(17, 24, 39)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 14,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Não lidas",
+      "rect": {
+        "x": 73,
+        "y": 128,
+        "width": 63,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(102, 112, 133)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "600",
+        "borderRadius": "0px",
+        "border": "0px none rgb(102, 112, 133)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 15,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Agentes",
+      "rect": {
+        "x": 152,
+        "y": 128,
+        "width": 73,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(102, 112, 133)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "600",
+        "borderRadius": "0px",
+        "border": "0px none rgb(102, 112, 133)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 16,
+      "tag": "input",
+      "placeholder": "Pesquisar por um nome",
+      "href": null,
+      "text": "",
+      "rect": {
+        "x": 50,
+        "y": 178,
+        "width": 245,
+        "height": 26
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "1px 2px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 17,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "SO society Olá, seja muito bem-vindo(a) ao Project Six. 5 d",
+      "rect": {
+        "x": 8,
+        "y": 216,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgb(244, 246, 248)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 18,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "VS Vítor Santos Araujo Online agora",
+      "rect": {
+        "x": 8,
+        "y": 282,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 19,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "nixon Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 348,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 20,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "PH Pedro Henrique Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 414,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 21,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Enzo Jacob Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 480,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 22,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Gabriel Amarante Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 546,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 23,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "pablito escobalito Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 612,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 24,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "lhz Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 678,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 25,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "reiltuo Online agora",
+      "rect": {
+        "x": 8,
+        "y": 744,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 26,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "toppan15k Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 810,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 27,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Walker15k Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 876,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 28,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Anya Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 942,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 29,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Suaves Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 1008,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 30,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Kali15k Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 1074,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 31,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Goat Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 1140,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 32,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "henrik Online agora",
+      "rect": {
+        "x": 8,
+        "y": 1206,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 33,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "MP Maycon Pogan Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 1272,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 34,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "matheusxzyz Visto pela última vez há 2 dias",
+      "rect": {
+        "x": 8,
+        "y": 1338,
+        "width": 303,
+        "height": 66
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(37, 52, 73)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(37, 52, 73)",
+        "padding": "8px 10px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 35,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "society",
+      "rect": {
+        "x": 344,
+        "y": 83,
+        "width": 94,
+        "height": 26
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(17, 24, 39)",
+        "fontSize": "17px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "0px",
+        "border": "0px none rgb(17, 24, 39)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 36,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Pesquisar conversa",
+      "rect": {
+        "x": 988,
+        "y": 82,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(52, 64, 84)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "7px",
+        "border": "0px none rgb(52, 64, 84)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 37,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Abrir detalhes",
+      "rect": {
+        "x": 1028,
+        "y": 82,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(52, 64, 84)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "7px",
+        "border": "0px none rgb(52, 64, 84)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 38,
+      "tag": "input",
+      "placeholder": "Digite uma mensagem...",
+      "href": null,
+      "text": "Digite uma mensagem",
+      "rect": {
+        "x": 353,
+        "y": 1006,
+        "width": 694,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(43, 46, 51)",
+        "fontSize": "15px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgb(43, 46, 51)",
+        "padding": "1px 2px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 39,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Adicionar imagem",
+      "rect": {
+        "x": 353,
+        "y": 1043,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(113, 118, 128)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(113, 118, 128)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 40,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Adicionar emoji",
+      "rect": {
+        "x": 385,
+        "y": 1043,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(113, 118, 128)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(113, 118, 128)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 41,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Link para publicacao, evento, aula ou espaco",
+      "rect": {
+        "x": 417,
+        "y": 1043,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(113, 118, 128)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(113, 118, 128)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 42,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Adicionar mencao",
+      "rect": {
+        "x": 449,
+        "y": 1043,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(113, 118, 128)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(113, 118, 128)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 43,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "GIF",
+      "rect": {
+        "x": 481,
+        "y": 1043,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(113, 118, 128)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(113, 118, 128)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 44,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Anexar arquivos",
+      "rect": {
+        "x": 513,
+        "y": 1043,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(113, 118, 128)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(113, 118, 128)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 45,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Gravar mensagem de voz",
+      "rect": {
+        "x": 545,
+        "y": 1043,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(113, 118, 128)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(113, 118, 128)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 46,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Enviar mensagem",
+      "rect": {
+        "x": 1019,
+        "y": 1043,
+        "width": 28,
+        "height": 28
+      },
+      "style": {
+        "backgroundColor": "rgb(165, 169, 173)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "999px",
+        "border": "0px none rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 47,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Copiar link do perfil",
+      "rect": {
+        "x": 1374,
+        "y": 260,
+        "width": 42,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(17, 24, 39)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "999px",
+        "border": "1px solid rgb(208, 213, 221)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 48,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Sobre",
+      "rect": {
+        "x": 1105,
+        "y": 340,
+        "width": 52,
+        "height": 38
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(17, 24, 39)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "600",
+        "borderRadius": "0px",
+        "border": "0px none rgb(17, 24, 39)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 49,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Publicações",
+      "rect": {
+        "x": 1179,
+        "y": 340,
+        "width": 95,
+        "height": 38
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(102, 112, 133)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "600",
+        "borderRadius": "0px",
+        "border": "0px none rgb(102, 112, 133)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 50,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Comentários",
+      "rect": {
+        "x": 1296,
+        "y": 340,
+        "width": 99,
+        "height": 38
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(102, 112, 133)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "600",
+        "borderRadius": "0px",
+        "border": "0px none rgb(102, 112, 133)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 51,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Espaços",
+      "rect": {
+        "x": 1416,
+        "y": 340,
+        "width": 69,
+        "height": 38
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(102, 112, 133)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "600",
+        "borderRadius": "0px",
+        "border": "0px none rgb(102, 112, 133)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 52,
+      "tag": "button",
+      "placeholder": null,
+      "href": null,
+      "text": "Conectado",
+      "rect": {
+        "x": 1105,
+        "y": 615,
+        "width": 311,
+        "height": 38
+      },
+      "style": {
+        "backgroundColor": "rgb(225, 29, 72)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "0px none rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    }
+  ]
+}

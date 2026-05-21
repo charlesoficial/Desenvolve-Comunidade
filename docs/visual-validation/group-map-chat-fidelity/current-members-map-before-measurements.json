@@ -1,0 +1,1481 @@
+{
+  "url": "http://127.0.0.1:5173/members/map",
+  "viewport": {
+    "width": 1440,
+    "height": 1100
+  },
+  "dialog": {
+    "text": "Visualização do mapa + - mapbox © Mapbox © OpenStreetMap Improve this map North Atlantic Ocean Pacific Ocean South Atlantic Ocean Africa Europe 2 4 11 6 2 12 118 ht ht ht",
+    "rect": {
+      "x": 0,
+      "y": 40,
+      "width": 1440,
+      "height": 1060
+    },
+    "style": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(59, 59, 59)",
+      "fontSize": "16px",
+      "lineHeight": "24px",
+      "fontWeight": "400",
+      "borderRadius": "12px 12px 0px 0px",
+      "border": "0px none rgb(59, 59, 59)",
+      "padding": "0px",
+      "boxShadow": "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px"
+    }
+  },
+  "title": {
+    "text": "Visualização do mapa",
+    "rect": {
+      "x": 0,
+      "y": 40,
+      "width": 1440,
+      "height": 62
+    },
+    "style": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(59, 59, 59)",
+      "fontSize": "16px",
+      "lineHeight": "24px",
+      "fontWeight": "400",
+      "borderRadius": "0px",
+      "border": "",
+      "padding": "16px 24px",
+      "boxShadow": "none"
+    }
+  },
+  "controls": [
+    {
+      "index": 0,
+      "tag": "button",
+      "text": "Home",
+      "rect": {
+        "x": 497,
+        "y": 15,
+        "width": 72,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 1,
+      "tag": "button",
+      "text": "Cursos",
+      "rect": {
+        "x": 578,
+        "y": 15,
+        "width": 80,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 2,
+      "tag": "button",
+      "text": "Aulas",
+      "rect": {
+        "x": 668,
+        "y": 15,
+        "width": 69,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 3,
+      "tag": "button",
+      "text": "Membros",
+      "rect": {
+        "x": 747,
+        "y": 15,
+        "width": 95,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgb(240, 243, 245)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 4,
+      "tag": "button",
+      "text": "Ranking",
+      "rect": {
+        "x": 852,
+        "y": 15,
+        "width": 86,
+        "height": 34
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "9999px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "8px 16px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 5,
+      "tag": "input",
+      "text": "Pesquisar no topo",
+      "rect": {
+        "x": 1111,
+        "y": 20,
+        "width": 74,
+        "height": 23
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "14px",
+        "lineHeight": "21px",
+        "fontWeight": "500",
+        "borderRadius": "0px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "1px 2px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 6,
+      "tag": "button",
+      "text": "Notificações",
+      "rect": {
+        "x": 1215,
+        "y": 14,
+        "width": 36,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 7,
+      "tag": "button",
+      "text": "Mensagens",
+      "rect": {
+        "x": 1251,
+        "y": 14,
+        "width": 36,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 8,
+      "tag": "button",
+      "text": "Conexões",
+      "rect": {
+        "x": 1287,
+        "y": 14,
+        "width": 36,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 9,
+      "tag": "button",
+      "text": "Salvos",
+      "rect": {
+        "x": 1323,
+        "y": 14,
+        "width": 36,
+        "height": 36
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(84, 88, 97)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "8px",
+        "border": "0px none rgb(84, 88, 97)",
+        "padding": "6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 10,
+      "tag": "button",
+      "text": "VS",
+      "rect": {
+        "x": 1377,
+        "y": 16,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(39, 54, 190)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "14px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "0px none rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 11,
+      "tag": "button",
+      "text": "Fechar mapa",
+      "rect": {
+        "x": 1392,
+        "y": 59,
+        "width": 24,
+        "height": 24
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(113, 118, 128)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "4px",
+        "border": "0px none rgb(113, 118, 128)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 12,
+      "tag": "button",
+      "text": "+",
+      "rect": {
+        "x": 1400,
+        "y": 113,
+        "width": 29,
+        "height": 29
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(25, 40, 58)",
+        "fontSize": "20px",
+        "lineHeight": "20px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgb(25, 40, 58)",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 13,
+      "tag": "button",
+      "text": "-",
+      "rect": {
+        "x": 1400,
+        "y": 142,
+        "width": 29,
+        "height": 29
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(25, 40, 58)",
+        "fontSize": "20px",
+        "lineHeight": "20px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "",
+        "padding": "1px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 14,
+      "tag": "button",
+      "text": "2",
+      "rect": {
+        "x": 187,
+        "y": 361,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 15,
+      "tag": "button",
+      "text": "4",
+      "rect": {
+        "x": 317,
+        "y": 332,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 16,
+      "tag": "button",
+      "text": "11",
+      "rect": {
+        "x": 662,
+        "y": 322,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 17,
+      "tag": "button",
+      "text": "6",
+      "rect": {
+        "x": 778,
+        "y": 272,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 18,
+      "tag": "button",
+      "text": "2",
+      "rect": {
+        "x": 1238,
+        "y": 361,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 19,
+      "tag": "button",
+      "text": "12",
+      "rect": {
+        "x": 418,
+        "y": 551,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 20,
+      "tag": "button",
+      "text": "118",
+      "rect": {
+        "x": 490,
+        "y": 641,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 21,
+      "tag": "button",
+      "text": "",
+      "rect": {
+        "x": 331,
+        "y": 441,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 22,
+      "tag": "button",
+      "text": "",
+      "rect": {
+        "x": 634,
+        "y": 252,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 23,
+      "tag": "button",
+      "text": "",
+      "rect": {
+        "x": 936,
+        "y": 262,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 24,
+      "tag": "button",
+      "text": "ht",
+      "rect": {
+        "x": 835,
+        "y": 451,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 25,
+      "tag": "button",
+      "text": "ht",
+      "rect": {
+        "x": 1051,
+        "y": 571,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 26,
+      "tag": "button",
+      "text": "",
+      "rect": {
+        "x": 389,
+        "y": 771,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 27,
+      "tag": "button",
+      "text": "ht",
+      "rect": {
+        "x": 706,
+        "y": 581,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    }
+  ],
+  "elements": [
+    {
+      "index": 0,
+      "className": "members-map-page",
+      "text": "Visualização do mapa + - mapbox © Mapbox © OpenStreetMap Improve this map North Atlantic Ocean Pacific Ocean South Atlantic Ocean Africa Europe 2 4 11 6 2 12 118 ht ht ht",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1100
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0.4)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgb(59, 59, 59)",
+        "padding": "40px 0px 0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 1,
+      "className": "members-map-modal-shell",
+      "text": "Visualização do mapa + - mapbox © Mapbox © OpenStreetMap Improve this map North Atlantic Ocean Pacific Ocean South Atlantic Ocean Africa Europe 2 4 11 6 2 12 118 ht ht ht",
+      "rect": {
+        "x": 0,
+        "y": 40,
+        "width": 1440,
+        "height": 1060
+      },
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "12px 12px 0px 0px",
+        "border": "0px none rgb(59, 59, 59)",
+        "padding": "0px",
+        "boxShadow": "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px"
+      }
+    },
+    {
+      "index": 2,
+      "className": "members-map-modal-header",
+      "text": "Visualização do mapa",
+      "rect": {
+        "x": 0,
+        "y": 40,
+        "width": 1440,
+        "height": 62
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "",
+        "padding": "16px 24px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 3,
+      "className": "members-map-modal-body",
+      "text": "+ - mapbox © Mapbox © OpenStreetMap Improve this map North Atlantic Ocean Pacific Ocean South Atlantic Ocean Africa Europe 2 4 11 6 2 12 118 ht ht ht",
+      "rect": {
+        "x": 0,
+        "y": 102,
+        "width": 1440,
+        "height": 998
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgb(59, 59, 59)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 4,
+      "className": "members-map-canvas is-live-reference",
+      "text": "+ - mapbox © Mapbox © OpenStreetMap Improve this map North Atlantic Ocean Pacific Ocean South Atlantic Ocean Africa Europe 2 4 11 6 2 12 118 ht ht ht",
+      "rect": {
+        "x": 0,
+        "y": 102,
+        "width": 1440,
+        "height": 998
+      },
+      "style": {
+        "backgroundColor": "rgb(238, 242, 244)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgb(59, 59, 59)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 5,
+      "className": "members-map-zoom",
+      "text": "+ -",
+      "rect": {
+        "x": 1399,
+        "y": 112,
+        "width": 31,
+        "height": 60
+      },
+      "style": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "4px",
+        "border": "1px solid rgb(221, 221, 221)",
+        "padding": "0px",
+        "boxShadow": "rgba(0, 0, 0, 0.1) 0px 0px 0px 2px"
+      }
+    },
+    {
+      "index": 6,
+      "className": "members-map-logo",
+      "text": "mapbox",
+      "rect": {
+        "x": 8,
+        "y": 1071,
+        "width": 72,
+        "height": 24
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgba(0, 0, 0, 0.45)",
+        "fontSize": "18px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "0px",
+        "border": "0px none rgba(0, 0, 0, 0.45)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 7,
+      "className": "members-map-attribution",
+      "text": "© Mapbox © OpenStreetMap Improve this map",
+      "rect": {
+        "x": 1168,
+        "y": 1076,
+        "width": 272,
+        "height": 24
+      },
+      "style": {
+        "backgroundColor": "rgba(255, 255, 255, 0.75)",
+        "color": "rgba(0, 0, 0, 0.75)",
+        "fontSize": "12px",
+        "lineHeight": "20px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgba(0, 0, 0, 0.75)",
+        "padding": "2px 6px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 8,
+      "className": "members-map-world",
+      "text": "North Atlantic Ocean Pacific Ocean South Atlantic Ocean Africa Europe",
+      "rect": {
+        "x": 0,
+        "y": 102,
+        "width": 1440,
+        "height": 998
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgb(59, 59, 59)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 9,
+      "className": "members-map-tile",
+      "text": "",
+      "rect": {
+        "x": 0,
+        "y": 102,
+        "width": 1440,
+        "height": 998
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgb(59, 59, 59)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 10,
+      "className": "members-map-land north-america",
+      "text": "",
+      "rect": {
+        "x": 52,
+        "y": 195,
+        "width": 399,
+        "height": 332
+      },
+      "style": {
+        "backgroundColor": "rgb(241, 248, 233)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "52% 38% 46% 58%",
+        "border": "1px solid rgba(120, 128, 105, 0.18)",
+        "padding": "0px",
+        "boxShadow": "rgba(74, 124, 89, 0.18) 0px 0px 0px 1px inset"
+      }
+    },
+    {
+      "index": 11,
+      "className": "members-map-land central-america",
+      "text": "",
+      "rect": {
+        "x": 339,
+        "y": 447,
+        "width": 215,
+        "height": 129
+      },
+      "style": {
+        "backgroundColor": "rgb(241, 248, 233)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "50%",
+        "border": "1px solid rgba(120, 128, 105, 0.18)",
+        "padding": "0px",
+        "boxShadow": "rgba(74, 124, 89, 0.18) 0px 0px 0px 1px inset"
+      }
+    },
+    {
+      "index": 12,
+      "className": "members-map-land south-america",
+      "text": "",
+      "rect": {
+        "x": 382,
+        "y": 568,
+        "width": 258,
+        "height": 346
+      },
+      "style": {
+        "backgroundColor": "rgb(241, 248, 233)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "54% 46% 40% 60%",
+        "border": "1px solid rgba(120, 128, 105, 0.18)",
+        "padding": "0px",
+        "boxShadow": "rgba(74, 124, 89, 0.18) 0px 0px 0px 1px inset"
+      }
+    },
+    {
+      "index": 13,
+      "className": "members-map-land europe",
+      "text": "",
+      "rect": {
+        "x": 662,
+        "y": 302,
+        "width": 187,
+        "height": 130
+      },
+      "style": {
+        "backgroundColor": "rgb(241, 248, 233)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "48% 52% 42% 58%",
+        "border": "1px solid rgba(120, 128, 105, 0.18)",
+        "padding": "0px",
+        "boxShadow": "rgba(74, 124, 89, 0.18) 0px 0px 0px 1px inset"
+      }
+    },
+    {
+      "index": 14,
+      "className": "members-map-land africa",
+      "text": "",
+      "rect": {
+        "x": 684,
+        "y": 435,
+        "width": 274,
+        "height": 303
+      },
+      "style": {
+        "backgroundColor": "rgb(241, 248, 233)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "46% 54% 52% 48%",
+        "border": "1px solid rgba(120, 128, 105, 0.18)",
+        "padding": "0px",
+        "boxShadow": "rgba(74, 124, 89, 0.18) 0px 0px 0px 1px inset"
+      }
+    },
+    {
+      "index": 15,
+      "className": "members-map-land asia",
+      "text": "",
+      "rect": {
+        "x": 854,
+        "y": 267,
+        "width": 453,
+        "height": 339
+      },
+      "style": {
+        "backgroundColor": "rgb(241, 248, 233)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "54% 46% 45% 55%",
+        "border": "1px solid rgba(120, 128, 105, 0.18)",
+        "padding": "0px",
+        "boxShadow": "rgba(74, 124, 89, 0.18) 0px 0px 0px 1px inset"
+      }
+    },
+    {
+      "index": 16,
+      "className": "members-map-land australia",
+      "text": "",
+      "rect": {
+        "x": 1109,
+        "y": 671,
+        "width": 187,
+        "height": 120
+      },
+      "style": {
+        "backgroundColor": "rgb(241, 248, 233)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "58% 42% 50% 50%",
+        "border": "1px solid rgba(120, 128, 105, 0.18)",
+        "padding": "0px",
+        "boxShadow": "rgba(74, 124, 89, 0.18) 0px 0px 0px 1px inset"
+      }
+    },
+    {
+      "index": 17,
+      "className": "members-map-land antarctica",
+      "text": "",
+      "rect": {
+        "x": 432,
+        "y": 1030,
+        "width": 691,
+        "height": 180
+      },
+      "style": {
+        "backgroundColor": "rgba(255, 255, 255, 0.75)",
+        "color": "rgb(59, 59, 59)",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": "400",
+        "borderRadius": "54% 46% 0px 0px",
+        "border": "1px solid rgba(120, 128, 105, 0.18)",
+        "padding": "0px",
+        "boxShadow": "rgba(74, 124, 89, 0.18) 0px 0px 0px 1px inset"
+      }
+    },
+    {
+      "index": 18,
+      "className": "members-map-label north-atlantic",
+      "text": "North Atlantic Ocean",
+      "rect": {
+        "x": 533,
+        "y": 421,
+        "width": 119,
+        "height": 18
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgba(114, 126, 136, 0.64)",
+        "fontSize": "13px",
+        "lineHeight": "18px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgba(114, 126, 136, 0.64)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 19,
+      "className": "members-map-label pacific",
+      "text": "Pacific Ocean",
+      "rect": {
+        "x": 115,
+        "y": 621,
+        "width": 80,
+        "height": 18
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgba(114, 126, 136, 0.64)",
+        "fontSize": "13px",
+        "lineHeight": "18px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgba(114, 126, 136, 0.64)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 20,
+      "className": "members-map-label south-atlantic",
+      "text": "South Atlantic Ocean",
+      "rect": {
+        "x": 605,
+        "y": 801,
+        "width": 122,
+        "height": 18
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgba(114, 126, 136, 0.64)",
+        "fontSize": "13px",
+        "lineHeight": "18px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgba(114, 126, 136, 0.64)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 21,
+      "className": "members-map-label africa-label",
+      "text": "Africa",
+      "rect": {
+        "x": 792,
+        "y": 581,
+        "width": 33,
+        "height": 18
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgba(114, 126, 136, 0.64)",
+        "fontSize": "13px",
+        "lineHeight": "18px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgba(114, 126, 136, 0.64)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 22,
+      "className": "members-map-label europe-label",
+      "text": "Europe",
+      "rect": {
+        "x": 706,
+        "y": 361,
+        "width": 42,
+        "height": 18
+      },
+      "style": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgba(114, 126, 136, 0.64)",
+        "fontSize": "13px",
+        "lineHeight": "18px",
+        "fontWeight": "400",
+        "borderRadius": "0px",
+        "border": "0px none rgba(114, 126, 136, 0.64)",
+        "padding": "0px",
+        "boxShadow": "none"
+      }
+    },
+    {
+      "index": 23,
+      "className": "members-map-cluster",
+      "text": "2",
+      "rect": {
+        "x": 187,
+        "y": 361,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 24,
+      "className": "members-map-cluster",
+      "text": "4",
+      "rect": {
+        "x": 317,
+        "y": 332,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 25,
+      "className": "members-map-cluster",
+      "text": "11",
+      "rect": {
+        "x": 662,
+        "y": 322,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 26,
+      "className": "members-map-cluster",
+      "text": "6",
+      "rect": {
+        "x": 778,
+        "y": 272,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 27,
+      "className": "members-map-cluster",
+      "text": "2",
+      "rect": {
+        "x": 1238,
+        "y": 361,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 28,
+      "className": "members-map-cluster",
+      "text": "12",
+      "rect": {
+        "x": 418,
+        "y": 551,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 29,
+      "className": "members-map-cluster",
+      "text": "118",
+      "rect": {
+        "x": 490,
+        "y": 641,
+        "width": 32,
+        "height": 32
+      },
+      "style": {
+        "backgroundColor": "rgb(31, 71, 184)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "lineHeight": "24px",
+        "fontWeight": "800",
+        "borderRadius": "999px",
+        "border": "2px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.22) 0px 8px 18px 0px"
+      }
+    },
+    {
+      "index": 30,
+      "className": "members-map-pin",
+      "text": "",
+      "rect": {
+        "x": 331,
+        "y": 441,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 31,
+      "className": "members-map-pin",
+      "text": "",
+      "rect": {
+        "x": 634,
+        "y": 252,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 32,
+      "className": "members-map-pin",
+      "text": "",
+      "rect": {
+        "x": 936,
+        "y": 262,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 33,
+      "className": "members-map-pin",
+      "text": "ht",
+      "rect": {
+        "x": 835,
+        "y": 451,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 34,
+      "className": "members-map-pin",
+      "text": "ht",
+      "rect": {
+        "x": 1051,
+        "y": 571,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 35,
+      "className": "members-map-pin",
+      "text": "",
+      "rect": {
+        "x": 389,
+        "y": 771,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    },
+    {
+      "index": 36,
+      "className": "members-map-pin",
+      "text": "ht",
+      "rect": {
+        "x": 706,
+        "y": 581,
+        "width": 40,
+        "height": 40
+      },
+      "style": {
+        "backgroundColor": "rgb(17, 24, 39)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "13px",
+        "lineHeight": "24px",
+        "fontWeight": "700",
+        "borderRadius": "999px",
+        "border": "3px solid rgb(255, 255, 255)",
+        "padding": "1px 6px",
+        "boxShadow": "rgba(15, 23, 42, 0.18) 0px 10px 24px 0px"
+      }
+    }
+  ]
+}

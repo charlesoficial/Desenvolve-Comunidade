@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Verifying you are a human</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        text-align: center;
+        padding: 24px;
+        max-width: 600px;
+        width: 100%;
+      }
+      .captcha-box {
+        display: inline-block;
+      }
+      .darkBackground {
+        background: radial-gradient(
+            circle at top left,
+            #4855bf 0%,
+            rgb(45 28 105),
+            rgba(28, 17, 68, 0) 60%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            #2c256f 0%,
+            rgba(28, 17, 68, 0) 20%
+          ),
+          linear-gradient(to bottom, #180e3a, #211450);
+        background-size: cover;
+        background-position: center;
+      }
+      .verifying {
+        font-size: 24px;
+        line-height: 32px;
+        color: #ffffff;
+        margin: 0 0 4px 0;
+        padding: 0;
+        font-weight: bold;
+      }
+      .may-take {
+        font-size: 16px;
+        line-height: 24px;
+        color: #d2d7db;
+        margin: 0 0 56px 0;
+        padding: 0;
+      }
+      .review {
+        font-size: 16px;
+        line-height: 24px;
+        color: #d2d7db;
+        margin: 56px 0 0 0;
+        padding: 0;
+      }
+      .logo {
+        margin: 0 0 56px 0;
+        padding: 0;
+      }
+    </style>
+  <meta http-equiv="refresh" content="360"></head>
+  <body class="darkBackground">
+    <div class="container">
+      <p class="verifying" data-translate="verifying">
+        Verifying you are a human
+      </p>
+      <p class="may-take" data-translate="may-take">
+        This may take a few seconds.
+      </p>
+      <div class="captcha-box"><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cFPWv: 'b',cH: '4Uyg1jVivIKgTcKuzsusJbGQvGttq4W81lb4tk1KqP4-1777563149-1.2.1.1-X.l4Zh0jNdV6D_y4i1vunAoYjjbJcN8Eiax60f1NIK4n2lmFrmEjkwH2l1sbC1Hl',cITimeS: '1777563149',cRay: '9f479975beef068a',cTplB: '0',cTplC:1,cTplO:0,cTplV:5,cType: 'managed',cUPMDTk:"/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCSXp0WmdnPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ce63e6ee4e1dbd048e62220bc3d899318e657fa8/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJNEJEQTZDbk5oZG1WeWV3WTZDbk4wY21sd1ZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--a9f899a0c764220ba5650fc8daea690765ef2c6f/wp-content-2Fuploads-2Fsites-2F3-2F2026-2F02-2Fguthrie-65.jpg?__cf_chl_tk=5IqQ7gGyDM75bNQt_gdVGx5xboBtaetZpFULI_C3DuE-1777563149-1.0.1.1-r7_Nn6n.g7xo3G_Ywok_h4PIweRWOPRShIbrAqDGXk0",cvId: '3',cZone: 'app.circle.so',fa:"/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCSXp0WmdnPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ce63e6ee4e1dbd048e62220bc3d899318e657fa8/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJNEJEQTZDbk5oZG1WeWV3WTZDbk4wY21sd1ZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--a9f899a0c764220ba5650fc8daea690765ef2c6f/wp-content-2Fuploads-2Fsites-2F3-2F2026-2F02-2Fguthrie-65.jpg?__cf_chl_f_tk=5IqQ7gGyDM75bNQt_gdVGx5xboBtaetZpFULI_C3DuE-1777563149-1.0.1.1-r7_Nn6n.g7xo3G_Ywok_h4PIweRWOPRShIbrAqDGXk0",md: 'nVTnDB8LswZ0PeFbf2TIie9DyrFcWogoYH2r2P6QA8E-1777563149-1.2.1.1-KCIuqSE6idOyhC9DdCYzPU10uAwJo0MqLyg52twweucB2th0pACczoDNr2LFUDjPBfcwNwFOHUUXzIjgDP_HqBnkLEQyIgGT96dW9.WQJRHpbw0wDfc1Q3t6iFxgqTWqjdJwyVFa.w.sh8BV.xHJoiJCW.5oag.iKe68PTBnaSir0p.S8LxAIZlXMnVbIu.dsLIx_93fXffaABUDYT8PkzIY2Q6RDAQU_2BJX3AZJ37If8XWJ5_4_Qi9XT9Ccd0zdG3rczJsu0XMF4FKjM9Cp2G.qIVGkgo44WrMpmuHIZjUBtwt6t.Fzw4bPCnUe7Lyb_RoH4tM3W7SBUI3oezu8rc3vM2JeBpmIe3xXCO4uA8n2d6zAavbteRE2WMQnzqIphmUuELubTcjP28H0JOa_ZyB8YjP4Qs0ky24A4OJoS7Qfk9gIsWmN1se26zJVBW0Qnl9rh6TFYP_AAS8l8SL53QcxjYurntBYpxn8jSC.L4xmBKkk.eSrlrJ_MpyDGubiAy2M1WZbOsVH70W5IwIkWd7gj3Bo.PiMLjECOsPT6U8LTRReerGOnC597yc_68YKL9xtMkt0dVwhL46syFlWOycbYatikL7cvDWlInDl_PqObcRTrzW0Ep.GhZLZJbfrZFAHEFJbX2sO2qcgG4SolzQ6Vwzsieh11pCoYElOGXn1upduzf7vc9I22DakjRq53SKRaxgweYYAeKxbP11FegSk4R9XuwPmA.j1POAMxTNXjUIVOG1z.VQgt9SuWSCPu4AhwvoINmNXbAAj9AB78OvMiBSqlpYaCdXLHfzqP7fopP0MS8roZd1uotAdPX_2n3P0KpkpDMreCOVp9Vux5mt53kkiFL1q4lV7CSD9WVt_Yaw.5.NwoG60faJOMlflYq43XKMMI9IKl0AZqJSB5urHXvqx3VvoRNVMQkMTUIKTI9UpMq4NiZEAzUjo4SWtm4QWzUv5Aj9lLoBKbxjc.zQukEXF9drHvV8FPnednHCMHeSgPSsYGrTV6.lCQScipj5uuRasu6LFmn584HLlE4rvXRZZNYF.7e50amcrdTr9gKTJycb4zIJouN8ZJrc9HmFAYVe_Vg7QUdT2Wp96o8puqHmqv7QtKnbNMfMJJh54rOZ4d5qmrNC8oJNd9myJFy89_lHsCfkaf8E68T3fPND85kT.ItSU223wYlcnY1x0RAhRW_a2SyYGDgCh7hH1ZLCy2RiNfyGVujY0Rgr3zIip.hGzfJqvvXf9QO3hv.wHiTl3GnKLzAJ4d7YG8rLOP47JjF6g0aVxb233RWYFlJUQeHcyeyHz2f7mBg.u.nhoP.y3hv7jp7rGpRwNGiYT7vS55zdWiHoJlzpUcwqrl6kPkqpReUSXgImm07_J5MqSQJtXQuiUzJMVIq4zhyLkhRhzGk7JhYsImlZqooY21htA.JHHu_EjWv52m27Kf6yfsV69ACMaRilM0JBYo2o8k5Xlv0bpt4.hSvq0T05A7RcnXOvz7uPptetiMZ7WdSkkCPVpTeaKcgHa8v1ZEOFycxBzzC7XogU8f6ww43IjfklBxVesHoOUkKRdo3OgpaucqVISN2PrIddE5.tJM72w8VwXBa6R0_5ryIQ5YXBb9Gm8LvU.GcSIrXeerixPfA',mdrd: 'e2Oz0C81Dlm5065JL1y7xUlSwty3zaboVIvwdRugVgk-1777563149-1.2.1.1-frRdl0LUTUYEjtJeu120x2eM5OKMrbLzpxCCFAIpV17PoLTNtb._XLR.EfWqXsyGx2JhdoejkuUTxh3Zfy2_6rLy6pl5zhCKDRfMhugggamBkTUqL9Q7MGX9TCVCpE1btpMTSRPLjkAnRRvjjVqprQ82pxSYaFYofbSvU2Rt.cYq7tw1VPUFOSjmK_VjPR_Otf2MGUyKcJwYMYyPpJEgcPVMqhhK_wkvlEk9kkSvvo95DJt_7LlrvTtkqKgXwli0kvXaTr4yuh7xqUf6sCWJHlEN6UmwYT8_.4s8rL59Uv3MXDIE.UPBoDg.BCFOYbaPB0osYus5MyUx9_7BidRGDYOVzcjmQr2bABBuUzhimDqIoERVKGMNZJhxkgMtLPbn',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=9f479975beef068a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCSXp0WmdnPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ce63e6ee4e1dbd048e62220bc3d899318e657fa8/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJNEJEQTZDbk5oZG1WeWV3WTZDbk4wY21sd1ZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--a9f899a0c764220ba5650fc8daea690765ef2c6f/wp-content-2Fuploads-2Fsites-2F3-2F2026-2F02-2Fguthrie-65.jpg?__cf_chl_rt_tk=5IqQ7gGyDM75bNQt_gdVGx5xboBtaetZpFULI_C3DuE-1777563149-1.0.1.1-r7_Nn6n.g7xo3G_Ywok_h4PIweRWOPRShIbrAqDGXk0"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></div>
+      <p class="review" data-translate="review">
+        We need to review the security of your connection before proceeding.
+      </p>
+    </div>
+    <script>
+      function getHostname() {
+        try {
+          return window.location.hostname;
+        } catch {
+          return "";
+        }
+      }
+
+      var translations = {
+        en: {
+          verifying: "Verifying you are a human",
+          "may-take": "This may take a few seconds.",
+          review:
+            getHostname() +
+            " needs to review the security of your connection before proceeding.",
+        },
+        ar: {
+          verifying: "التحقق من أنك إنسان",
+          "may-take": "قد يستغرق هذا بضع ثوان.",
+          review: getHostname() + " يحتاج إلى مراجعة أمان اتصالك قبل المتابعة.",
+        },
+        bg: {
+          verifying: "Проверка, че сте човек",
+          "may-take": "Това може да отнеме няколко секунди.",
+          review:
+            getHostname() +
+            " трябва да прегледа сигурността на вашата връзка, преди да продължи.",
+        },
+        zh: {
+          verifying: "验证您是人类",
+          "may-take": "这可能需要几秒钟。",
+          review: getHostname() + " 需要在继续之前检查您连接的安全性。",
+        },
+        hr: {
+          verifying: "Potvrđujemo da ste čovjek",
+          "may-take": "Ovo može potrajati nekoliko sekundi.",
+          review:
+            getHostname() +
+            " treba pregledati sigurnost vaše veze prije nastavka.",
+        },
+        cs: {
+          verifying: "Ověřujeme, že jste člověk",
+          "may-take": "Může to trvat několik sekund.",
+          review:
+            getHostname() +
+            " potřebuje před pokračováním zkontrolovat bezpečnost vašeho připojení.",
+        },
+        da: {
+          verifying: "Verificerer at du er et menneske",
+          "may-take": "Dette kan tage et par sekunder.",
+          review:
+            getHostname() +
+            " skal gennemgå sikkerheden af din forbindelse, før du kan fortsætte.",
+        },
+        nl: {
+          verifying: "Verifiëren dat u een mens bent",
+          "may-take": "Dit kan een paar seconden duren.",
+          review:
+            getHostname() +
+            " moet de beveiliging van uw verbinding controleren voordat u verder kunt gaan.",
+        },
+        fi: {
+          verifying: "Varmistetaan, että olet ihminen",
+          "may-take": "Tämä voi kestää muutaman sekunnin.",
+          review:
+            getHostname() +
+            ":n täytyy tarkistaa yhteytesi turvallisuus ennen jatkamista.",
+        },
+        fr: {
+          verifying: "Vérification que vous êtes humain",
+          "may-take": "Cela peut prendre quelques secondes.",
+          review:
+            getHostname() +
+            " doit vérifier la sécurité de votre connexion avant de continuer.",
+        },
+        de: {
+          verifying: "Überprüfung, ob Sie ein Mensch sind",
+          "may-take": "Dies kann einige Sekunden dauern.",
+          review:
+            getHostname() +
+            " muss die Sicherheit Ihrer Verbindung überprüfen, bevor Sie fortfahren können.",
+        },
+        el: {
+          verifying: "Επαλήθευση ότι είστε άνθρωπος",
+          "may-take": "Αυτό μπορεί να διαρκέσει μερικά δευτερόλεπτα.",
+          review:
+            getHostname() +
+            " πρέπει να ελέγξει την ασφάλεια της σύνδεσής σας πριν προχωρήσετε.",
+        },
+        he: {
+          verifying: "מאמת שאתה אנושי",
+          "may-take": "זה עשוי לקחת מספר שניות.",
+          review:
+            getHostname() + " צריך לבדוק את אבטחת החיבור שלך לפני שתמשיך.",
+        },
+        hi: {
+          verifying: "सत्यापित किया जा रहा है कि आप मानव हैं",
+          "may-take": "इसमें कुछ सेकंड लग सकते हैं।",
+          review:
+            getHostname() +
+            " को जारी रखने से पहले आपके कनेक्शन की सुरक्षा की समीक्षा करने की आवश्यकता है।",
+        },
+        hu: {
+          verifying: "Annak ellenőrzése, hogy Ön ember",
+          "may-take": "Ez eltarthat néhány másodpercig.",
+          review:
+            getHostname() +
+            "-nak ellenőriznie kell a kapcsolat biztonságát, mielőtt folytatná.",
+        },
+        id: {
+          verifying: "Memverifikasi bahwa Anda adalah manusia",
+          "may-take": "Ini mungkin memakan waktu beberapa detik.",
+          review:
+            getHostname() +
+            " perlu meninjau keamanan koneksi Anda sebelum melanjutkan.",
+        },
+        it: {
+          verifying: "Verifica che sei umano",
+          "may-take": "Potrebbe richiedere alcuni secondi.",
+          review:
+            getHostname() +
+            " deve esaminare la sicurezza della tua connessione prima di procedere.",
+        },
+        ja: {
+          verifying: "人間であることを確認しています",
+          "may-take": "これには数秒かかる場合があります。",
+          review:
+            getHostname() +
+            " は続行する前に接続のセキュリティを確認する必要があります。",
+        },
+        ko: {
+          verifying: "사람인지 확인하는 중",
+          "may-take": "이 작업은 몇 초 정도 걸릴 수 있습니다.",
+          review:
+            getHostname() + "는 진행하기 전에 연결의 보안을 검토해야 합니다.",
+        },
+        lt: {
+          verifying: "Tikrinama, ar esate žmogus",
+          "may-take": "Tai gali užtrukti kelias sekundes.",
+          review:
+            getHostname() +
+            " turi peržiūrėti jūsų ryšio saugumą prieš tęsiant.",
+        },
+        ms: {
+          verifying: "Mengesahkan anda adalah manusia",
+          "may-take": "Ini mungkin mengambil masa beberapa saat.",
+          review:
+            getHostname() +
+            " perlu menyemak keselamatan sambungan anda sebelum meneruskan.",
+        },
+        no: {
+          verifying: "Verifiserer at du er et menneske",
+          "may-take": "Dette kan ta noen sekunder.",
+          review:
+            getHostname() +
+            " må gjennomgå sikkerheten til forbindelsen din før du kan fortsette.",
+        },
+        pl: {
+          verifying: "Weryfikacja, czy jesteś człowiekiem",
+          "may-take": "To może potrwać kilka sekund.",
+          review:
+            getHostname() +
+            " musi sprawdzić bezpieczeństwo Twojego połączenia przed kontynuowaniem.",
+        },
+        pt: {
+          verifying: "Verificando se você é humano",
+          "may-take": "Isso pode levar alguns segundos.",
+          review:
+            getHostname() +
+            " precisa revisar a segurança da sua conexão antes de prosseguir.",
+        },
+        ro: {
+          verifying: "Se verifică dacă sunteți om",
+          "may-take": "Acest lucru poate dura câteva secunde.",
+          review:
+            getHostname() +
+            " trebuie să revizuiască securitatea conexiunii dvs. înainte de a continua.",
+        },
+        ru: {
+          verifying: "Проверка, что вы человек",
+          "may-take": "Это может занять несколько секунд.",
+          review:
+            getHostname() +
+            " необходимо проверить безопасность вашего соединения, прежде чем продолжить.",
+        },
+        sr: {
+          verifying: "Проверавамо да ли сте човек",
+          "may-take": "Ово може потрајати неколико секунди.",
+          review:
+            getHostname() +
+            " мора да прегледа безбедност ваше везе пре него што настави.",
+        },
+        sk: {
+          verifying: "Overuje sa, či ste človek",
+          "may-take": "Môže to trvať niekoľko sekúnd.",
+          review:
+            getHostname() +
+            " potrebuje skontrolovať bezpečnosť vášho pripojenia pred pokračovaním.",
+        },
+        sl: {
+          verifying: "Preverjanje, ali ste človek",
+          "may-take": "To lahko traja nekaj sekund.",
+          review:
+            getHostname() +
+            " mora pred nadaljevanjem preveriti varnost vaše povezave.",
+        },
+        es: {
+          verifying: "Verificando que eres humano",
+          "may-take": "Esto puede tomar unos segundos.",
+          review:
+            getHostname() +
+            " necesita revisar la seguridad de tu conexión antes de continuar.",
+        },
+        sv: {
+          verifying: "Verifierar att du är en människa",
+          "may-take": "Detta kan ta några sekunder.",
+          review:
+            getHostname() +
+            " behöver granska säkerheten för din anslutning innan du fortsätter.",
+        },
+        tl: {
+          verifying: "Bine-verify na ikaw ay tao",
+          "may-take": "Maaaring tumagal ito ng ilang segundo.",
+          review:
+            "Kailangang suriin ng " +
+            getHostname() +
+            " ang seguridad ng iyong koneksyon bago magpatuloy.",
+        },
+        th: {
+          verifying: "กำลังตรวจสอบว่าคุณเป็นมนุษย์",
+          "may-take": "อาจใช้เวลาสักครู่",
+          review:
+            getHostname() +
+            " จำเป็นต้องตรวจสอบความปลอดภัยของการเชื่อมต่อของคุณก่อนดำเนินการต่อ",
+        },
+        tr: {
+          verifying: "İnsan olduğunuz doğrulanıyor",
+          "may-take": "Bu birkaç saniye sürebilir.",
+          review:
+            getHostname() +
+            ", devam etmeden önce bağlantınızın güvenliğini gözden geçirmesi gerekiyor.",
+        },
+        uk: {
+          verifying: "Перевірка, що ви людина",
+          "may-take": "Це може зайняти кілька секунд.",
+          review:
+            getHostname() +
+            " потрібно перевірити безпеку вашого з'єднання перед тим, як продовжити.",
+        },
+        vi: {
+          verifying: "Đang xác minh bạn là người",
+          "may-take": "Điều này có thể mất vài giây.",
+          review:
+            getHostname() +
+            " cần xem xét bảo mật kết nối của bạn trước khi tiếp tục.",
+        },
+      };
+
+      function detectLanguage() {
+        var userLang = navigator.language || navigator.userLanguage;
+        var langCode = userLang.split("-")[0];
+        return translations[langCode] ? langCode : "en";
+      }
+
+      function translatePage(lang) {
+        var elements = document.querySelectorAll("[data-translate]");
+        elements.forEach(element => {
+          var key = element.getAttribute("data-translate");
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+        document.documentElement.lang = lang;
+      }
+
+      var userLang = detectLanguage();
+      translatePage(userLang);
+    </script>
+  </body>
+</html>

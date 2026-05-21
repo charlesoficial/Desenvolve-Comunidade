@@ -1,0 +1,226 @@
+STACK TECNICA DETECTADA - CIRCLE / STUDIOCIBERNETICS COMUNIDADE
+Data da captura: 2026-04-30
+Base: arquivos salvos em html/, css/, assets/, tokens/ e screenshots/
+
+Resumo
+------
+O site parece ser uma aplicacao web baseada em Ruby on Rails no backend,
+com frontend JavaScript/React empacotado em bundles, CSS com Tailwind e
+assets servidos por CDNs/proprios dominios da Circle.
+
+Linguagens
+----------
+- Ruby: backend Rails inferido por RAILS_ENV, authenticity_token, Action Cable
+  e rotas /rails/active_storage.
+- JavaScript: frontend em bundles /packs/js/*.js.
+- HTML: markup renderizado no servidor e/ou hidratado no cliente.
+- CSS: stylesheets globais, CSS inline e Tailwind.
+
+Backend / framework
+-------------------
+- Ruby on Rails
+  Evidencias:
+  - window.RAILS_ENV = "production"
+  - meta csrf-param/authenticity_token
+  - meta action-cable-url="/cable"
+  - URLs /rails/active_storage/...
+
+- Rails Active Storage
+  Usado para imagens/representations/redirect em assets.
+
+- Action Cable / WebSocket Rails
+  Evidencia: meta action-cable-url="/cable".
+
+Frontend
+--------
+- JavaScript em bundles versionados/hashados:
+  - /packs/js/runtime-*.js
+  - /packs/js/*.js
+
+- React (inferido)
+  Evidencias:
+  - Caminhos de assets contendo /packs/static/react/components/...
+  - Interface altamente componentizada e estados/modais SPA.
+
+- Webpack/Webpacker ou pipeline equivalente da Circle/Rails (inferido)
+  Evidencias:
+  - assets em /packs/js, /packs/css e runtime-*.js
+  - asset-pipeline.circle.so
+
+CSS / UI
+--------
+- Tailwind CSS
+  Evidencia: window.TAILWIND_ASSET_PATH aponta para tailwindcss-with-all-plugins.
+
+- CSS proprio da aplicacao
+  Arquivo principal capturado:
+  - css/5e00c7a05b-styles-4b04f01e.css
+
+- CSS inline por pagina/estado
+  Exemplos:
+  - feed.inline.css
+  - settings.inline.css
+  - modal-create-space-type.inline.css
+
+- Highlight.js GitHub theme
+  Evidencia:
+  - css/254b8d01a5-github.min.css
+
+Editor / conteudo
+-----------------
+- Trix editor
+  Evidencia:
+  - estilos inline data-tag-name="trix-editor"
+  - estilos inline data-tag-name="trix-toolbar"
+
+Design tokens / temas
+---------------------
+- Variaveis CSS customizadas em :root/html:
+  - --brand
+  - --brand-button-text
+  - --color-gray-*
+  - --color-text-*
+  - --color-background-*
+  - --color-community-sidebar-*
+  - --color-community-header-*
+
+Fontes
+------
+- Inter / InterVariable
+  Exemplos capturados:
+  - assets/*-InterVariable.woff2
+  - assets/*-InterVariable-Italic.woff2
+
+- SF Mono
+  Exemplo capturado:
+  - assets/*-SFMonoRegular.woff2
+
+Icones / SVG
+------------
+- Sprite SVG da Circle
+  Exemplos:
+  - assets/*-sprite.svg
+  - assets/*-icons-*.svg
+
+- Favicons / Apple touch icons
+  Exemplos:
+  - assets/*-favicon-*.png
+  - assets/*-apple-icon-*.png
+
+Pagamentos
+----------
+- Stripe
+  Evidencia:
+  - window.STRIPE_PUBLIC_KEY presente no HTML
+  - script https://js.stripe.com/v3/
+  Observacao: chave publica nao foi incluida aqui.
+
+Mapas / localizacao
+-------------------
+- Google Maps API
+  Evidencia:
+  - window.GOOGLE_MAPS_API_KEY presente no HTML
+  Observacao: chave nao foi incluida aqui.
+
+- Mapbox
+  Evidencias:
+  - window.MAPBOX_PUBLIC_KEY
+  - window.MAPBOX_MAP_STYLE_LIGHT
+  - window.MAPBOX_MAP_STYLE_DARK
+  Observacao: token nao foi incluido aqui.
+
+Autenticacao / seguranca
+------------------------
+- CSRF Rails
+  Evidencias:
+  - csrf-param
+  - csrf-token
+  - authenticity_token
+
+- OAuth social
+  Evidencias:
+  - rotas /users/auth/google
+  - rotas /users/auth/twitter
+  - rotas /users/auth/facebook
+
+- Google reCAPTCHA / captcha
+  Evidencia:
+  - window.CAPTCHA_SITE_KEY
+
+- Cloudflare Turnstile
+  Evidencias:
+  - window.TURNSTILE_CAPTCHA_SITE_KEY
+  - window.CUSTOM_TURNSTILE_CAPTCHA_SITE_KEY
+
+- Web Push / VAPID
+  Evidencia:
+  - window.vapidPublicKey
+
+Analytics / produto / marketing
+-------------------------------
+- Segment
+  Evidencia:
+  - window.USE_SEGMENT = true
+
+- Google Tag Manager
+  Evidencia:
+  - https://www.googletagmanager.com/gtm.js
+
+- Pendo
+  Evidencia:
+  - https://cdn.pendo.io/agent/static/.../pendo.js
+
+- ProfitWell
+  Evidencia:
+  - https://public.profitwell.com/js/profitwell.js
+
+- PartnerStack
+  Evidencia:
+  - https://js.partnerstack.com/v1/
+
+- StackAdapt
+  Evidencia:
+  - tags.srv.stackadapt.com
+
+- Bing / Reddit / VWO tracking pixels apareceram como recursos de rede,
+  mas foram removidos/sanitizados dos manifests finais quando eram apenas tracking.
+
+CDNs / dominios de assets
+-------------------------
+- asset-pipeline.circle.so
+- assets-v2.circle.so
+- cdn.circle.so
+- circle-compass-assets.circle.so
+- studiocibernetics-comunidade.circle.so
+- app.circle.so
+- rsms.me (fontes Inter)
+- lh3.googleusercontent.com (avatar/imagem de perfil)
+
+Servicos / APIs observados
+--------------------------
+- Stripe
+- Google Maps
+- Mapbox
+- Google Tag Manager
+- Segment
+- Pendo
+- ProfitWell
+- PartnerStack
+- Cloudflare Turnstile
+- Google reCAPTCHA
+- Web Push/VAPID
+
+Arquivos locais importantes desta documentacao
+----------------------------------------------
+- html/: HTML renderizado por pagina/estado.
+- css/: CSS externo baixado e CSS inline por pagina.
+- assets/: imagens, icones, fontes e sprites visuais.
+- tokens/: variaveis CSS computadas, recursos carregados e metadados.
+- screenshots/: screenshot de cada pagina/estado.
+
+Observacoes
+-----------
+- Esta stack foi inferida a partir do frontend capturado. Ela confirma fortes
+  sinais de Rails, JavaScript/React, Tailwind e servicos externos, mas nao prova
+  detalhes internos que nao aparecem no HTML/JS/CSS publico.
+- Tokens, e-mails e chaves sensiveis foram omitidos ou redigidos.
