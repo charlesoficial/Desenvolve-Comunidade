@@ -619,3 +619,71 @@ export function createAdminBulkAction(payload: { action: string; target?: string
     body: JSON.stringify({ bulk_action: payload }),
   });
 }
+
+
+// ---------- Coupons ----------
+export type AdminCoupon = {
+  id: string;
+  code: string;
+  description: string;
+  discount_type: "percent" | "fixed";
+  discount_value: number;
+  max_uses: number | null;
+  used_count: number;
+  remaining_uses: number | null;
+  expires_at: string | null;
+  active: boolean;
+  usable: boolean;
+  applies_to: "all" | "paywall" | "plan";
+  paywall_id: string | null;
+  plan_id: string | null;
+  created_at: string;
+};
+
+export function loadAdminCoupons() {
+  return adminFetch<AdminCoupon[]>("/api/v1/admin/coupons");
+}
+export function createAdminCoupon(payload: Partial<AdminCoupon>) {
+  return adminFetch<AdminCoupon>("/api/v1/admin/coupons", {
+    method: "POST",
+    body: JSON.stringify({ coupon: payload }),
+  });
+}
+export function updateAdminCoupon(id: string, payload: Partial<AdminCoupon>) {
+  return adminFetch<AdminCoupon>(`/api/v1/admin/coupons/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ coupon: payload }),
+  });
+}
+export function deleteAdminCoupon(id: string) {
+  return adminFetch<void>(`/api/v1/admin/coupons/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Member Tags ----------
+export type AdminMemberTag = {
+  id: string;
+  name: string;
+  color: string;
+  description: string;
+  members_count: number;
+  created_at: string;
+};
+
+export function loadAdminMemberTags() {
+  return adminFetch<AdminMemberTag[]>("/api/v1/admin/member_tags");
+}
+export function createAdminMemberTag(payload: Partial<AdminMemberTag>) {
+  return adminFetch<AdminMemberTag>("/api/v1/admin/member_tags", {
+    method: "POST",
+    body: JSON.stringify({ tag: payload }),
+  });
+}
+export function updateAdminMemberTag(id: string, payload: Partial<AdminMemberTag>) {
+  return adminFetch<AdminMemberTag>(`/api/v1/admin/member_tags/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ tag: payload }),
+  });
+}
+export function deleteAdminMemberTag(id: string) {
+  return adminFetch<void>(`/api/v1/admin/member_tags/${encodeURIComponent(id)}`, { method: "DELETE" });
+}

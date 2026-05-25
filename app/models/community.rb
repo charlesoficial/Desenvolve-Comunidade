@@ -15,6 +15,9 @@ class Community < ApplicationRecord
   has_many :topics, dependent: :destroy
   has_many :live_streams, dependent: :destroy
   has_many :bulk_action_runs, dependent: :destroy
+  has_many :coupons, dependent: :destroy
+  has_many :member_tags, dependent: :destroy
+  has_many :member_tag_assignments, dependent: :destroy
 
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true

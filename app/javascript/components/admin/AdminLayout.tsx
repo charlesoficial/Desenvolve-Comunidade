@@ -24,6 +24,8 @@ import { AdminStaticPages } from "./pages/AdminStaticPages";
 import { AdminTopics } from "./pages/AdminTopics";
 import { AdminPlaceholder } from "./pages/AdminPlaceholder";
 import { AdminFeatureStub } from "./pages/AdminFeatureStub";
+import { AdminMemberTags } from "./pages/AdminMemberTags";
+import { AdminCoupons } from "./pages/AdminCoupons";
 
 export function AdminLayout() {
   const [pathname, setPathname] = useState(() => window.location.pathname);
@@ -272,18 +274,7 @@ function renderPage(pathname: string) {
         />
       );
     case "/settings/member_tags":
-      return (
-        <AdminFeatureStub
-          title="Tags de membros"
-          subtitle="Etiquete membros para segmentar comunicações, automações e relatórios."
-          cta={{ label: "Nova tag" }}
-          bullets={[
-            "Lista de tags com nome, cor, contagem de membros",
-            "Aplicar/remover tag em massa via segmento",
-            "Tags podem ser usadas em condições de workflows",
-          ]}
-        />
-      );
+      return <AdminMemberTags />;
     case "/members/onboarding":
       return (
         <AdminFeatureStub
@@ -367,19 +358,7 @@ function renderPage(pathname: string) {
 
     /* ---------- Paywalls (sub-páginas faltantes) ---------- */
     case "/settings/coupons":
-      return (
-        <AdminFeatureStub
-          title="Cupons"
-          subtitle="Códigos de desconto aplicáveis a paywalls e planos."
-          cta={{ label: "Novo cupom" }}
-          bullets={[
-            "Tipos: percentual ou valor fixo",
-            "Limite de usos totais e por usuário",
-            "Validade por data e por paywalls específicos",
-            "Tracking de receita gerada por cupom",
-          ]}
-        />
-      );
+      return <AdminCoupons />;
     case "/settings/paywall_groups":
       return (
         <AdminFeatureStub

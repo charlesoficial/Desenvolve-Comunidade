@@ -56,6 +56,8 @@ Rails.application.routes.draw do
         resources :affiliates, only: [:index, :create, :update, :destroy]
         get  "settings/:key", to: "settings#show", constraints: { key: /[a-z_]+/ }
         patch "settings/:key", to: "settings#update", constraints: { key: /[a-z_]+/ }
+        resources :coupons, only: [:index, :create, :update, :destroy]
+        resources :member_tags, only: [:index, :create, :update, :destroy]
         resources :pages, only: [:index, :create, :update, :destroy]
         resources :topics, only: [:index, :create, :update, :destroy]
         resources :live_streams, only: [:index, :create, :update, :destroy]
