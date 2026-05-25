@@ -58,6 +58,11 @@ Rails.application.routes.draw do
         patch "settings/:key", to: "settings#update", constraints: { key: /[a-z_]+/ }
         resources :coupons, only: [:index, :create, :update, :destroy]
         resources :member_tags, only: [:index, :create, :update, :destroy]
+        resources :segments, only: [:index, :create, :update, :destroy]
+        resources :access_groups, only: [:index, :create, :update, :destroy]
+        resource  :gamification, controller: :gamification, only: [:show, :update]
+        resources :subscriptions, only: [:index, :update]
+        resources :charges, only: [:index]
         resources :pages, only: [:index, :create, :update, :destroy]
         resources :topics, only: [:index, :create, :update, :destroy]
         resources :live_streams, only: [:index, :create, :update, :destroy]

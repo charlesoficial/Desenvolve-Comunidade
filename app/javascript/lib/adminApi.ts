@@ -687,3 +687,154 @@ export function updateAdminMemberTag(id: string, payload: Partial<AdminMemberTag
 export function deleteAdminMemberTag(id: string) {
   return adminFetch<void>(`/api/v1/admin/member_tags/${encodeURIComponent(id)}`, { method: "DELETE" });
 }
+
+
+// ---------- Segmentos ----------
+export type AdminSegment = {
+  id: string;
+  name: string;
+  description: string;
+  filters: Record<string, unknown>;
+  members_count: number;
+  last_calculated_at: string | null;
+  created_at: string;
+};
+
+export function loadAdminSegments() {
+  return adminFetch<AdminSegment[]>("/api/v1/admin/segments");
+}
+export function createAdminSegment(payload: Partial<AdminSegment>) {
+  return adminFetch<AdminSegment>("/api/v1/admin/segments", {
+    method: "POST",
+    body: JSON.stringify({ segment: payload }),
+  });
+}
+export function updateAdminSegment(id: string, payload: Partial<AdminSegment>) {
+  return adminFetch<AdminSegment>(`/api/v1/admin/segments/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ segment: payload }),
+  });
+}
+export function deleteAdminSegment(id: string) {
+  return adminFetch<void>(`/api/v1/admin/segments/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Grupos de acesso ----------
+export type AdminAccessGroup = {
+  id: string;
+  name: string;
+  description: string;
+  default_role: "owner" | "admin" | "moderator" | "member";
+  space_ids: string[];
+  space_count: number;
+  members_count: number;
+  active: boolean;
+  created_at: string;
+};
+
+export function loadAdminAccessGroups() {
+  return adminFetch<AdminAccessGroup[]>("/api/v1/admin/access_groups");
+}
+export function createAdminAccessGroup(payload: Partial<AdminAccessGroup>) {
+  return adminFetch<AdminAccessGroup>("/api/v1/admin/access_groups", {
+    method: "POST",
+    body: JSON.stringify({ access_group: payload }),
+  });
+}
+export function updateAdminAccessGroup(id: string, payload: Partial<AdminAccessGroup>) {
+  return adminFetch<AdminAccessGroup>(`/api/v1/admin/access_groups/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ access_group: payload }),
+  });
+}
+export function deleteAdminAccessGroup(id: string) {
+  return adminFetch<void>(`/api/v1/admin/access_groups/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Gamificação ----------
+export type AdminGamification = {
+  id: string;
+  enabled: boolean;
+  points_per_post: number;
+  points_per_comment: number;
+  points_per_reaction_received: number;
+  points_per_login: number;
+  level_curve: "linear" | "exponential" | "custom";
+  level_step: number;
+  badges: unknown[];
+  updated_at: string;
+};
+
+export function loadAdminGamification() {
+  return adminFetch<AdminGamification>("/api/v1/admin/gamification");
+}
+export function updateAdminGamification(payload: Partial<AdminGamification>) {
+  return adminFetch<AdminGamification>("/api/v1/admin/gamification", {
+    method: "PATCH",
+    body: JSON.stringify({ gamification: payload }),
+  });
+}
+
+// ---------- Subscriptions ----------
+export type AdminSubscription = {
+  id: string;
+  status: string;
+  provider_subscription_id: string | null;
+  current_period_end: string | null;
+  created_at: string;
+  updated_at: string;
+  user: { id: string; username: string; display_name: string; email: string } | null;
+  plan: { id: string; name: string; price_cents: number; currency: string; interval: string } | null;
+};
+
+export type AdminSubscriptionsPage = {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  mrr_cents: number;
+  subscriptions: AdminSubscription[];
+};
+
+export function loadAdminSubscriptions(opts: { page?: number; status?: string } = {}) {
+  const params = new URLSearchParams();
+  params.set("page", String(opts.page ?? 1));
+  if (opts.status) params.set("status", opts.status);
+  return adminFetch<AdminSubscriptionsPage>(`/api/v1/admin/subscriptions?${params.toString()}`);
+}
+
+export function updateAdminSubscription(id: string, status: string) {
+  return adminFetch<AdminSubscription>(`/api/v1/admin/subscriptions/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ subscription: { status } }),
+  });
+}
+
+// ---------- Charges ----------
+export type AdminCharge = {
+  id: string;
+  provider_subscription_id: string | null;
+  provider_customer_id: string | null;
+  status: string;
+  amount_cents: number | null;
+  currency: string;
+  interval: string | null;
+  current_period_end: string | null;
+  created_at: string;
+  user: { id: string; username: string; display_name: string; email: string } | null;
+  plan: { id: string; name: string } | null;
+};
+
+export type AdminChargesPage = {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  charges: AdminCharge[];
+};
+
+export function loadAdminCharges(opts: { page?: number } = {}) {
+  const params = new URLSearchParams();
+  params.set("page", String(opts.page ?? 1));
+  return adminFetch<AdminChargesPage>(`/api/v1/admin/charges?${params.toString()}`);
+}

@@ -26,6 +26,11 @@ import { AdminPlaceholder } from "./pages/AdminPlaceholder";
 import { AdminFeatureStub } from "./pages/AdminFeatureStub";
 import { AdminMemberTags } from "./pages/AdminMemberTags";
 import { AdminCoupons } from "./pages/AdminCoupons";
+import { AdminSegments } from "./pages/AdminSegments";
+import { AdminGamification } from "./pages/AdminGamification";
+import { AdminAccessGroups } from "./pages/AdminAccessGroups";
+import { AdminCharges } from "./pages/AdminCharges";
+import { AdminSubscriptions } from "./pages/AdminSubscriptions";
 
 export function AdminLayout() {
   const [pathname, setPathname] = useState(() => window.location.pathname);
@@ -246,33 +251,9 @@ function renderPage(pathname: string) {
 
     /* ---------- Membros (sub-páginas faltantes) ---------- */
     case "/settings/access_groups":
-      return (
-        <AdminFeatureStub
-          title="Grupos de acesso"
-          subtitle="Defina conjuntos de espaços e permissões que podem ser atribuídos em massa a tags ou planos."
-          cta={{ label: "Criar grupo de acesso" }}
-          bullets={[
-            "Lista de grupos com nome, descrição e contagem de membros",
-            "Cada grupo libera espaços específicos + papéis (membro, mod, admin)",
-            "Pode ser atribuído manualmente, via tag ou ao comprar paywall",
-            "Histórico de mudanças e alterações em massa",
-          ]}
-        />
-      );
+      return <AdminAccessGroups />;
     case "/settings/segments":
-      return (
-        <AdminFeatureStub
-          title="Segmentos"
-          subtitle="Listas dinâmicas de membros baseadas em filtros (ex.: ativos nos últimos 7 dias, plano Pro, sem post)."
-          cta={{ label: "Criar segmento" }}
-          bullets={[
-            "Builder de filtros (atividade, posts, comentários, plano, tags)",
-            "Contagem em tempo real do total de membros",
-            "Exportar CSV ou usar como público de e-mail/automação",
-            "Salvar como segmento favorito pra reutilizar",
-          ]}
-        />
-      );
+      return <AdminSegments />;
     case "/settings/member_tags":
       return <AdminMemberTags />;
     case "/members/onboarding":
@@ -289,19 +270,7 @@ function renderPage(pathname: string) {
         />
       );
     case "/settings/gamification":
-      return (
-        <AdminFeatureStub
-          title="Gamificação"
-          subtitle="Configure níveis, pontos e recompensas para engajamento dos membros."
-          cta={{ label: "Configurar regras" }}
-          bullets={[
-            "Definição de pontos por ação (post, comentário, reação, login)",
-            "Curva de níveis customizável (níveis 1-10 com nome e ícone)",
-            "Badges por conquistas (primeiro post, 100 pontos etc)",
-            "Leaderboard semanal/mensal/all-time",
-          ]}
-        />
-      );
+      return <AdminGamification />;
     case "/members/profile_fields":
       return (
         <AdminFeatureStub
@@ -373,31 +342,9 @@ function renderPage(pathname: string) {
         />
       );
     case "/settings/paywall_charges":
-      return (
-        <AdminFeatureStub
-          title="Transações"
-          subtitle="Histórico de cobranças do Stripe (sucesso, falha, reembolso)."
-          bullets={[
-            "Filtro por data, paywall, status",
-            "Detalhe de cada transação (cartão, valor, taxa)",
-            "Reembolsar via Stripe sem sair do painel",
-            "Total bruto/líquido por período",
-          ]}
-        />
-      );
+      return <AdminCharges />;
     case "/settings/paywall_subscriptions":
-      return (
-        <AdminFeatureStub
-          title="Assinaturas"
-          subtitle="Lista de assinantes ativos, pausados e cancelados."
-          bullets={[
-            "Status, próxima cobrança, valor mensal",
-            "Cancelar/pausar via painel (sincroniza com Stripe)",
-            "Métricas: MRR, churn, retention",
-            "Exportar CSV pra análise externa",
-          ]}
-        />
-      );
+      return <AdminSubscriptions />;
     case "/settings/paywall_tax_settings":
       return (
         <AdminFeatureStub

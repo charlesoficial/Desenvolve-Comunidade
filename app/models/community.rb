@@ -18,6 +18,9 @@ class Community < ApplicationRecord
   has_many :coupons, dependent: :destroy
   has_many :member_tags, dependent: :destroy
   has_many :member_tag_assignments, dependent: :destroy
+  has_many :segments, dependent: :destroy
+  has_many :access_groups, dependent: :destroy
+  has_one  :gamification_setting, dependent: :destroy
 
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true
