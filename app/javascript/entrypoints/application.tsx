@@ -4,6 +4,7 @@ import { AppLayout } from "../components/layout/AppLayout";
 import "../design-system/community-canonical-tokens.css";
 import "../design-system/components.css";
 import "../styles/application.css";
+import "../styles/admin.css";
 
 const root = document.getElementById("root");
 

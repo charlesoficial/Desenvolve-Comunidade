@@ -173,10 +173,11 @@ Esperado: HTTP 200 em todos. Auth retorna user `vitor-araujo`. Spaces retorna 25
 | **B** | Visual diff sistemático Circle vs local (12 rotas) | 2-3h | ✅ Concluída |
 | **B-2** | Bug fix de cor invisível em mensagens, fontWeight, line-height | 1h | ✅ Concluída |
 | **🆕 R** | **Rebrand: tirar P6/Project Six do código** | 2-3h | ✅ Concluída em 25/05/2026 |
+| **G (estrutura)** | Painel admin: layout, topbar, 2 sidebars, 6 páginas iniciais, 1 placeholder, CSS dedicado | 2h | ✅ Concluída em 25/05/2026 |
 | **B-3** | Modais e interações (hover, reactions, thread, empty/loading) | 2-3h | ⏳ Pendente |
 | **A** | OAuth Google/Amazon no Supabase | 30 min | ⏳ Pendente |
 | **D** | Sidekiq + Redis local (Memurai ou WSL2) | 1h | ⏳ Pendente |
-| **G** | Painel admin completo (clone Circle Admin) | 6-10h | 🔓 Desbloqueada (Charles vai criar conta Circle) |
+| **G (continuação)** | Forms reais conectados ao backend, Spaces drag-drop, Audience com paginação real | 6-10h | ⏳ Próxima |
 | **F** | Stripe Checkout end-to-end | 3-4h | ⏳ Pendente |
 | **E** | Active Storage com Cloudflare R2 | 1-2h | ⏳ Pendente |
 | **H** | Deploy Fly.io (Dockerfile + fly.toml region gru) | 2-3h | ⏳ Pendente |
@@ -376,3 +377,55 @@ e me dá o estado atual. Lê também KIRO.md no root do projeto.
 - Backup do `.env` antes de qualquer mudança em config sensível
 - Build (`npm run build`) e tsc check após mudanças grandes
 - Documentar mudanças em `docs/`
+
+
+---
+
+## 🌊 Onda G — Painel Admin (estrutura inicial concluída em 25/05/2026)
+
+### Estrutura criada
+
+```
+app/javascript/components/admin/
+├── AdminLayout.tsx              ← entrypoint, mapeia 22 rotas para 14 secoes
+├── AdminTopbar.tsx              ← topbar 64px com "Voltar" e "Documentação"
+├── AdminPrimarySidebar.tsx      ← sidebar de icones, 64px de largura
+├── AdminSecondarySidebar.tsx    ← sidebar com texto, 368px com grupos
+└── pages/
+    ├── AdminGeneral.tsx         ← /settings — form com nome, descricao, locale, fuso
+    ├── AdminDashboard.tsx       ← /settings/dashboard — 4 KPIs + atividade recente
+    ├── AdminAudience.tsx        ← /audience/manage — tabela de membros + busca + filtro
+    ├── AdminPaywalls.tsx        ← /settings/paywalls — tabela de paywalls
+    ├── AdminPlans.tsx           ← /settings/plans — grid de cards com plano destacado
+    ├── AdminSpaces.tsx          ← /settings/spaces — tabela de espacos
+    └── AdminPlaceholder.tsx     ← fallback "em construcao" para rotas faltando
+```
+
+### Estilo
+
+CSS dedicado em `app/javascript/styles/admin.css` (~470 linhas) com prefixo `.admin-*`. Importado depois de `application.css` no entrypoint pra garantir cascade correta.
+
+### Roteamento
+
+`AppLayout.tsx` agora decide entre `AdminLayout` e `ChatLayout` baseado no pathname:
+
+- `/settings` ou `/settings/*` → `AdminLayout`
+- `/audience/manage` ou `/audience/*` → `AdminLayout`
+- qualquer outra rota → `ChatLayout`
+
+Navegação dentro do admin usa `pushState` + `popstate`, mesmo padrao do ChatLayout. Botão "Voltar para a comunidade" no topbar emite `popstate` manual pra forçar re-render.
+
+### Validação
+
+- `npm run build` — OK em 14s (495 KB JS, 230 KB CSS gzip 40 KB)
+- `npx tsc --noEmit` — zero erros
+- `npm run lint` — zero erros
+- 4 telas validadas via Playwright em 1440×900: `/settings`, `/settings/dashboard`, `/audience/manage`, `/settings/plans`, `/settings/emails` (placeholder)
+
+### Próximos passos da Onda G
+
+1. Conectar form de `/settings` a um endpoint Rails real (`PATCH /api/v1/settings`)
+2. Carregar membros reais em `/audience/manage` via `GET /api/v1/users` com paginação
+3. Implementar drag-drop em `/settings/spaces` pra reordenar
+4. Capturar e replicar mais telas Circle (Workflows, Analytics, AI Agents)
+5. Adicionar permissão por role no Rails (apenas admins acessam `/settings/*`)
