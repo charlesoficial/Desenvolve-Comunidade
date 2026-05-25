@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { CommunityIcon } from "../../design-system";
 import {
@@ -20,7 +20,7 @@ import {
 import { MemberCluster } from "../topbar/MemberCluster";
 
 type ProgressView = "feed" | "chat" | "politica" | "members" | "progress";
-type SortOption = "Mais recente" | "Nova atividade" | "Mais antiga" | "Popular" | "Curtidas" | "AlfabÃ©tica";
+type SortOption = "Mais recente" | "Nova atividade" | "Mais antiga" | "Popular" | "Curtidas" | "Alfabética";
 
 const progressAssetBase = "/Seu%20Progresso%20_%20Project%20Six_files/";
 const feedAssetBase = "/Feed%20Geral%20_%20Project%20Six_files/";
@@ -38,9 +38,9 @@ const fallbackMembers = [
 
 const fallbackPost: FeedPost = {
   id: "fallback-progress-main",
-  title: "1 mÃªs de operaÃ§Ã£o com uma oferta daqui!",
+  title: "1 mês de operação com uma oferta daqui!",
   body:
-    "Ã‰ gratificante ver o que a comunidade estÃ¡ fazendo! Ã‰ uma comunidade sem igual. Esse resultado Ã© de apenas um mÃªs de operaÃ§Ã£o em uma oferta daqui!ðŸ”¥",
+    "Ã‰ gratificante ver o que a comunidade está fazendo! Ã‰ uma comunidade sem igual. Esse resultado é de apenas um mês de operação em uma oferta daqui!ðŸ”¥",
   spaceSlug: "seu-progresso",
   kind: "image",
   topics: [],
@@ -131,7 +131,7 @@ export function ProgressMain({ onNavigate }: { onNavigate?: (view: ProgressView)
   const sortedPosts = useMemo(() => sortPosts(posts, sort), [posts, sort]);
 
   const handlePublish = async (title: string, body: string, attachments: FeedAttachment[]) => {
-    const created = await createFeedPost(title || "PublicaÃ§Ã£o", body, "seu-progresso", attachments);
+    const created = await createFeedPost(title || "Publicação", body, "seu-progresso", attachments);
     setPosts((current) => [created, ...current]);
     setShowCreate(false);
   };
@@ -180,9 +180,9 @@ export function ProgressMain({ onNavigate }: { onNavigate?: (view: ProgressView)
           <button className="progress-member-cluster-button" type="button" aria-label="Ver membros" onClick={() => onNavigate?.("members")}>
             <MemberCluster members={headerMembers} extra="+857" />
           </button>
-          <button className="progress-new-post" type="button" onClick={() => setShowCreate(true)}>Nova publicaÃ§Ã£o</button>
+          <button className="progress-new-post" type="button" onClick={() => setShowCreate(true)}>Nova publicação</button>
           <div className="progress-menu-wrap">
-            <button className="progress-more" type="button" aria-label="Mais opÃ§Ãµes" onClick={() => setTopMenuOpen((value) => !value)}>
+            <button className="progress-more" type="button" aria-label="Mais opções" onClick={() => setTopMenuOpen((value) => !value)}>
               <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
             </button>
             {topMenuOpen ? <ProgressTopMenu /> : null}
@@ -195,7 +195,7 @@ export function ProgressMain({ onNavigate }: { onNavigate?: (view: ProgressView)
           <section className="progress-feed-column">
             <button className="progress-composer" type="button" onClick={() => setShowCreate(true)}>
               <span className="progress-va">{viewerAvatar.slice(0, 2)}</span>
-              <span>Criar uma publicaÃ§Ã£o</span>
+              <span>Criar uma publicação</span>
               <i>
                 <CommunityIcon name="icon-20-plus-v3" size={21} />
               </i>
@@ -294,7 +294,7 @@ function ProgressPostCard({
             <CommunityIcon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={21} />
           </button>
           <div className="progress-post-menu-wrap">
-            <button type="button" aria-label="AÃ§Ãµes da publicaÃ§Ã£o" onClick={onToggleMenu}>
+            <button type="button" aria-label="Ações da publicação" onClick={onToggleMenu}>
               <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
             </button>
             {menuOpen ? <ProgressPostMenu /> : null}
@@ -323,8 +323,8 @@ function ProgressPostCard({
         <button className="progress-engagement" type="button" onClick={onComments}>
           <LikeAvatars liked={post.liked} />
           <span>{post.likes} curtida{post.likes === 1 ? "" : "s"}</span>
-          <span className="progress-separator">Â·</span>
-          <span>{post.comments} comentÃ¡rio{post.comments === 1 ? "" : "s"}</span>
+          <span className="progress-separator">·</span>
+          <span>{post.comments} comentário{post.comments === 1 ? "" : "s"}</span>
         </button>
       </footer>
     </article>
@@ -380,9 +380,9 @@ function ProgressCreateModal({
     <div className="progress-modal-backdrop" onMouseDown={(event) => {
       if (event.target === event.currentTarget) onClose();
     }}>
-      <section className="progress-create-modal" role="dialog" aria-modal="true" aria-label="Criar publicaÃ§Ã£o">
+      <section className="progress-create-modal" role="dialog" aria-modal="true" aria-label="Criar publicação">
         <header>
-          <h2>Criar publicaÃ§Ã£o</h2>
+          <h2>Criar publicação</h2>
           <div>
             <button type="button" aria-label="Redimensionar"><CommunityIcon name="icon-20-copy" size={18} /></button>
             <button type="button" aria-label="Tela cheia"><CommunityIcon name="icon-20-expand" size={18} /></button>
@@ -390,7 +390,7 @@ function ProgressCreateModal({
           </div>
         </header>
         <div className="progress-create-editor">
-          <textarea aria-label="TÃ­tulo opcional" placeholder="TÃ­tulo (opcional)" value={title} onChange={(event) => setTitle(event.target.value)} />
+          <textarea aria-label="Título opcional" placeholder="Título (opcional)" value={title} onChange={(event) => setTitle(event.target.value)} />
           <textarea aria-label="Escreva algo" placeholder="Escreva algo" value={body} onChange={(event) => setBody(event.target.value)} />
           {attachments.length ? (
             <div className="progress-attachment-list">
@@ -404,13 +404,13 @@ function ProgressCreateModal({
             <button type="button" aria-label="Adicionar"><CommunityIcon name="icon-20-plus-v3" size={18} /></button>
             <button type="button" aria-label="Hashtag"><CommunityIcon name="icon-16-hashtag" size={18} /></button>
             <button type="button" aria-label="Anexo" onClick={() => fileInputRef.current?.click()}><CommunityIcon name="icon-20-attach" size={18} /></button>
-            <button type="button" aria-label="VÃ­deo" onClick={() => fileInputRef.current?.click()}><CommunityIcon name="icon-20-video" size={18} /></button>
+            <button type="button" aria-label="Vídeo" onClick={() => fileInputRef.current?.click()}><CommunityIcon name="icon-20-video" size={18} /></button>
             <button type="button" aria-label="GIF"><span>GIF</span></button>
             <button type="button" aria-label="Imagem" onClick={() => fileInputRef.current?.click()}><CommunityIcon name="icon-20-image-v3" size={18} /></button>
             <button type="button" aria-label="Emoji"><CommunityIcon name="icon-20-emoji" size={18} /></button>
             <button type="button" aria-label="Enquete"><CommunityIcon name="icon-20-chart" size={18} /></button>
-            <button type="button" aria-label="Ãudio"><CommunityIcon name="icon-20-microphone" size={18} /></button>
-            <button type="button" aria-label="CÃ¢mera"><CommunityIcon name="icon-20-camera" size={18} /></button>
+            <button type="button" aria-label="Áudio"><CommunityIcon name="icon-20-microphone" size={18} /></button>
+            <button type="button" aria-label="Câmera"><CommunityIcon name="icon-20-camera" size={18} /></button>
           </div>
           <div className="progress-create-publish">
             <span>Publicando em: <strong>Seu Progresso</strong> <CommunityIcon name="icon-12-chevron-down-v3" size={14} /></span>
@@ -458,7 +458,7 @@ function ProgressCommentsModal({
           body,
           reactions: 0,
           createdAt: new Date().toISOString(),
-          author: { username: "vitor-araujo", name: "VÃ­tor Santos Araujo", avatar: "VA" },
+          author: { username: "vitor-araujo", name: "Vítor Santos Araujo", avatar: "VA" },
         };
         setComments((current) => [...current, localComment]);
         onCommented({ ...post, comments: post.comments + 1 });
@@ -516,8 +516,8 @@ function ProgressCommentsModal({
             <button className="progress-engagement" type="button">
               <LikeAvatars liked={post.liked} />
               <span>{post.likes} curtida{post.likes === 1 ? "" : "s"}</span>
-              <span className="progress-separator">Â·</span>
-              <span>{post.comments} comentÃ¡rio{post.comments === 1 ? "" : "s"}</span>
+              <span className="progress-separator">·</span>
+              <span>{post.comments} comentário{post.comments === 1 ? "" : "s"}</span>
             </button>
           </div>
           <div className="progress-comments-list">
@@ -530,14 +530,14 @@ function ProgressCommentsModal({
                   <small>Curtir&nbsp;&nbsp;Responder</small>
                 </div>
               </article>
-            )) : <p className="progress-empty-comments">Nenhum comentÃ¡rio ainda.</p>}
+            )) : <p className="progress-empty-comments">Nenhum comentário ainda.</p>}
           </div>
         </div>
         <footer>
           <span className="progress-va">VA</span>
           <input
-            aria-label="O que vocÃª acha?"
-            placeholder="O que vocÃª acha?"
+            aria-label="O que você acha?"
+            placeholder="O que você acha?"
             value={body}
             onChange={(event) => setBody(event.target.value)}
             onKeyDown={(event) => {
@@ -563,10 +563,10 @@ function LikeAvatars({ liked }: { liked: boolean }) {
 }
 
 function ProgressSortMenu({ value, onSelect }: { value: SortOption; onSelect: (value: SortOption) => void }) {
-  const options: SortOption[] = ["Mais recente", "Nova atividade", "Mais antiga", "Popular", "Curtidas", "AlfabÃ©tica"];
+  const options: SortOption[] = ["Mais recente", "Nova atividade", "Mais antiga", "Popular", "Curtidas", "Alfabética"];
 
   return (
-    <div className="progress-sort-menu" role="menu" aria-label="Ordenar publicaÃ§Ãµes">
+    <div className="progress-sort-menu" role="menu" aria-label="Ordenar publicações">
       {options.map((option) => (
         <button className={value === option ? "active" : ""} type="button" key={option} onClick={() => onSelect(option)}>
           {option}
@@ -579,9 +579,9 @@ function ProgressSortMenu({ value, onSelect }: { value: SortOption; onSelect: (v
 function ProgressTopMenu() {
   return (
     <div className="progress-dropdown-menu progress-top-dropdown">
-      <button type="button"><CommunityIcon name="icon-20-bell-v3" size={16} /> NotificaÃ§Ãµes do espaÃ§o</button>
+      <button type="button"><CommunityIcon name="icon-20-bell-v3" size={16} /> Notificações do espaço</button>
       <button type="button"><CommunityIcon name="icon-20-link" size={16} /> Copiar link</button>
-      <button type="button"><CommunityIcon name="icon-20-settings" size={16} /> ConfiguraÃ§Ãµes</button>
+      <button type="button"><CommunityIcon name="icon-20-settings" size={16} /> Configurações</button>
     </div>
   );
 }
@@ -591,11 +591,11 @@ function ProgressPostMenu() {
 
   return (
     <div className="progress-dropdown-menu progress-post-dropdown">
-      <button type="button">Adicionar publicaÃ§Ã£o aos favoritos</button>
-      <button type="button">Denunciar publicaÃ§Ã£o</button>
+      <button type="button">Adicionar publicação aos favoritos</button>
+      <button type="button">Denunciar publicação</button>
       <div className="progress-dropdown-separator" />
       <label>
-        <span>Seguir publicaÃ§Ã£o</span>
+        <span>Seguir publicação</span>
         <input type="checkbox" checked={following} onChange={(event) => setFollowing(event.target.checked)} />
         <i />
       </label>
@@ -657,7 +657,7 @@ function sortPosts(posts: FeedPost[], sort: SortOption) {
 
   if (sort === "Mais antiga") return list.sort((a, b) => new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime());
   if (sort === "Popular" || sort === "Curtidas") return list.sort((a, b) => b.likes - a.likes);
-  if (sort === "AlfabÃ©tica") return list.sort((a, b) => a.title.localeCompare(b.title, "pt-BR"));
+  if (sort === "Alfabética") return list.sort((a, b) => a.title.localeCompare(b.title, "pt-BR"));
 
   return list.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 }

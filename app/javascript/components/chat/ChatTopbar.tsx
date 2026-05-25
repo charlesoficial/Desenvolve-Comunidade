@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Dispatch, ReactNode, RefObject, SetStateAction } from "react";
 import {
@@ -140,7 +140,7 @@ export function ChatTopbar({ activeView = "feed", onNavigate }: { activeView?: C
         <ChevronDown size={15} />
       </div>
 
-      <nav className="chat-nav" aria-label="NavegaÃ§Ã£o principal">
+      <nav className="chat-nav" aria-label="Navegação principal">
         {nav.map((item) => (
           <button
             className={`cs-nav-pill ${navItemIsActive(item, activeView) ? "active" : ""}`}
@@ -182,7 +182,7 @@ export function ChatTopbar({ activeView = "feed", onNavigate }: { activeView?: C
         />
         <IconButton
           aria-expanded={activeOverlay === "notifications"}
-          aria-label="NotificaÃ§Ãµes"
+          aria-label="Notificações"
           className={activeOverlay === "notifications" ? "topbar-trigger active" : "topbar-trigger"}
           onClick={() => toggleOverlay("notifications")}
         >
@@ -199,7 +199,7 @@ export function ChatTopbar({ activeView = "feed", onNavigate }: { activeView?: C
         </IconButton>
         <IconButton
           aria-expanded={activeOverlay === "connections"}
-          aria-label="ConexÃµes"
+          aria-label="Conexões"
           className={activeOverlay === "connections" ? "topbar-trigger active" : "topbar-trigger"}
           onClick={() => toggleOverlay("connections")}
         >
@@ -373,8 +373,8 @@ function SearchAvatar({ title, value }: { title: string; value: string }) {
 function searchTypeLabel(type: CommunitySearchResult["type"]) {
   return {
     member: "Membro",
-    post: "PublicaÃ§Ã£o",
-    space: "EspaÃ§o",
+    post: "Publicação",
+    space: "Espaço",
     course: "Curso",
     lesson: "Aula",
   }[type];
@@ -395,7 +395,7 @@ function ProfileMenu({
     <div className="topbar-menu profile-popover" role="menu" aria-label="Menu do perfil">
       <button type="button" role="menuitem" onClick={onViewProfile}><UserRound size={18} /> Ver perfil</button>
       <button type="button" role="menuitem" onClick={onEditProfile}><Edit3 size={18} /> Editar perfil</button>
-      <button type="button" role="menuitem" onClick={onNotifications}><Bell size={18} /> NotificaÃ§Ãµes</button>
+      <button type="button" role="menuitem" onClick={onNotifications}><Bell size={18} /> Notificações</button>
       <div className="topbar-menu-separator" />
       <button type="button" role="menuitem" onClick={onSignOut}><LogOut size={18} /> Sair</button>
     </div>
@@ -407,9 +407,9 @@ type ProfileTab = "about" | "posts" | "comments" | "spaces" | "rewards";
 const fallbackProfile: ViewerProfileSummary = {
   id: "vitor-araujo",
   username: "vitor-araujo",
-  name: "VÃ­tor Santos Araujo",
+  name: "Vítor Santos Araujo",
   avatar: "VA",
-  lastSeen: "Visto pela Ãºltima vez hÃ¡ 3 minutos",
+  lastSeen: "Visto pela última vez há 3 minutos",
   joinedAt: "26 de abril de 2026",
   level: 1,
   points: 0,
@@ -477,9 +477,9 @@ function ViewerProfileModal({ onClose }: { onClose: () => void }) {
           <section className="viewer-profile-content">
             <nav className="viewer-profile-tabs" aria-label="Perfil">
               <button className={activeTab === "about" ? "active" : ""} type="button" onClick={() => setActiveTab("about")}>Sobre</button>
-              <button className={activeTab === "posts" ? "active" : ""} type="button" onClick={() => setActiveTab("posts")}>PublicaÃ§Ãµes</button>
-              <button className={activeTab === "comments" ? "active" : ""} type="button" onClick={() => setActiveTab("comments")}>ComentÃ¡rios</button>
-              <button className={activeTab === "spaces" ? "active" : ""} type="button" onClick={() => setActiveTab("spaces")}>EspaÃ§os <span>{profile.spaces}</span></button>
+              <button className={activeTab === "posts" ? "active" : ""} type="button" onClick={() => setActiveTab("posts")}>Publicações</button>
+              <button className={activeTab === "comments" ? "active" : ""} type="button" onClick={() => setActiveTab("comments")}>Comentários</button>
+              <button className={activeTab === "spaces" ? "active" : ""} type="button" onClick={() => setActiveTab("spaces")}>Espaços <span>{profile.spaces}</span></button>
               <button className={activeTab === "rewards" ? "active" : ""} type="button" onClick={() => setActiveTab("rewards")}>Recompensas</button>
             </nav>
             <div className="viewer-profile-panel">
@@ -503,7 +503,7 @@ function ViewerProfileAbout({ profile }: { profile: ViewerProfileSummary }) {
         <strong>Level {profile.level}</strong>
       </div>
       <p className="viewer-profile-points">
-        {profile.points} ponto{profile.points === 1 ? "" : "s"} <span>â€¢</span> {profile.pointsToNextLevel} para subir de nÃ­vel
+        {profile.points} ponto{profile.points === 1 ? "" : "s"} <span>•</span> {profile.pointsToNextLevel} para subir de nível
       </p>
       <section className="viewer-profile-section">
         <h4>Tags</h4>
@@ -517,10 +517,10 @@ function ViewerProfileAbout({ profile }: { profile: ViewerProfileSummary }) {
 
 function ViewerProfileEmpty({ tab }: { tab: ProfileTab }) {
   const label = {
-    posts: "As publicaÃ§Ãµes deste membro serÃ£o exibidas aqui.",
-    comments: "Os comentÃ¡rios deste membro serÃ£o exibidos aqui.",
-    spaces: "Os espaÃ§os deste membro serÃ£o exibidos aqui.",
-    rewards: "As recompensas deste membro serÃ£o exibidas aqui.",
+    posts: "As publicações deste membro serão exibidas aqui.",
+    comments: "Os comentários deste membro serão exibidos aqui.",
+    spaces: "Os espaços deste membro serão exibidos aqui.",
+    rewards: "As recompensas deste membro serão exibidas aqui.",
     about: "",
   }[tab];
 
@@ -537,25 +537,25 @@ function ViewerAvatar({ profile, size }: { profile: ViewerProfileSummary; size: 
 type AccountSettingsTab = "profile" | "notifications" | "privacy";
 
 const accountNotificationRows: Array<{ key: AccountNotificationKey; label: string }> = [
-  { key: "post_comments", label: "ComentÃ¡rios nas minhas publicaÃ§Ãµes" },
-  { key: "comment_replies", label: "Respostas aos meus comentÃ¡rios" },
-  { key: "mentions", label: "MenÃ§Ãµes" },
+  { key: "post_comments", label: "Comentários nas minhas publicações" },
+  { key: "comment_replies", label: "Respostas aos meus comentários" },
+  { key: "mentions", label: "Menções" },
   { key: "dms", label: "DMs" },
-  { key: "weekly_digest", label: "Resumo semanal Ã s quintas-feiras" },
-  { key: "post_likes", label: "Curtidas nas minhas publicaÃ§Ãµes" },
-  { key: "comment_likes", label: "Curtidas nos meus comentÃ¡rios" },
-  { key: "live_rooms", label: "TransmissÃµes ao vivo/salas" },
-  { key: "course_content", label: "Novo conteÃºdo do curso" },
+  { key: "weekly_digest", label: "Resumo semanal às quintas-feiras" },
+  { key: "post_likes", label: "Curtidas nas minhas publicações" },
+  { key: "comment_likes", label: "Curtidas nos meus comentários" },
+  { key: "live_rooms", label: "Transmissões ao vivo/salas" },
+  { key: "course_content", label: "Novo conteúdo do curso" },
   { key: "polls", label: "Enquetes" },
 ];
 
 const fallbackAccountSettings: AccountSettings = {
   id: "vitor-araujo",
   username: "vitor-araujo",
-  name: "VÃ­tor Santos Araujo",
+  name: "Vítor Santos Araujo",
   avatarUrl: null,
   timezone: "(GMT -03:00) Brasilia",
-  language: "PortuguÃªs (Brasil)",
+  language: "Português (Brasil)",
   headline: "",
   bio: "",
   location: "",
@@ -630,13 +630,13 @@ function AccountSettingsModal({ initialTab = "profile", onClose }: { initialTab?
   return createPortal(
     <div className="account-settings-backdrop">
       <button className="account-settings-close" type="button" aria-label="Fechar" onClick={onClose}><X size={20} /></button>
-      <section className="account-settings-modal" role="dialog" aria-modal="true" aria-label="ConfiguraÃ§Ãµes da conta">
+      <section className="account-settings-modal" role="dialog" aria-modal="true" aria-label="Configurações da conta">
         <header className="account-settings-header">
-          <h2>ConfiguraÃ§Ãµes da conta</h2>
-          <nav aria-label="ConfiguraÃ§Ãµes da conta">
+          <h2>Configurações da conta</h2>
+          <nav aria-label="Configurações da conta">
             {[
               ["profile", "Perfil"],
-              ["notifications", "NotificaÃ§Ãµes"],
+              ["notifications", "Notificações"],
               ["privacy", "Privacidade"],
             ].map(([key, label]) => (
               <button
@@ -674,13 +674,13 @@ function AccountSettingsModal({ initialTab = "profile", onClose }: { initialTab?
                   notifications: Object.fromEntries(accountNotificationRows.map(({ key }) => [key, { email: false, platform: false }])) as AccountSettings["notifications"],
                 }))}
               >
-                Desativar todas as notificaÃ§Ãµes da comunidade
+                Desativar todas as notificações da comunidade
               </button>
             ) : <span />}
             <span className="account-footer-actions">
               {activeTab !== "notifications" ? <button className="account-cancel-button" type="button" onClick={cancel}>Cancelar</button> : null}
               <button className="account-save-button" type="button" onClick={save} disabled={saving || uploading}>
-                {saving ? "Salvando..." : "Salvar alteraÃ§Ãµes"}
+                {saving ? "Salvando..." : "Salvar alterações"}
               </button>
             </span>
           </div>
@@ -747,7 +747,7 @@ function AccountProfileTab({
         <AccountField required label="Nome completo">
           <input name="account-name" defaultValue={settings.name} />
         </AccountField>
-        <AccountField required label="Fuso horÃ¡rio">
+        <AccountField required label="Fuso horário">
           <select name="account-timezone" defaultValue={settings.timezone}>
             <option>(GMT -03:00) Brasilia</option>
             <option>(GMT -03:00) Buenos Aires</option>
@@ -759,12 +759,12 @@ function AccountProfileTab({
         </AccountField>
         <AccountField required label="Idioma">
           <select name="account-language" defaultValue={settings.language}>
-            <option>InglÃªs</option>
-            <option>FrancÃªs</option>
+            <option>Inglês</option>
+            <option>Francês</option>
             <option>Italiano</option>
             <option>Espanhol</option>
-            <option>PortuguÃªs (Brasil)</option>
-            <option>PortuguÃªs (Portugal)</option>
+            <option>Português (Brasil)</option>
+            <option>Português (Portugal)</option>
           </select>
         </AccountField>
         <AccountField label="Headline" info>
@@ -780,7 +780,7 @@ function AccountProfileTab({
           <Upload size={20} />
           <span>
             <strong>Atualize sua localidade para acessar mais recursos</strong>
-            <p>Atualizamos nosso sistema de localizaÃ§Ã£o para oferecer melhores experiÃªncias na comunidade. Compartilhar sua localidade nos ajuda a personalizar sua experiÃªncia e, aos poucos, liberar novas funcionalidades relevantes para vocÃª.</p>
+            <p>Atualizamos nosso sistema de localização para oferecer melhores experiências na comunidade. Compartilhar sua localidade nos ajuda a personalizar sua experiência e, aos poucos, liberar novas funcionalidades relevantes para você.</p>
           </span>
         </div>
         <AccountField label="Website" info><input name="account-website" type="url" defaultValue={settings.links.website} /></AccountField>
@@ -818,14 +818,14 @@ function AccountNotificationsTab({ settings, setSettings }: { settings: AccountS
 
   return (
     <section className="account-settings-content account-notifications-content">
-      <h3>NotificaÃ§Ãµes</h3>
-      <h4>PreferÃªncias de e-mail</h4>
+      <h3>Notificações</h3>
+      <h4>Preferências de e-mail</h4>
       <label className="account-checkbox-row">
         <AccountCheckbox checked={settings.emailUpdates} onChange={() => setSettings((current) => ({ ...current, emailUpdates: !current.emailUpdates }))} />
-        <span>Ofertas, novidades e atualizaÃ§Ãµes por e-mail</span>
+        <span>Ofertas, novidades e atualizações por e-mail</span>
       </label>
       <hr />
-      <h4>NotificaÃ§Ãµes da comunidade</h4>
+      <h4>Notificações da comunidade</h4>
       <div className="account-notification-grid">
         <strong>Nova atividade</strong>
         <span>E-mail</span>
@@ -866,7 +866,7 @@ function AccountPrivacyTab({ settings, setSettings }: { settings: AccountSetting
       <h4>Visibilidade</h4>
       <label className="account-toggle-row">
         <AccountToggle checked={settings.privacy.showInDirectory} onChange={() => togglePrivacy("showInDirectory")} />
-        <span>Mostrar meu perfil no diretÃ³rio de membros <i>?</i></span>
+        <span>Mostrar meu perfil no diretório de membros <i>?</i></span>
       </label>
       <h4>Mensagens</h4>
       <label className="account-toggle-row">
@@ -876,7 +876,7 @@ function AccountPrivacyTab({ settings, setSettings }: { settings: AccountSetting
       <h5>Membros bloqueados</h5>
       <div className="account-blocked-empty">
         <Users size={18} />
-        <p>Nenhum membro bloqueado. Membros bloqueados nÃ£o podem enviar mensagens para vocÃª.</p>
+        <p>Nenhum membro bloqueado. Membros bloqueados não podem enviar mensagens para você.</p>
       </div>
     </section>
   );
@@ -905,15 +905,15 @@ function FavoritesPanel() {
         <h2>Favoritos</h2>
       </div>
       <div className="topbar-tabs" role="tablist" aria-label="Tipos de favoritos">
-        {["PublicaÃ§Ãµes", "ComentÃ¡rios", "Eventos", "Aulas", "Mensagens"].map((tab, index) => (
+        {["Publicações", "Comentários", "Eventos", "Aulas", "Mensagens"].map((tab, index) => (
           <button className={index === 0 ? "active" : ""} key={tab} type="button" role="tab">
             {tab}
           </button>
         ))}
       </div>
       <div className="topbar-empty-state favorites-empty-state">
-        <h3>Nenhuma publicaÃ§Ã£o adicionada aos favoritos</h3>
-        <p>Comece a adicionar publicaÃ§Ãµes aos favoritos para mantÃª-las organizadas.</p>
+        <h3>Nenhuma publicação adicionada aos favoritos</h3>
+        <p>Comece a adicionar publicações aos favoritos para mantê-las organizadas.</p>
       </div>
     </div>
   );
@@ -925,25 +925,25 @@ function ConnectionsPanel({ onClose }: { onClose: () => void }) {
   return (
     <div className="topbar-panel connections-panel">
       <div className="topbar-panel-header">
-        <h2>ConexÃµes</h2>
-        <button className="topbar-close" type="button" aria-label="Fechar conexÃµes" onClick={onClose}>
+        <h2>Conexões</h2>
+        <button className="topbar-close" type="button" aria-label="Fechar conexões" onClick={onClose}>
           <X size={18} />
         </button>
       </div>
-      <div className="segmented-tabs" role="tablist" aria-label="ConexÃµes">
+      <div className="segmented-tabs" role="tablist" aria-label="Conexões">
         <button className={tab === "discover" ? "active" : ""} type="button" role="tab" onClick={() => setTab("discover")}>
           Discover
         </button>
         <button className={tab === "mine" ? "active" : ""} type="button" role="tab" onClick={() => setTab("mine")}>
-          Minhas conexÃµes
+          Minhas conexões
         </button>
       </div>
       <div className="connection-empty">
         <ConnectionIllustration />
-        <h3>{tab === "discover" ? "Tudo em dia" : "Nenhuma conexÃ£o ainda"}</h3>
+        <h3>{tab === "discover" ? "Tudo em dia" : "Nenhuma conexão ainda"}</h3>
         <p>
           {tab === "discover"
-            ? "Volte mais tarde para ver novas solicitaÃ§Ãµes de conexÃ£o e recomendaÃ§Ãµes. Explore o diretÃ³rio de membros para descobrir mais pessoas"
+            ? "Volte mais tarde para ver novas solicitações de conexão e recomendações. Explore o diretório de membros para descobrir mais pessoas"
             : "Conecte-se com os membros da comunidade para criar relacionamentos significativos e descobrir novas oportunidades de crescimento conjunto."}
         </p>
         <button className="outline-pill" type="button">Explorar membros</button>
@@ -989,7 +989,7 @@ function DmsPanel() {
       </div>
       <div className="topbar-tabs" role="tablist" aria-label="Mensagens diretas">
         <button className={tab === "inbox" ? "active" : ""} type="button" role="tab" onClick={() => setTab("inbox")} onMouseDown={() => setTab("inbox")}>Inbox</button>
-        <button className={tab === "unread" ? "active" : ""} type="button" role="tab" onClick={() => setTab("unread")} onMouseDown={() => setTab("unread")}>NÃ£o lidas</button>
+        <button className={tab === "unread" ? "active" : ""} type="button" role="tab" onClick={() => setTab("unread")} onMouseDown={() => setTab("unread")}>Não lidas</button>
         <button className={tab === "agents" ? "active" : ""} type="button" role="tab" onClick={() => setTab("agents")} onMouseDown={() => setTab("agents")}><Sparkles size={14} fill="currentColor" /> Agentes</button>
       </div>
       {tab === "inbox" ? <DmInbox /> : null}
@@ -1005,7 +1005,7 @@ function DmInbox() {
       <AvatarImage src={avatars.night} name="Night" />
       <span>
         <strong>Night</strong> <time>8 h</time>
-        <small>OlÃ¡, VÃ­tor Santos Araujo! Seja muito bem-vindo(a) a...</small>
+        <small>Olá, Vítor Santos Araujo! Seja muito bem-vindo(a) a...</small>
       </span>
     </button>
   );
@@ -1014,8 +1014,8 @@ function DmInbox() {
 function DmAgents() {
   const agents = [
     { name: "Livy Seller", avatar: avatars.livy, text: "Estou aqui para te ajudar a vender no Facebook Marketplace" },
-    { name: "Lulu Amazon", avatar: avatars.lulu, text: "Me pergunte qualquer coisa sobre o mÃ©todo Amazon aqui do p6!" },
-    { name: "Cabritinho", avatar: avatars.cabritinho, text: "OlÃ¡, sou o cabritinho e estou aqui para te guiar no Comunidade" },
+    { name: "Lulu Amazon", avatar: avatars.lulu, text: "Me pergunte qualquer coisa sobre o método Amazon aqui do p6!" },
+    { name: "Cabritinho", avatar: avatars.cabritinho, text: "Olá, sou o cabritinho e estou aqui para te guiar no Comunidade" },
   ];
 
   return (
@@ -1039,7 +1039,7 @@ type NotificationTab = "inbox" | "mentions" | "following" | "all" | "archived";
 
 const notificationTabs: Array<{ id: NotificationTab; label: string }> = [
   { id: "inbox", label: "Caixa de entrada" },
-  { id: "mentions", label: "MenÃ§Ãµes" },
+  { id: "mentions", label: "Menções" },
   { id: "following", label: "Seguindo" },
   { id: "all", label: "Todas" },
   { id: "archived", label: "Arquivadas" },
@@ -1101,14 +1101,14 @@ function NotificationsPanel({ onUnreadChange }: { onUnreadChange: (count: number
   return (
     <div className="topbar-panel notifications-panel">
       <div className="topbar-panel-header">
-        <h2>NotificaÃ§Ãµes</h2>
+        <h2>Notificações</h2>
         <div className="dms-header-actions">
           <button type="button" aria-label="Marcar tudo como lido" onClick={readAll}><ChevronsDown size={18} /></button>
-          <button type="button" aria-label="Abrir notificaÃ§Ãµes"><ExternalLink size={16} /></button>
-          <button type="button" aria-label="ConfiguraÃ§Ãµes"><Settings size={16} /></button>
+          <button type="button" aria-label="Abrir notificações"><ExternalLink size={16} /></button>
+          <button type="button" aria-label="Configurações"><Settings size={16} /></button>
         </div>
       </div>
-      <div className="topbar-tabs notification-tabs" role="tablist" aria-label="NotificaÃ§Ãµes">
+      <div className="topbar-tabs notification-tabs" role="tablist" aria-label="Notificações">
         {notificationTabs.map((item) => (
           <button className={tab === item.id ? "active" : ""} key={item.id} type="button" role="tab" onClick={() => setTab(item.id)}>
             {item.label}
@@ -1117,8 +1117,8 @@ function NotificationsPanel({ onUnreadChange }: { onUnreadChange: (count: number
       </div>
       {loading ? (
         <div className="topbar-empty-state notifications-empty-state">
-          <h3>Carregando notificaÃ§Ãµes</h3>
-          <p>Buscando suas atualizaÃ§Ãµes.</p>
+          <h3>Carregando notificações</h3>
+          <p>Buscando suas atualizações.</p>
         </div>
       ) : visibleNotifications.length ? (
         <div className="notifications-list">
@@ -1138,8 +1138,8 @@ function NotificationsPanel({ onUnreadChange }: { onUnreadChange: (count: number
         </div>
       ) : (
         <div className="topbar-empty-state notifications-empty-state">
-          <h3>Sem notificaÃ§Ãµes</h3>
-          <p>As notificaÃ§Ãµes aparecerÃ£o aqui.</p>
+          <h3>Sem notificações</h3>
+          <p>As notificações aparecerão aqui.</p>
         </div>
       )}
     </div>

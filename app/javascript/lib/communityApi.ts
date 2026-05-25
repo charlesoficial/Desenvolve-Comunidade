@@ -1,4 +1,4 @@
-﻿import { offlineMembers, onlineMembers } from "../data/chatData";
+import { offlineMembers, onlineMembers } from "../data/chatData";
 import { posts as fallbackPosts } from "../data/communityData";
 import {
   findSampleCapturedPost,
@@ -1139,7 +1139,7 @@ export async function loadCourseOverview(): Promise<CourseOverviewCard[]> {
           id: course.id,
           title: course.title,
           slug: course.slug,
-          section: "MÃ©todo Comunidade | 2026",
+          section: "Método Comunidade | 2026",
           progress: 0,
           completed: false,
           private: !course.published,
@@ -1193,8 +1193,8 @@ export async function searchCommunity(query: string): Promise<CommunitySearchRes
       ...posts.map((post) => ({
         id: `post-${post.id}`,
         type: "post" as const,
-        title: post.title || excerpt(post.body)[0] || "PublicaÃ§Ã£o",
-        subtitle: `${spaceLabel(post.space_slug)} Â· ${post.author_name}`,
+        title: post.title || excerpt(post.body)[0] || "Publicação",
+        subtitle: `${spaceLabel(post.space_slug)} · ${post.author_name}`,
         avatar: post.author_avatar_url || initials(post.author_name),
         path: `/c/${post.space_slug}/${post.id}`,
         targetView: viewForSpace(post.space_slug),
@@ -1203,7 +1203,7 @@ export async function searchCommunity(query: string): Promise<CommunitySearchRes
         id: `space-${space.id}`,
         type: "space" as const,
         title: space.name,
-        subtitle: stringValue(space.settings?.section) || "EspaÃ§o",
+        subtitle: stringValue(space.settings?.section) || "Espaço",
         avatar: space.name.slice(0, 2).toUpperCase(),
         path: pathForSpace(space.slug, space.kind),
         targetView: viewForSpace(space.slug, space.kind),
@@ -1329,7 +1329,7 @@ export async function loadViewerProfileSummary(username?: string): Promise<Viewe
       username: user.username,
       name: displayName,
       avatar: user.avatar_url || initials(displayName),
-      lastSeen: user.username === "vitor-araujo" ? "Visto pela Ãºltima vez hÃ¡ 3 minutos" : formatRelativeLastSeen(user.last_seen_at),
+      lastSeen: user.username === "vitor-araujo" ? "Visto pela última vez há 3 minutos" : formatRelativeLastSeen(user.last_seen_at),
       joinedAt: user.username === "vitor-araujo" ? "26 de abril de 2026" : formatProfileDate(user.joined_at || user.created_at || new Date().toISOString()),
       level: currentUser.level || user.level || 1,
       points: currentUser.points,
@@ -1498,10 +1498,10 @@ function mapMember(row: DbMember): DetailMember {
 }
 
 const directoryMeta: Record<string, Partial<Pick<DirectoryMember, "avatar" | "location" | "bio" | "tags" | "points" | "posts" | "comments" | "spaces" | "level" | "joinedAt" | "lastSeen">>> = {
-  night: { avatar: "/community-assets/Cindy.jpeg", location: "Sapopemba", level: 7, joinedAt: "2025-12-03T12:00:00Z", lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias", tags: ["p6 Veterano", "p6 Goat", "Hackudo"], points: 345, posts: 41, comments: 17, spaces: 26 },
+  night: { avatar: "/community-assets/Cindy.jpeg", location: "Sapopemba", level: 7, joinedAt: "2025-12-03T12:00:00Z", lastSeen: "Visto pela última vez há 2 dias", tags: ["p6 Veterano", "p6 Goat", "Hackudo"], points: 345, posts: 41, comments: 17, spaces: 26 },
   psy: { avatar: "/community-assets/%E2%8A%B9.jpeg", location: "Rio de Janeiro", level: 1, tags: ["p6 Goat"], points: 0, posts: 0, comments: 0, spaces: 25 },
   walker15k: { avatar: "/community-assets/photo_2025-08-25_21-30-00.jpg", location: "Massachusetts", level: 1, bio: "15k", tags: ["p6 Goat", "p6 Veterano"], points: 0, posts: 0, comments: 0, spaces: 25 },
-  toppan15k: { location: "TÃ³quio", points: 0 },
+  toppan15k: { location: "Tóquio", points: 0 },
   anya: { location: "Sapopemba", points: 0 },
   kali15k: { avatar: "/community-assets/photo_2025-12-05_16-06-52.jpg", location: "Tavek, Lunir & Sovax.", tags: ["Admin"], points: 0 },
   goat: { location: "Brasil", tags: ["Admin", "Hackudo"], points: 180 },
@@ -1547,7 +1547,7 @@ function mapDirectoryMember(row: DbMember, profile?: DbDirectoryProfile, postCou
     role: row.role,
     level,
     joinedAt: meta.joinedAt || row.joined_at || new Date().toISOString(),
-    lastSeen: meta.lastSeen || (row.status === "online" ? "Agora" : "Visto pela Ãºltima vez hÃ¡ 2 dias"),
+    lastSeen: meta.lastSeen || (row.status === "online" ? "Agora" : "Visto pela última vez há 2 dias"),
     bio: meta.bio || bio,
     tags: meta.tags || (row.role === "admin" || row.role === "owner" ? ["p6 Goat", "Hackudo"] : ["p6 Goat"]),
     points: meta.points ?? level * 20,
@@ -1577,7 +1577,7 @@ const showcaseDirectoryMembers: DirectoryMember[] = [
     role: "member",
     level: 1,
     joinedAt: "2025-12-11T12:00:00Z",
-    lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias",
+    lastSeen: "Visto pela última vez há 2 dias",
     bio: "",
     tags: ["p6 Goat"],
     points: 0,
@@ -1596,7 +1596,7 @@ const showcaseDirectoryMembers: DirectoryMember[] = [
     role: "member",
     level: 1,
     joinedAt: "2025-12-18T12:00:00Z",
-    lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias",
+    lastSeen: "Visto pela última vez há 2 dias",
     bio: "",
     tags: ["p6 Goat"],
     points: 0,
@@ -1641,14 +1641,14 @@ function sortDirectoryMembers(members: DirectoryMember[], sort: "oldest" | "rece
 
 function fallbackDirectoryMembers(): DirectoryMember[] {
   return [
-    { id: "night", username: "night", name: "Night", avatar: "/community-assets/7ad7792ee375693f271bc25ea391972a-9f4cecd9df81.jpg", headline: "", location: "Sapopemba", status: "offline", role: "admin", level: 7, joinedAt: "2025-12-03T12:00:00Z", lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias", bio: "", tags: ["p6 Veterano", "p6 Goat", "Hackudo"], points: 345, posts: 41, comments: 17, spaces: 26 },
-    { id: "psy", username: "psy", name: "Psy", avatar: "/Feed%20Geral%20_%20Project%20Six_files/IMG_0535.jpeg", headline: "", location: "Rio de Janeiro", status: "offline", role: "member", level: 1, joinedAt: "2025-12-11T12:00:00Z", lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias", bio: "", tags: ["p6 Goat"], points: 0, posts: 0, comments: 0, spaces: 25 },
-    { id: "walker15k", username: "walker15k", name: "Walker15k", avatar: "/community-assets/IMG_2459.jpeg-20e76166eb1c.jpg", headline: "", location: "Massachusetts", status: "offline", role: "member", level: 1, joinedAt: "2025-12-12T12:00:00Z", lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias", bio: "15k", tags: ["p6 Goat", "p6 Veterano"], points: 0, posts: 0, comments: 0, spaces: 25 },
+    { id: "night", username: "night", name: "Night", avatar: "/community-assets/7ad7792ee375693f271bc25ea391972a-9f4cecd9df81.jpg", headline: "", location: "Sapopemba", status: "offline", role: "admin", level: 7, joinedAt: "2025-12-03T12:00:00Z", lastSeen: "Visto pela última vez há 2 dias", bio: "", tags: ["p6 Veterano", "p6 Goat", "Hackudo"], points: 345, posts: 41, comments: 17, spaces: 26 },
+    { id: "psy", username: "psy", name: "Psy", avatar: "/Feed%20Geral%20_%20Project%20Six_files/IMG_0535.jpeg", headline: "", location: "Rio de Janeiro", status: "offline", role: "member", level: 1, joinedAt: "2025-12-11T12:00:00Z", lastSeen: "Visto pela última vez há 2 dias", bio: "", tags: ["p6 Goat"], points: 0, posts: 0, comments: 0, spaces: 25 },
+    { id: "walker15k", username: "walker15k", name: "Walker15k", avatar: "/community-assets/IMG_2459.jpeg-20e76166eb1c.jpg", headline: "", location: "Massachusetts", status: "offline", role: "member", level: 1, joinedAt: "2025-12-12T12:00:00Z", lastSeen: "Visto pela última vez há 2 dias", bio: "15k", tags: ["p6 Goat", "p6 Veterano"], points: 0, posts: 0, comments: 0, spaces: 25 },
   ];
 }
 
 function mapCourseSpace(space: DbSpace): CourseOverviewCard {
-  const section = stringValue(space.settings?.section) || (space.kind === "link" ? "MÃ©todo Comunidade | 2026" : "Aulas");
+  const section = stringValue(space.settings?.section) || (space.kind === "link" ? "Método Comunidade | 2026" : "Aulas");
   const progress = courseProgress(space.slug);
 
   return {
@@ -1714,7 +1714,7 @@ function courseTitle(slug: string) {
   const titles: Record<string, string> = {
     "aula-de-opsec": "Aula de OPSEC",
     "influencer-ia-tiktok-dark": "Influencer IA & TikTok Dark",
-    basico: "BÃ¡sico",
+    basico: "Básico",
     fba: "FBA",
     "aulas-info": "Aulas",
     "aulas-completas": "Aulas Completas",
@@ -1722,18 +1722,18 @@ function courseTitle(slug: string) {
     "agenda-de-aulas": "Agenda de aulas",
     "aulas-gravadas": "Aulas Gravadas",
     "central-de-ajuda-fbm": "Central de Ajuda 'FBM'",
-    "metodo-comunidade-2026": "MÃ©todo Comunidade | 2026",
+    "metodo-comunidade-2026": "Método Comunidade | 2026",
   };
 
   return titles[slug] || slug.split("-").map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(" ");
 }
 
 function courseSection(slug: string) {
-  if (["aula-de-opsec"].includes(slug)) return "Ãrea Hacking";
+  if (["aula-de-opsec"].includes(slug)) return "Área Hacking";
   if (["influencer-ia-tiktok-dark"].includes(slug)) return "Diverso";
   if (["basico", "aulas-completas"].includes(slug)) return "Expert Hot";
   if (["aulas-info"].includes(slug)) return "Info Produto";
-  return "MÃ©todo Comunidade | 2026";
+  return "Método Comunidade | 2026";
 }
 
 function courseProgress(slug: string) {
@@ -1793,7 +1793,7 @@ function spaceLabel(slug: string) {
     "feed-geral": "Feed Geral",
     "chat-geral": "Chat Geral",
     "seu-progresso": "Seu Progresso",
-    "politica-nacional": "PolÃ­tica Nacional",
+    "politica-nacional": "Política Nacional",
   };
 
   return labels[slug] || courseTitle(slug);
@@ -2000,7 +2000,7 @@ function mapRailsPost(row: RailsPost, fallbackSpaceSlug: string): FeedPost {
       name: authorName,
       avatar: row.user?.avatar_url || initials(authorName),
       badge: row.user?.role === "admin" || row.user?.role === "owner" ? "Admin" : "Hackudo",
-      level: "NÃ­vel 2",
+      level: "Nível 2",
       joinedAt: "Membro Comunidade",
     },
   };
@@ -2028,7 +2028,7 @@ function mapSampleCapturedPost(seed: SampleCapturedPostSeed): FeedPost {
       name: "Membro",
       avatar: "M",
       badge: "Hackudo",
-      level: "NÃ­vel 2",
+      level: "Nível 2",
       joinedAt: "Membro desde 2026",
     },
   };
@@ -2111,8 +2111,8 @@ const leaderboardReferenceProfiles: LeaderboardEntry[] = [
   { id: "leader-kali15k", username: "kali15k", name: "Kali15k", subtitle: "Tavek, Lunir & Sovax.", avatar: "/community-assets/photo_2025-12-05_16-06-52.jpg", points: 6 },
   { id: "leader-goat", username: "goat", name: "Goat", avatar: "p6", points: 6 },
   { id: "leader-night", username: "night", name: "Night", avatar: "/community-assets/Cindy.jpeg", points: 2 },
-  { id: "leader-lhz", username: "lhz", name: "ð‘™â„Žð‘§", avatar: "L", points: 2 },
-  { id: "leader-sorenus", username: "sorenus", name: "Sorenus", subtitle: "InteligÃªncia e ForÃ§a", avatar: "S", points: 2 },
+  { id: "leader-lhz", username: "lhz", name: "𝑙ℎ𝑧", avatar: "L", points: 2 },
+  { id: "leader-sorenus", username: "sorenus", name: "Sorenus", subtitle: "Inteligência e Força", avatar: "S", points: 2 },
   { id: "leader-vamp", username: "vamp.darcy", name: "vamp.darcy", avatar: "/Seu%20Progresso%20_%20Project%20Six_files/download%20(3).jpg", points: 1 },
   { id: "leader-zero", username: "zero", name: "zero", avatar: "/Seu%20Progresso%20_%20Project%20Six_files/cb9e8ea52c4bd777e771df8a3664c405.jpg", points: 1 },
   { id: "leader-drk", username: "drk_333", name: "drk_333", avatar: "/Seu%20Progresso%20_%20Project%20Six_files/download%20(2).jfif", points: 1 },
@@ -2169,9 +2169,9 @@ function fallbackViewerProfileSummary(): ViewerProfileSummary {
   return {
     id: "vitor-araujo",
     username: "vitor-araujo",
-    name: "VÃ­tor Santos Araujo",
+    name: "Vítor Santos Araujo",
     avatar: "VA",
-    lastSeen: "Visto pela Ãºltima vez hÃ¡ 3 minutos",
+    lastSeen: "Visto pela última vez há 3 minutos",
     joinedAt: "26 de abril de 2026",
     level: 1,
     points: 0,
@@ -2201,10 +2201,10 @@ function fallbackAccountSettings(): AccountSettings {
   return {
     id: "vitor-araujo",
     username: "vitor-araujo",
-    name: "VÃ­tor Santos Araujo",
+    name: "Vítor Santos Araujo",
     avatarUrl: null,
     timezone: "(GMT -03:00) Brasilia",
-    language: "PortuguÃªs (Brasil)",
+    language: "Português (Brasil)",
     headline: "",
     bio: "",
     location: "",
@@ -2293,16 +2293,16 @@ function formatProfileDate(value: string) {
 }
 
 function formatRelativeLastSeen(value?: string | null) {
-  if (!value) return "Visto pela Ãºltima vez hÃ¡ 3 minutos";
+  if (!value) return "Visto pela última vez há 3 minutos";
 
   const diffMinutes = Math.max(1, Math.round((Date.now() - new Date(value).getTime()) / 60000));
-  if (diffMinutes < 60) return `Visto pela Ãºltima vez hÃ¡ ${diffMinutes} minuto${diffMinutes === 1 ? "" : "s"}`;
+  if (diffMinutes < 60) return `Visto pela última vez há ${diffMinutes} minuto${diffMinutes === 1 ? "" : "s"}`;
 
   const diffHours = Math.round(diffMinutes / 60);
-  if (diffHours < 24) return `Visto pela Ãºltima vez hÃ¡ ${diffHours} hora${diffHours === 1 ? "" : "s"}`;
+  if (diffHours < 24) return `Visto pela última vez há ${diffHours} hora${diffHours === 1 ? "" : "s"}`;
 
   const diffDays = Math.round(diffHours / 24);
-  return `Visto pela Ãºltima vez hÃ¡ ${diffDays} dia${diffDays === 1 ? "" : "s"}`;
+  return `Visto pela última vez há ${diffDays} dia${diffDays === 1 ? "" : "s"}`;
 }
 
 

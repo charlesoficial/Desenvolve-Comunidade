@@ -1,4 +1,4 @@
-﻿import { MessageCircle, MoreHorizontal, Search, Users, X } from "lucide-react";
+import { MessageCircle, MoreHorizontal, Search, Users, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { offlineMembers, onlineMembers } from "../../data/chatData";
 import type { ChatMessage, DetailMember } from "../../data/chatData";
@@ -111,7 +111,7 @@ function MemberGroup({ title, members }: { title: string; members: DetailMember[
             <button type="button" aria-label={`Mensagem para ${member.name}`}>
               <MessageCircle size={15} />
             </button>
-            <button type="button" aria-label={`Mais aÃ§Ãµes de ${member.name}`}>
+            <button type="button" aria-label={`Mais ações de ${member.name}`}>
               <MoreHorizontal size={16} />
             </button>
           </div>

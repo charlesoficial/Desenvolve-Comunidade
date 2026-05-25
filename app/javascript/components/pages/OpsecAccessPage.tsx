@@ -1,4 +1,4 @@
-﻿import { CommunityIcon } from "../../design-system";
+import { CommunityIcon } from "../../design-system";
 
 export function OpsecAccessPage() {
   return (
@@ -9,18 +9,18 @@ export function OpsecAccessPage() {
         </span>
         <h1>Aula de OPSEC</h1>
       </header>
-      <section className="opsec-access-content" aria-label="Ãrea Hacking">
+      <section className="opsec-access-content" aria-label="Área Hacking">
         <div className="opsec-copy">
-          <h2>Ãrea Hacking</h2>
+          <h2>Área Hacking</h2>
           <p>
-            Essa Ã© uma Ã¡rea focada em hacking, onde vocÃª irÃ¡ encontrar, alÃ©m de ferramentas, publicaÃ§Ãµes com
-            ensinamentos, indicaÃ§Ã£o de cursos (vazados) e muito mais.
+            Essa é uma área focada em hacking, onde você irá encontrar, além de ferramentas, publicações com
+            ensinamentos, indicação de cursos (vazados) e muito mais.
           </p>
           <p>
-            Claro, alÃ©m de ter um chat focado exclusivamente nisso para tirar dÃºvidas e fazer networking sobre o tema.
-            O responsÃ¡vel por essa Ã¡rea Ã© o Kali15k, especialista em OpSec e dev full-stack com vasta experiÃªncia na
-            Ã¡rea, principalmente em ciberseguranÃ§a, pois, quando viveu na China, precisou aprender para se comunicar
-            com os parentes brasileiros, devido Ã  restriÃ§Ã£o de algumas redes, como WhatsApp, e Ã  forte vigilÃ¢ncia.
+            Claro, além de ter um chat focado exclusivamente nisso para tirar dúvidas e fazer networking sobre o tema.
+            O responsável por essa área é o Kali15k, especialista em OpSec e dev full-stack com vasta experiência na
+            área, principalmente em cibersegurança, pois, quando viveu na China, precisou aprender para se comunicar
+            com os parentes brasileiros, devido Ã  restrição de algumas redes, como WhatsApp, e Ã  forte vigilância.
           </p>
           <button type="button">Adquirir Acesso Exclusivo</button>
         </div>

@@ -1,4 +1,4 @@
-﻿import { Lock } from "lucide-react";
+import { Lock } from "lucide-react";
 
 export function ExpertHotAccessPage() {
   return (
@@ -12,19 +12,19 @@ export function ExpertHotAccessPage() {
           <article className="expert-hot-copy">
             <h2>Expert Hot</h2>
             <p>
-              <strong>Expert Hot</strong> Ã© uma Ã¡rea focada exclusivamente no Nicho Hot. Aqui dentro, vocÃª encontrarÃ¡
-              o guia essencial para sair do <strong>zero absoluto</strong> atÃ© o seu primeiro <strong>lead orgÃ¢nico</strong>.
+              <strong>Expert Hot</strong> é uma área focada exclusivamente no Nicho Hot. Aqui dentro, você encontrará
+              o guia essencial para sair do <strong>zero absoluto</strong> até o seu primeiro <strong>lead orgânico</strong>.
             </p>
             <p>
-              <strong>Spoiler:</strong> VocÃª terÃ¡ acesso Ã  nossa plataforma prÃ³pria e exclusiva para rodar sua operaÃ§Ã£o
-              com bot e conteÃºdo no site.
+              <strong>Spoiler:</strong> Você terá acesso Ã  nossa plataforma própria e exclusiva para rodar sua operação
+              com bot e conteúdo no site.
             </p>
             <p>
-              VocÃª terÃ¡ acesso a modelos jÃ¡ validadas e como criar uma modelo com IA. AlÃ©m disso, terÃ¡ networking com
-              experts que operam no mercado hÃ¡ mais de 2 anos, prontos para tirar suas dÃºvidas e dar conselhos.
+              Você terá acesso a modelos já validadas e como criar uma modelo com IA. Além disso, terá networking com
+              experts que operam no mercado há mais de 2 anos, prontos para tirar suas dúvidas e dar conselhos.
             </p>
             <p>
-              Ao adquirir, a liberaÃ§Ã£o ocorre tanto aqui na plataforma quanto no Telegram. Para isso, basta inserir no
+              Ao adquirir, a liberação ocorre tanto aqui na plataforma quanto no Telegram. Para isso, basta inserir no
               ato da compra o mesmo e-mail da sua conta.
             </p>
             <div className="expert-hot-actions">

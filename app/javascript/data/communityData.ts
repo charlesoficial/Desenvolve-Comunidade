@@ -1,4 +1,4 @@
-﻿import { makeCommunityIcon } from "../design-system";
+import { makeCommunityIcon } from "../design-system";
 import type { Member, Post, SidebarSection } from "../types/community";
 
 const AudioIcon = makeCommunityIcon("icon-20-course-audio");
@@ -31,7 +31,7 @@ export const sidebarSections: SidebarSection[] = [
     id: "expert",
     title: "Expert Hot",
     items: [
-      { id: "basico", label: "BÃ¡sico", icon: ChartIcon },
+      { id: "basico", label: "Básico", icon: ChartIcon },
       { id: "aulas-completas", label: "Aulas Completas", icon: LockIcon },
       { id: "network", label: "Network", icon: LockIcon },
     ],
@@ -45,7 +45,7 @@ export const sidebarSections: SidebarSection[] = [
   },
   {
     id: "hacking",
-    title: "Ãrea Hacking",
+    title: "Área Hacking",
     items: [
       { id: "chat-area", label: "Chat", icon: LockIcon },
       { id: "feed-area", label: "Feed", icon: LockIcon },
@@ -54,13 +54,13 @@ export const sidebarSections: SidebarSection[] = [
       { id: "criptomoedas-area", label: "Criptomoedas", icon: LockIcon },
       { id: "biblioteca", label: "Biblioteca", icon: LockIcon },
       { id: "torrents", label: "Torrents", icon: LockIcon },
-      { id: "noticias-lock", label: "NotÃ­cias", icon: LockIcon },
+      { id: "noticias-lock", label: "Notícias", icon: LockIcon },
       { id: "opsec", label: "Aula de OPSEC", icon: LockIcon },
     ],
   },
   {
     id: "nivel2",
-    title: "NÃ­vel 2",
+    title: "Nível 2",
     collapsible: true,
     menu: true,
     items: [
@@ -70,11 +70,11 @@ export const sidebarSections: SidebarSection[] = [
   },
   {
     id: "noticias",
-    title: "NotÃ­cias",
+    title: "Notícias",
     items: [
       { id: "geral", label: "Geral", icon: BookIcon, count: "99+" },
-      { id: "geopolitica", label: "GeopolÃ­tica", icon: UserIcon, count: "99+" },
-      { id: "politica", label: "PolÃ­tica Nacional", icon: GlobeIcon, count: "", active: true },
+      { id: "geopolitica", label: "Geopolítica", icon: UserIcon, count: "99+" },
+      { id: "politica", label: "Política Nacional", icon: GlobeIcon, count: "", active: true },
       { id: "economia", label: "Economia", icon: DollarIcon, count: "99+" },
       { id: "cripto", label: "Criptomoedas", icon: ChartIcon, count: "99+" },
       { id: "ia", label: "IA News", icon: ChartIcon, count: "99+" },
@@ -107,50 +107,50 @@ export const members: Member[] = [
 export const posts: Post[] = [
   {
     id: "p1",
-    title: "Mara Maravilha Internada na UTI em SÃ£o Paulo: Motivo Ã© Desconhecido",
+    title: "Mara Maravilha Internada na UTI em São Paulo: Motivo é Desconhecido",
     author: {
       name: "Goat Jornalista",
       avatar: "/community-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
       badge: "Hackudo",
-      level: "NÃ­vel 2",
+      level: "Nível 2",
       joinedAt: "Membro desde 2 de fevereiro de 2026",
     },
     excerpt: [
-      "A apresentadora Mara Maravilha foi internada na Unidade de Terapia Intensiva (UTI) em SÃ£o Paulo. A notÃ­cia se espalhou rapidamente apÃ³s a divulgaÃ§Ã£o de um atestado mÃ©dico nas redes sociais da artista.",
-      "O atestado, embora confirme a internaÃ§Ã£o, nÃ£o Ã©...",
+      "A apresentadora Mara Maravilha foi internada na Unidade de Terapia Intensiva (UTI) em São Paulo. A notícia se espalhou rapidamente após a divulgação de um atestado médico nas redes sociais da artista.",
+      "O atestado, embora confirme a internação, não é...",
     ],
     date: "5 de fev.",
     comments: 0,
   },
   {
     id: "p2",
-    title: 'Alcolumbre Defende Congresso e Manda Indireta ao Governo Lula: "Paz NÃ£o Ã‰ OmissÃ£o"',
+    title: 'Alcolumbre Defende Congresso e Manda Indireta ao Governo Lula: "Paz Não É Omissão"',
     author: {
       name: "Goat Jornalista",
       avatar: "/community-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
       badge: "Hackudo",
-      level: "NÃ­vel 2",
+      level: "Nível 2",
       joinedAt: "Membro desde 2 de fevereiro de 2026",
     },
     excerpt: [
-      "O presidente do Senado, Davi Alcolumbre (UniÃ£o Brasil-AP), defendeu a autonomia do Congresso Nacional nesta segunda-feira (2), durante a cerimÃ´nia de abertura do ano legislativo de 2026.",
-      "Ele ressaltou que a busca por harmonia entre os Poderes nÃ£o...",
+      "O presidente do Senado, Davi Alcolumbre (União Brasil-AP), defendeu a autonomia do Congresso Nacional nesta segunda-feira (2), durante a cerimônia de abertura do ano legislativo de 2026.",
+      "Ele ressaltou que a busca por harmonia entre os Poderes não...",
     ],
     date: "5 de fev.",
     comments: 0,
   },
   {
     id: "p3",
-    title: "Nova rodada de seguranÃ§a digital movimenta grupos de especialistas",
+    title: "Nova rodada de segurança digital movimenta grupos de especialistas",
     author: {
       name: "Goat Jornalista",
       avatar: "/community-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
       badge: "Hackudo",
-      level: "NÃ­vel 2",
+      level: "Nível 2",
       joinedAt: "Membro desde 2 de fevereiro de 2026",
     },
     excerpt: [
-      "Especialistas em seguranÃ§a apontam uma nova onda de discussÃµes sobre privacidade, autenticaÃ§Ã£o e controle de acesso em comunidades digitais.",
+      "Especialistas em segurança apontam uma nova onda de discussões sobre privacidade, autenticação e controle de acesso em comunidades digitais.",
     ],
     date: "5 de fev.",
     comments: 2,

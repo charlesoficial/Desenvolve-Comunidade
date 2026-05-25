@@ -1,4 +1,4 @@
-﻿import { Eye, EyeOff, LockKeyhole, UserRound } from "lucide-react";
+import { Eye, EyeOff, LockKeyhole, UserRound } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import {
@@ -28,7 +28,7 @@ export function LoginPanel() {
   const subtitle = isLogin
     ? "Entre na sua conta para continuar"
     : isRecover
-      ? "Informe seu e-mail ou usuÃ¡rio"
+      ? "Informe seu e-mail ou usuário"
       : "Crie sua conta para continuar";
   const canSubmit = Boolean(login.trim()) && (isRecover || password.trim().length >= 6);
 
@@ -36,7 +36,7 @@ export function LoginPanel() {
     event.preventDefault();
     if (loading) return;
     if (!canSubmit) {
-      setError(isRecover ? "Digite seu e-mail ou usuÃ¡rio." : "Digite seu e-mail ou usuÃ¡rio e senha.");
+      setError(isRecover ? "Digite seu e-mail ou usuário." : "Digite seu e-mail ou usuário e senha.");
       return;
     }
     setLoading(true);
@@ -46,7 +46,7 @@ export function LoginPanel() {
     try {
       if (isRecover) {
         await sendPasswordRecovery(login);
-        setMessage("Enviamos as instruÃ§Ãµes para o seu e-mail.");
+        setMessage("Enviamos as instruções para o seu e-mail.");
       } else if (isLogin) {
         await signInWithPassword(login, password, remember);
         const url = new URL(window.location.href);
@@ -58,7 +58,7 @@ export function LoginPanel() {
         setMessage("Conta criada. Confira seu e-mail para confirmar o acesso.");
       }
     } catch (caught) {
-      setError(caught instanceof Error ? caught.message : "NÃ£o foi possÃ­vel concluir a aÃ§Ã£o.");
+      setError(caught instanceof Error ? caught.message : "Não foi possível concluir a ação.");
     } finally {
       setLoading(false);
     }
@@ -79,12 +79,12 @@ export function LoginPanel() {
 
         <form className="login-form" onSubmit={submit}>
           <label>
-            <span>E-mail ou UsuÃ¡rio</span>
+            <span>E-mail ou Usuário</span>
             <div className="login-input-wrap">
               <UserRound aria-hidden="true" size={20} />
               <input
                 autoComplete="username"
-                placeholder="Digite seu e-mail ou usuÃ¡rio"
+                placeholder="Digite seu e-mail ou usuário"
                 value={login}
                 onChange={(event) => setLogin(event.target.value)}
               />
@@ -157,12 +157,12 @@ export function LoginPanel() {
         <footer className="login-footer">
           {isLogin ? (
             <>
-              <span>NÃ£o tem uma conta?</span>
+              <span>Não tem uma conta?</span>
               <button type="button" onClick={() => switchMode("signup")}>Criar conta</button>
             </>
           ) : (
             <>
-              <span>JÃ¡ tem uma conta?</span>
+              <span>Já tem uma conta?</span>
               <button type="button" onClick={() => switchMode("login")}>Entrar</button>
             </>
           )}

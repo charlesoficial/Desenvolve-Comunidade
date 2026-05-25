@@ -1,4 +1,4 @@
-﻿import { CommunityIcon } from "../../design-system";
+import { CommunityIcon } from "../../design-system";
 import { topNav } from "../../data/communityData";
 import { SearchBox } from "./SearchBox";
 
@@ -20,7 +20,7 @@ export function Topbar() {
           <CommunityIcon name="icon-20-flux-search" size={17} />
         </button>
         {actions.map((iconName, index) => (
-          <button className="topbar-icon" type="button" aria-label="AÃ§Ã£o" key={index}>
+          <button className="topbar-icon" type="button" aria-label="Ação" key={index}>
             <CommunityIcon name={iconName} size={17} />
           </button>
         ))}

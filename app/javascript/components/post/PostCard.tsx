@@ -1,4 +1,4 @@
-﻿import { Bookmark, Heart, MessageCircle, MoreHorizontal } from "lucide-react";
+import { Bookmark, Heart, MessageCircle, MoreHorizontal } from "lucide-react";
 import type { Post } from "../../types/community";
 import { Avatar } from "../ui/Avatar";
 
@@ -27,7 +27,7 @@ export function PostCard({ post }: Props) {
           <div className="author-meta">
             <strong>{post.author.name}</strong>
             <span className="author-badge">
-              <span className="badge-lock">â–£</span>
+              <span className="badge-lock">▣</span>
               {post.author.badge}
             </span>
             <span className="level-badge">{post.author.level}</span>
@@ -54,7 +54,7 @@ export function PostCard({ post }: Props) {
             <MessageCircle size={20} />
           </button>
         </div>
-        <span>{post.comments} comentÃ¡rios</span>
+        <span>{post.comments} comentários</span>
       </div>
     </article>
   );

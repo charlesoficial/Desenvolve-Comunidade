@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { CommunityIcon } from "../../design-system";
 import {
   createFeedComment,
@@ -63,7 +63,7 @@ export function PostDetail({ postId, spaceSlug }: Props) {
           setComments([]);
         }
       } catch {
-        if (alive) setError("NÃ£o foi possÃ­vel carregar esta publicaÃ§Ã£o agora.");
+        if (alive) setError("Não foi possível carregar esta publicação agora.");
       } finally {
         if (alive) setLoading(false);
       }
@@ -108,10 +108,10 @@ export function PostDetail({ postId, spaceSlug }: Props) {
       </header>
 
       <div className="general-feed-scroll source-post-detail-scroll">
-        {loading ? <PostDetailState title="Carregando publicaÃ§Ã£o" body="Buscando dados pelo backend." /> : null}
+        {loading ? <PostDetailState title="Carregando publicação" body="Buscando dados pelo backend." /> : null}
         {!loading && error ? <PostDetailState title="Erro ao carregar" body={error} /> : null}
         {!loading && !error && !post ? (
-          <PostDetailState title="PublicaÃ§Ã£o nÃ£o encontrada" body="Confira o link ou tente novamente." />
+          <PostDetailState title="Publicação não encontrada" body="Confira o link ou tente novamente." />
         ) : null}
 
         {post ? (
@@ -124,7 +124,7 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                     <CommunityIcon name="icon-20-stardust-gradient" size={20} />
                   </button>
                   <BookmarkButton postId={post.id} saved={post.saved} onChange={(saved) => setPost({ ...post, saved })} />
-                  <button type="button" aria-label="Mais opÃ§Ãµes">
+                  <button type="button" aria-label="Mais opções">
                     <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
                   </button>
                 </div>
@@ -145,7 +145,7 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                     <CommunityIcon name="icon-20-stardust-gradient" size={17} />
                     Resumo da conversa
                   </strong>
-                  <p>A discussÃ£o gira em torno do tema principal do post, com comentÃ¡rios e respostas carregados pelo backend quando disponÃ­veis.</p>
+                  <p>A discussão gira em torno do tema principal do post, com comentários e respostas carregados pelo backend quando disponíveis.</p>
                 </section>
               ) : null}
 
@@ -163,8 +163,8 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                 </div>
                 <div className="source-post-engagement">
                   {post.likes ? <span>{post.likes} curtida{post.likes === 1 ? "" : "s"}</span> : null}
-                  {post.likes ? <b>Â·</b> : null}
-                  <span>{Math.max(post.comments, comments.length)} comentÃ¡rio{Math.max(post.comments, comments.length) === 1 ? "" : "s"}</span>
+                  {post.likes ? <b>·</b> : null}
+                  <span>{Math.max(post.comments, comments.length)} comentário{Math.max(post.comments, comments.length) === 1 ? "" : "s"}</span>
                 </div>
               </footer>
 
@@ -175,7 +175,7 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                     <div>
                       <p>
                         <strong>{item.author.name}</strong>
-                        {item.author.level ? <em>NÃ­vel {item.author.level}</em> : null}
+                        {item.author.level ? <em>Nível {item.author.level}</em> : null}
                         <time>{formatShortDate(item.createdAt)}</time>
                       </p>
                       <span>{item.body}</span>
@@ -195,8 +195,8 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                   <textarea
                     value={body}
                     onChange={(event) => setBody(event.target.value)}
-                    placeholder="O que vocÃª acha?"
-                    aria-label="O que vocÃª acha?"
+                    placeholder="O que você acha?"
+                    aria-label="O que você acha?"
                   />
                   <footer>
                     <div>
@@ -298,7 +298,7 @@ function RichPostBody({ body }: { body: string }) {
       return;
     }
 
-    if (line.startsWith("- ") || line.startsWith("â€¢ ")) {
+    if (line.startsWith("- ") || line.startsWith("• ")) {
       bullets.push(line.slice(2));
       return;
     }
@@ -347,8 +347,8 @@ function RightRail() {
         <button type="button">Ver membros</button>
       </section>
       <section>
-        <h2>PublicaÃ§Ãµes fixadas</h2>
-        <a href="/c/feed-geral/opsec-seguranca-operacional">ðŸ” OPSEC: SeguranÃ§a Operacional</a>
+        <h2>Publicações fixadas</h2>
+        <a href="/c/feed-geral/opsec-seguranca-operacional">🔐 OPSEC: Segurança Operacional</a>
       </section>
     </aside>
   );
@@ -371,7 +371,7 @@ function localComment(postId: string, value: string): FeedComment {
     createdAt: new Date().toISOString(),
     author: {
       username: "voce",
-      name: "VocÃª",
+      name: "Você",
       avatar: "VA",
       role: "member",
       level: 2,

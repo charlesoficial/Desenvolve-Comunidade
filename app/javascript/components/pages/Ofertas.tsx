@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CommunityIcon } from "../../design-system";
 import { loadFeedPosts, type FeedPost } from "../../lib/communityApi";
 import { MemberCluster } from "../topbar/MemberCluster";
@@ -23,27 +23,27 @@ const offerFallbacks: OfferCard[] = [
     likes: 9,
     comments: 0,
     href: "/c/ofertas/formula-que-os-maiores-ganhadores-da-loteria-usam",
-    publishedAt: "hÃ¡ 18 dias",
+    publishedAt: "há 18 dias",
   },
   {
     id: "restaure-relacionamento",
-    title: "Restaure seu relacionamento em atÃ© 2 dias",
+    title: "Restaure seu relacionamento em até 2 dias",
     author: "Night",
     cover: "/community-assets/Screenshot_2026-04-15-23-00-22-543_com.android.chrome-4ba5f07ae8de.jpg",
     likes: 3,
     comments: 0,
     href: "/c/ofertas/restaure-seu-relacionamento-em-ate-2-dias",
-    publishedAt: "hÃ¡ 1 mÃªs",
+    publishedAt: "há 1 mês",
   },
   {
     id: "alma-gemea",
-    title: "Encontre sua alma gÃªmea",
+    title: "Encontre sua alma gêmea",
     author: "Night",
     cover: "/community-assets/Screenshot_2026-04-15-23-00-30-593_com.android.chrome-81ac240cd72a.jpg",
     likes: 3,
     comments: 0,
     href: "/c/ofertas/encontre-sua-alma-gemea",
-    publishedAt: "hÃ¡ 1 mÃªs",
+    publishedAt: "há 1 mês",
   },
   {
     id: "azeite",
@@ -53,7 +53,7 @@ const offerFallbacks: OfferCard[] = [
     likes: 3,
     comments: 0,
     href: "/c/ofertas/truque-do-azeite-para-rejuvenescer-sua-pele",
-    publishedAt: "hÃ¡ 1 mÃªs",
+    publishedAt: "há 1 mês",
   },
   {
     id: "artista",
@@ -63,7 +63,7 @@ const offerFallbacks: OfferCard[] = [
     likes: 3,
     comments: 0,
     href: "/c/ofertas/torne-seu-filho-um-artista",
-    publishedAt: "hÃ¡ 3 meses",
+    publishedAt: "há 3 meses",
   },
   {
     id: "parasitas",
@@ -73,13 +73,13 @@ const offerFallbacks: OfferCard[] = [
     likes: 3,
     comments: 0,
     href: "/c/ofertas/elimine-parasitas-do-seu-corpo",
-    publishedAt: "hÃ¡ 3 meses",
+    publishedAt: "há 3 meses",
   },
 ];
 
 const headerMembers = [
   { id: "night", name: "Night", avatar: "/community-assets/Cindy.jpeg", online: true },
-  { id: "va", name: "VÃ­tor Santos Araujo", avatar: "VA", online: true },
+  { id: "va", name: "Vítor Santos Araujo", avatar: "VA", online: true },
   { id: "cuervo", name: "o_cuervo", avatar: "/community-assets/d0f92b7a6b87e4692dfd1c8e88c5df4e-3a8ff1ea6fcf.jpg" },
 ];
 
@@ -136,7 +136,7 @@ export function Ofertas() {
             <CommunityIcon name="icon-20-stardust-gradient" size={20} />
           </button>
           <MemberCluster members={headerMembers} extra="+856" />
-          <button className="general-more" type="button" aria-label="ConfiguraÃ§Ãµes do espaÃ§o">
+          <button className="general-more" type="button" aria-label="Configurações do espaço">
             <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
           </button>
         </div>
@@ -183,7 +183,7 @@ function OfferCardItem({ offer }: { offer: OfferCard }) {
         <a href={offer.href} aria-label="Comentar">
           <CommunityIcon name="icon-20-comment" size={20} /> {offer.comments}
         </a>
-        <button type="button" aria-label="AÃ§Ãµes">
+        <button type="button" aria-label="Ações">
           <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
         </button>
       </footer>

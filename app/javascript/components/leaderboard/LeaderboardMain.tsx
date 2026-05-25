@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Info, Lock, Trophy, X } from "lucide-react";
 import { loadLeaderboardData } from "../../lib/communityApi";
@@ -19,7 +19,7 @@ const levels = [
 const periods: Array<{ label: string; value: LeaderboardPeriod }> = [
   { label: "7 dias", value: "7_days" },
   { label: "30 dias", value: "30_days" },
-  { label: "PerÃ­odo Total", value: "all_time" },
+  { label: "Período Total", value: "all_time" },
 ];
 
 function resolvePeriod(): LeaderboardPeriod {
@@ -66,8 +66,8 @@ export function LeaderboardMain() {
   const entries = leaderboard?.entries || [];
 
   return (
-    <main className="leaderboard-main" aria-label="ConteÃºdo principal">
-      <header className="leaderboard-header" aria-label="CabeÃ§alho da pÃ¡gina">
+    <main className="leaderboard-main" aria-label="Conteúdo principal">
+      <header className="leaderboard-header" aria-label="Cabeçalho da página">
         <h1>Ranking</h1>
       </header>
 
@@ -169,15 +169,15 @@ function PointsModal({ onClose }: { onClose: () => void }) {
         <div className="leaderboard-modal-body">
           <section>
             <h3>1 curtida = 1 ponto</h3>
-            <p>Cada curtida que vocÃª recebe numa publicaÃ§Ã£o ou comentÃ¡rio te recompensa com um ponto. Isso incentiva membros a fazer contribuiÃ§Ãµes valiosas e a recompensar os outros ao curtir suas contribuiÃ§Ãµes.</p>
+            <p>Cada curtida que você recebe numa publicação ou comentário te recompensa com um ponto. Isso incentiva membros a fazer contribuições valiosas e a recompensar os outros ao curtir suas contribuições.</p>
           </section>
           <section>
             <h3>Recompensas</h3>
-            <p>De vez em quando, vocÃª pode receber pontos como recompensa de um administrador da comunidade. Os seus pontos ficam visÃ­veis no seu perfil.</p>
+            <p>De vez em quando, você pode receber pontos como recompensa de um administrador da comunidade. Os seus pontos ficam visíveis no seu perfil.</p>
           </section>
           <section>
-            <h3>NÃ­veis</h3>
-            <p>Ã€ medida que vocÃª junta pontos, vocÃª avanÃ§a pelos nÃ­veis de 1 a 9. Seu nÃ­vel atual Ã© exibido no seu avatar, e os pontos necessÃ¡rios para o prÃ³ximo nÃ­vel sÃ£o exibidos na sua pÃ¡gina de perfil.</p>
+            <h3>Níveis</h3>
+            <p>À medida que você junta pontos, você avança pelos níveis de 1 a 9. Seu nível atual é exibido no seu avatar, e os pontos necessários para o próximo nível são exibidos na sua página de perfil.</p>
           </section>
           <div className="leaderboard-modal-levels">
             {levels.map((item) => (
@@ -210,8 +210,8 @@ function formatPoints(points: number) {
 }
 
 function formatPointsToNext(points: number) {
-  if (points <= 0) return "NÃ­vel mÃ¡ximo";
-  return `${new Intl.NumberFormat("pt-BR").format(points)} ${points === 1 ? "ponto" : "pontos"} para subir de nÃ­vel`;
+  if (points <= 0) return "Nível máximo";
+  return `${new Intl.NumberFormat("pt-BR").format(points)} ${points === 1 ? "ponto" : "pontos"} para subir de nível`;
 }
 
 function levelClassName(level: number, currentLevel: number) {

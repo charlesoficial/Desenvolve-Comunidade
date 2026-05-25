@@ -1,4 +1,4 @@
-﻿import { FeedGeralMain } from "../feedGeral/FeedGeralMain";
+import { FeedGeralMain } from "../feedGeral/FeedGeralMain";
 
 export function AulasGravadas() {
   return (
@@ -11,7 +11,7 @@ export function AulasGravadas() {
       showRail={false}
       showComposer={false}
       showNewPost={false}
-      emptyTitle="Novas publicaÃ§Ãµes aparecerÃ£o aqui"
+      emptyTitle="Novas publicações aparecerão aqui"
       emptyBody=""
       showEmptyCreate={false}
       memberExtra="+856"

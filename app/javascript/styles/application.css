@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   color: var(--cm-body-text);
   font-family: var(--cm-font-sans);
   font-synthesis: none;
@@ -6403,7 +6403,7 @@ body:has(.members-connections-main) .chat-nav button.active {
   border-radius: 5px;
   color: #fff;
   background: rgba(27, 31, 36, 0.9);
-  content: "ConfiguraÃ§Ãµes do espaÃ§o";
+  content: "Configurações do espaço";
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
@@ -12927,7 +12927,7 @@ body .members-connections-main .dm-thread-actions button[aria-label="Abrir detal
 }
 
 body .members-connections-main .dm-thread-actions button[aria-label="Abrir detalhes"]::after {
-  content: "â†’";
+  content: "→";
   color: #111827;
   font-size: 18px;
   font-weight: 400;
@@ -13140,7 +13140,7 @@ body .members-connections-main .dm-profile-connection {
   display: none;
 }
 
-/* CorreÃ§Ã£o direta: mensagens diretas como modal live do app.p6.chat. */
+/* Correção direta: mensagens diretas como modal live do app.p6.chat. */
 body .members-connections-main {
   position: fixed;
   inset: 0;

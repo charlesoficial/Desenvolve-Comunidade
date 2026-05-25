@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { CommunityIcon } from "../../design-system";
 import {
@@ -272,12 +272,12 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
     },
   ],
   geral: [
-    channelPost("geral", "fallback-geral-texas", "Republicanos Ausentes: Democratas Vencem Eleição no Texas 🗳️", "A republicana Leigh Wambsganss sofreu uma derrota expressiva na eleição para o Distrito 9 do Senado estadual do Texas, perdendo por mais de 14 pontos percentuais. Analistas apontam que a baixa participação de eleitores republicanos foi um fator crucial..."),
+    channelPost("geral", "fallback-geral-texas", "Republicanos Ausentes: Democratas Vencem Eleição no Texas ???", "A republicana Leigh Wambsganss sofreu uma derrota expressiva na eleição para o Distrito 9 do Senado estadual do Texas, perdendo por mais de 14 pontos percentuais. Analistas apontam que a baixa participação de eleitores republicanos foi um fator crucial..."),
     channelPost("geral", "fallback-geral-stranger-things", "Eleven, Will e a Gangue de Hawkins Retornam em Nova Série 'Stranger Things'", "A Netflix está retornando a Hawkins com Stranger Things: Contos de 85, uma nova série spin-off animada que chega em 23 de abril. Situada entre as temporadas 2 e 3, a série reúne Eleven, Mike, Will, Max, Lucas e Dustin enquanto eles enfrentam um..."),
     channelPost("geral", "fallback-geral-don-lemon", "Prisão de Don Lemon Alerta para Ameaças à Liberdade de Imprensa", "O caso reacendeu discussões sobre liberdade de imprensa e limites de atuação das autoridades diante de cobertura jornalística sensível."),
   ],
   geopolitica: [
-    channelPost("geopolitica", "fallback-geopolitica-boa-vista", "PM de folga impede assalto à mão armada em posto de Boa Vista, RR", "Um policial militar de folga frustrou um assalto a um posto de combustíveis no bairro Asa Branca, em Boa Vista, na manhã desta segunda-feira (2). Dois jovens, de 24 e 26 anos, foram presos em flagrante. 🚨\n\nDe acordo com a Polícia Militar, o PM estava ...", {
+    channelPost("geopolitica", "fallback-geopolitica-boa-vista", "PM de folga impede assalto à mão armada em posto de Boa Vista, RR", "Um policial militar de folga frustrou um assalto a um posto de combustíveis no bairro Asa Branca, em Boa Vista, na manhã desta segunda-feira (2). Dois jovens, de 24 e 26 anos, foram presos em flagrante. ??\n\nDe acordo com a Polícia Militar, o PM estava ...", {
       likes: 2,
       attachments: [{ kind: "image", fileName: "editassalto", fileUrl: sampleAsset("editassalto-f13ba143ba31.jpg") }],
     }),
@@ -286,7 +286,7 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
   ],
   "politica-nacional": [
     channelPost("politica-nacional", "fallback-politica-lula", "Lula defende educação de meninos em pacto nacional contra feminicídio", "O presidente Lula anunciou a necessidade de educar os meninos como parte de um pacto contra o feminicídio que será firmado com os Três Poderes. O acordo está previsto para ser oficializado na quarta-feira, 4 de fevereiro.", { likes: 1 }),
-    channelPost("politica-nacional", "fallback-politica-mara", "Mara Maravilha Internada na UTI em São Paulo: Motivo é Desconhecido", "A apresentadora Mara Maravilha foi internada na Unidade de Terapia Intensiva (UTI) em São Paulo. A notícia se espalhou rapidamente após a divulgação de um atestado médico nas redes sociais da artista. 🏥"),
+    channelPost("politica-nacional", "fallback-politica-mara", "Mara Maravilha Internada na UTI em São Paulo: Motivo é Desconhecido", "A apresentadora Mara Maravilha foi internada na Unidade de Terapia Intensiva (UTI) em São Paulo. A notícia se espalhou rapidamente após a divulgação de um atestado médico nas redes sociais da artista. ??"),
     channelPost("politica-nacional", "fallback-politica-alcolumbre", "Alcolumbre Defende Congresso e Manda Indireta ao Governo Lula: \"Paz Não É Omissão\"", "A declaração movimentou os bastidores de Brasília e gerou novas leituras sobre a relação entre Congresso e governo federal."),
   ],
   economia: [
@@ -300,9 +300,9 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
     channelPost("criptomoedas-08edfd", "fallback-cripto-tokens", "Liberação de Tokens: Hyperliquid, XDC e Berachain agitam fevereiro de 2026", "O mercado de criptomoedas se prepara para receber mais de US$ 638 milhões em desbloqueios de tokens ao longo do mês."),
   ],
   "ia-news": [
-    channelPost("ia-news", "fallback-ia-meloni", "Polêmica: rosto de Meloni surge em anjo restaurado em igreja de Roma", "A recente restauração de uma capela em Roma trouxe uma surpresa inesperada: um anjo pintado com as feições da primeira-ministra da Itália, Giorgia Meloni. 😳"),
+    channelPost("ia-news", "fallback-ia-meloni", "Polêmica: rosto de Meloni surge em anjo restaurado em igreja de Roma", "A recente restauração de uma capela em Roma trouxe uma surpresa inesperada: um anjo pintado com as feições da primeira-ministra da Itália, Giorgia Meloni. ??"),
     channelPost("ia-news", "fallback-ia-gabbard", "Tulsi Gabbard Justifica Presença em Busca do FBI em Centro Eleitoral na Geórgia", "A ex-congressista e Diretora de Inteligência Nacional, Tulsi Gabbard, defendeu na segunda-feira sua presença durante uma busca realizada pelo FBI em um centro eleitoral."),
-    channelPost("ia-news", "fallback-ia-cavalo", "Cavalo \"guitarrista\" faz sucesso na web com vídeo musical 🐴🎸", "Um vídeo musical incomum viralizou nas redes, misturando humor, tecnologia e cultura pop em formato curto."),
+    channelPost("ia-news", "fallback-ia-cavalo", "Cavalo \"guitarrista\" faz sucesso na web com vídeo musical ????", "Um vídeo musical incomum viralizou nas redes, misturando humor, tecnologia e cultura pop em formato curto."),
   ],
   "marketing-digital": [
     channelPost("marketing-digital", "fallback-marketing-reels", "Como Conquistar Atenção com Instagram Reels: Guia Completo", "O Instagram Reels evoluiu rapidamente de um \"novo recurso legal\" para o coração do aplicativo em poucos anos. Vídeos curtos se tornaram a forma como as pessoas exploram, aprendem e decidem o que experimentar."),
@@ -312,7 +312,7 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
   "mr-robot": [
     channelPost("mr-robot", "fallback-mr-robot-ciber", "Segurança Cibernética Precisa de Produtos Inovadores, Diz Especialista", "Um especialista da comunidade Comunidade levantou uma questão crucial: a necessidade urgente de uma nova abordagem em segurança cibernética. Segundo ele, a área tem falhado em demonstrar seu real valor para os negócios nas últimas décadas."),
     channelPost("mr-robot", "fallback-mr-robot-paimm", "Modelo de Maturidade em IA Pessoal (PAIMM) Ganha Destaque", "Desde 2016, com a publicação do livro The Real Internet of Things, a comunidade Comunidade tem refletido sobre o Modelo de Maturidade em IA Pessoal (PAIMM)."),
-    channelPost("mr-robot", "fallback-mr-robot-china", "China se Consolida como Fundo de Private Equity Global 🌎", "A análise compara movimentos de capital, tecnologia e infraestrutura para explicar a consolidação chinesa no cenário global."),
+    channelPost("mr-robot", "fallback-mr-robot-china", "China se Consolida como Fundo de Private Equity Global ??", "A análise compara movimentos de capital, tecnologia e infraestrutura para explicar a consolidação chinesa no cenário global."),
   ],
 };
 
@@ -633,7 +633,7 @@ export function FeedGeralMain({
                 { id: "sorenus", name: "Sorenus", avatar: "S" },
                 { id: "olho", name: "oolho15k", avatar: "O" },
                 { id: "cuervo", name: "o_cuervo", avatar: asset("d0f92b7a6b87e4692dfd1c8e88c5df4e.jpg") },
-                { id: "lhz", name: "𝑙ℎ𝑧", avatar: "L" },
+                { id: "lhz", name: "??h??", avatar: "L" },
               ]).slice(0, 6).map((member) => (
                 <button className="general-rail-member" type="button" key={member.id}>
                   <span className="general-rail-avatar"><Avatar value={member.avatar} name={member.name} /></span>
@@ -645,7 +645,7 @@ export function FeedGeralMain({
             <section className="general-pinned-card">
               <h2>Publicações fixadas</h2>
               <button type="button" onClick={() => posts[0] ? openPost(posts[0]) : undefined}>
-                🔐 OPSEC: Segurança Operacional
+                ?? OPSEC: Segurança Operacional
               </button>
             </section>
           </aside> : null}
@@ -809,7 +809,7 @@ function PostAuthor({ post }: { post: FeedPost }) {
         <span>
           <strong>{post.author.name}</strong>
           <em className={post.author.badge === "Admin" ? "veteran-badge" : "hackudo-badge"}>{post.author.badge}</em>
-          <em className="level-badge">🥈 {levelLabel}</em>
+          <em className="level-badge">?? {levelLabel}</em>
           <i>+2</i>
           <time>{formatRelativeDate(post.publishedAt)}</time>
         </span>
@@ -1110,7 +1110,7 @@ function CreatePostToolPopover({
   if (tool === "emoji") {
     return (
       <div className="create-post-tool-popover create-post-emoji-popover">
-        {["😀", "🔥", "👏", "👀", "✅", "💬", "🚀", "❤️"].map((emoji) => (
+        {["??", "??", "??", "??", "?", "??", "??", "??"].map((emoji) => (
           <button type="button" key={emoji} onClick={() => onInsert(emoji)}>{emoji}</button>
         ))}
       </div>

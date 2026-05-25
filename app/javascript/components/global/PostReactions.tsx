@@ -1,8 +1,8 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CommunityIcon } from "../../design-system";
 import { togglePostReaction } from "../../lib/communityApi";
 
-const emojis = ["â¤ï¸", "ðŸ”¥", "ðŸ‘", "ðŸ’¡", "ðŸ‘€"];
+const emojis = ["❤️", "🔥", "👏", "💡", "👀"];
 
 export function PostReactions({
   liked,
@@ -61,7 +61,7 @@ export function PostReactions({
         <span>{count}</span>
       </button>
       {open ? (
-        <div className="post-reaction-picker" role="menu" aria-label="ReaÃ§Ãµes">
+        <div className="post-reaction-picker" role="menu" aria-label="Reações">
           {emojis.map((emoji) => <button type="button" role="menuitem" key={emoji} onClick={react}>{emoji}</button>)}
         </div>
       ) : null}

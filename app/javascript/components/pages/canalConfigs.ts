@@ -1,4 +1,4 @@
-﻿export type CanalMode = "feed" | "private" | "hackingLanding" | "levelAccess";
+export type CanalMode = "feed" | "private" | "hackingLanding" | "levelAccess";
 
 export type CanalConfig = {
   title: string;
@@ -31,17 +31,17 @@ export const canalConfigs: Record<string, CanalConfig> = {
   criptomoedas: { title: "Criptomoedas", icon: canalAsset("bitcoin-refresh-svgrepo-com.png"), mode: "hackingLanding", showHero: false, showRail: false },
   biblioteca: { title: "Biblioteca", icon: canalAsset("album-svgrepo-com.png"), mode: "hackingLanding", showHero: false, showRail: false },
   torrents: { title: "Torrents", icon: canalAsset("folder-with-files-svgrepo-com.png"), mode: "private", showHero: false, showRail: false },
-  "news-hacking": { title: "NotÃ­cias", icon: canalAsset("shield-warning-svgrepo-com.png"), mode: "hackingLanding", showHero: false, showRail: false },
+  "news-hacking": { title: "Notícias", icon: canalAsset("shield-warning-svgrepo-com.png"), mode: "hackingLanding", showHero: false, showRail: false },
   "opsec-2026": { title: "Aula de OPSEC", icon: "/community-assets/hjskcyevn0m4onfjkc0ybxt3tr1w-579710e4bba9.png", topics: ["Todos", "Aulas", "Checklists"], showHero: false, showRail: false },
   sistemas: { title: "Sistemas", icon: canalAsset("screencast-svgrepo-com.png"), mode: "levelAccess", showHero: false, showRail: false },
   geral: { title: "Geral", icon: canalAsset("imagem_2026-02-02_153413379.png"), ...feedChrome },
-  geopolitica: { title: "GeopolÃ­tica", icon: canalAsset("imagem_2026-02-02_153333630.png"), ...feedChrome },
-  "politica-nacional": { title: "PolÃ­tica Nacional", icon: canalAsset("imagem_2026-02-02_153231631.png"), ...feedChrome },
+  geopolitica: { title: "Geopolítica", icon: canalAsset("imagem_2026-02-02_153333630.png"), ...feedChrome },
+  "politica-nacional": { title: "Política Nacional", icon: canalAsset("imagem_2026-02-02_153231631.png"), ...feedChrome },
   economia: { title: "Economia", icon: canalAsset("imagem_2026-02-02_153146158.png"), ...feedChrome },
   "criptomoedas-08edfd": { title: "Criptomoedas", icon: canalAsset("bitcoin-refresh-svgrepo-com.png"), ...feedChrome },
   "ia-news": { title: "IA News", icon: canalAsset("imagem_2026-02-02_152915713.png"), ...feedChrome },
   "marketing-digital": { title: "Marketing Digital", icon: canalAsset("imagem_2026-02-02_152832085.png"), ...feedChrome },
   "mr-robot": { title: "Hacking/Tec", icon: canalAsset("imagem_2026-02-02_152751805.png"), ...feedChrome, memberExtra: "+861" },
-  "influencer-ia-tiktok-dark": { title: "Influencer IA & TikTok Dark", icon: "/community-assets/t1l74hojbmqzn2bz0lf4qfo61vqz-fe900685ddcf.png", topics: ["Todos", "TikTok", "IA", "ConteÃºdo"], showHero: false, showRail: false },
-  fba: { title: "FBA", icon: canalAsset("amazon-svgrepo-com.png"), topics: ["Todos", "Amazon", "FBA", "LogÃ­stica"], showHero: false },
+  "influencer-ia-tiktok-dark": { title: "Influencer IA & TikTok Dark", icon: "/community-assets/t1l74hojbmqzn2bz0lf4qfo61vqz-fe900685ddcf.png", topics: ["Todos", "TikTok", "IA", "Conteúdo"], showHero: false, showRail: false },
+  fba: { title: "FBA", icon: canalAsset("amazon-svgrepo-com.png"), topics: ["Todos", "Amazon", "FBA", "Logística"], showHero: false },
 };
