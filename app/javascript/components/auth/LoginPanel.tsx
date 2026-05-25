@@ -1,4 +1,4 @@
-import { Eye, EyeOff, LockKeyhole, UserRound } from "lucide-react";
+﻿import { Eye, EyeOff, LockKeyhole, UserRound } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import {
@@ -28,7 +28,7 @@ export function LoginPanel() {
   const subtitle = isLogin
     ? "Entre na sua conta para continuar"
     : isRecover
-      ? "Informe seu e-mail ou usuário"
+      ? "Informe seu e-mail ou usuÃ¡rio"
       : "Crie sua conta para continuar";
   const canSubmit = Boolean(login.trim()) && (isRecover || password.trim().length >= 6);
 
@@ -36,7 +36,7 @@ export function LoginPanel() {
     event.preventDefault();
     if (loading) return;
     if (!canSubmit) {
-      setError(isRecover ? "Digite seu e-mail ou usuário." : "Digite seu e-mail ou usuário e senha.");
+      setError(isRecover ? "Digite seu e-mail ou usuÃ¡rio." : "Digite seu e-mail ou usuÃ¡rio e senha.");
       return;
     }
     setLoading(true);
@@ -46,7 +46,7 @@ export function LoginPanel() {
     try {
       if (isRecover) {
         await sendPasswordRecovery(login);
-        setMessage("Enviamos as instruções para o seu e-mail.");
+        setMessage("Enviamos as instruÃ§Ãµes para o seu e-mail.");
       } else if (isLogin) {
         await signInWithPassword(login, password, remember);
         const url = new URL(window.location.href);
@@ -58,7 +58,7 @@ export function LoginPanel() {
         setMessage("Conta criada. Confira seu e-mail para confirmar o acesso.");
       }
     } catch (caught) {
-      setError(caught instanceof Error ? caught.message : "Não foi possível concluir a ação.");
+      setError(caught instanceof Error ? caught.message : "NÃ£o foi possÃ­vel concluir a aÃ§Ã£o.");
     } finally {
       setLoading(false);
     }
@@ -73,18 +73,18 @@ export function LoginPanel() {
   return (
     <main className="login-page" aria-label="Login">
       <section className="login-card">
-        <img className="login-logo" src="/source-six-assets/rji72k58i9o4ujxgb0n0wqpf12pf-b4d4c257bd35.png" alt="Project Six" />
+        <img className="login-logo" src="/community-assets/rji72k58i9o4ujxgb0n0wqpf12pf-b4d4c257bd35.png" alt="Comunidade" />
         <h1>{title}</h1>
         <p>{subtitle}</p>
 
         <form className="login-form" onSubmit={submit}>
           <label>
-            <span>E-mail ou Usuário</span>
+            <span>E-mail ou UsuÃ¡rio</span>
             <div className="login-input-wrap">
               <UserRound aria-hidden="true" size={20} />
               <input
                 autoComplete="username"
-                placeholder="Digite seu e-mail ou usuário"
+                placeholder="Digite seu e-mail ou usuÃ¡rio"
                 value={login}
                 onChange={(event) => setLogin(event.target.value)}
               />
@@ -157,12 +157,12 @@ export function LoginPanel() {
         <footer className="login-footer">
           {isLogin ? (
             <>
-              <span>Não tem uma conta?</span>
+              <span>NÃ£o tem uma conta?</span>
               <button type="button" onClick={() => switchMode("signup")}>Criar conta</button>
             </>
           ) : (
             <>
-              <span>Já tem uma conta?</span>
+              <span>JÃ¡ tem uma conta?</span>
               <button type="button" onClick={() => switchMode("login")}>Entrar</button>
             </>
           )}

@@ -1,4 +1,4 @@
-import { MessageCircle, MoreHorizontal, Search, Users, X } from "lucide-react";
+﻿import { MessageCircle, MoreHorizontal, Search, Users, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { offlineMembers, onlineMembers } from "../../data/chatData";
 import type { ChatMessage, DetailMember } from "../../data/chatData";
@@ -34,7 +34,7 @@ export function DetailsPanel({ messages = [], mode, onClose }: { messages?: Chat
   return (
     <aside className="details-panel">
       <header className="details-header">
-        <h2 className="p6-panel-title">Detalhes</h2>
+        <h2 className="cs-panel-title">Detalhes</h2>
         <div>
           <span>{members.total}</span>
           <Users size={17} />
@@ -106,12 +106,12 @@ function MemberGroup({ title, members }: { title: string; members: DetailMember[
         <div className="detail-member" key={member.id}>
           <ChatAvatar avatar={member.avatar} name={member.name} status={member.status} />
           <span>{member.name}</span>
-          {member.admin ? <em className="p6-admin-badge">ADMINISTRADOR</em> : null}
+          {member.admin ? <em className="cs-admin-badge">ADMINISTRADOR</em> : null}
           <div className="detail-member-actions">
             <button type="button" aria-label={`Mensagem para ${member.name}`}>
               <MessageCircle size={15} />
             </button>
-            <button type="button" aria-label={`Mais ações de ${member.name}`}>
+            <button type="button" aria-label={`Mais aÃ§Ãµes de ${member.name}`}>
               <MoreHorizontal size={16} />
             </button>
           </div>

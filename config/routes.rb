@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resource :auth, controller: :auth, only: [:show, :create, :destroy]
+      post "auth/signup", to: "auth#signup"
       resources :spaces, only: [:index, :show]
       resources :posts, only: [:index, :show, :create, :update, :destroy] do
         resources :comments, only: [:index, :create, :update, :destroy]

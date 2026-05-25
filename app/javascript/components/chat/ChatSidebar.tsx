@@ -1,4 +1,4 @@
-import { MoreHorizontal } from "lucide-react";
+﻿import { MoreHorizontal } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { chatMenuSections } from "../../data/chatData";
 
@@ -61,7 +61,7 @@ export function ChatSidebar({ activeView, currentPath, onNavigate }: Props) {
                 const isActive = itemPath ? itemPath === currentPath : item.id === activeItemId;
                 return (
                   <button
-                    className={`chat-menu-item p6-sidebar-item ${isActive ? "active" : ""}`}
+                    className={`chat-menu-item cs-sidebar-item ${isActive ? "active" : ""}`}
                     type="button"
                     key={item.id}
                     onClick={() => item.view && onNavigate(item.view, item.path)}

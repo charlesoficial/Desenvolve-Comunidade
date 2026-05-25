@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+﻿import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
-import { P6Icon } from "../../design-system";
+import { CommunityIcon } from "../../design-system";
 import {
   createMemberConnection,
   createOrLoadDirectConversation,
@@ -50,7 +50,7 @@ export function MembersMain({ withSidebar = false }: { withSidebar?: boolean } =
       .catch(() => {
         if (alive) {
           setMembers([]);
-          setError("Não foi possível carregar os membros.");
+          setError("NÃ£o foi possÃ­vel carregar os membros.");
         }
       })
       .finally(() => {
@@ -132,7 +132,7 @@ export function MembersMain({ withSidebar = false }: { withSidebar?: boolean } =
             window.history.pushState({}, "", "/members/map");
             window.dispatchEvent(new PopStateEvent("popstate"));
           }}>
-            <P6Icon name="icon-map" size={17} />
+            <CommunityIcon name="icon-map" size={17} />
             Mostrar mapa
           </button>
         </div>
@@ -148,7 +148,7 @@ export function MembersMain({ withSidebar = false }: { withSidebar?: boolean } =
               </div>
               <span className="members-viewer-level">1</span>
               </div>
-              <h2>{viewer?.name || "Vítor Santos Araujo"}</h2>
+              <h2>{viewer?.name || "VÃ­tor Santos Araujo"}</h2>
               <button type="button">Ver perfil</button>
             </section>
 
@@ -156,18 +156,18 @@ export function MembersMain({ withSidebar = false }: { withSidebar?: boolean } =
             <section>
               <h2>Encontrar membros</h2>
               <label className="members-search">
-                <P6Icon name="icon-16-magnifying-glass" size={16} />
+                <CommunityIcon name="icon-16-magnifying-glass" size={16} />
                 <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Pesquisar" />
               </label>
               <div className="members-filter-pills">
                 <button className={quickFilter === "near" ? "active" : ""} type="button" onClick={() => setQuickFilter((value) => value === "near" ? "all" : "near")}>
-                  <P6Icon name="icon-16-pin-location" size={16} /> Perto de mim
+                  <CommunityIcon name="icon-16-pin-location" size={16} /> Perto de mim
                 </button>
                 <button className={quickFilter === "online" ? "active" : ""} type="button" onClick={() => setQuickFilter((value) => value === "online" ? "all" : "online")}>
-                  <P6Icon name="icon-16-online-users" size={14} /> Online
+                  <CommunityIcon name="icon-16-online-users" size={14} /> Online
                 </button>
                 <button className={quickFilter === "recent" ? "active" : ""} type="button" onClick={() => setQuickFilter((value) => value === "recent" ? "all" : "recent")}>
-                  <P6Icon name="icon-16-confetti" size={14} /> Entrou recentemente
+                  <CommunityIcon name="icon-16-confetti" size={14} /> Entrou recentemente
                 </button>
               </div>
             </section>
@@ -178,7 +178,7 @@ export function MembersMain({ withSidebar = false }: { withSidebar?: boolean } =
             <section>
               <h3>Tag</h3>
               <button className="members-select" type="button">
-                Selecione uma opção <P6Icon name="icon-12-chevron-down-v3" size={14} />
+                Selecione uma opÃ§Ã£o <CommunityIcon name="icon-12-chevron-down-v3" size={14} />
               </button>
             </section>
             </aside>
@@ -187,13 +187,13 @@ export function MembersMain({ withSidebar = false }: { withSidebar?: boolean } =
           <section className="members-directory">
             <nav className="members-directory-tabs" aria-label="Membros">
               <button className="active" type="button">Todos os membros</button>
-              <button type="button">Minhas conexões</button>
+              <button type="button">Minhas conexÃµes</button>
             </nav>
             <h2>
               Todos os membros <span>{filteredMembers.length}</span>
             </h2>
             <label className="members-search members-mobile-search">
-              <P6Icon name="icon-16-magnifying-glass" size={16} />
+              <CommunityIcon name="icon-16-magnifying-glass" size={16} />
               <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Pesquisar" />
             </label>
             {loading ? <MembersState title="Carregando membros" body="Buscando membros ativos da comunidade." /> : null}
@@ -213,7 +213,7 @@ export function MembersMain({ withSidebar = false }: { withSidebar?: boolean } =
                     {member.headline ? <small>{member.headline}</small> : null}
                     {member.location ? (
                       <p>
-                        <P6Icon name="icon-16-location" size={16} />
+                        <CommunityIcon name="icon-16-location" size={16} />
                         {member.location}
                       </p>
                     ) : (
@@ -221,7 +221,7 @@ export function MembersMain({ withSidebar = false }: { withSidebar?: boolean } =
                     )}
                   </button>
                   <button className="member-connect" type="button" onClick={() => setConnectionPrompt(member)}>
-                    <P6Icon name={connected[member.id] ? "icon-20-message-check" : "icon-16-plus-v2"} size={16} />
+                    <CommunityIcon name={connected[member.id] ? "icon-20-message-check" : "icon-16-plus-v2"} size={16} />
                     {connected[member.id] ? "Conectado" : "Conectar"}
                   </button>
                 </article>
@@ -309,7 +309,7 @@ function MemberProfileModal({
         <header>
           <h2>Perfil</h2>
           <button type="button" aria-label="Fechar" onClick={onClose}>
-            <P6Icon name="icon-20-close" size={21} />
+            <CommunityIcon name="icon-20-close" size={21} />
           </button>
         </header>
         <div className="member-profile-body">
@@ -320,11 +320,11 @@ function MemberProfileModal({
             </div>
             <h3>{member.name}</h3>
             <p>
-              <P6Icon name="icon-16-clock" size={16} />
+              <CommunityIcon name="icon-16-clock" size={16} />
               {member.lastSeen}
             </p>
             <p>
-              <P6Icon name="icon-16-calendar-join-date" size={16} />
+              <CommunityIcon name="icon-16-calendar-join-date" size={16} />
               Membro desde {formatLongDate(member.joinedAt)}
             </p>
             <div className="member-tags centered">
@@ -335,17 +335,17 @@ function MemberProfileModal({
             <div className="member-profile-actions">
               <button type="button" onClick={onMessage}>Mensagem</button>
               <div className="member-profile-more-wrap">
-                <button type="button" aria-label={member.username === "night" ? "Copiar link" : "Mais opções"} onClick={() => setMenuOpen((current) => !current)}>
-                  <P6Icon name={member.username === "night" ? "icon-20-link" : "icon-16-menu-dots-horizontal"} size={member.username === "night" ? 19 : 20} />
+                <button type="button" aria-label={member.username === "night" ? "Copiar link" : "Mais opÃ§Ãµes"} onClick={() => setMenuOpen((current) => !current)}>
+                  <CommunityIcon name={member.username === "night" ? "icon-20-link" : "icon-16-menu-dots-horizontal"} size={member.username === "night" ? 19 : 20} />
                 </button>
                 {menuOpen ? (
                   <div className="member-profile-side-menu">
                     <button type="button">
-                      <P6Icon name="icon-16-link" size={16} />
+                      <CommunityIcon name="icon-16-link" size={16} />
                       Copiar link para perfil
                     </button>
                     <button type="button">
-                      <P6Icon name="icon-16-close" size={14} />
+                      <CommunityIcon name="icon-16-close" size={14} />
                       Bloquear mensagens diretas
                     </button>
                   </div>
@@ -359,18 +359,18 @@ function MemberProfileModal({
               <span className="general-va">VA</span>
               <div>
                 <strong>Conecte-se</strong>
-                <p>Crie vínculos dentro da comunidade.</p>
+                <p>Crie vÃ­nculos dentro da comunidade.</p>
               </div>
               <button type="button" onClick={onConnect}>
-                <P6Icon name={connected ? "icon-20-message-check" : "icon-16-plus-v2"} size={16} />
+                <CommunityIcon name={connected ? "icon-20-message-check" : "icon-16-plus-v2"} size={16} />
                 {connected ? "Conectado" : "Conectar"}
               </button>
             </div>
             <nav className="member-profile-tabs" aria-label="Perfil">
               <button className={activeTab === "about" ? "active" : ""} type="button" onClick={() => setActiveTab("about")}>Sobre</button>
-              <button className={activeTab === "posts" ? "active" : ""} type="button" onClick={() => setActiveTab("posts")}>Publicações <span>{member.posts || ""}</span></button>
-              <button className={activeTab === "comments" ? "active" : ""} type="button" onClick={() => setActiveTab("comments")}>Comentários <span>{member.comments || ""}</span></button>
-              <button className={activeTab === "spaces" ? "active" : ""} type="button" onClick={() => setActiveTab("spaces")}>Espaços <span>{member.spaces}</span></button>
+              <button className={activeTab === "posts" ? "active" : ""} type="button" onClick={() => setActiveTab("posts")}>PublicaÃ§Ãµes <span>{member.posts || ""}</span></button>
+              <button className={activeTab === "comments" ? "active" : ""} type="button" onClick={() => setActiveTab("comments")}>ComentÃ¡rios <span>{member.comments || ""}</span></button>
+              <button className={activeTab === "spaces" ? "active" : ""} type="button" onClick={() => setActiveTab("spaces")}>EspaÃ§os <span>{member.spaces}</span></button>
               <button className={activeTab === "rewards" ? "active" : ""} type="button" onClick={() => setActiveTab("rewards")}>Recompensas</button>
             </nav>
             <div className={`member-profile-tab-panel ${activeTab === "about" ? "is-about" : "is-list"}`}>
@@ -418,7 +418,7 @@ function ConnectionPromptModal({
         <header>
           <h2>{title}</h2>
           <button type="button" aria-label="Fechar" onClick={onCancel}>
-            <P6Icon name="icon-20-close" size={20} />
+            <CommunityIcon name="icon-20-close" size={20} />
           </button>
         </header>
         <div className="member-action-summary">
@@ -430,7 +430,7 @@ function ConnectionPromptModal({
         </div>
         <label className="member-action-message">
           <span>Adicionar mensagem (opcional)</span>
-          <small>Os membros têm mais probabilidade de se conectar quando você inclui uma mensagem pessoal.</small>
+          <small>Os membros tÃªm mais probabilidade de se conectar quando vocÃª inclui uma mensagem pessoal.</small>
           <textarea
             maxLength={300}
             value={message}
@@ -441,7 +441,7 @@ function ConnectionPromptModal({
         </label>
         <div className="member-action-buttons">
           <button type="button" onClick={onCancel}>Cancelar</button>
-          <button type="button" onClick={() => onConfirm(message)}>Enviar solicitação</button>
+          <button type="button" onClick={() => onConfirm(message)}>Enviar solicitaÃ§Ã£o</button>
         </div>
       </section>
     </div>,
@@ -453,12 +453,12 @@ function MemberAboutPanel({ member, nextLevelRemaining, showProfileLocation }: {
   return (
     <>
       <div className="member-level-row">
-        <span className="member-level-trophy">🏆</span>
+        <span className="member-level-trophy">ðŸ†</span>
         <b>{member.level}</b>
         <span className="member-level-divider" aria-hidden="true" />
         <strong>Level {member.level}</strong>
       </div>
-      <p className="member-points">{member.points} pontos&nbsp;&nbsp;•&nbsp;&nbsp;{nextLevelRemaining} para subir de nível</p>
+      <p className="member-points">{member.points} pontos&nbsp;&nbsp;â€¢&nbsp;&nbsp;{nextLevelRemaining} para subir de nÃ­vel</p>
       <div className="member-profile-section">
         <h4>Tags</h4>
         <div className="member-tags">
@@ -487,7 +487,7 @@ function MemberPostsPanel({ member, posts }: { member: DirectoryMember; posts: F
   const renderedPosts = member.username === "night" ? [nightProfilePost] : posts;
 
   if (renderedPosts.length === 0) {
-    return <div className="member-profile-empty"><h3>Nenhuma publicação ainda</h3><p>As publicações deste membro serão exibidas aqui.</p></div>;
+    return <div className="member-profile-empty"><h3>Nenhuma publicaÃ§Ã£o ainda</h3><p>As publicaÃ§Ãµes deste membro serÃ£o exibidas aqui.</p></div>;
   }
 
   return (
@@ -499,7 +499,7 @@ function MemberPostsPanel({ member, posts }: { member: DirectoryMember; posts: F
   );
 }
 
-const nightProfilePost = { id: "night-lotto", cover: "/p6-members-assets/imagem_2026-04-13_015104696.png" };
+const nightProfilePost = { id: "night-lotto", cover: "/community-assets/imagem_2026-04-13_015104696.png" };
 
 function NightProfilePostCard({ member }: { member: DirectoryMember }) {
   return (
@@ -508,8 +508,8 @@ function NightProfilePostCard({ member }: { member: DirectoryMember }) {
       <div className="member-profile-post-inner">
         <div className="member-profile-post-title-row">
           <h3>Formula que os maiores ganhadores da Loteria usam</h3>
-          <button type="button" aria-label="Salvar"><P6Icon name="icon-20-bookmark-v3" size={21} /></button>
-          <button type="button" aria-label="Ações"><P6Icon name="icon-16-menu-dots-horizontal" size={20} /></button>
+          <button type="button" aria-label="Salvar"><CommunityIcon name="icon-20-bookmark-v3" size={21} /></button>
+          <button type="button" aria-label="AÃ§Ãµes"><CommunityIcon name="icon-16-menu-dots-horizontal" size={20} /></button>
         </div>
         <div className="member-profile-post-author">
           <AvatarImage member={member} size={40} />
@@ -521,10 +521,10 @@ function NightProfilePostCard({ member }: { member: DirectoryMember }) {
           <time>13 de abr.</time>
         </div>
         <div className="member-profile-post-copy">
-          <p><strong>1.100 anúncios ativos</strong></p>
-          <p>Biblioteca de anúncios: [ <a>CLIQUE AQUI</a> ]</p>
-          <p>Página de vendas: [ <a>CLIQUE AQUI</a> ]<br />Checkout: [ <a>CLIQUE AQUI</a> ]</p>
-          <p>Quiz PÓS: [ <a>CLIQUE AQUI</a> ]<br />VSL PÓS: [ <a>CLIQUE AQUI</a> ]</p>
+          <p><strong>1.100 anÃºncios ativos</strong></p>
+          <p>Biblioteca de anÃºncios: [ <a>CLIQUE AQUI</a> ]</p>
+          <p>PÃ¡gina de vendas: [ <a>CLIQUE AQUI</a> ]<br />Checkout: [ <a>CLIQUE AQUI</a> ]</p>
+          <p>Quiz PÃ“S: [ <a>CLIQUE AQUI</a> ]<br />VSL PÃ“S: [ <a>CLIQUE AQUI</a> ]</p>
         </div>
       </div>
     </article>
@@ -537,8 +537,8 @@ function DbProfilePostCard({ post, member }: { post: FeedPost; member: Directory
       <div className="member-profile-post-inner">
         <div className="member-profile-post-title-row">
           <h3>{post.title}</h3>
-          <button type="button" aria-label="Salvar"><P6Icon name="icon-20-bookmark-v3" size={21} /></button>
-          <button type="button" aria-label="Ações"><P6Icon name="icon-16-menu-dots-horizontal" size={20} /></button>
+          <button type="button" aria-label="Salvar"><CommunityIcon name="icon-20-bookmark-v3" size={21} /></button>
+          <button type="button" aria-label="AÃ§Ãµes"><CommunityIcon name="icon-16-menu-dots-horizontal" size={20} /></button>
         </div>
         <div className="member-profile-post-author">
           <AvatarImage member={member} size={40} />
@@ -555,7 +555,7 @@ function DbProfilePostCard({ post, member }: { post: FeedPost; member: Directory
 function MemberCommentsPanel({ member }: { member: DirectoryMember }) {
   const comments = member.username === "night" ? nightComments : [];
   if (comments.length === 0) {
-    return <div className="member-profile-empty"><h3>Nenhum comentário ainda</h3><p>Os comentários deste membro serão exibidos aqui.</p></div>;
+    return <div className="member-profile-empty"><h3>Nenhum comentÃ¡rio ainda</h3><p>Os comentÃ¡rios deste membro serÃ£o exibidos aqui.</p></div>;
   }
 
   return (
@@ -575,11 +575,11 @@ function MemberCommentsPanel({ member }: { member: DirectoryMember }) {
 }
 
 const nightComments = [
-  { title: "Dia 1 - Progresso no novo FBM amazon", date: "jan 14", body: "Você é uma florzinha! Ter começado o método novo já enche a gente de orgulho, amamos voce!!!!" },
-  { title: "Resultados do método night15k", date: "jan 12", body: "não foi na s6xpay > judas" },
-  { title: "Dia 4 — Iniciando o Método Night15k", date: "jan 10", body: "Você desonrou o método, acabei de presenciar sua ausencia na call." },
+  { title: "Dia 1 - Progresso no novo FBM amazon", date: "jan 14", body: "VocÃª Ã© uma florzinha! Ter comeÃ§ado o mÃ©todo novo jÃ¡ enche a gente de orgulho, amamos voce!!!!" },
+  { title: "Resultados do mÃ©todo night15k", date: "jan 12", body: "nÃ£o foi na s6xpay > judas" },
+  { title: "Dia 4 â€” Iniciando o MÃ©todo Night15k", date: "jan 10", body: "VocÃª desonrou o mÃ©todo, acabei de presenciar sua ausencia na call." },
   { title: "Salmi 23", date: "jan 03", body: "Aula de OpSec vindai e vc me solta essa" },
-  { title: "Gratidão.", date: "dez 19", body: "", image: "/p6-members-assets/1772935473117.png" },
+  { title: "GratidÃ£o.", date: "dez 19", body: "", image: "/community-assets/1772935473117.png" },
 ];
 
 function MemberSpacesPanel() {
@@ -587,7 +587,7 @@ function MemberSpacesPanel() {
     <div className="member-spaces-list">
       {profileSpaces.map((space) => (
         <article key={space.name}>
-          <P6Icon name={space.icon} size={21} />
+          <CommunityIcon name={space.icon} size={21} />
           <div><h3>{space.name}</h3><p>{space.members} membros</p></div>
         </article>
       ))}
@@ -597,20 +597,20 @@ function MemberSpacesPanel() {
 
 const profileSpaces = [
   { name: "Economia", members: 857, icon: "icon-20-billing" },
-  { name: "Política Nacional", members: 857, icon: "icon-20-eye" },
-  { name: "Geopolítica", members: 857, icon: "icon-20-course-lesson" },
+  { name: "PolÃ­tica Nacional", members: 857, icon: "icon-20-eye" },
+  { name: "GeopolÃ­tica", members: 857, icon: "icon-20-course-lesson" },
   { name: "Geral", members: 857, icon: "icon-20-feed-v3" },
   { name: "Influencer IA & TikTok Dark", members: 856, icon: "icon-16-tiktok" },
   { name: "Central de Ajuda 'FBM'", members: 856, icon: "icon-20-amazon" },
-  { name: "Básico", members: 883, icon: "icon-20-calendar" },
+  { name: "BÃ¡sico", members: 883, icon: "icon-20-calendar" },
   { name: "FBA", members: 856, icon: "icon-20-amazon" },
 ];
 
 function MemberRewardsPanel() {
   return (
     <div className="member-profile-empty rewards">
-      <h3>Ainda não há recompensas</h3>
-      <p>As recompensas recebidas por este membro serão exibidas aqui.</p>
+      <h3>Ainda nÃ£o hÃ¡ recompensas</h3>
+      <p>As recompensas recebidas por este membro serÃ£o exibidas aqui.</p>
     </div>
   );
 }
@@ -634,8 +634,8 @@ function formatJoinedAgo(value: string) {
 
   const now = new Date();
   const months = Math.max(0, (now.getFullYear() - joined.getFullYear()) * 12 + now.getMonth() - joined.getMonth());
-  if (months >= 1) return `há ${months} ${months === 1 ? "mês" : "meses"}`;
+  if (months >= 1) return `hÃ¡ ${months} ${months === 1 ? "mÃªs" : "meses"}`;
 
   const days = Math.max(1, Math.round((now.getTime() - joined.getTime()) / 86400000));
-  return `há ${days} ${days === 1 ? "dia" : "dias"}`;
+  return `hÃ¡ ${days} ${days === 1 ? "dia" : "dias"}`;
 }

@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
-import { P6Icon } from "../../design-system";
+﻿import { useEffect, useMemo, useState } from "react";
+import { CommunityIcon } from "../../design-system";
 import { loadCourseOverview, type CourseOverviewCard } from "../../lib/communityApi";
 
 const categories = [
   "Todos",
   "Anonimato",
-  "Cibersegurança",
+  "CiberseguranÃ§a",
   "Criptomoedas",
   "Engenharia Social",
   "Hacking",
@@ -84,7 +84,7 @@ export function CoursesMain({ initialCategory = "Todos", title = "Cursos" }: Cou
             {categories.map((item) => (
               <button className={category === item ? "active" : ""} key={item} type="button" onClick={() => setCategory(item)}>
                 {item}
-                {item === "Mais" ? <P6Icon name="icon-12-chevron-down-v3" size={14} /> : null}
+                {item === "Mais" ? <CommunityIcon name="icon-12-chevron-down-v3" size={14} /> : null}
               </button>
             ))}
           </div>
@@ -97,9 +97,9 @@ export function CoursesMain({ initialCategory = "Todos", title = "Cursos" }: Cou
           ) : null}
           {!loading && !visibleCards.length ? (
             <div className="courses-empty">
-              <P6Icon name="icon-20-bookmark-v3" size={22} />
+              <CommunityIcon name="icon-20-bookmark-v3" size={22} />
               <strong>Nenhum curso encontrado</strong>
-              <span>Os cursos desta categoria aparecerão aqui.</span>
+              <span>Os cursos desta categoria aparecerÃ£o aqui.</span>
             </div>
           ) : null}
         </div>
@@ -123,10 +123,10 @@ function CourseCard({ card }: { card: CourseOverviewCard }) {
         {card.progress !== null ? (
           <span className="course-progress">
             <i style={{ width: `${card.progress}%` }} />
-            <em>{card.completed ? "Concluído" : `${card.progress}% Concluído`}</em>
+            <em>{card.completed ? "ConcluÃ­do" : `${card.progress}% ConcluÃ­do`}</em>
           </span>
         ) : null}
-        <span className="course-private">Espaço privado</span>
+        <span className="course-private">EspaÃ§o privado</span>
       </span>
     </button>
   );

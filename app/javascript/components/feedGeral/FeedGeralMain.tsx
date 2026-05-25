@@ -1,6 +1,6 @@
 ﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { P6Icon } from "../../design-system";
+import { CommunityIcon } from "../../design-system";
 import {
   createFeedComment,
   createFeedPost,
@@ -26,7 +26,7 @@ import { MemberCluster } from "../topbar/MemberCluster";
 
 const assetBase = "/Feed%20Geral%20_%20Project%20Six_files/";
 const asset = (name: string) => `${assetBase}${encodeURIComponent(name)}`;
-const sourceSixAsset = (name: string) => `/source-six-assets/${name}`;
+const sampleAsset = (name: string) => `/community-assets/${name}`;
 const POSTS_PAGE_SIZE = 8;
 
 const topMembers = [
@@ -98,7 +98,7 @@ const fallbackPosts: FeedPost[] = [
 const goatJornalista = {
   username: "goat-jornalista",
   name: "Goat Jornalista",
-  avatar: sourceSixAsset("Generated20Image20February200220202620-203_09PM.jpeg-c5fdca6c865d.jpg"),
+  avatar: sampleAsset("Generated20Image20February200220202620-203_09PM.jpeg-c5fdca6c865d.jpg"),
   badge: "Hackudo",
   level: "Nível 2",
   joinedAt: "Membro desde 2 de fevereiro de 2026",
@@ -138,7 +138,7 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
       id: "fallback-feed-1-mes",
       title: "1 mês de operação com uma oferta daqui!",
       body:
-        "É gratificante ver o que a P6 está fazendo! É uma comunidade sem igual. Esse resultado é de apenas um mês de operação em uma oferta daqui!",
+        "É gratificante ver o que a comunidade está fazendo! É uma comunidade sem igual. Esse resultado é de apenas um mês de operação em uma oferta daqui!",
       spaceSlug: "seu-progresso",
       kind: "image",
       topics: [],
@@ -153,7 +153,7 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
         {
           kind: "image",
           fileName: "Resultado da operação",
-          fileUrl: sourceSixAsset("WhatsApp20Image202026-04-2720at2022.07.18.jpeg-044a69000b23.jpg"),
+          fileUrl: sampleAsset("WhatsApp20Image202026-04-2720at2022.07.18.jpeg-044a69000b23.jpg"),
         },
       ],
       author: {
@@ -183,11 +183,11 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
       pinned: false,
       liked: false,
       saved: false,
-      attachments: [{ kind: "image", fileName: "s6xpay", fileUrl: "/source-six-assets/photo_2026-01-04_19-06-38-d345916d908e.jpg" }],
+      attachments: [{ kind: "image", fileName: "s6xpay", fileUrl: "/community-assets/photo_2026-01-04_19-06-38-d345916d908e.jpg" }],
       author: {
         username: "night",
         name: "Night",
-        avatar: "/p6-members-assets/Cindy.jpeg",
+        avatar: "/community-assets/Cindy.jpeg",
         badge: "Admin",
         level: "Nível 2",
         joinedAt: "Membro desde 3 de dezembro de 2025",
@@ -212,7 +212,7 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
       author: {
         username: "night",
         name: "Night",
-        avatar: "/p6-members-assets/Cindy.jpeg",
+        avatar: "/community-assets/Cindy.jpeg",
         badge: "Admin",
         level: "Nível 2",
         joinedAt: "Membro desde 3 de dezembro de 2025",
@@ -235,7 +235,7 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
       pinned: false,
       liked: false,
       saved: false,
-      attachments: [{ kind: "image", fileName: "amazon-print", fileUrl: "/source-six-assets/amazon20print-e1fd641ee262.png" }],
+      attachments: [{ kind: "image", fileName: "amazon-print", fileUrl: "/community-assets/amazon20print-e1fd641ee262.png" }],
       author: {
         username: "nixon",
         name: "nixon",
@@ -260,7 +260,7 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
       pinned: false,
       liked: false,
       saved: false,
-      attachments: [{ kind: "image", fileName: "seller-central", fileUrl: "/source-six-assets/Screenshot202026-03-1620at2019-41-2920Amazon-4f6b8ca93fbf.png" }],
+      attachments: [{ kind: "image", fileName: "seller-central", fileUrl: "/community-assets/Screenshot202026-03-1620at2019-41-2920Amazon-4f6b8ca93fbf.png" }],
       author: {
         username: "nixon",
         name: "nixon",
@@ -279,7 +279,7 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
   geopolitica: [
     channelPost("geopolitica", "fallback-geopolitica-boa-vista", "PM de folga impede assalto à mão armada em posto de Boa Vista, RR", "Um policial militar de folga frustrou um assalto a um posto de combustíveis no bairro Asa Branca, em Boa Vista, na manhã desta segunda-feira (2). Dois jovens, de 24 e 26 anos, foram presos em flagrante. 🚨\n\nDe acordo com a Polícia Militar, o PM estava ...", {
       likes: 2,
-      attachments: [{ kind: "image", fileName: "editassalto", fileUrl: sourceSixAsset("editassalto-f13ba143ba31.jpg") }],
+      attachments: [{ kind: "image", fileName: "editassalto", fileUrl: sampleAsset("editassalto-f13ba143ba31.jpg") }],
     }),
     channelPost("geopolitica", "fallback-geopolitica-humor-sazonal", "Cientistas Descobrem \"Engrenagens\" Genéticas do Humor Sazonal", "Pesquisadores identificaram mecanismos genéticos que ajudam a explicar variações de humor em diferentes períodos do ano."),
     channelPost("geopolitica", "fallback-geopolitica-gas", "Turquia e Azerbaijão vão provar fornecimento de gás não russo à UE", "A Turquia e o Azerbaijão se comprometeram a demonstrar que estão fornecendo gás não russo para a União Europeia, conforme exigido por uma nova regulamentação da UE."),
@@ -310,8 +310,8 @@ const feedFallbackPostsBySlug: Record<string, FeedPost[]> = {
     channelPost("marketing-digital", "fallback-marketing-psicologia", "Psicologia na Publicidade: Transformando Comportamento em Conversões Reais", "A publicidade vai muito além de métricas e investimento em mídia; é uma disputa por atenção, memória e decisão."),
   ],
   "mr-robot": [
-    channelPost("mr-robot", "fallback-mr-robot-ciber", "Segurança Cibernética Precisa de Produtos Inovadores, Diz Especialista", "Um especialista da comunidade Project Six levantou uma questão crucial: a necessidade urgente de uma nova abordagem em segurança cibernética. Segundo ele, a área tem falhado em demonstrar seu real valor para os negócios nas últimas décadas."),
-    channelPost("mr-robot", "fallback-mr-robot-paimm", "Modelo de Maturidade em IA Pessoal (PAIMM) Ganha Destaque", "Desde 2016, com a publicação do livro The Real Internet of Things, a comunidade Project Six tem refletido sobre o Modelo de Maturidade em IA Pessoal (PAIMM)."),
+    channelPost("mr-robot", "fallback-mr-robot-ciber", "Segurança Cibernética Precisa de Produtos Inovadores, Diz Especialista", "Um especialista da comunidade Comunidade levantou uma questão crucial: a necessidade urgente de uma nova abordagem em segurança cibernética. Segundo ele, a área tem falhado em demonstrar seu real valor para os negócios nas últimas décadas."),
+    channelPost("mr-robot", "fallback-mr-robot-paimm", "Modelo de Maturidade em IA Pessoal (PAIMM) Ganha Destaque", "Desde 2016, com a publicação do livro The Real Internet of Things, a comunidade Comunidade tem refletido sobre o Modelo de Maturidade em IA Pessoal (PAIMM)."),
     channelPost("mr-robot", "fallback-mr-robot-china", "China se Consolida como Fundo de Private Equity Global 🌎", "A análise compara movimentos de capital, tecnologia e infraestrutura para explicar a consolidação chinesa no cenário global."),
   ],
 };
@@ -491,7 +491,7 @@ export function FeedGeralMain({
     const optimistic = { ...post, liked: nextLiked, likes: Math.max(0, post.likes + (nextLiked ? 1 : -1)) };
     updatePostState(optimistic);
 
-    if (post.id.startsWith("fallback") || post.id.startsWith("source-six-")) return;
+    if (post.id.startsWith("fallback") || post.id.startsWith("community-")) return;
     const updated = await togglePostReaction(post.id).catch(() => optimistic);
     updatePostState({ ...updated, liked: nextLiked });
   };
@@ -500,7 +500,7 @@ export function FeedGeralMain({
     const optimistic = { ...post, saved: !post.saved };
     updatePostState(optimistic);
 
-    if (post.id.startsWith("fallback") || post.id.startsWith("source-six-")) return;
+    if (post.id.startsWith("fallback") || post.id.startsWith("community-")) return;
     await togglePostSave(post.id).catch(() => undefined);
   };
 
@@ -526,7 +526,7 @@ export function FeedGeralMain({
                 setShowSort((current) => !current);
               }}
             >
-              {sortLabel} <P6Icon name="icon-12-chevron-down-v3" size={14} />
+              {sortLabel} <CommunityIcon name="icon-12-chevron-down-v3" size={14} />
             </button>
             {showSort ? <FeedSortMenu value={sortLabel} onSelect={(value) => { setSortLabel(value); setShowSort(false); }} /> : null}
           </div>
@@ -543,7 +543,7 @@ export function FeedGeralMain({
                 setShowMagic((current) => !current);
               }}
             >
-              <P6Icon name="icon-20-stardust-gradient" size={20} />
+              <CommunityIcon name="icon-20-stardust-gradient" size={20} />
             </button>
             {showMagic ? <FeedMagicMenu /> : null}
           </div>
@@ -564,7 +564,7 @@ export function FeedGeralMain({
                 setShowSettings((current) => !current);
               }}
             >
-              <P6Icon name="icon-16-menu-dots-horizontal" size={20} />
+              <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
             </button>
             {showSettings ? <FeedSettingsMenu /> : null}
           </div>
@@ -574,7 +574,7 @@ export function FeedGeralMain({
       <div className="general-feed-scroll">
         {heroVisible ? (
           <div className="general-feed-hero">
-            <img src={heroImage} alt={`Project Six ${title}`} />
+            <img src={heroImage} alt={`Comunidade ${title}`} />
           </div>
         ) : null}
 
@@ -587,7 +587,7 @@ export function FeedGeralMain({
                 </button>
               ))}
               <button type="button">
-                Mais <P6Icon name="icon-12-chevron-down-v3" size={15} />
+                Mais <CommunityIcon name="icon-12-chevron-down-v3" size={15} />
               </button>
             </div> : null}
 
@@ -595,7 +595,7 @@ export function FeedGeralMain({
               <span className="general-va">{viewerAvatar.slice(0, 2)}</span>
               <span>Criar uma publicação</span>
               <i>
-                <P6Icon name="icon-20-plus-v3" size={21} />
+                <CommunityIcon name="icon-20-plus-v3" size={21} />
               </i>
             </button> : null}
 
@@ -716,10 +716,10 @@ function FeedPostCard({
         </button>
         <div className="general-post-menu-wrap">
           <button className={post.saved ? "active" : ""} type="button" aria-label="Salvar" onClick={onSave}>
-            <P6Icon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={21} />
+            <CommunityIcon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={21} />
           </button>
           <button type="button" aria-label="Mais" onClick={() => setMenuOpen((current) => !current)}>
-            <P6Icon name="icon-16-menu-dots-horizontal" size={20} />
+            <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
           </button>
           {menuOpen ? <PostMenu onEdit={onEdit} onDelete={onDelete} /> : null}
         </div>
@@ -751,10 +751,10 @@ function FeedPostCard({
       <footer className="general-post-footer">
         <div>
           <button className={post.liked ? "liked" : ""} type="button" aria-label="Curtir" onClick={onLike}>
-            <P6Icon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
+            <CommunityIcon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
           </button>
           <button type="button" aria-label="Comentar" onClick={() => onOpen(modalType)}>
-            <P6Icon name="icon-20-comment" size={20} />
+            <CommunityIcon name="icon-20-comment" size={20} />
           </button>
         </div>
         <button className="general-engagement" type="button" onClick={post.likes > 0 ? onLikes : () => onOpen(modalType)}>
@@ -776,23 +776,23 @@ function PostMenu({ onEdit, onDelete }: { onEdit: () => void; onDelete: () => vo
   return (
     <div className="feed-post-menu">
       <button type="button" onClick={() => navigator.clipboard?.writeText(window.location.href)}>
-        <P6Icon name="icon-20-link" size={16} />
+        <CommunityIcon name="icon-20-link" size={16} />
         Copiar link
       </button>
       <button type="button" onClick={() => window.alert("Você receberá notificações desta publicação.")}>
-        <P6Icon name="icon-20-bell-v3" size={16} />
+        <CommunityIcon name="icon-20-bell-v3" size={16} />
         Seguir publicação
       </button>
       <button type="button" onClick={() => window.alert("Denúncia registrada para análise.")}>
-        <P6Icon name="icon-report" size={16} />
+        <CommunityIcon name="icon-report" size={16} />
         Denunciar
       </button>
       <button type="button" onClick={onEdit}>
-        <P6Icon name="icon-20-edit-v3" size={16} />
+        <CommunityIcon name="icon-20-edit-v3" size={16} />
         Editar publicação
       </button>
       <button type="button" onClick={onDelete}>
-        <P6Icon name="icon-20-bin-v3" size={16} />
+        <CommunityIcon name="icon-20-bin-v3" size={16} />
         Excluir publicação
       </button>
     </div>
@@ -897,7 +897,7 @@ function FeedMagicMenu() {
     <div className="feed-magic-menu" role="menu" aria-label="Destaques do espaço">
       {actions.map((action) => (
         <button type="button" role="menuitem" key={action} onClick={() => window.alert(`${action} preparado.`)}>
-          <P6Icon name="icon-20-stardust-gradient" size={16} />
+          <CommunityIcon name="icon-20-stardust-gradient" size={16} />
           {action}
         </button>
       ))}
@@ -1026,13 +1026,13 @@ function CreatePostModal({
           <h2>{post ? "Editar publicação" : "Criar publicação"}</h2>
           <div>
             <button type="button" aria-label="Duplicar">
-              <P6Icon name="icon-20-copy" size={18} />
+              <CommunityIcon name="icon-20-copy" size={18} />
             </button>
             <button type="button" aria-label="Expandir">
-              <P6Icon name="icon-20-expand" size={18} />
+              <CommunityIcon name="icon-20-expand" size={18} />
             </button>
             <button type="button" aria-label="Fechar" onClick={onClose}>
-              <P6Icon name="icon-20-close" size={20} />
+              <CommunityIcon name="icon-20-close" size={20} />
             </button>
           </div>
         </header>
@@ -1052,39 +1052,39 @@ function CreatePostModal({
           <input ref={fileInputRef} className="feed-hidden-file" type="file" multiple onChange={(event) => handleFiles(event.target.files)} />
           <div className="create-post-tools">
             <button type="button" aria-label="Adicionar" onClick={() => toggleTool("add")}>
-              <P6Icon name="icon-20-plus-v3" size={18} />
+              <CommunityIcon name="icon-20-plus-v3" size={18} />
             </button>
             <button type="button" aria-label="Tópico" onClick={() => toggleTool("topic")}>
-              <P6Icon name="icon-12-globe" size={18} />
+              <CommunityIcon name="icon-12-globe" size={18} />
             </button>
             <button type="button" aria-label="Anexo" onClick={() => fileInputRef.current?.click()}>
-              <P6Icon name="icon-20-attach" size={18} />
+              <CommunityIcon name="icon-20-attach" size={18} />
             </button>
             <button type="button" aria-label="Vídeo" onClick={() => fileInputRef.current?.click()}>
-              <P6Icon name="icon-20-video" size={18} />
+              <CommunityIcon name="icon-20-video" size={18} />
             </button>
             <button type="button" aria-label="GIF" onClick={() => toggleTool("gif")}>
               <span>GIF</span>
             </button>
             <button type="button" aria-label="Imagem" onClick={() => fileInputRef.current?.click()}>
-              <P6Icon name="icon-20-image-v3" size={18} />
+              <CommunityIcon name="icon-20-image-v3" size={18} />
             </button>
             <button type="button" aria-label="Emoji" onClick={() => toggleTool("emoji")}>
-              <P6Icon name="icon-20-emoji" size={18} />
+              <CommunityIcon name="icon-20-emoji" size={18} />
             </button>
             <button type="button" aria-label="Enquete" onClick={() => insertText("\n\n[Enquete]\n- Opção 1\n- Opção 2")}>
-              <P6Icon name="icon-20-chart" size={18} />
+              <CommunityIcon name="icon-20-chart" size={18} />
             </button>
             <button type="button" aria-label="Áudio" onClick={() => insertText("[Mensagem de áudio]")}>
-              <P6Icon name="icon-20-microphone" size={18} />
+              <CommunityIcon name="icon-20-microphone" size={18} />
             </button>
             <button type="button" aria-label="Câmera" onClick={() => fileInputRef.current?.click()}>
-              <P6Icon name="icon-20-camera" size={18} />
+              <CommunityIcon name="icon-20-camera" size={18} />
             </button>
           </div>
           <div className="create-post-publish">
             <span>
-              Publicando em: <strong>{spaceName}</strong> <P6Icon name="icon-12-chevron-down-v3" size={14} />
+              Publicando em: <strong>{spaceName}</strong> <CommunityIcon name="icon-12-chevron-down-v3" size={14} />
             </span>
             <button type="button" disabled={!body.trim() || publishing} onClick={handleSubmit}>
               {publishing ? "Publicando" : "Publicar"}
@@ -1166,10 +1166,10 @@ function ImageViewerModal({ post, attachment, onClose }: { post: FeedPost; attac
           <h2>{target.fileName}</h2>
           <div>
             <a href={target.fileUrl} download={target.fileName} aria-label="Baixar">
-              <P6Icon name="icon-20-download" size={19} />
+              <CommunityIcon name="icon-20-download" size={19} />
             </a>
             <button type="button" aria-label="Fechar" onClick={onClose}>
-              <P6Icon name="icon-20-close" size={22} />
+              <CommunityIcon name="icon-20-close" size={22} />
             </button>
           </div>
         </header>
@@ -1206,23 +1206,23 @@ function CompactPostModal({
       if (event.target === event.currentTarget) onClose();
     }}>
       <button className="post-modal-arrow left" type="button" aria-label="Publicação anterior">
-        <P6Icon name="chevron-left-lg" sprite="compass" size={22} />
+        <CommunityIcon name="chevron-left-lg" sprite="compass" size={22} />
       </button>
       <section className="compact-post-modal" role="dialog" aria-modal="true" aria-label={post.title}>
         <header>
           <h2>{post.title}</h2>
           <div>
             <button className={post.saved ? "active" : ""} type="button" aria-label="Salvar" onClick={onSave}>
-              <P6Icon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={21} />
+              <CommunityIcon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={21} />
             </button>
             <button type="button" aria-label="Mais">
-              <P6Icon name="icon-16-menu-dots-horizontal" size={21} />
+              <CommunityIcon name="icon-16-menu-dots-horizontal" size={21} />
             </button>
             <button type="button" aria-label="Expandir">
-              <P6Icon name="icon-20-expand" size={20} />
+              <CommunityIcon name="icon-20-expand" size={20} />
             </button>
             <button type="button" aria-label="Fechar" onClick={onClose}>
-              <P6Icon name="icon-20-close" size={22} />
+              <CommunityIcon name="icon-20-close" size={22} />
             </button>
           </div>
         </header>
@@ -1232,10 +1232,10 @@ function CompactPostModal({
           <footer className="compact-post-actions">
             <div>
               <button className={post.liked ? "liked" : ""} type="button" aria-label="Curtir" onClick={onLike}>
-                <P6Icon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
+                <CommunityIcon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
               </button>
               <button type="button" aria-label="Comentar">
-                <P6Icon name="icon-20-comment" size={20} />
+                <CommunityIcon name="icon-20-comment" size={20} />
               </button>
             </div>
             <button className="general-engagement" type="button" onClick={onLikes}>
@@ -1254,7 +1254,7 @@ function CompactPostModal({
         </div>
       </section>
       <button className="post-modal-arrow right" type="button" aria-label="Próxima publicação">
-        <P6Icon name="chevron-right-lg" sprite="compass" size={22} />
+        <CommunityIcon name="chevron-right-lg" sprite="compass" size={22} />
       </button>
     </div>,
     document.body,
@@ -1277,7 +1277,7 @@ function LikesModal({ post, onClose }: { post: FeedPost; onClose: () => void }) 
         <header>
           <h2>{Math.max(post.likes, likes.length)} Curtir</h2>
           <button type="button" aria-label="Fechar" onClick={onClose}>
-            <P6Icon name="icon-20-close" size={22} />
+            <CommunityIcon name="icon-20-close" size={22} />
           </button>
         </header>
         {(likes.length ? likes : [{ id: "curly", author: { name: "Curly Silver", avatar: asset("424eae48f9d2135edb461bf04289b99e.png"), username: "curly" }, emoji: "like", postId: post.id }]).map((like) => (
@@ -1318,26 +1318,26 @@ function PostDetailModal({
       if (event.target === event.currentTarget) onClose();
     }}>
       <button className="post-modal-arrow left" type="button" aria-label="Publicação anterior">
-        <P6Icon name="chevron-left-lg" sprite="compass" size={22} />
+        <CommunityIcon name="chevron-left-lg" sprite="compass" size={22} />
       </button>
       <section className="post-detail-modal" role="dialog" aria-modal="true" aria-label={post.title}>
         <header>
           <h2>{post.title}</h2>
           <div>
             <button type="button" aria-label="Destaques">
-              <P6Icon name="icon-20-stardust-gradient" size={20} />
+              <CommunityIcon name="icon-20-stardust-gradient" size={20} />
             </button>
             <button className={post.saved ? "active" : ""} type="button" aria-label="Salvar" onClick={onSave}>
-              <P6Icon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={20} />
+              <CommunityIcon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={20} />
             </button>
             <button type="button" aria-label="Mais">
-              <P6Icon name="icon-16-menu-dots-horizontal" size={20} />
+              <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
             </button>
             <button type="button" aria-label="Expandir">
-              <P6Icon name="icon-20-expand" size={20} />
+              <CommunityIcon name="icon-20-expand" size={20} />
             </button>
             <button type="button" aria-label="Fechar" onClick={onClose}>
-              <P6Icon name="icon-20-close" size={22} />
+              <CommunityIcon name="icon-20-close" size={22} />
             </button>
           </div>
         </header>
@@ -1358,10 +1358,10 @@ function PostDetailModal({
           <footer className="post-detail-footer">
             <div>
               <button className={post.liked ? "liked" : ""} type="button" aria-label="Curtir" onClick={onLike}>
-                <P6Icon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
+                <CommunityIcon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
               </button>
               <button type="button" aria-label="Comentar">
-                <P6Icon name="icon-20-comment" size={20} />
+                <CommunityIcon name="icon-20-comment" size={20} />
               </button>
             </div>
             <button className="general-engagement" type="button" onClick={onLikes}>
@@ -1380,7 +1380,7 @@ function PostDetailModal({
         </div>
       </section>
       <button className="post-modal-arrow right" type="button" aria-label="Próxima publicação">
-        <P6Icon name="chevron-right-lg" sprite="compass" size={22} />
+        <CommunityIcon name="chevron-right-lg" sprite="compass" size={22} />
       </button>
     </div>,
     document.body,
@@ -1412,7 +1412,7 @@ function CommentList({ post, compact = false }: { post: FeedPost; compact?: bool
             <small>Curtir&nbsp;&nbsp;Responder</small>
           </div>
           <button type="button" aria-label="Mais">
-            <P6Icon name="icon-16-menu-dots-horizontal" size={18} />
+            <CommunityIcon name="icon-16-menu-dots-horizontal" size={18} />
           </button>
           {comment.reactions ? <b>{comment.reactions} curtida</b> : null}
         </div>
@@ -1475,7 +1475,7 @@ function LikeAvatars({ count, viewerAvatar }: { count: number; viewerAvatar: str
 function FileAttachment({ attachment }: { attachment: FeedAttachment }) {
   return (
     <span className="feed-file-attachment">
-      <P6Icon name="icon-20-doc" size={22} />
+      <CommunityIcon name="icon-20-doc" size={22} />
       {attachment.fileName}
     </span>
   );

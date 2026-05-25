@@ -1,4 +1,4 @@
-type AvatarProps = {
+﻿type AvatarProps = {
   src?: string;
   name: string;
   size?: "sm" | "md" | "lg";
@@ -22,9 +22,9 @@ export function Avatar({ src, name, size = "md", status, className = "" }: Avata
     .toUpperCase();
 
   return (
-    <span className={`p6-avatar ${className}`.trim()} style={{ width: px, height: px }}>
+    <span className={`cs-avatar ${className}`.trim()} style={{ width: px, height: px }}>
       {src ? <img src={src} alt={name} /> : initials}
-      {status ? <i className={`p6-avatar-status ${status === "away" ? "is-away" : ""}`} /> : null}
+      {status ? <i className={`cs-avatar-status ${status === "away" ? "is-away" : ""}`} /> : null}
     </span>
   );
 }

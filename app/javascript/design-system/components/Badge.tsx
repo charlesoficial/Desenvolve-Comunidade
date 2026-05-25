@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 
 type BadgeProps = {
   children: ReactNode;
@@ -6,5 +6,5 @@ type BadgeProps = {
 };
 
 export function Badge({ children, tone = "brand" }: BadgeProps) {
-  return <span className={tone === "admin" ? "p6-admin-badge" : "author-badge"}>{children}</span>;
+  return <span className={tone === "admin" ? "cs-admin-badge" : "author-badge"}>{children}</span>;
 }

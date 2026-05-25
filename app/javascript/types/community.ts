@@ -1,5 +1,5 @@
-import type { ComponentType } from "react";
-import type { P6GlyphProps } from "../design-system/components/P6Icon";
+﻿import type { ComponentType } from "react";
+import type { P6GlyphProps } from "../design-system/components/CommunityIcon";
 
 export type SidebarItem = {
   id: string;

@@ -28,3 +28,17 @@ tmp
 *.njsproj
 *.sln
 *.sw?
+
+# Backups locais (rebrand, migrations, etc)
+*.backup-*
+*.backup
+
+# Lixo de captura visual antigo (P6/sourceSix)
+SOURCE-SIX/
+chatdirect.html
+chatdirect_files/
+OBISIDIAN-CEREBRAL/
+.playwright-mcp/
+
+# Build error logs
+build-error.txt

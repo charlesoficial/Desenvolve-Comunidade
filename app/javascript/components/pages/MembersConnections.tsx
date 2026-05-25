@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { P6Icon } from "../../design-system";
+﻿import { useEffect, useMemo, useState } from "react";
+import { CommunityIcon } from "../../design-system";
 import {
   createDirectMessage,
   createMemberConnection,
@@ -42,7 +42,7 @@ function orderDmMembers(rows: DirectoryMember[]) {
 
 function compactLastSeen(member: DirectoryMember) {
   if (member.status === "online") return "agora";
-  return member.lastSeen.replace(/^Visto pela última vez\s*/i, "");
+  return member.lastSeen.replace(/^Visto pela Ãºltima vez\s*/i, "");
 }
 
 function memberFromConversation(conversation: DirectConversation, members: DirectoryMember[]): DirectoryMember {
@@ -60,7 +60,7 @@ function memberFromConversation(conversation: DirectConversation, members: Direc
     role: conversation.memberRole,
     level: conversation.memberUsername === "night" ? 7 : 1,
     joinedAt: conversation.memberUsername === "night" ? "2025-12-03T12:00:00Z" : conversation.lastMessageAt,
-    lastSeen: conversation.memberUsername === "night" ? "Visto pela última vez há 2 dias" : "Visto pela última vez há 2 dias",
+    lastSeen: conversation.memberUsername === "night" ? "Visto pela Ãºltima vez hÃ¡ 2 dias" : "Visto pela Ãºltima vez hÃ¡ 2 dias",
     bio: "",
     tags: conversation.memberUsername === "night" ? ["p6 Veterano", "p6 Goat", "Hackudo"] : [],
     points: conversation.memberUsername === "night" ? 345 : 0,
@@ -122,7 +122,7 @@ export function MembersConnections() {
         }
       })
       .catch((requestError) => {
-        if (alive) setError(requestError instanceof Error ? requestError.message : "Não foi possível carregar as conversas.");
+        if (alive) setError(requestError instanceof Error ? requestError.message : "NÃ£o foi possÃ­vel carregar as conversas.");
       })
       .finally(() => {
         if (alive) setLoading(false);
@@ -172,7 +172,7 @@ export function MembersConnections() {
       .catch((requestError) => {
         if (!alive) return;
         setMessages([]);
-        setMessageError(requestError instanceof Error ? requestError.message : "Não foi possível abrir a conversa.");
+        setMessageError(requestError instanceof Error ? requestError.message : "NÃ£o foi possÃ­vel abrir a conversa.");
       })
       .finally(() => {
         if (alive) setMessagesLoading(false);
@@ -230,7 +230,7 @@ export function MembersConnections() {
   return (
     <main className="members-connections-main">
       <button className="dm-overlay-close" type="button" aria-label="Fechar mensagens diretas" onClick={closeDirectMessages}>
-        <P6Icon name="icon-20-close" size={22} />
+        <CommunityIcon name="icon-20-close" size={22} />
       </button>
       <section className="dm-shell" aria-label="Mensagens diretas">
         <aside className="dm-inbox">
@@ -238,23 +238,23 @@ export function MembersConnections() {
             <h1>Mensagens diretas</h1>
             <div>
               <button type="button" aria-label="Marcar como lidas">
-                <P6Icon name="icon-20-message-check" size={18} />
+                <CommunityIcon name="icon-20-message-check" size={18} />
               </button>
               <button type="button" aria-label="Nova mensagem">
-                <P6Icon name="icon-16-plus-v2" size={18} />
+                <CommunityIcon name="icon-16-plus-v2" size={18} />
               </button>
             </div>
           </header>
           <nav className="dm-tabs" aria-label="Mensagens diretas">
             <button className={activeTab === "inbox" ? "active" : ""} type="button" onClick={() => setActiveTab("inbox")}>Inbox</button>
-            <button className={activeTab === "unread" ? "active" : ""} type="button" onClick={() => setActiveTab("unread")}>Não lidas</button>
+            <button className={activeTab === "unread" ? "active" : ""} type="button" onClick={() => setActiveTab("unread")}>NÃ£o lidas</button>
             <button className={activeTab === "agents" ? "active" : ""} type="button" onClick={() => setActiveTab("agents")}>
-              <P6Icon name="icon-20-sparkle" size={13} />
+              <CommunityIcon name="icon-20-sparkle" size={13} />
               Agentes
             </button>
           </nav>
           <label className="dm-search">
-            <P6Icon name="icon-16-magnifying-glass" size={16} />
+            <CommunityIcon name="icon-16-magnifying-glass" size={16} />
             <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Pesquisar por um nome" />
           </label>
           <div className="dm-list">
@@ -277,7 +277,7 @@ export function MembersConnections() {
                   <small>{conversationPreview(entry.conversation, entry.member)}</small>
                 </span>
                 {!entry.conversation && index === 0 ? <time>novo</time> : null}
-                {entry.conversation?.unread ? <em aria-label={`${entry.conversation.unreadCount} não lida`} /> : null}
+                {entry.conversation?.unread ? <em aria-label={`${entry.conversation.unreadCount} nÃ£o lida`} /> : null}
               </button>
             ))}
           </div>
@@ -289,14 +289,14 @@ export function MembersConnections() {
               <header className="dm-thread-header">
                 <button type="button" className="dm-thread-title">
                   {selectedMember.name}
-                  <P6Icon name="icon-12-chevron-down-v3" size={14} />
+                  <CommunityIcon name="icon-12-chevron-down-v3" size={14} />
                 </button>
                 <div className="dm-thread-actions">
                   <button type="button" aria-label="Pesquisar conversa">
-                    <P6Icon name="icon-16-magnifying-glass" size={18} />
+                    <CommunityIcon name="icon-16-magnifying-glass" size={18} />
                   </button>
                   <button type="button" aria-label="Abrir detalhes">
-                    <P6Icon name="icon-20-arrow-right" size={18} />
+                    <CommunityIcon name="icon-20-arrow-right" size={18} />
                   </button>
                 </div>
               </header>
@@ -308,18 +308,18 @@ export function MembersConnections() {
                   <article className={message.author === "viewer" ? "dm-message is-viewer" : "dm-message"} key={message.id}>
                     {message.author === "member" ? <Avatar member={selectedMember} size={36} /> : null}
                     {message.variant === "welcome" ? (
-                      <div className="dm-message-actions" aria-label="Ações da mensagem">
+                      <div className="dm-message-actions" aria-label="AÃ§Ãµes da mensagem">
                         <button type="button" aria-label="Reagir">
-                          <P6Icon name="icon-20-reaction" size={17} />
+                          <CommunityIcon name="icon-20-reaction" size={17} />
                         </button>
                         <button type="button" aria-label="Salvar">
-                          <P6Icon name="icon-20-bookmark-v3" size={17} />
+                          <CommunityIcon name="icon-20-bookmark-v3" size={17} />
                         </button>
                         <button type="button" aria-label="Comentar">
-                          <P6Icon name="icon-20-comment" size={17} />
+                          <CommunityIcon name="icon-20-comment" size={17} />
                         </button>
-                        <button type="button" aria-label="Mais opções">
-                          <P6Icon name="icon-16-menu-dots-horizontal" size={17} />
+                        <button type="button" aria-label="Mais opÃ§Ãµes">
+                          <CommunityIcon name="icon-16-menu-dots-horizontal" size={17} />
                         </button>
                       </div>
                     ) : null}
@@ -340,7 +340,7 @@ export function MembersConnections() {
             </>
           ) : (
             <div className="dm-empty">
-              <P6Icon name="icon-20-message-v3" size={32} />
+              <CommunityIcon name="icon-20-message-v3" size={32} />
               <h2>Selecione uma conversa</h2>
               <p>As mensagens diretas aparecem aqui.</p>
             </div>
@@ -358,23 +358,23 @@ export function MembersConnections() {
                 <div>
                   <h3>{selectedMember.name}</h3>
                   <button type="button" aria-label="Copiar link do perfil">
-                    <P6Icon name="icon-20-link" size={19} />
+                    <CommunityIcon name="icon-20-link" size={19} />
                   </button>
                 </div>
               </div>
               {selectedMember.role === "admin" || selectedMember.role === "owner" ? <em className="admin-badge">ADMINISTRADOR</em> : null}
               <nav className="dm-profile-tabs" aria-label="Perfil">
                 <button className="active" type="button">Sobre</button>
-                <button type="button">Publicações</button>
-                <button type="button">Comentários</button>
-                <button type="button">Espaços</button>
+                <button type="button">PublicaÃ§Ãµes</button>
+                <button type="button">ComentÃ¡rios</button>
+                <button type="button">EspaÃ§os</button>
               </nav>
               <dl>
                 <div>
-                  <dt><P6Icon name="icon-16-calendar-join-date" size={16} /> Membro desde {formatLongDate(selectedMember.joinedAt)}</dt>
+                  <dt><CommunityIcon name="icon-16-calendar-join-date" size={16} /> Membro desde {formatLongDate(selectedMember.joinedAt)}</dt>
                 </div>
                 <div>
-                  <dt><P6Icon name="icon-16-clock" size={16} /> Visto pela última vez {compactLastSeen(selectedMember)}</dt>
+                  <dt><CommunityIcon name="icon-16-clock" size={16} /> Visto pela Ãºltima vez {compactLastSeen(selectedMember)}</dt>
                 </div>
               </dl>
               <section>
@@ -397,27 +397,27 @@ export function MembersConnections() {
 function WelcomeMessage() {
   return (
     <div className="dm-welcome-copy">
-      <p><strong>Olá, Vítor Santos Araujo!</strong> Seja muito bem-vindo(a) ao <strong>Project Six.</strong></p>
-      <p>Parabéns por se tornar um <strong>Goat!</strong> Estamos muito felizes em ter você no Project Six. Para começar com o pé direito, siga estes 3 passos essenciais:</p>
+      <p><strong>OlÃ¡, VÃ­tor Santos Araujo!</strong> Seja muito bem-vindo(a) ao <strong>Comunidade.</strong></p>
+      <p>ParabÃ©ns por se tornar um <strong>Goat!</strong> Estamos muito felizes em ter vocÃª no Comunidade. Para comeÃ§ar com o pÃ© direito, siga estes 3 passos essenciais:</p>
       <ol>
         <li><strong>Entre no Discord:</strong> <a>Clique aqui para entrar.</a></li>
       </ol>
       <ul>
         <li><em>Importante:</em> Para liberar seu acesso, insira o mesmo e-mail utilizado na compra. <span>( studiocibernetic@gmail.com )</span></li>
-        <li><strong>Entrar no Discord facilita sua iniciação com nossos fóruns de ajuda entre membros.</strong> Não se esqueça de entrar!</li>
+        <li><strong>Entrar no Discord facilita sua iniciaÃ§Ã£o com nossos fÃ³runs de ajuda entre membros.</strong> NÃ£o se esqueÃ§a de entrar!</li>
       </ul>
-      <p>Você também consegue ver o progresso dos membros da comunidade</p>
+      <p>VocÃª tambÃ©m consegue ver o progresso dos membros da comunidade</p>
       <ol start={2}>
-        <li><strong>Conheça a Comunidade.</strong> Acesse a página Sobre Nós: <a>Clique Aqui</a></li>
+        <li><strong>ConheÃ§a a Comunidade.</strong> Acesse a pÃ¡gina Sobre NÃ³s: <a>Clique Aqui</a></li>
       </ol>
-      <blockquote>É o ponto de partida ideal para entender onde você acaba de entrar.</blockquote>
+      <blockquote>Ã‰ o ponto de partida ideal para entender onde vocÃª acaba de entrar.</blockquote>
       <ol start={2}>
         <li><strong>Leia as Regras:</strong> <a>Clique Aqui</a></li>
       </ol>
-      <blockquote>É fundamental para mantermos a ordem na casa.</blockquote>
-      <p>Agora você faz parte de um universo de oportunidades. Aproveite cada uma delas!</p>
-      <p>Não fique perdido: assista às aulas do Método P6 aqui: <a>#Fulfillment by Merchant</a></p>
-      <p>E não se esqueça de entrar no Discord e resgatar seu acesso para explorar os fóruns de ajuda da comunidade. Não perca tempo e comece agora!</p>
+      <blockquote>Ã‰ fundamental para mantermos a ordem na casa.</blockquote>
+      <p>Agora vocÃª faz parte de um universo de oportunidades. Aproveite cada uma delas!</p>
+      <p>NÃ£o fique perdido: assista Ã s aulas do MÃ©todo Comunidade aqui: <a>#Fulfillment by Merchant</a></p>
+      <p>E nÃ£o se esqueÃ§a de entrar no Discord e resgatar seu acesso para explorar os fÃ³runs de ajuda da comunidade. NÃ£o perca tempo e comece agora!</p>
     </div>
   );
 }

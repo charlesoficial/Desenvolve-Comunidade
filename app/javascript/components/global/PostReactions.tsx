@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { P6Icon } from "../../design-system";
+﻿import { useEffect, useRef, useState } from "react";
+import { CommunityIcon } from "../../design-system";
 import { togglePostReaction } from "../../lib/communityApi";
 
-const emojis = ["❤️", "🔥", "👏", "💡", "👀"];
+const emojis = ["â¤ï¸", "ðŸ”¥", "ðŸ‘", "ðŸ’¡", "ðŸ‘€"];
 
 export function PostReactions({
   liked,
@@ -44,7 +44,7 @@ export function PostReactions({
     onChange?.(next, nextCount);
     setOpen(false);
 
-    if (postId.startsWith("fallback") || postId.startsWith("source-six-")) return;
+    if (postId.startsWith("fallback") || postId.startsWith("community-")) return;
     await togglePostReaction(postId).catch(() => undefined);
   }
 
@@ -57,11 +57,11 @@ export function PostReactions({
         aria-haspopup="menu"
         onClick={() => setOpen((current) => !current)}
       >
-        <P6Icon name={active ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={22} />
+        <CommunityIcon name={active ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={22} />
         <span>{count}</span>
       </button>
       {open ? (
-        <div className="post-reaction-picker" role="menu" aria-label="Reações">
+        <div className="post-reaction-picker" role="menu" aria-label="ReaÃ§Ãµes">
           {emojis.map((emoji) => <button type="button" role="menuitem" key={emoji} onClick={react}>{emoji}</button>)}
         </div>
       ) : null}

@@ -1,12 +1,12 @@
-/*
- * Generated from p6-network-capture/p6-css-token-extraction.json.
- * Canonical static P6/Circle token layer extracted from the SOURCE-SIX CSS bundle.
- * Do not hand-edit values here; regenerate from the extraction report when P6 CSS changes.
+﻿/*
+ * Generated from cs-network-capture/cs-css-token-extraction.json.
+ * Canonical static Circle token layer extracted from the upstream CSS bundle.
+ * Do not hand-edit values here; regenerate from the extraction report when CSS changes.
  */
 
 @font-face {
   font-family: "InterVariable";
-  src: url("/p6-fonts/InterVariable.woff2") format("woff2");
+  src: url("/fonts/InterVariable.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: "InterVariable";
-  src: url("/p6-fonts/InterVariable-Italic.woff2") format("woff2");
+  src: url("/fonts/InterVariable-Italic.woff2") format("woff2");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -22,7 +22,7 @@
 
 @font-face {
   font-family: "SF Mono";
-  src: url("/p6-fonts/SFMonoRegular.woff2") format("woff2");
+  src: url("/fonts/SFMonoRegular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -671,7 +671,7 @@
   --xy-resize-background-color-default: #3367d9;
   --xy-selection-background-color-default: rgba(150,150,180,.1);
   --xy-selection-border-default: 1px dotted rgba(155,155,155,.8);
-  /* SOURCE-SIX merged tokens and measured layout constants */
+  /* Merged tokens and measured layout constants */
   --brand-button-text: #FFFFFF;
   --brand-dark: #bf193d;
   --brand-light: #ff9dc8;
@@ -703,58 +703,58 @@
   --fc-page-bg-color: #fff;
   --fc-small-font-size: .85em;
   --fc-today-bg-color: rgba(255,220,40,.15);
-  --p6-font-sans: InterVariable, system-ui, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --p6-body-bg: #f7f9fa;
-  --p6-body-text: #3b3b3b;
-  --p6-brand: #e11d48;
-  --p6-border: #e4e7eb;
-  --p6-border-input: #e6e6e6;
-  --p6-hover-bg: #f0f3f5;
-  --p6-surface: #fff;
-  --p6-text-default: #545861;
-  --p6-text-dark: #19283a;
-  --p6-text-darkest: #191b1f;
-  --p6-shadow-dropdown: 0 0 0 1px rgba(136,152,170,.1), 0 15px 35px 0 rgba(49,49,93,.1), 0 5px 15px 0 rgba(0,0,0,.08);
-  --p6-z-sidebar: 20;
-  --p6-z-topbar: 40;
-  --p6-z-overlay: 70;
-  --p6-breakpoint-sm: 576px;
-  --p6-breakpoint-md: 768px;
-  --p6-breakpoint-lg: 992px;
-  --p6-breakpoint-xl: 1024px;
-  --p6-breakpoint-2xl: 1280px;
-  --p6-topbar-height: 64px;
-  --p6-topbar-action-size: 36px;
-  --p6-topbar-avatar-size: 32px;
-  --p6-topbar-pill-height: 34px;
-  --p6-topbar-pill-padding: 8px 16px;
-  --p6-topbar-pill-radius: 9999px;
-  --p6-topbar-search-width: 128px;
-  --p6-topbar-search-height: 36px;
-  --p6-sidebar-width: 281px;
-  --p6-sidebar-scroll-padding: 7px 19px 26px;
-  --p6-sidebar-item-width: 232px;
-  --p6-sidebar-item-height: 34px;
-  --p6-sidebar-item-padding: 6px 16px;
-  --p6-sidebar-item-radius: 8px;
-  --p6-sidebar-item-font-size: 16px;
-  --p6-sidebar-item-line-height: 24px;
-  --p6-sidebar-heading-height: 32px;
-  --p6-sidebar-heading-font-size: 14px;
-  --p6-sidebar-heading-line-height: 21px;
-  --p6-sidebar-heading-weight: 600;
-  --p6-sidebar-active-bg: #e11d48;
-  --p6-sidebar-active-color: #fff;
-  --p6-page-header-height: 72px;
-  --p6-feed-column-width: 680px;
-  --p6-feed-rail-width: 320px;
-  --p6-feed-gap: 24px;
-  --p6-transition-fast: 75ms;
-  --p6-transition-base: 150ms;
+  --cm-font-sans: InterVariable, system-ui, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --cm-body-bg: #f7f9fa;
+  --cm-body-text: #3b3b3b;
+  --cm-brand: #e11d48;
+  --cm-border: #e4e7eb;
+  --cm-border-input: #e6e6e6;
+  --cm-hover-bg: #f0f3f5;
+  --cm-surface: #fff;
+  --cm-text-default: #545861;
+  --cm-text-dark: #19283a;
+  --cm-text-darkest: #191b1f;
+  --cm-shadow-dropdown: 0 0 0 1px rgba(136,152,170,.1), 0 15px 35px 0 rgba(49,49,93,.1), 0 5px 15px 0 rgba(0,0,0,.08);
+  --cm-z-sidebar: 20;
+  --cm-z-topbar: 40;
+  --cm-z-overlay: 70;
+  --cm-breakpoint-sm: 576px;
+  --cm-breakpoint-md: 768px;
+  --cm-breakpoint-lg: 992px;
+  --cm-breakpoint-xl: 1024px;
+  --cm-breakpoint-2xl: 1280px;
+  --cm-topbar-height: 64px;
+  --cm-topbar-action-size: 36px;
+  --cm-topbar-avatar-size: 32px;
+  --cm-topbar-pill-height: 34px;
+  --cm-topbar-pill-padding: 8px 16px;
+  --cm-topbar-pill-radius: 9999px;
+  --cm-topbar-search-width: 128px;
+  --cm-topbar-search-height: 36px;
+  --cm-sidebar-width: 281px;
+  --cm-sidebar-scroll-padding: 7px 19px 26px;
+  --cm-sidebar-item-width: 232px;
+  --cm-sidebar-item-height: 34px;
+  --cm-sidebar-item-padding: 6px 16px;
+  --cm-sidebar-item-radius: 8px;
+  --cm-sidebar-item-font-size: 16px;
+  --cm-sidebar-item-line-height: 24px;
+  --cm-sidebar-heading-height: 32px;
+  --cm-sidebar-heading-font-size: 14px;
+  --cm-sidebar-heading-line-height: 21px;
+  --cm-sidebar-heading-weight: 600;
+  --cm-sidebar-active-bg: #e11d48;
+  --cm-sidebar-active-color: #fff;
+  --cm-page-header-height: 72px;
+  --cm-feed-column-width: 680px;
+  --cm-feed-rail-width: 320px;
+  --cm-feed-gap: 24px;
+  --cm-transition-fast: 75ms;
+  --cm-transition-base: 150ms;
 
 }
 
-/* Tokens with alternate values in the extracted P6 bundle. Kept as metadata for audit.
+/* Tokens with alternate values in the extracted upstream bundle. Kept as metadata for audit.
  * --color-background-active: var(--color-grey-700) (2) | var(--color-grey-100) (1)
  * --color-background-badge-branded: var(--compass-branded-badge-bg-dark,var(--color-background-inverse)) (2) | var(--compass-branded-badge-bg,var(--color-background-inverse)) (1)
  * --color-background-button-branded: var(--compass-branded-button-bg-dark,var(--color-background-inverse)) (2) | var(--compass-branded-button-bg,var(--color-background-inverse)) (1)

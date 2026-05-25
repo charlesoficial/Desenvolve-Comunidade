@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { P6Icon } from "../../design-system";
+﻿import { useCallback, useEffect, useMemo, useState } from "react";
+import { CommunityIcon } from "../../design-system";
 import { loadDirectoryMembers, type DirectoryMember } from "../../lib/communityApi";
 
 const mapClusters = [
@@ -64,11 +64,11 @@ export function MembersMap() {
 
   return (
     <main className="members-map-page">
-      <section className="members-map-modal-shell" role="dialog" aria-modal="true" aria-label="Visualização do mapa">
+      <section className="members-map-modal-shell" role="dialog" aria-modal="true" aria-label="VisualizaÃ§Ã£o do mapa">
         <header className="members-map-modal-header">
-          <h1>Visualização do mapa</h1>
+          <h1>VisualizaÃ§Ã£o do mapa</h1>
           <button type="button" aria-label="Fechar mapa" onClick={closeMap}>
-            <P6Icon name="icon-20-close" size={22} />
+            <CommunityIcon name="icon-20-close" size={22} />
           </button>
         </header>
         <div className="members-map-modal-body">
@@ -78,7 +78,7 @@ export function MembersMap() {
               <button type="button" aria-label="Afastar" onClick={() => setZoom((value) => Math.max(1, value - 0.25))}>-</button>
             </div>
             <div className="members-map-logo" aria-hidden="true">mapbox</div>
-            <div className="members-map-attribution">© Mapbox © OpenStreetMap <strong>Improve this map</strong></div>
+            <div className="members-map-attribution">Â© Mapbox Â© OpenStreetMap <strong>Improve this map</strong></div>
             <div className="members-map-world" style={{ transform: `scale(${zoom})` }} aria-hidden="true">
               <div className="members-map-tile-grid">
                 {osmTiles.map((tile) => <img src={tile.src} alt="" key={tile.id} loading="eager" referrerPolicy="no-referrer" />)}
@@ -104,7 +104,7 @@ export function MembersMap() {
                 style={{ left: `${cluster.left}%`, top: `${cluster.top}%` }}
                 type="button"
                 key={cluster.id}
-                aria-label={`${cluster.label} membros nesta região`}
+                aria-label={`${cluster.label} membros nesta regiÃ£o`}
               >
                 {cluster.label}
               </button>
@@ -127,10 +127,10 @@ export function MembersMap() {
             {selected ? (
               <article className="members-map-popover">
                 <button type="button" aria-label="Fechar membro" onClick={() => setSelected(null)}>
-                  <P6Icon name="icon-20-close" size={16} />
+                  <CommunityIcon name="icon-20-close" size={16} />
                 </button>
                 <strong>{selected.name}</strong>
-                <span>{selected.location || "Localidade não informada"}</span>
+                <span>{selected.location || "Localidade nÃ£o informada"}</span>
                 <small>{selected.status === "online" ? "Online agora" : selected.lastSeen}</small>
               </article>
             ) : null}

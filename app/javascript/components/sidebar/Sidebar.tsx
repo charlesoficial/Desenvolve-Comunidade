@@ -1,11 +1,11 @@
-import { sidebarSections } from "../../data/communityData";
+﻿import { sidebarSections } from "../../data/communityData";
 import { SidebarSection } from "./SidebarSection";
 
 export function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="brand-row">
-        <div className="brand-mark" aria-label="Project Six">
+        <div className="brand-mark" aria-label="Comunidade">
           <span />
         </div>
         <button className="brand-caret" type="button" aria-label="Abrir comunidades">

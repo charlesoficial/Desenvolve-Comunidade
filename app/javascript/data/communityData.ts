@@ -1,19 +1,19 @@
-import { makeP6Icon } from "../design-system";
+﻿import { makeCommunityIcon } from "../design-system";
 import type { Member, Post, SidebarSection } from "../types/community";
 
-const AudioIcon = makeP6Icon("icon-20-course-audio");
-const ShieldIcon = makeP6Icon("icon-20-shield-v3");
-const FeedIcon = makeP6Icon("icon-20-feed-v3");
-const ThreadIcon = makeP6Icon("icon-20-thread-v3");
-const UsersIcon = makeP6Icon("icon-20-users-v3");
-const ChartIcon = makeP6Icon("icon-20-chart");
-const BookIcon = makeP6Icon("icon-20-book-v3");
-const FolderIcon = makeP6Icon("icon-20-folder-v3");
-const LockIcon = makeP6Icon("icon-lock-v2");
-const GlobeIcon = makeP6Icon("icon-globe");
-const DollarIcon = makeP6Icon("icon-circle-dollar");
-const UserIcon = makeP6Icon("icon-20-user-v3");
-const ArrowUpRightIcon = makeP6Icon("arrow-up-right-md", "compass");
+const AudioIcon = makeCommunityIcon("icon-20-course-audio");
+const ShieldIcon = makeCommunityIcon("icon-20-shield-v3");
+const FeedIcon = makeCommunityIcon("icon-20-feed-v3");
+const ThreadIcon = makeCommunityIcon("icon-20-thread-v3");
+const UsersIcon = makeCommunityIcon("icon-20-users-v3");
+const ChartIcon = makeCommunityIcon("icon-20-chart");
+const BookIcon = makeCommunityIcon("icon-20-book-v3");
+const FolderIcon = makeCommunityIcon("icon-20-folder-v3");
+const LockIcon = makeCommunityIcon("icon-lock-v2");
+const GlobeIcon = makeCommunityIcon("icon-globe");
+const DollarIcon = makeCommunityIcon("icon-circle-dollar");
+const UserIcon = makeCommunityIcon("icon-20-user-v3");
+const ArrowUpRightIcon = makeCommunityIcon("arrow-up-right-md", "compass");
 
 export const topNav = ["Home", "Cursos", "Aulas", "Membros", "Ranking"];
 
@@ -31,7 +31,7 @@ export const sidebarSections: SidebarSection[] = [
     id: "expert",
     title: "Expert Hot",
     items: [
-      { id: "basico", label: "Básico", icon: ChartIcon },
+      { id: "basico", label: "BÃ¡sico", icon: ChartIcon },
       { id: "aulas-completas", label: "Aulas Completas", icon: LockIcon },
       { id: "network", label: "Network", icon: LockIcon },
     ],
@@ -45,7 +45,7 @@ export const sidebarSections: SidebarSection[] = [
   },
   {
     id: "hacking",
-    title: "Área Hacking",
+    title: "Ãrea Hacking",
     items: [
       { id: "chat-area", label: "Chat", icon: LockIcon },
       { id: "feed-area", label: "Feed", icon: LockIcon },
@@ -54,13 +54,13 @@ export const sidebarSections: SidebarSection[] = [
       { id: "criptomoedas-area", label: "Criptomoedas", icon: LockIcon },
       { id: "biblioteca", label: "Biblioteca", icon: LockIcon },
       { id: "torrents", label: "Torrents", icon: LockIcon },
-      { id: "noticias-lock", label: "Notícias", icon: LockIcon },
+      { id: "noticias-lock", label: "NotÃ­cias", icon: LockIcon },
       { id: "opsec", label: "Aula de OPSEC", icon: LockIcon },
     ],
   },
   {
     id: "nivel2",
-    title: "Nível 2",
+    title: "NÃ­vel 2",
     collapsible: true,
     menu: true,
     items: [
@@ -70,11 +70,11 @@ export const sidebarSections: SidebarSection[] = [
   },
   {
     id: "noticias",
-    title: "Notícias",
+    title: "NotÃ­cias",
     items: [
       { id: "geral", label: "Geral", icon: BookIcon, count: "99+" },
-      { id: "geopolitica", label: "Geopolítica", icon: UserIcon, count: "99+" },
-      { id: "politica", label: "Política Nacional", icon: GlobeIcon, count: "", active: true },
+      { id: "geopolitica", label: "GeopolÃ­tica", icon: UserIcon, count: "99+" },
+      { id: "politica", label: "PolÃ­tica Nacional", icon: GlobeIcon, count: "", active: true },
       { id: "economia", label: "Economia", icon: DollarIcon, count: "99+" },
       { id: "cripto", label: "Criptomoedas", icon: ChartIcon, count: "99+" },
       { id: "ia", label: "IA News", icon: ChartIcon, count: "99+" },
@@ -99,58 +99,58 @@ export const sidebarSections: SidebarSection[] = [
 ];
 
 export const members: Member[] = [
-  { id: "m1", name: "Noir", avatar: "/source-six-assets/d0f92b7a6b87e4692dfd1c8e88c5df4e-3a8ff1ea6fcf.jpg" },
+  { id: "m1", name: "Noir", avatar: "/community-assets/d0f92b7a6b87e4692dfd1c8e88c5df4e-3a8ff1ea6fcf.jpg" },
   { id: "m2", name: "Root", avatar: "R", online: true },
-  { id: "m3", name: "Lia", avatar: "/source-six-assets/IMG_7929.jpeg-ecc736f53778.jpg" },
+  { id: "m3", name: "Lia", avatar: "/community-assets/IMG_7929.jpeg-ecc736f53778.jpg" },
 ];
 
 export const posts: Post[] = [
   {
     id: "p1",
-    title: "Mara Maravilha Internada na UTI em São Paulo: Motivo é Desconhecido",
+    title: "Mara Maravilha Internada na UTI em SÃ£o Paulo: Motivo Ã© Desconhecido",
     author: {
       name: "Goat Jornalista",
-      avatar: "/source-six-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
+      avatar: "/community-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
       badge: "Hackudo",
-      level: "Nível 2",
+      level: "NÃ­vel 2",
       joinedAt: "Membro desde 2 de fevereiro de 2026",
     },
     excerpt: [
-      "A apresentadora Mara Maravilha foi internada na Unidade de Terapia Intensiva (UTI) em São Paulo. A notícia se espalhou rapidamente após a divulgação de um atestado médico nas redes sociais da artista.",
-      "O atestado, embora confirme a internação, não é...",
+      "A apresentadora Mara Maravilha foi internada na Unidade de Terapia Intensiva (UTI) em SÃ£o Paulo. A notÃ­cia se espalhou rapidamente apÃ³s a divulgaÃ§Ã£o de um atestado mÃ©dico nas redes sociais da artista.",
+      "O atestado, embora confirme a internaÃ§Ã£o, nÃ£o Ã©...",
     ],
     date: "5 de fev.",
     comments: 0,
   },
   {
     id: "p2",
-    title: 'Alcolumbre Defende Congresso e Manda Indireta ao Governo Lula: "Paz Não É Omissão"',
+    title: 'Alcolumbre Defende Congresso e Manda Indireta ao Governo Lula: "Paz NÃ£o Ã‰ OmissÃ£o"',
     author: {
       name: "Goat Jornalista",
-      avatar: "/source-six-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
+      avatar: "/community-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
       badge: "Hackudo",
-      level: "Nível 2",
+      level: "NÃ­vel 2",
       joinedAt: "Membro desde 2 de fevereiro de 2026",
     },
     excerpt: [
-      "O presidente do Senado, Davi Alcolumbre (União Brasil-AP), defendeu a autonomia do Congresso Nacional nesta segunda-feira (2), durante a cerimônia de abertura do ano legislativo de 2026.",
-      "Ele ressaltou que a busca por harmonia entre os Poderes não...",
+      "O presidente do Senado, Davi Alcolumbre (UniÃ£o Brasil-AP), defendeu a autonomia do Congresso Nacional nesta segunda-feira (2), durante a cerimÃ´nia de abertura do ano legislativo de 2026.",
+      "Ele ressaltou que a busca por harmonia entre os Poderes nÃ£o...",
     ],
     date: "5 de fev.",
     comments: 0,
   },
   {
     id: "p3",
-    title: "Nova rodada de segurança digital movimenta grupos de especialistas",
+    title: "Nova rodada de seguranÃ§a digital movimenta grupos de especialistas",
     author: {
       name: "Goat Jornalista",
-      avatar: "/source-six-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
+      avatar: "/community-assets/photo_2025-12-05_16-06-52-9c0423940f33.jpg",
       badge: "Hackudo",
-      level: "Nível 2",
+      level: "NÃ­vel 2",
       joinedAt: "Membro desde 2 de fevereiro de 2026",
     },
     excerpt: [
-      "Especialistas em segurança apontam uma nova onda de discussões sobre privacidade, autenticação e controle de acesso em comunidades digitais.",
+      "Especialistas em seguranÃ§a apontam uma nova onda de discussÃµes sobre privacidade, autenticaÃ§Ã£o e controle de acesso em comunidades digitais.",
     ],
     date: "5 de fev.",
     comments: 2,

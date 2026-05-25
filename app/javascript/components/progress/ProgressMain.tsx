@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { P6Icon } from "../../design-system";
+import { CommunityIcon } from "../../design-system";
 import {
   createFeedComment,
   createFeedPost,
@@ -20,7 +20,7 @@ import {
 import { MemberCluster } from "../topbar/MemberCluster";
 
 type ProgressView = "feed" | "chat" | "politica" | "members" | "progress";
-type SortOption = "Mais recente" | "Nova atividade" | "Mais antiga" | "Popular" | "Curtidas" | "Alfabética";
+type SortOption = "Mais recente" | "Nova atividade" | "Mais antiga" | "Popular" | "Curtidas" | "AlfabÃ©tica";
 
 const progressAssetBase = "/Seu%20Progresso%20_%20Project%20Six_files/";
 const feedAssetBase = "/Feed%20Geral%20_%20Project%20Six_files/";
@@ -38,9 +38,9 @@ const fallbackMembers = [
 
 const fallbackPost: FeedPost = {
   id: "fallback-progress-main",
-  title: "1 mês de operação com uma oferta daqui!",
+  title: "1 mÃªs de operaÃ§Ã£o com uma oferta daqui!",
   body:
-    "É gratificante ver o que a P6 está fazendo! É uma comunidade sem igual. Esse resultado é de apenas um mês de operação em uma oferta daqui!🔥",
+    "Ã‰ gratificante ver o que a comunidade estÃ¡ fazendo! Ã‰ uma comunidade sem igual. Esse resultado Ã© de apenas um mÃªs de operaÃ§Ã£o em uma oferta daqui!ðŸ”¥",
   spaceSlug: "seu-progresso",
   kind: "image",
   topics: [],
@@ -131,7 +131,7 @@ export function ProgressMain({ onNavigate }: { onNavigate?: (view: ProgressView)
   const sortedPosts = useMemo(() => sortPosts(posts, sort), [posts, sort]);
 
   const handlePublish = async (title: string, body: string, attachments: FeedAttachment[]) => {
-    const created = await createFeedPost(title || "Publicação", body, "seu-progresso", attachments);
+    const created = await createFeedPost(title || "PublicaÃ§Ã£o", body, "seu-progresso", attachments);
     setPosts((current) => [created, ...current]);
     setShowCreate(false);
   };
@@ -170,20 +170,20 @@ export function ProgressMain({ onNavigate }: { onNavigate?: (view: ProgressView)
         <div className="progress-actions">
           <div className="progress-sort-wrap">
             <button className="progress-sort-button" type="button" aria-expanded={showSort} onClick={() => setShowSort((value) => !value)}>
-              {sort} <P6Icon name="icon-12-chevron-down-v3" size={14} />
+              {sort} <CommunityIcon name="icon-12-chevron-down-v3" size={14} />
             </button>
             {showSort ? <ProgressSortMenu value={sort} onSelect={(value) => { setSort(value); setShowSort(false); }} /> : null}
           </div>
           <button className="progress-magic-button" type="button" aria-label="Resumir">
-            <P6Icon name="icon-20-stardust-gradient" size={22} />
+            <CommunityIcon name="icon-20-stardust-gradient" size={22} />
           </button>
           <button className="progress-member-cluster-button" type="button" aria-label="Ver membros" onClick={() => onNavigate?.("members")}>
             <MemberCluster members={headerMembers} extra="+857" />
           </button>
-          <button className="progress-new-post" type="button" onClick={() => setShowCreate(true)}>Nova publicação</button>
+          <button className="progress-new-post" type="button" onClick={() => setShowCreate(true)}>Nova publicaÃ§Ã£o</button>
           <div className="progress-menu-wrap">
-            <button className="progress-more" type="button" aria-label="Mais opções" onClick={() => setTopMenuOpen((value) => !value)}>
-              <P6Icon name="icon-16-menu-dots-horizontal" size={20} />
+            <button className="progress-more" type="button" aria-label="Mais opÃ§Ãµes" onClick={() => setTopMenuOpen((value) => !value)}>
+              <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
             </button>
             {topMenuOpen ? <ProgressTopMenu /> : null}
           </div>
@@ -195,9 +195,9 @@ export function ProgressMain({ onNavigate }: { onNavigate?: (view: ProgressView)
           <section className="progress-feed-column">
             <button className="progress-composer" type="button" onClick={() => setShowCreate(true)}>
               <span className="progress-va">{viewerAvatar.slice(0, 2)}</span>
-              <span>Criar uma publicação</span>
+              <span>Criar uma publicaÃ§Ã£o</span>
               <i>
-                <P6Icon name="icon-20-plus-v3" size={21} />
+                <CommunityIcon name="icon-20-plus-v3" size={21} />
               </i>
             </button>
 
@@ -291,11 +291,11 @@ function ProgressPostCard({
         </div>
         <div className="progress-post-controls">
           <button className={post.saved ? "active" : ""} type="button" aria-label="Salvar" onClick={onSave}>
-            <P6Icon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={21} />
+            <CommunityIcon name={post.saved ? "icon-20-bookmark-fill" : "icon-20-bookmark-v3"} size={21} />
           </button>
           <div className="progress-post-menu-wrap">
-            <button type="button" aria-label="Ações da publicação" onClick={onToggleMenu}>
-              <P6Icon name="icon-16-menu-dots-horizontal" size={20} />
+            <button type="button" aria-label="AÃ§Ãµes da publicaÃ§Ã£o" onClick={onToggleMenu}>
+              <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
             </button>
             {menuOpen ? <ProgressPostMenu /> : null}
           </div>
@@ -314,17 +314,17 @@ function ProgressPostCard({
       <footer className="progress-post-footer">
         <div>
           <button className={post.liked ? "active" : ""} type="button" aria-label="Curtir" onClick={onLike}>
-            <P6Icon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
+            <CommunityIcon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
           </button>
           <button type="button" aria-label="Comentar" onClick={onComments}>
-            <P6Icon name="icon-20-comment" size={22} />
+            <CommunityIcon name="icon-20-comment" size={22} />
           </button>
         </div>
         <button className="progress-engagement" type="button" onClick={onComments}>
           <LikeAvatars liked={post.liked} />
           <span>{post.likes} curtida{post.likes === 1 ? "" : "s"}</span>
-          <span className="progress-separator">·</span>
-          <span>{post.comments} comentário{post.comments === 1 ? "" : "s"}</span>
+          <span className="progress-separator">Â·</span>
+          <span>{post.comments} comentÃ¡rio{post.comments === 1 ? "" : "s"}</span>
         </button>
       </footer>
     </article>
@@ -380,17 +380,17 @@ function ProgressCreateModal({
     <div className="progress-modal-backdrop" onMouseDown={(event) => {
       if (event.target === event.currentTarget) onClose();
     }}>
-      <section className="progress-create-modal" role="dialog" aria-modal="true" aria-label="Criar publicação">
+      <section className="progress-create-modal" role="dialog" aria-modal="true" aria-label="Criar publicaÃ§Ã£o">
         <header>
-          <h2>Criar publicação</h2>
+          <h2>Criar publicaÃ§Ã£o</h2>
           <div>
-            <button type="button" aria-label="Redimensionar"><P6Icon name="icon-20-copy" size={18} /></button>
-            <button type="button" aria-label="Tela cheia"><P6Icon name="icon-20-expand" size={18} /></button>
-            <button type="button" aria-label="Fechar" onClick={onClose}><P6Icon name="icon-20-close" size={20} /></button>
+            <button type="button" aria-label="Redimensionar"><CommunityIcon name="icon-20-copy" size={18} /></button>
+            <button type="button" aria-label="Tela cheia"><CommunityIcon name="icon-20-expand" size={18} /></button>
+            <button type="button" aria-label="Fechar" onClick={onClose}><CommunityIcon name="icon-20-close" size={20} /></button>
           </div>
         </header>
         <div className="progress-create-editor">
-          <textarea aria-label="Título opcional" placeholder="Título (opcional)" value={title} onChange={(event) => setTitle(event.target.value)} />
+          <textarea aria-label="TÃ­tulo opcional" placeholder="TÃ­tulo (opcional)" value={title} onChange={(event) => setTitle(event.target.value)} />
           <textarea aria-label="Escreva algo" placeholder="Escreva algo" value={body} onChange={(event) => setBody(event.target.value)} />
           {attachments.length ? (
             <div className="progress-attachment-list">
@@ -401,19 +401,19 @@ function ProgressCreateModal({
         <footer>
           <input ref={fileInputRef} className="progress-hidden-file" type="file" multiple onChange={(event) => handleFiles(event.target.files)} />
           <div className="progress-create-tools">
-            <button type="button" aria-label="Adicionar"><P6Icon name="icon-20-plus-v3" size={18} /></button>
-            <button type="button" aria-label="Hashtag"><P6Icon name="icon-16-hashtag" size={18} /></button>
-            <button type="button" aria-label="Anexo" onClick={() => fileInputRef.current?.click()}><P6Icon name="icon-20-attach" size={18} /></button>
-            <button type="button" aria-label="Vídeo" onClick={() => fileInputRef.current?.click()}><P6Icon name="icon-20-video" size={18} /></button>
+            <button type="button" aria-label="Adicionar"><CommunityIcon name="icon-20-plus-v3" size={18} /></button>
+            <button type="button" aria-label="Hashtag"><CommunityIcon name="icon-16-hashtag" size={18} /></button>
+            <button type="button" aria-label="Anexo" onClick={() => fileInputRef.current?.click()}><CommunityIcon name="icon-20-attach" size={18} /></button>
+            <button type="button" aria-label="VÃ­deo" onClick={() => fileInputRef.current?.click()}><CommunityIcon name="icon-20-video" size={18} /></button>
             <button type="button" aria-label="GIF"><span>GIF</span></button>
-            <button type="button" aria-label="Imagem" onClick={() => fileInputRef.current?.click()}><P6Icon name="icon-20-image-v3" size={18} /></button>
-            <button type="button" aria-label="Emoji"><P6Icon name="icon-20-emoji" size={18} /></button>
-            <button type="button" aria-label="Enquete"><P6Icon name="icon-20-chart" size={18} /></button>
-            <button type="button" aria-label="Áudio"><P6Icon name="icon-20-microphone" size={18} /></button>
-            <button type="button" aria-label="Câmera"><P6Icon name="icon-20-camera" size={18} /></button>
+            <button type="button" aria-label="Imagem" onClick={() => fileInputRef.current?.click()}><CommunityIcon name="icon-20-image-v3" size={18} /></button>
+            <button type="button" aria-label="Emoji"><CommunityIcon name="icon-20-emoji" size={18} /></button>
+            <button type="button" aria-label="Enquete"><CommunityIcon name="icon-20-chart" size={18} /></button>
+            <button type="button" aria-label="Ãudio"><CommunityIcon name="icon-20-microphone" size={18} /></button>
+            <button type="button" aria-label="CÃ¢mera"><CommunityIcon name="icon-20-camera" size={18} /></button>
           </div>
           <div className="progress-create-publish">
-            <span>Publicando em: <strong>Seu Progresso</strong> <P6Icon name="icon-12-chevron-down-v3" size={14} /></span>
+            <span>Publicando em: <strong>Seu Progresso</strong> <CommunityIcon name="icon-12-chevron-down-v3" size={14} /></span>
             <button type="button" disabled={!canPublish || publishing} onClick={submit}>
               {publishing ? "Publicando" : "Publicar"}
             </button>
@@ -458,7 +458,7 @@ function ProgressCommentsModal({
           body,
           reactions: 0,
           createdAt: new Date().toISOString(),
-          author: { username: "vitor-araujo", name: "Vítor Santos Araujo", avatar: "VA" },
+          author: { username: "vitor-araujo", name: "VÃ­tor Santos Araujo", avatar: "VA" },
         };
         setComments((current) => [...current, localComment]);
         onCommented({ ...post, comments: post.comments + 1 });
@@ -478,7 +478,7 @@ function ProgressCommentsModal({
       <section className="progress-detail-modal" role="dialog" aria-modal="true" aria-label={post.title}>
         <header>
           <h2>{post.title}</h2>
-          <button type="button" aria-label="Fechar" onClick={onClose}><P6Icon name="icon-20-close" size={20} /></button>
+          <button type="button" aria-label="Fechar" onClick={onClose}><CommunityIcon name="icon-20-close" size={20} /></button>
         </header>
         <div className="progress-detail-scroll">
           <div className="progress-detail-post">
@@ -508,16 +508,16 @@ function ProgressCommentsModal({
           </div>
           <div className="progress-detail-actions">
             <button className={post.liked ? "active" : ""} type="button" aria-label="Curtir">
-              <P6Icon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
+              <CommunityIcon name={post.liked ? "icon-24-heart-red-fill" : "icon-24-heart-outline"} size={24} />
             </button>
             <button type="button" aria-label="Comentar">
-              <P6Icon name="icon-20-comment" size={22} />
+              <CommunityIcon name="icon-20-comment" size={22} />
             </button>
             <button className="progress-engagement" type="button">
               <LikeAvatars liked={post.liked} />
               <span>{post.likes} curtida{post.likes === 1 ? "" : "s"}</span>
-              <span className="progress-separator">·</span>
-              <span>{post.comments} comentário{post.comments === 1 ? "" : "s"}</span>
+              <span className="progress-separator">Â·</span>
+              <span>{post.comments} comentÃ¡rio{post.comments === 1 ? "" : "s"}</span>
             </button>
           </div>
           <div className="progress-comments-list">
@@ -530,14 +530,14 @@ function ProgressCommentsModal({
                   <small>Curtir&nbsp;&nbsp;Responder</small>
                 </div>
               </article>
-            )) : <p className="progress-empty-comments">Nenhum comentário ainda.</p>}
+            )) : <p className="progress-empty-comments">Nenhum comentÃ¡rio ainda.</p>}
           </div>
         </div>
         <footer>
           <span className="progress-va">VA</span>
           <input
-            aria-label="O que você acha?"
-            placeholder="O que você acha?"
+            aria-label="O que vocÃª acha?"
+            placeholder="O que vocÃª acha?"
             value={body}
             onChange={(event) => setBody(event.target.value)}
             onKeyDown={(event) => {
@@ -563,10 +563,10 @@ function LikeAvatars({ liked }: { liked: boolean }) {
 }
 
 function ProgressSortMenu({ value, onSelect }: { value: SortOption; onSelect: (value: SortOption) => void }) {
-  const options: SortOption[] = ["Mais recente", "Nova atividade", "Mais antiga", "Popular", "Curtidas", "Alfabética"];
+  const options: SortOption[] = ["Mais recente", "Nova atividade", "Mais antiga", "Popular", "Curtidas", "AlfabÃ©tica"];
 
   return (
-    <div className="progress-sort-menu" role="menu" aria-label="Ordenar publicações">
+    <div className="progress-sort-menu" role="menu" aria-label="Ordenar publicaÃ§Ãµes">
       {options.map((option) => (
         <button className={value === option ? "active" : ""} type="button" key={option} onClick={() => onSelect(option)}>
           {option}
@@ -579,9 +579,9 @@ function ProgressSortMenu({ value, onSelect }: { value: SortOption; onSelect: (v
 function ProgressTopMenu() {
   return (
     <div className="progress-dropdown-menu progress-top-dropdown">
-      <button type="button"><P6Icon name="icon-20-bell-v3" size={16} /> Notificações do espaço</button>
-      <button type="button"><P6Icon name="icon-20-link" size={16} /> Copiar link</button>
-      <button type="button"><P6Icon name="icon-20-settings" size={16} /> Configurações</button>
+      <button type="button"><CommunityIcon name="icon-20-bell-v3" size={16} /> NotificaÃ§Ãµes do espaÃ§o</button>
+      <button type="button"><CommunityIcon name="icon-20-link" size={16} /> Copiar link</button>
+      <button type="button"><CommunityIcon name="icon-20-settings" size={16} /> ConfiguraÃ§Ãµes</button>
     </div>
   );
 }
@@ -591,11 +591,11 @@ function ProgressPostMenu() {
 
   return (
     <div className="progress-dropdown-menu progress-post-dropdown">
-      <button type="button">Adicionar publicação aos favoritos</button>
-      <button type="button">Denunciar publicação</button>
+      <button type="button">Adicionar publicaÃ§Ã£o aos favoritos</button>
+      <button type="button">Denunciar publicaÃ§Ã£o</button>
       <div className="progress-dropdown-separator" />
       <label>
-        <span>Seguir publicação</span>
+        <span>Seguir publicaÃ§Ã£o</span>
         <input type="checkbox" checked={following} onChange={(event) => setFollowing(event.target.checked)} />
         <i />
       </label>
@@ -622,10 +622,10 @@ function ProgressImageViewer({ attachment, onClose }: { attachment: FeedAttachme
           <h2>{attachment.fileName}</h2>
           <div>
             <a href={attachment.fileUrl} download={attachment.fileName} aria-label="Baixar">
-              <P6Icon name="icon-20-download" size={18} />
+              <CommunityIcon name="icon-20-download" size={18} />
             </a>
             <button type="button" aria-label="Fechar" onClick={onClose}>
-              <P6Icon name="icon-20-close" size={22} />
+              <CommunityIcon name="icon-20-close" size={22} />
             </button>
           </div>
         </header>
@@ -657,7 +657,7 @@ function sortPosts(posts: FeedPost[], sort: SortOption) {
 
   if (sort === "Mais antiga") return list.sort((a, b) => new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime());
   if (sort === "Popular" || sort === "Curtidas") return list.sort((a, b) => b.likes - a.likes);
-  if (sort === "Alfabética") return list.sort((a, b) => a.title.localeCompare(b.title, "pt-BR"));
+  if (sort === "AlfabÃ©tica") return list.sort((a, b) => a.title.localeCompare(b.title, "pt-BR"));
 
   return list.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 }

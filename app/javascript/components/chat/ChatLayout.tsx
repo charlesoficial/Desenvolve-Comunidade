@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+﻿import { useCallback, useEffect, useState } from "react";
 import { LoginPanel } from "../auth/LoginPanel";
 import { CoursesMain } from "../courses/CoursesMain";
 import { EventsMain } from "../events/EventsMain";
@@ -53,7 +53,7 @@ const routeViewByPath: Record<string, ChatView> = {
   "/c/evento-aula": "events",
   "/c/aulas-gravadas": "courses",
   "/c/aulas-nvl1": "courses",
-  "/c/metodop6": "courses",
+  "/c/metodo-comunidade": "courses",
   "/c/central-de-ajuda-fbm": "courses",
   "/c/fba": "courses",
   "/c/network": "members",
@@ -162,7 +162,10 @@ export function ChatLayout() {
   }
 
   const pathname = locationKey.split("?")[0].replace(/\/$/, "") || "/";
-  const shouldShowSidebar = pathname.startsWith("/c/") || !["leaderboard", "members", "courses", "events"].includes(activeView);
+  // Sidebar segue o padrao da Circle: aparece em rotas de espacos (/c/*, /feed)
+  // mas NAO em paginas globais (/members, /courses, /events, /leaderboard).
+  const hideSidebarViews: ChatView[] = ["leaderboard", "members", "courses", "events"];
+  const shouldShowSidebar = !hideSidebarViews.includes(activeView) || pathname.startsWith("/c/");
   const postMatch = pathname.match(/^\/c\/([^/]+)\/([^/]+)$/);
   const routeContent = postMatch ? (
     <PostDetail spaceSlug={postMatch[1]} postId={postMatch[2]} />
@@ -203,8 +206,8 @@ export function ChatLayout() {
     <MembersMap />
   ) : pathname === "/members/connections" || pathname === "/messages" || pathname.startsWith("/messages/") || pathname === "/direct-messages" ? (
     <MembersConnections />
-  ) : pathname === "/c/metodop6" ? (
-    <CourseSpacePage slug="metodop6" />
+  ) : pathname === "/c/metodo-comunidade" ? (
+    <CourseSpacePage slug="metodo-comunidade" />
   ) : pathname === "/c/fba" ? (
     <CourseSpacePage slug="fba" />
   ) : pathname === "/c/opsec-2026" ? (
@@ -220,7 +223,7 @@ export function ChatLayout() {
   ) : null;
 
   return (
-    <div className="p6-chat-shell">
+    <div className="cs-chat-shell">
       <ChatTopbar activeView={activeView} onNavigate={handleNavigate} />
       {shouldShowSidebar ? (
         <ChatSidebar activeView={activeView} currentPath={pathname} onNavigate={handleNavigate} />
@@ -228,7 +231,7 @@ export function ChatLayout() {
       {routeContent || (activeView === "feed" ? (
         <FeedGeralMain />
       ) : activeView === "members" ? (
-        <MembersMain />
+        <MembersMain withSidebar={shouldShowSidebar} />
       ) : activeView === "leaderboard" ? (
         <LeaderboardMain />
       ) : activeView === "courses" ? (

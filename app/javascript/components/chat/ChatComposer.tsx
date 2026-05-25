@@ -1,4 +1,4 @@
-import { ArrowUp, AtSign, Hash, Image, Mic, Paperclip, Smile } from "lucide-react";
+﻿import { ArrowUp, AtSign, Hash, Image, Mic, Paperclip, Smile } from "lucide-react";
 import { useRef, useState } from "react";
 
 type ComposerTool = "image" | "emoji" | "channel" | "mention" | "gif" | "attachment" | "audio" | null;
@@ -46,7 +46,7 @@ export function ChatComposer({ onSend, compact = false }: { onSend?: (body: stri
 
   return (
     <div className={compact ? "chat-composer-wrap is-thread-composer" : "chat-composer-wrap"}>
-      <div className="chat-composer p6-composer">
+      <div className="chat-composer cs-composer">
         <input
           placeholder="Digite uma mensagem..."
           aria-label="Digite uma mensagem"
@@ -62,14 +62,14 @@ export function ChatComposer({ onSend, compact = false }: { onSend?: (body: stri
         />
         <div className="composer-tools">
           <div>
-            <button className={activeTool === "image" ? "p6-toolbar-button active" : "p6-toolbar-button"} type="button" aria-label="Adicionar imagem" aria-expanded={activeTool === "image"} onClick={() => toggleTool("image")}><Image size={21} /></button>
-            <button className={activeTool === "emoji" ? "p6-toolbar-button active" : "p6-toolbar-button"} type="button" aria-label="Adicionar emoji" aria-expanded={activeTool === "emoji"} onClick={() => toggleTool("emoji")}><Smile size={21} /></button>
-            <button className={activeTool === "channel" ? "p6-toolbar-button active" : "p6-toolbar-button"} type="button" aria-label="Link para publicacao, evento, aula ou espaco" aria-expanded={activeTool === "channel"} onClick={() => toggleTool("channel")}><Hash size={21} /></button>
-            <button className={activeTool === "mention" ? "p6-toolbar-button active" : "p6-toolbar-button"} type="button" aria-label="Adicionar mencao" aria-expanded={activeTool === "mention"} onClick={() => toggleTool("mention")}><AtSign size={21} /></button>
-            <button className={activeTool === "gif" ? "p6-toolbar-button active" : "p6-toolbar-button"} type="button" aria-label="Adicionar GIF" aria-expanded={activeTool === "gif"} onClick={() => toggleTool("gif")}><span className="gif-chip">GIF</span></button>
-            <button className={activeTool === "attachment" ? "p6-toolbar-button active" : "p6-toolbar-button"} type="button" aria-label="Anexar arquivos" aria-expanded={activeTool === "attachment"} onClick={() => toggleTool("attachment")}><Paperclip size={21} /></button>
+            <button className={activeTool === "image" ? "cs-toolbar-button active" : "cs-toolbar-button"} type="button" aria-label="Adicionar imagem" aria-expanded={activeTool === "image"} onClick={() => toggleTool("image")}><Image size={21} /></button>
+            <button className={activeTool === "emoji" ? "cs-toolbar-button active" : "cs-toolbar-button"} type="button" aria-label="Adicionar emoji" aria-expanded={activeTool === "emoji"} onClick={() => toggleTool("emoji")}><Smile size={21} /></button>
+            <button className={activeTool === "channel" ? "cs-toolbar-button active" : "cs-toolbar-button"} type="button" aria-label="Link para publicacao, evento, aula ou espaco" aria-expanded={activeTool === "channel"} onClick={() => toggleTool("channel")}><Hash size={21} /></button>
+            <button className={activeTool === "mention" ? "cs-toolbar-button active" : "cs-toolbar-button"} type="button" aria-label="Adicionar mencao" aria-expanded={activeTool === "mention"} onClick={() => toggleTool("mention")}><AtSign size={21} /></button>
+            <button className={activeTool === "gif" ? "cs-toolbar-button active" : "cs-toolbar-button"} type="button" aria-label="Adicionar GIF" aria-expanded={activeTool === "gif"} onClick={() => toggleTool("gif")}><span className="gif-chip">GIF</span></button>
+            <button className={activeTool === "attachment" ? "cs-toolbar-button active" : "cs-toolbar-button"} type="button" aria-label="Anexar arquivos" aria-expanded={activeTool === "attachment"} onClick={() => toggleTool("attachment")}><Paperclip size={21} /></button>
             <button
-              className={isRecording ? "p6-toolbar-button active" : "p6-toolbar-button"}
+              className={isRecording ? "cs-toolbar-button active" : "cs-toolbar-button"}
               type="button"
               aria-label="Gravar mensagem de voz"
               aria-expanded={activeTool === "audio"}
@@ -81,7 +81,7 @@ export function ChatComposer({ onSend, compact = false }: { onSend?: (body: stri
               <Mic size={21} />
             </button>
           </div>
-          <button className={canSend ? "send-button p6-send-button active" : "send-button p6-send-button"} type="button" aria-label="Enviar mensagem" onClick={sendMessage}>
+          <button className={canSend ? "send-button cs-send-button active" : "send-button cs-send-button"} type="button" aria-label="Enviar mensagem" onClick={sendMessage}>
             <ArrowUp size={18} strokeWidth={3} />
           </button>
         </div>

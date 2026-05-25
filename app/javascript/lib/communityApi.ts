@@ -1,14 +1,14 @@
-import { offlineMembers, onlineMembers } from "../data/chatData";
+﻿import { offlineMembers, onlineMembers } from "../data/chatData";
 import { posts as fallbackPosts } from "../data/communityData";
 import {
-  findSourceSixCapturedPost,
-  sourceSixCapturedComments,
-  sourceSixCapturedPostId,
-  type SourceSixCapturedPostSeed,
-} from "../data/sourceSixCapturedPosts";
+  findSampleCapturedPost,
+  sampleCapturedComments,
+  sampleCapturedPostId,
+  type SampleCapturedPostSeed,
+} from "../data/sampleCapturedPosts";
 import type { ChatMessage, DetailMember } from "../data/chatData";
 import type { Post } from "../types/community";
-import { getCurrentUsername } from "./auth";
+import { getCurrentUsername, getStoredAuthSession } from "./auth";
 import { getSupabaseAnonKey, getSupabaseUrl, isSupabaseConfigured, supabaseRest, supabaseStorageUpload } from "./supabase";
 
 type DbChatMessage = {
@@ -997,8 +997,8 @@ export async function loadPostDetail(postId: string, spaceSlug = "feed-geral"): 
     }
   }
 
-  const capturedPost = findSourceSixCapturedPost(spaceSlug, postId);
-  if (capturedPost) return mapSourceSixCapturedPost(capturedPost);
+  const capturedPost = findSampleCapturedPost(spaceSlug, postId);
+  if (capturedPost) return mapSampleCapturedPost(capturedPost);
 
   const posts = await loadFeedPosts(spaceSlug).catch(() => []);
   const listMatch = posts.find((post) => post.id === postId || slugify(post.title) === postId);
@@ -1011,7 +1011,7 @@ export async function loadPostDetailComments(postId: string): Promise<FeedCommen
     return rows.map((row) => mapRailsComment(row, postId));
   } catch {
     const rows = await loadPostComments(postId).catch(() => []);
-    return rows.length ? rows : sourceSixCapturedComments(postId);
+    return rows.length ? rows : sampleCapturedComments(postId);
   }
 }
 
@@ -1139,7 +1139,7 @@ export async function loadCourseOverview(): Promise<CourseOverviewCard[]> {
           id: course.id,
           title: course.title,
           slug: course.slug,
-          section: "Método P6 | 2026",
+          section: "MÃ©todo Comunidade | 2026",
           progress: 0,
           completed: false,
           private: !course.published,
@@ -1193,8 +1193,8 @@ export async function searchCommunity(query: string): Promise<CommunitySearchRes
       ...posts.map((post) => ({
         id: `post-${post.id}`,
         type: "post" as const,
-        title: post.title || excerpt(post.body)[0] || "Publicação",
-        subtitle: `${spaceLabel(post.space_slug)} · ${post.author_name}`,
+        title: post.title || excerpt(post.body)[0] || "PublicaÃ§Ã£o",
+        subtitle: `${spaceLabel(post.space_slug)} Â· ${post.author_name}`,
         avatar: post.author_avatar_url || initials(post.author_name),
         path: `/c/${post.space_slug}/${post.id}`,
         targetView: viewForSpace(post.space_slug),
@@ -1203,7 +1203,7 @@ export async function searchCommunity(query: string): Promise<CommunitySearchRes
         id: `space-${space.id}`,
         type: "space" as const,
         title: space.name,
-        subtitle: stringValue(space.settings?.section) || "Espaço",
+        subtitle: stringValue(space.settings?.section) || "EspaÃ§o",
         avatar: space.name.slice(0, 2).toUpperCase(),
         path: pathForSpace(space.slug, space.kind),
         targetView: viewForSpace(space.slug, space.kind),
@@ -1329,7 +1329,7 @@ export async function loadViewerProfileSummary(username?: string): Promise<Viewe
       username: user.username,
       name: displayName,
       avatar: user.avatar_url || initials(displayName),
-      lastSeen: user.username === "vitor-araujo" ? "Visto pela última vez há 3 minutos" : formatRelativeLastSeen(user.last_seen_at),
+      lastSeen: user.username === "vitor-araujo" ? "Visto pela Ãºltima vez hÃ¡ 3 minutos" : formatRelativeLastSeen(user.last_seen_at),
       joinedAt: user.username === "vitor-araujo" ? "26 de abril de 2026" : formatProfileDate(user.joined_at || user.created_at || new Date().toISOString()),
       level: currentUser.level || user.level || 1,
       points: currentUser.points,
@@ -1498,17 +1498,17 @@ function mapMember(row: DbMember): DetailMember {
 }
 
 const directoryMeta: Record<string, Partial<Pick<DirectoryMember, "avatar" | "location" | "bio" | "tags" | "points" | "posts" | "comments" | "spaces" | "level" | "joinedAt" | "lastSeen">>> = {
-  night: { avatar: "/p6-members-assets/Cindy.jpeg", location: "Sapopemba", level: 7, joinedAt: "2025-12-03T12:00:00Z", lastSeen: "Visto pela última vez há 2 dias", tags: ["p6 Veterano", "p6 Goat", "Hackudo"], points: 345, posts: 41, comments: 17, spaces: 26 },
-  psy: { avatar: "/p6-members-assets/%E2%8A%B9.jpeg", location: "Rio de Janeiro", level: 1, tags: ["p6 Goat"], points: 0, posts: 0, comments: 0, spaces: 25 },
-  walker15k: { avatar: "/p6-members-assets/photo_2025-08-25_21-30-00.jpg", location: "Massachusetts", level: 1, bio: "15k", tags: ["p6 Goat", "p6 Veterano"], points: 0, posts: 0, comments: 0, spaces: 25 },
-  toppan15k: { location: "Tóquio", points: 0 },
+  night: { avatar: "/community-assets/Cindy.jpeg", location: "Sapopemba", level: 7, joinedAt: "2025-12-03T12:00:00Z", lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias", tags: ["p6 Veterano", "p6 Goat", "Hackudo"], points: 345, posts: 41, comments: 17, spaces: 26 },
+  psy: { avatar: "/community-assets/%E2%8A%B9.jpeg", location: "Rio de Janeiro", level: 1, tags: ["p6 Goat"], points: 0, posts: 0, comments: 0, spaces: 25 },
+  walker15k: { avatar: "/community-assets/photo_2025-08-25_21-30-00.jpg", location: "Massachusetts", level: 1, bio: "15k", tags: ["p6 Goat", "p6 Veterano"], points: 0, posts: 0, comments: 0, spaces: 25 },
+  toppan15k: { location: "TÃ³quio", points: 0 },
   anya: { location: "Sapopemba", points: 0 },
-  kali15k: { avatar: "/p6-members-assets/photo_2025-12-05_16-06-52.jpg", location: "Tavek, Lunir & Sovax.", tags: ["Admin"], points: 0 },
+  kali15k: { avatar: "/community-assets/photo_2025-12-05_16-06-52.jpg", location: "Tavek, Lunir & Sovax.", tags: ["Admin"], points: 0 },
   goat: { location: "Brasil", tags: ["Admin", "Hackudo"], points: 180 },
   "o_cuervo": { location: "Brasil", tags: ["p6 Veterano", "Hackudo"], points: 280 },
   "refzinho-like": { location: "Rio de Janeiro", points: 0 },
   "sorenus-like": { location: "Brasil", points: 0 },
-  suaves: { avatar: "/p6-members-assets/alain_20delon.jpg", location: "", points: 0 },
+  suaves: { avatar: "/community-assets/alain_20delon.jpg", location: "", points: 0 },
 };
 
 const preferredDirectoryOrder = [
@@ -1547,7 +1547,7 @@ function mapDirectoryMember(row: DbMember, profile?: DbDirectoryProfile, postCou
     role: row.role,
     level,
     joinedAt: meta.joinedAt || row.joined_at || new Date().toISOString(),
-    lastSeen: meta.lastSeen || (row.status === "online" ? "Agora" : "Visto pela última vez há 2 dias"),
+    lastSeen: meta.lastSeen || (row.status === "online" ? "Agora" : "Visto pela Ãºltima vez hÃ¡ 2 dias"),
     bio: meta.bio || bio,
     tags: meta.tags || (row.role === "admin" || row.role === "owner" ? ["p6 Goat", "Hackudo"] : ["p6 Goat"]),
     points: meta.points ?? level * 20,
@@ -1577,7 +1577,7 @@ const showcaseDirectoryMembers: DirectoryMember[] = [
     role: "member",
     level: 1,
     joinedAt: "2025-12-11T12:00:00Z",
-    lastSeen: "Visto pela última vez há 2 dias",
+    lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias",
     bio: "",
     tags: ["p6 Goat"],
     points: 0,
@@ -1589,14 +1589,14 @@ const showcaseDirectoryMembers: DirectoryMember[] = [
     id: "shelby15k",
     username: "shelby15k",
     name: "shelby15k",
-    avatar: "/source-six-assets/11fa80eb52474318b5d51c73ada152f6-58f23fff20cd.jpg",
+    avatar: "/community-assets/11fa80eb52474318b5d51c73ada152f6-58f23fff20cd.jpg",
     headline: "",
     location: "",
     status: "offline",
     role: "member",
     level: 1,
     joinedAt: "2025-12-18T12:00:00Z",
-    lastSeen: "Visto pela última vez há 2 dias",
+    lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias",
     bio: "",
     tags: ["p6 Goat"],
     points: 0,
@@ -1641,14 +1641,14 @@ function sortDirectoryMembers(members: DirectoryMember[], sort: "oldest" | "rece
 
 function fallbackDirectoryMembers(): DirectoryMember[] {
   return [
-    { id: "night", username: "night", name: "Night", avatar: "/source-six-assets/7ad7792ee375693f271bc25ea391972a-9f4cecd9df81.jpg", headline: "", location: "Sapopemba", status: "offline", role: "admin", level: 7, joinedAt: "2025-12-03T12:00:00Z", lastSeen: "Visto pela última vez há 2 dias", bio: "", tags: ["p6 Veterano", "p6 Goat", "Hackudo"], points: 345, posts: 41, comments: 17, spaces: 26 },
-    { id: "psy", username: "psy", name: "Psy", avatar: "/Feed%20Geral%20_%20Project%20Six_files/IMG_0535.jpeg", headline: "", location: "Rio de Janeiro", status: "offline", role: "member", level: 1, joinedAt: "2025-12-11T12:00:00Z", lastSeen: "Visto pela última vez há 2 dias", bio: "", tags: ["p6 Goat"], points: 0, posts: 0, comments: 0, spaces: 25 },
-    { id: "walker15k", username: "walker15k", name: "Walker15k", avatar: "/source-six-assets/IMG_2459.jpeg-20e76166eb1c.jpg", headline: "", location: "Massachusetts", status: "offline", role: "member", level: 1, joinedAt: "2025-12-12T12:00:00Z", lastSeen: "Visto pela última vez há 2 dias", bio: "15k", tags: ["p6 Goat", "p6 Veterano"], points: 0, posts: 0, comments: 0, spaces: 25 },
+    { id: "night", username: "night", name: "Night", avatar: "/community-assets/7ad7792ee375693f271bc25ea391972a-9f4cecd9df81.jpg", headline: "", location: "Sapopemba", status: "offline", role: "admin", level: 7, joinedAt: "2025-12-03T12:00:00Z", lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias", bio: "", tags: ["p6 Veterano", "p6 Goat", "Hackudo"], points: 345, posts: 41, comments: 17, spaces: 26 },
+    { id: "psy", username: "psy", name: "Psy", avatar: "/Feed%20Geral%20_%20Project%20Six_files/IMG_0535.jpeg", headline: "", location: "Rio de Janeiro", status: "offline", role: "member", level: 1, joinedAt: "2025-12-11T12:00:00Z", lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias", bio: "", tags: ["p6 Goat"], points: 0, posts: 0, comments: 0, spaces: 25 },
+    { id: "walker15k", username: "walker15k", name: "Walker15k", avatar: "/community-assets/IMG_2459.jpeg-20e76166eb1c.jpg", headline: "", location: "Massachusetts", status: "offline", role: "member", level: 1, joinedAt: "2025-12-12T12:00:00Z", lastSeen: "Visto pela Ãºltima vez hÃ¡ 2 dias", bio: "15k", tags: ["p6 Goat", "p6 Veterano"], points: 0, posts: 0, comments: 0, spaces: 25 },
   ];
 }
 
 function mapCourseSpace(space: DbSpace): CourseOverviewCard {
-  const section = stringValue(space.settings?.section) || (space.kind === "link" ? "Método P6 | 2026" : "Aulas");
+  const section = stringValue(space.settings?.section) || (space.kind === "link" ? "MÃ©todo Comunidade | 2026" : "Aulas");
   const progress = courseProgress(space.slug);
 
   return {
@@ -1700,7 +1700,7 @@ function sortCourseOverview(cards: CourseOverviewCard[]) {
     "agenda-de-aulas",
     "aulas-gravadas",
     "central-de-ajuda-fbm",
-    "metodo-p6-2026",
+    "metodo-comunidade-2026",
   ];
 
   return [...cards].sort((a, b) => {
@@ -1714,7 +1714,7 @@ function courseTitle(slug: string) {
   const titles: Record<string, string> = {
     "aula-de-opsec": "Aula de OPSEC",
     "influencer-ia-tiktok-dark": "Influencer IA & TikTok Dark",
-    basico: "Básico",
+    basico: "BÃ¡sico",
     fba: "FBA",
     "aulas-info": "Aulas",
     "aulas-completas": "Aulas Completas",
@@ -1722,18 +1722,18 @@ function courseTitle(slug: string) {
     "agenda-de-aulas": "Agenda de aulas",
     "aulas-gravadas": "Aulas Gravadas",
     "central-de-ajuda-fbm": "Central de Ajuda 'FBM'",
-    "metodo-p6-2026": "Método P6 | 2026",
+    "metodo-comunidade-2026": "MÃ©todo Comunidade | 2026",
   };
 
   return titles[slug] || slug.split("-").map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(" ");
 }
 
 function courseSection(slug: string) {
-  if (["aula-de-opsec"].includes(slug)) return "Área Hacking";
+  if (["aula-de-opsec"].includes(slug)) return "Ãrea Hacking";
   if (["influencer-ia-tiktok-dark"].includes(slug)) return "Diverso";
   if (["basico", "aulas-completas"].includes(slug)) return "Expert Hot";
   if (["aulas-info"].includes(slug)) return "Info Produto";
-  return "Método P6 | 2026";
+  return "MÃ©todo Comunidade | 2026";
 }
 
 function courseProgress(slug: string) {
@@ -1745,28 +1745,28 @@ function courseProgress(slug: string) {
 function courseImage(slug: string) {
   const images: Record<string, string> = {
     "aula-de-opsec": "",
-    "influencer-ia-tiktok-dark": "/source-six-assets/ChatGPT20Image202420de20jan.20de2020262021_20_42-ffda654e5b95.png",
-    basico: "/source-six-assets/imagem_2025-12-23_205133551-d8562cf0617d.png",
+    "influencer-ia-tiktok-dark": "/community-assets/ChatGPT20Image202420de20jan.20de2020262021_20_42-ffda654e5b95.png",
+    basico: "/community-assets/imagem_2025-12-23_205133551-d8562cf0617d.png",
     fba: "",
-    "aulas-info": "/source-six-assets/image-0d09bfbb635d.png",
-    "aulas-completas": "/source-six-assets/Engenharia20Social_page-0001-9db4a91f1c5b.jpg",
-    "fulfillment-by-merchant": "/source-six-assets/image-107ba8a7b039.png",
+    "aulas-info": "/community-assets/image-0d09bfbb635d.png",
+    "aulas-completas": "/community-assets/Engenharia20Social_page-0001-9db4a91f1c5b.jpg",
+    "fulfillment-by-merchant": "/community-assets/image-107ba8a7b039.png",
     "agenda-de-aulas": "",
     "aulas-gravadas": "",
   };
 
-  return Object.prototype.hasOwnProperty.call(images, slug) ? images[slug] : "/source-six-assets/imagem_2025-12-23_205133551-d8562cf0617d.png";
+  return Object.prototype.hasOwnProperty.call(images, slug) ? images[slug] : "/community-assets/imagem_2025-12-23_205133551-d8562cf0617d.png";
 }
 
 function courseIcon(slug: string) {
   const icons: Record<string, string> = {
-    "aula-de-opsec": "/source-six-assets/hjskcyevn0m4onfjkc0ybxt3tr1w-579710e4bba9.png",
-    "influencer-ia-tiktok-dark": "/source-six-assets/t1l74hojbmqzn2bz0lf4qfo61vqz-fe900685ddcf.png",
-    basico: "/source-six-assets/awaxoue0o2mtkhmm0ck56a1sr18h-500e2eba57dc.png",
-    fba: "/source-six-assets/ljt8d56p7ibeexgh0bj5ddmlen0a-9a3e46db5669.png",
-    "aulas-info": "/source-six-assets/4xtp50z2f2kdtlw8e0g34w1jqvht-02bd1f4360d4.png",
-    "aulas-completas": "/source-six-assets/qfeoralvy2guhfrsgaufm020fta0-123aff879e1d.png",
-    "fulfillment-by-merchant": "/source-six-assets/vgl6iyzpzt0b3kohtuntebcbhiox-f7d84f25043f.png",
+    "aula-de-opsec": "/community-assets/hjskcyevn0m4onfjkc0ybxt3tr1w-579710e4bba9.png",
+    "influencer-ia-tiktok-dark": "/community-assets/t1l74hojbmqzn2bz0lf4qfo61vqz-fe900685ddcf.png",
+    basico: "/community-assets/awaxoue0o2mtkhmm0ck56a1sr18h-500e2eba57dc.png",
+    fba: "/community-assets/ljt8d56p7ibeexgh0bj5ddmlen0a-9a3e46db5669.png",
+    "aulas-info": "/community-assets/4xtp50z2f2kdtlw8e0g34w1jqvht-02bd1f4360d4.png",
+    "aulas-completas": "/community-assets/qfeoralvy2guhfrsgaufm020fta0-123aff879e1d.png",
+    "fulfillment-by-merchant": "/community-assets/vgl6iyzpzt0b3kohtuntebcbhiox-f7d84f25043f.png",
   };
 
   return icons[slug] || icons["aula-de-opsec"];
@@ -1793,7 +1793,7 @@ function spaceLabel(slug: string) {
     "feed-geral": "Feed Geral",
     "chat-geral": "Chat Geral",
     "seu-progresso": "Seu Progresso",
-    "politica-nacional": "Política Nacional",
+    "politica-nacional": "PolÃ­tica Nacional",
   };
 
   return labels[slug] || courseTitle(slug);
@@ -1873,10 +1873,17 @@ async function railsJson<T>(path: string, options: RequestInit = {}): Promise<T>
     headers.set("Content-Type", "application/json");
   }
 
+  // Encaminha o JWT do Supabase pro Rails reconhecer o usuario logado
+  // (ApplicationController#supabase_jwt_email decodifica o email do payload).
+  const session = getStoredAuthSession();
+  if (session?.access_token && !headers.has("Authorization")) {
+    headers.set("Authorization", `Bearer ${session.access_token}`);
+  }
+
   const response = await fetch(path, {
     ...options,
     headers,
-    credentials: "same-origin",
+    credentials: "include",
   });
 
   if (!response.ok) {
@@ -1993,16 +2000,16 @@ function mapRailsPost(row: RailsPost, fallbackSpaceSlug: string): FeedPost {
       name: authorName,
       avatar: row.user?.avatar_url || initials(authorName),
       badge: row.user?.role === "admin" || row.user?.role === "owner" ? "Admin" : "Hackudo",
-      level: "Nível 2",
-      joinedAt: "Membro Project Six",
+      level: "NÃ­vel 2",
+      joinedAt: "Membro Comunidade",
     },
   };
 }
 
-function mapSourceSixCapturedPost(seed: SourceSixCapturedPostSeed): FeedPost {
+function mapSampleCapturedPost(seed: SampleCapturedPostSeed): FeedPost {
   const attachments = seed.attachments || [];
   return {
-    id: sourceSixCapturedPostId(seed),
+    id: sampleCapturedPostId(seed),
     title: seed.title,
     body: seed.body,
     spaceSlug: seed.spaceSlug,
@@ -2021,7 +2028,7 @@ function mapSourceSixCapturedPost(seed: SourceSixCapturedPostSeed): FeedPost {
       name: "Membro",
       avatar: "M",
       badge: "Hackudo",
-      level: "Nível 2",
+      level: "NÃ­vel 2",
       joinedAt: "Membro desde 2026",
     },
   };
@@ -2101,11 +2108,11 @@ function leaderboardSubtitle(username: string) {
 const leaderboardReferenceProfiles: LeaderboardEntry[] = [
   { id: "leader-o-cuervo", username: "o_cuervo", name: "o_cuervo", subtitle: "IT", avatar: "/Feed%20Geral%20_%20Project%20Six_files/d0f92b7a6b87e4692dfd1c8e88c5df4e.jpg", points: 7 },
   { id: "leader-tetey15k", username: "tetey15k", name: "tetey15k", avatar: "/Seu%20Progresso%20_%20Project%20Six_files/Captura%20de%20tela%202025-10-31%20202909.png", points: 7 },
-  { id: "leader-kali15k", username: "kali15k", name: "Kali15k", subtitle: "Tavek, Lunir & Sovax.", avatar: "/p6-members-assets/photo_2025-12-05_16-06-52.jpg", points: 6 },
+  { id: "leader-kali15k", username: "kali15k", name: "Kali15k", subtitle: "Tavek, Lunir & Sovax.", avatar: "/community-assets/photo_2025-12-05_16-06-52.jpg", points: 6 },
   { id: "leader-goat", username: "goat", name: "Goat", avatar: "p6", points: 6 },
-  { id: "leader-night", username: "night", name: "Night", avatar: "/p6-members-assets/Cindy.jpeg", points: 2 },
-  { id: "leader-lhz", username: "lhz", name: "𝑙ℎ𝑧", avatar: "L", points: 2 },
-  { id: "leader-sorenus", username: "sorenus", name: "Sorenus", subtitle: "Inteligência e Força", avatar: "S", points: 2 },
+  { id: "leader-night", username: "night", name: "Night", avatar: "/community-assets/Cindy.jpeg", points: 2 },
+  { id: "leader-lhz", username: "lhz", name: "ð‘™â„Žð‘§", avatar: "L", points: 2 },
+  { id: "leader-sorenus", username: "sorenus", name: "Sorenus", subtitle: "InteligÃªncia e ForÃ§a", avatar: "S", points: 2 },
   { id: "leader-vamp", username: "vamp.darcy", name: "vamp.darcy", avatar: "/Seu%20Progresso%20_%20Project%20Six_files/download%20(3).jpg", points: 1 },
   { id: "leader-zero", username: "zero", name: "zero", avatar: "/Seu%20Progresso%20_%20Project%20Six_files/cb9e8ea52c4bd777e771df8a3664c405.jpg", points: 1 },
   { id: "leader-drk", username: "drk_333", name: "drk_333", avatar: "/Seu%20Progresso%20_%20Project%20Six_files/download%20(2).jfif", points: 1 },
@@ -2162,9 +2169,9 @@ function fallbackViewerProfileSummary(): ViewerProfileSummary {
   return {
     id: "vitor-araujo",
     username: "vitor-araujo",
-    name: "Vítor Santos Araujo",
+    name: "VÃ­tor Santos Araujo",
     avatar: "VA",
-    lastSeen: "Visto pela última vez há 3 minutos",
+    lastSeen: "Visto pela Ãºltima vez hÃ¡ 3 minutos",
     joinedAt: "26 de abril de 2026",
     level: 1,
     points: 0,
@@ -2194,10 +2201,10 @@ function fallbackAccountSettings(): AccountSettings {
   return {
     id: "vitor-araujo",
     username: "vitor-araujo",
-    name: "Vítor Santos Araujo",
+    name: "VÃ­tor Santos Araujo",
     avatarUrl: null,
     timezone: "(GMT -03:00) Brasilia",
-    language: "Português (Brasil)",
+    language: "PortuguÃªs (Brasil)",
     headline: "",
     bio: "",
     location: "",
@@ -2286,16 +2293,16 @@ function formatProfileDate(value: string) {
 }
 
 function formatRelativeLastSeen(value?: string | null) {
-  if (!value) return "Visto pela última vez há 3 minutos";
+  if (!value) return "Visto pela Ãºltima vez hÃ¡ 3 minutos";
 
   const diffMinutes = Math.max(1, Math.round((Date.now() - new Date(value).getTime()) / 60000));
-  if (diffMinutes < 60) return `Visto pela última vez há ${diffMinutes} minuto${diffMinutes === 1 ? "" : "s"}`;
+  if (diffMinutes < 60) return `Visto pela Ãºltima vez hÃ¡ ${diffMinutes} minuto${diffMinutes === 1 ? "" : "s"}`;
 
   const diffHours = Math.round(diffMinutes / 60);
-  if (diffHours < 24) return `Visto pela última vez há ${diffHours} hora${diffHours === 1 ? "" : "s"}`;
+  if (diffHours < 24) return `Visto pela Ãºltima vez hÃ¡ ${diffHours} hora${diffHours === 1 ? "" : "s"}`;
 
   const diffDays = Math.round(diffHours / 24);
-  return `Visto pela última vez há ${diffDays} dia${diffDays === 1 ? "" : "s"}`;
+  return `Visto pela Ãºltima vez hÃ¡ ${diffDays} dia${diffDays === 1 ? "" : "s"}`;
 }
 
 

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { P6Icon } from "../../design-system";
+﻿import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { CommunityIcon } from "../../design-system";
 import {
   createFeedComment,
   loadPostDetail,
@@ -26,12 +26,12 @@ const spaceLabels: Record<string, string> = {
 };
 
 const railMembers = [
-  { name: "vamp.darcy", avatar: "/source-six-assets/download203-eaf77e9d9bc7.jpg" },
-  { name: "Refzinho", avatar: "/source-six-assets/9745dcfe727b27ce8d8aea9cc7814732-de56d9dd231c.jpg" },
-  { name: "Sorenus", avatar: "/source-six-assets/IMG_2459.jpeg-20e76166eb1c.jpg" },
-  { name: "oolho15k", avatar: "/source-six-assets/image202-30bbc0e950d8.png" },
-  { name: "o_cuervo", avatar: "/source-six-assets/d0f92b7a6b87e4692dfd1c8e88c5df4e-3a8ff1ea6fcf.jpg" },
-  { name: "lhz", avatar: "/source-six-assets/7ad7792ee375693f271bc25ea391972a-9f4cecd9df81.jpg" },
+  { name: "vamp.darcy", avatar: "/community-assets/download203-eaf77e9d9bc7.jpg" },
+  { name: "Refzinho", avatar: "/community-assets/9745dcfe727b27ce8d8aea9cc7814732-de56d9dd231c.jpg" },
+  { name: "Sorenus", avatar: "/community-assets/IMG_2459.jpeg-20e76166eb1c.jpg" },
+  { name: "oolho15k", avatar: "/community-assets/image202-30bbc0e950d8.png" },
+  { name: "o_cuervo", avatar: "/community-assets/d0f92b7a6b87e4692dfd1c8e88c5df4e-3a8ff1ea6fcf.jpg" },
+  { name: "lhz", avatar: "/community-assets/7ad7792ee375693f271bc25ea391972a-9f4cecd9df81.jpg" },
 ];
 
 export function PostDetail({ postId, spaceSlug }: Props) {
@@ -63,7 +63,7 @@ export function PostDetail({ postId, spaceSlug }: Props) {
           setComments([]);
         }
       } catch {
-        if (alive) setError("Não foi possível carregar esta publicação agora.");
+        if (alive) setError("NÃ£o foi possÃ­vel carregar esta publicaÃ§Ã£o agora.");
       } finally {
         if (alive) setLoading(false);
       }
@@ -102,16 +102,16 @@ export function PostDetail({ postId, spaceSlug }: Props) {
     <main className="general-feed-main post-detail-page source-post-detail-page">
       <header className="post-detail-backbar">
         <button type="button" onClick={goBack}>
-          <P6Icon name="arrow-left-lg" sprite="compass" size={18} />
+          <CommunityIcon name="arrow-left-lg" sprite="compass" size={18} />
           <span>Voltar para {spaceLabel}</span>
         </button>
       </header>
 
       <div className="general-feed-scroll source-post-detail-scroll">
-        {loading ? <PostDetailState title="Carregando publicação" body="Buscando dados pelo backend." /> : null}
+        {loading ? <PostDetailState title="Carregando publicaÃ§Ã£o" body="Buscando dados pelo backend." /> : null}
         {!loading && error ? <PostDetailState title="Erro ao carregar" body={error} /> : null}
         {!loading && !error && !post ? (
-          <PostDetailState title="Publicação não encontrada" body="Confira o link ou tente novamente." />
+          <PostDetailState title="PublicaÃ§Ã£o nÃ£o encontrada" body="Confira o link ou tente novamente." />
         ) : null}
 
         {post ? (
@@ -121,11 +121,11 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                 <h1>{post.title}</h1>
                 <div>
                   <button type="button" aria-label="Destaques">
-                    <P6Icon name="icon-20-stardust-gradient" size={20} />
+                    <CommunityIcon name="icon-20-stardust-gradient" size={20} />
                   </button>
                   <BookmarkButton postId={post.id} saved={post.saved} onChange={(saved) => setPost({ ...post, saved })} />
-                  <button type="button" aria-label="Mais opções">
-                    <P6Icon name="icon-16-menu-dots-horizontal" size={20} />
+                  <button type="button" aria-label="Mais opÃ§Ãµes">
+                    <CommunityIcon name="icon-16-menu-dots-horizontal" size={20} />
                   </button>
                 </div>
               </header>
@@ -142,10 +142,10 @@ export function PostDetail({ postId, spaceSlug }: Props) {
               {post.kind === "video" ? (
                 <section className="source-post-summary">
                   <strong>
-                    <P6Icon name="icon-20-stardust-gradient" size={17} />
+                    <CommunityIcon name="icon-20-stardust-gradient" size={17} />
                     Resumo da conversa
                   </strong>
-                  <p>A discussão gira em torno do tema principal do post, com comentários e respostas carregados pelo backend quando disponíveis.</p>
+                  <p>A discussÃ£o gira em torno do tema principal do post, com comentÃ¡rios e respostas carregados pelo backend quando disponÃ­veis.</p>
                 </section>
               ) : null}
 
@@ -158,13 +158,13 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                     onChange={(liked, likes) => setPost({ ...post, liked, likes })}
                   />
                   <button type="button" aria-label="Comentar">
-                    <P6Icon name="icon-20-comment" size={21} />
+                    <CommunityIcon name="icon-20-comment" size={21} />
                   </button>
                 </div>
                 <div className="source-post-engagement">
                   {post.likes ? <span>{post.likes} curtida{post.likes === 1 ? "" : "s"}</span> : null}
-                  {post.likes ? <b>·</b> : null}
-                  <span>{Math.max(post.comments, comments.length)} comentário{Math.max(post.comments, comments.length) === 1 ? "" : "s"}</span>
+                  {post.likes ? <b>Â·</b> : null}
+                  <span>{Math.max(post.comments, comments.length)} comentÃ¡rio{Math.max(post.comments, comments.length) === 1 ? "" : "s"}</span>
                 </div>
               </footer>
 
@@ -175,14 +175,14 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                     <div>
                       <p>
                         <strong>{item.author.name}</strong>
-                        {item.author.level ? <em>Nível {item.author.level}</em> : null}
+                        {item.author.level ? <em>NÃ­vel {item.author.level}</em> : null}
                         <time>{formatShortDate(item.createdAt)}</time>
                       </p>
                       <span>{item.body}</span>
                       <small>Curtir&nbsp;&nbsp;Responder</small>
                     </div>
                     <button type="button" aria-label="Mais">
-                      <P6Icon name="icon-16-menu-dots-horizontal" size={18} />
+                      <CommunityIcon name="icon-16-menu-dots-horizontal" size={18} />
                     </button>
                     {item.reactions ? <b>{item.reactions} curtida</b> : null}
                   </article>
@@ -195,16 +195,16 @@ export function PostDetail({ postId, spaceSlug }: Props) {
                   <textarea
                     value={body}
                     onChange={(event) => setBody(event.target.value)}
-                    placeholder="O que você acha?"
-                    aria-label="O que você acha?"
+                    placeholder="O que vocÃª acha?"
+                    aria-label="O que vocÃª acha?"
                   />
                   <footer>
                     <div>
-                      <P6Icon name="icon-20-add-circle" size={20} />
-                      <P6Icon name="icon-20-attach" size={20} />
-                      <P6Icon name="icon-20-video" size={20} />
-                      <P6Icon name="icon-20-file-image" size={20} />
-                      <P6Icon name="icon-20-emoji" size={20} />
+                      <CommunityIcon name="icon-20-add-circle" size={20} />
+                      <CommunityIcon name="icon-20-attach" size={20} />
+                      <CommunityIcon name="icon-20-video" size={20} />
+                      <CommunityIcon name="icon-20-file-image" size={20} />
+                      <CommunityIcon name="icon-20-emoji" size={20} />
                     </div>
                     <button type="button" disabled={!body.trim() || savingComment} onClick={comment}>
                       Publicar
@@ -261,7 +261,7 @@ function AttachmentBlock({ attachment }: { attachment: FeedAttachment }) {
     return (
       <figure className="post-detail-attachment source-post-attachment is-video">
         <div className="source-video-placeholder">
-          <P6Icon name="icon-20-video" size={30} />
+          <CommunityIcon name="icon-20-video" size={30} />
           <span>{attachment.fileName}</span>
           <small>0:00 / 3:12</small>
         </div>
@@ -271,7 +271,7 @@ function AttachmentBlock({ attachment }: { attachment: FeedAttachment }) {
 
   return (
     <a className="feed-file-attachment source-file-attachment" href={attachment.fileUrl}>
-      <P6Icon name="icon-20-attach" size={18} />
+      <CommunityIcon name="icon-20-attach" size={18} />
       <span>{attachment.fileName}</span>
     </a>
   );
@@ -298,7 +298,7 @@ function RichPostBody({ body }: { body: string }) {
       return;
     }
 
-    if (line.startsWith("- ") || line.startsWith("• ")) {
+    if (line.startsWith("- ") || line.startsWith("â€¢ ")) {
       bullets.push(line.slice(2));
       return;
     }
@@ -347,8 +347,8 @@ function RightRail() {
         <button type="button">Ver membros</button>
       </section>
       <section>
-        <h2>Publicações fixadas</h2>
-        <a href="/c/feed-geral/opsec-seguranca-operacional">🔐 OPSEC: Segurança Operacional</a>
+        <h2>PublicaÃ§Ãµes fixadas</h2>
+        <a href="/c/feed-geral/opsec-seguranca-operacional">ðŸ” OPSEC: SeguranÃ§a Operacional</a>
       </section>
     </aside>
   );
@@ -371,7 +371,7 @@ function localComment(postId: string, value: string): FeedComment {
     createdAt: new Date().toISOString(),
     author: {
       username: "voce",
-      name: "Você",
+      name: "VocÃª",
       avatar: "VA",
       role: "member",
       level: 2,

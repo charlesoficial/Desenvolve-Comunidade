@@ -1,8 +1,8 @@
-import { getSupabaseUrl, isSupabaseConfigured, supabaseRest } from "./supabase";
+﻿import { getSupabaseUrl, isSupabaseConfigured, supabaseRest } from "./supabase";
 
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
-const authStorageKey = "p6-auth-session";
-const rememberedLoginKey = "p6-remembered-login";
+const authStorageKey = "cs-auth-session";
+const rememberedLoginKey = "cs-remembered-login";
 
 type SupabaseAuthSession = {
   access_token: string;
@@ -81,7 +81,7 @@ export function clearStoredAuthSession() {
 
 export async function signInWithPassword(login: string, password: string, remember: boolean) {
   if (!isSupabaseConfigured() || !supabaseAnonKey) {
-    throw new Error("Supabase Auth não está configurado.");
+    throw new Error("Supabase Auth nÃ£o estÃ¡ configurado.");
   }
 
   const email = await resolveEmail(login.trim());
@@ -111,7 +111,7 @@ export async function signInWithPassword(login: string, password: string, rememb
 
 export async function signUpWithPassword(email: string, password: string) {
   if (!isSupabaseConfigured() || !supabaseAnonKey) {
-    throw new Error("Supabase Auth não está configurado.");
+    throw new Error("Supabase Auth nÃ£o estÃ¡ configurado.");
   }
 
   const response = await fetch(`${getSupabaseUrl()?.replace(/\/$/, "")}/auth/v1/signup`, {
@@ -133,7 +133,7 @@ export async function signUpWithPassword(email: string, password: string) {
 
 export async function sendPasswordRecovery(emailOrUsername: string) {
   if (!isSupabaseConfigured() || !supabaseAnonKey) {
-    throw new Error("Supabase Auth não está configurado.");
+    throw new Error("Supabase Auth nÃ£o estÃ¡ configurado.");
   }
 
   const email = await resolveEmail(emailOrUsername.trim());
@@ -155,7 +155,7 @@ export async function sendPasswordRecovery(emailOrUsername: string) {
 
 export function startOAuth(provider: "google" | "amazon") {
   if (!isSupabaseConfigured() || !supabaseAnonKey) {
-    throw new Error("Supabase Auth não está configurado.");
+    throw new Error("Supabase Auth nÃ£o estÃ¡ configurado.");
   }
 
   const redirectTo = `${window.location.origin}${window.location.pathname}?v=feed`;
@@ -173,7 +173,7 @@ async function resolveEmail(login: string) {
   );
   const email = rows[0]?.email;
   if (!email) {
-    throw new Error("Usuário não encontrado.");
+    throw new Error("UsuÃ¡rio nÃ£o encontrado.");
   }
   return email;
 }
@@ -183,10 +183,10 @@ function authErrorMessage(raw: string) {
     const data = JSON.parse(raw) as { error_description?: string; msg?: string; message?: string; error?: string };
     const message = data.error_description || data.msg || data.message || data.error;
     if (message?.toLowerCase().includes("invalid login credentials")) {
-      return "E-mail, usuário ou senha inválidos.";
+      return "E-mail, usuÃ¡rio ou senha invÃ¡lidos.";
     }
-    return message || "Não foi possível autenticar.";
+    return message || "NÃ£o foi possÃ­vel autenticar.";
   } catch {
-    return "Não foi possível autenticar.";
+    return "NÃ£o foi possÃ­vel autenticar.";
   }
 }

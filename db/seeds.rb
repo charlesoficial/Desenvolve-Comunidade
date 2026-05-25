@@ -1,5 +1,5 @@
-community = Community.find_or_create_by!(slug: "project-six") do |record|
-  record.name = "Project Six"
+﻿community = Community.find_or_create_by!(slug: "project-six") do |record|
+  record.name = "Comunidade"
   record.brand_color = "#e11d48"
 end
 
@@ -12,7 +12,7 @@ end
 night = User.find_or_create_by!(email: "night@example.local") do |record|
   record.username = "night"
   record.display_name = "Night"
-  record.avatar_url = "/source-six-assets/7ad7792ee375693f271bc25ea391972a-9f4cecd9df81.jpg"
+  record.avatar_url = "/community-assets/7ad7792ee375693f271bc25ea391972a-9f4cecd9df81.jpg"
   record.role = "admin"
   record.status = "offline"
   record.last_seen_at = 2.days.ago
@@ -51,7 +51,7 @@ spaces = [
   ["Chat Geral", "chat-geral", "chat", 4],
   ["Membros", "membros", "members", 5],
   ["Seu Progresso", "seu-progresso", "progress", 6],
-  ["Política Nacional", "politica-nacional", "feed", 20],
+  ["PolÃ­tica Nacional", "politica-nacional", "feed", 20],
   ["Economia", "economia", "feed", 21],
   ["Criptomoedas", "criptomoedas", "feed", 22],
   ["IA News", "ia-news", "feed", 23],
@@ -72,12 +72,12 @@ chat = Space.find_by!(community:, slug: "chat-geral")
 
 [
   [
-    "Mara Maravilha Internada na UTI em São Paulo: Motivo é Desconhecido",
-    "A apresentadora Mara Maravilha foi internada na Unidade de Terapia Intensiva (UTI) em São Paulo. A notícia se espalhou rapidamente após a divulgação de um atestado médico nas redes sociais da artista.\n\nO atestado, embora confirme a internação, não é..."
+    "Mara Maravilha Internada na UTI em SÃ£o Paulo: Motivo Ã© Desconhecido",
+    "A apresentadora Mara Maravilha foi internada na Unidade de Terapia Intensiva (UTI) em SÃ£o Paulo. A notÃ­cia se espalhou rapidamente apÃ³s a divulgaÃ§Ã£o de um atestado mÃ©dico nas redes sociais da artista.\n\nO atestado, embora confirme a internaÃ§Ã£o, nÃ£o Ã©..."
   ],
   [
-    "Alcolumbre Defende Congresso e Manda Indireta ao Governo Lula: \"Paz Não É Omissão\"",
-    "O presidente do Senado, Davi Alcolumbre (União Brasil-AP), defendeu a autonomia do Congresso Nacional nesta segunda-feira (2), durante a cerimônia de abertura do ano legislativo de 2026.\n\nEle ressaltou que a busca por harmonia entre os Poderes não..."
+    "Alcolumbre Defende Congresso e Manda Indireta ao Governo Lula: \"Paz NÃ£o Ã‰ OmissÃ£o\"",
+    "O presidente do Senado, Davi Alcolumbre (UniÃ£o Brasil-AP), defendeu a autonomia do Congresso Nacional nesta segunda-feira (2), durante a cerimÃ´nia de abertura do ano legislativo de 2026.\n\nEle ressaltou que a busca por harmonia entre os Poderes nÃ£o..."
   ]
 ].each do |title, body|
   Post.find_or_create_by!(space: politica, title:) do |record|
@@ -89,8 +89,8 @@ end
 
 [
   [henrik, "2 kkk", 2.hours.ago],
-  [reiltuo, "Clica na logo do P6 na parte superior esquerda, lá irá aparecer a opção de troca de tema.", 1.hour.ago],
-  [henrik, "quando o comprovante é negado 3 vezes na amazon ja era ne", 45.minutes.ago],
+  [reiltuo, "Clica na logo da comunidade na parte superior esquerda, lÃ¡ irÃ¡ aparecer a opÃ§Ã£o de troca de tema.", 1.hour.ago],
+  [henrik, "quando o comprovante Ã© negado 3 vezes na amazon ja era ne", 45.minutes.ago],
   [henrik, "so outro cpf agora", 44.minutes.ago]
 ].each do |user, body, created_at|
   Message.find_or_create_by!(space: chat, user:, body:) do |record|
@@ -110,7 +110,7 @@ end
   end
 end
 
-welcome = DirectMessage.find_or_create_by!(direct_conversation: night_conversation, sender: night, body: "Ola, Vitor Santos Araujo! Seja muito bem-vindo(a) ao Project Six.") do |record|
+welcome = DirectMessage.find_or_create_by!(direct_conversation: night_conversation, sender: night, body: "Ola, Vitor Santos Araujo! Seja muito bem-vindo(a) ao Comunidade.") do |record|
   record.metadata = { variant: "welcome" }
   record.created_at = "2026-04-26 12:00:00"
   record.updated_at = "2026-04-26 12:00:00"

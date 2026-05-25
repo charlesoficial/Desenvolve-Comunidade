@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password validations: false
+
   has_one :profile, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :communities, through: :memberships

@@ -11,6 +11,7 @@ gem "jbuilder"
 gem "rack-cors"
 gem "stripe"
 gem "pundit"
+gem "bcrypt", "~> 3.1"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 group :development, :test do

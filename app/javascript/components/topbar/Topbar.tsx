@@ -1,4 +1,4 @@
-import { P6Icon } from "../../design-system";
+﻿import { CommunityIcon } from "../../design-system";
 import { topNav } from "../../data/communityData";
 import { SearchBox } from "./SearchBox";
 
@@ -17,11 +17,11 @@ export function Topbar() {
       <div className="topbar-actions">
         <SearchBox />
         <button className="topbar-icon mobile-search" type="button" aria-label="Pesquisar">
-          <P6Icon name="icon-20-flux-search" size={17} />
+          <CommunityIcon name="icon-20-flux-search" size={17} />
         </button>
         {actions.map((iconName, index) => (
-          <button className="topbar-icon" type="button" aria-label="Ação" key={index}>
-            <P6Icon name={iconName} size={17} />
+          <button className="topbar-icon" type="button" aria-label="AÃ§Ã£o" key={index}>
+            <CommunityIcon name={iconName} size={17} />
           </button>
         ))}
         <button className="profile-button" type="button" aria-label="Perfil">

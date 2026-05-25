@@ -1,5 +1,5 @@
-import { FeedGeralMain } from "../feedGeral/FeedGeralMain";
-import { P6Icon } from "../../design-system";
+﻿import { FeedGeralMain } from "../feedGeral/FeedGeralMain";
+import { CommunityIcon } from "../../design-system";
 import { canalAsset, canalConfigs } from "./canalConfigs";
 
 export function CanalLayout({ slug }: { slug: string }) {
@@ -43,7 +43,7 @@ function CanalHeader({ title }: { title: string }) {
   return (
     <header className="channel-page-header">
       <div>
-        <P6Icon name="icon-lock" size={18} />
+        <CommunityIcon name="icon-lock" size={18} />
         <h1>{title}</h1>
       </div>
     </header>
@@ -56,9 +56,9 @@ function PrivateCanalPage({ title }: { title: string }) {
       <CanalHeader title={title} />
       <div className="channel-page-scroll">
         <section className="channel-private-card">
-          <P6Icon name="icon-lock" size={48} />
-          <h2>Este é um espaço privado</h2>
-          <p>Membros devem ser convidados para este espaço.</p>
+          <CommunityIcon name="icon-lock" size={48} />
+          <h2>Este Ã© um espaÃ§o privado</h2>
+          <p>Membros devem ser convidados para este espaÃ§o.</p>
         </section>
       </div>
     </main>
@@ -71,24 +71,24 @@ function HackingLandingPage({ title }: { title: string }) {
       <CanalHeader title={title} />
       <section className="channel-hacking-hero">
         <div className="channel-hacking-copy">
-          <h2>Área Hacking</h2>
+          <h2>Ãrea Hacking</h2>
           <p>
-            Essa é uma área focada em hacking, onde <strong>você</strong> irá encontrar, além de ferramentas,
-            publicações com ensinamentos, indicação de cursos (vazados) e muito mais.
+            Essa Ã© uma Ã¡rea focada em hacking, onde <strong>vocÃª</strong> irÃ¡ encontrar, alÃ©m de ferramentas,
+            publicaÃ§Ãµes com ensinamentos, indicaÃ§Ã£o de cursos (vazados) e muito mais.
           </p>
           <p>
-            Claro, <strong>além</strong> de ter um chat focado exclusivamente nisso para tirar <strong>dúvidas</strong>{" "}
+            Claro, <strong>alÃ©m</strong> de ter um chat focado exclusivamente nisso para tirar <strong>dÃºvidas</strong>{" "}
             e fazer <strong>networking</strong> sobre o tema.
           </p>
           <p>
-            O <strong>responsável</strong> por essa <strong>área</strong> é o Kali15k, especialista em OpSec e dev
-            full-stack com vasta <strong>experiência</strong> na <strong>área</strong>, principalmente em{" "}
-            <strong>cibersegurança</strong>, pois, quando viveu na China, precisou aprender para se comunicar com os
-            parentes brasileiros, devido à restrição de algumas redes, como WhatsApp, e à forte vigilância.
+            O <strong>responsÃ¡vel</strong> por essa <strong>Ã¡rea</strong> Ã© o Kali15k, especialista em OpSec e dev
+            full-stack com vasta <strong>experiÃªncia</strong> na <strong>Ã¡rea</strong>, principalmente em{" "}
+            <strong>ciberseguranÃ§a</strong>, pois, quando viveu na China, precisou aprender para se comunicar com os
+            parentes brasileiros, devido Ã  restriÃ§Ã£o de algumas redes, como WhatsApp, e Ã  forte vigilÃ¢ncia.
           </p>
           <a href="https://checkout.p6.chat/areahacking">Adquirir Acesso Exclusivo</a>
         </div>
-        <img src="/source-six-assets/okcda187dlu9zjnkkltzalwvpvbm-46135cf67bb4.png" alt="" />
+        <img src="/community-assets/okcda187dlu9zjnkkltzalwvpvbm-46135cf67bb4.png" alt="" />
       </section>
     </main>
   );
@@ -100,26 +100,26 @@ function LevelAccessPage({ title }: { title: string }) {
       <CanalHeader title={title} />
       <section className="channel-level-hero">
         <div className="channel-level-copy">
-          <span>Upgrade -&gt; Nível 2</span>
-          <h2>Nível 2</h2>
+          <span>Upgrade -&gt; NÃ­vel 2</span>
+          <h2>NÃ­vel 2</h2>
           <p>
-            O <strong>Nível 2</strong> é uma área exclusiva onde postamos <strong>códigos-fonte</strong> de sistemas.
+            O <strong>NÃ­vel 2</strong> Ã© uma Ã¡rea exclusiva onde postamos <strong>cÃ³digos-fonte</strong> de sistemas.
           </p>
           <p>
-            O acesso é vitalício, então você sempre verá um sistema novo para poder subir uma operação ou até mesmo
+            O acesso Ã© vitalÃ­cio, entÃ£o vocÃª sempre verÃ¡ um sistema novo para poder subir uma operaÃ§Ã£o ou atÃ© mesmo
             vender.
           </p>
           <p>
-            Já temos <strong>disponíveis</strong> para download: plataforma de investimentos, raspadinha, checkout
-            próprio, sistema de seguidores e outros.
+            JÃ¡ temos <strong>disponÃ­veis</strong> para download: plataforma de investimentos, raspadinha, checkout
+            prÃ³prio, sistema de seguidores e outros.
           </p>
           <div className="channel-level-actions">
-            <a href="https://checkout.p6.chat/nivel2">Adquirir Acesso ao Nível 2</a>
+            <a href="https://checkout.p6.chat/nivel2">Adquirir Acesso ao NÃ­vel 2</a>
             <a href="https://15k.bio/discord">Suporte</a>
           </div>
           <small>100+ membros fizeram upgrade.</small>
         </div>
-        <img src="/source-six-assets/6u3sqv3ljm5oun074a2fqdyd4ohs-a1f8730efc6e.png" alt="" />
+        <img src="/community-assets/6u3sqv3ljm5oun074a2fqdyd4ohs-a1f8730efc6e.png" alt="" />
       </section>
     </main>
   );

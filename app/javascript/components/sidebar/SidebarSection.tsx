@@ -1,4 +1,4 @@
-import { P6Icon } from "../../design-system";
+﻿import { CommunityIcon } from "../../design-system";
 import type { SidebarSection as SidebarSectionType } from "../../types/community";
 import { SidebarItem } from "./SidebarItem";
 
@@ -12,9 +12,9 @@ export function SidebarSection({ section }: Props) {
       <div className="sidebar-section-header">
         <span>
           {section.title}
-          {section.collapsible ? <P6Icon name="icon-12-chevron-down-v3" size={13} /> : null}
+          {section.collapsible ? <CommunityIcon name="icon-12-chevron-down-v3" size={13} /> : null}
         </span>
-        {section.menu ? <P6Icon name="icon-16-menu-dots-horizontal" size={17} /> : null}
+        {section.menu ? <CommunityIcon name="icon-16-menu-dots-horizontal" size={17} /> : null}
       </div>
       <div className="sidebar-section-items">
         {section.items.map((item) => (
