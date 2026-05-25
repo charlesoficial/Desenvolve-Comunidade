@@ -1,0 +1,75 @@
+{
+  "viewport": "1440x900 desktop",
+  "captured_from": "projeto-copias-comunidade.circle.so/getting-started",
+  "captured_at": "2026-05-25T17:57:00Z",
+  "shell": {
+    "topbar": {
+      "selector": "#root-header-v2_1",
+      "x": 72,
+      "y": 0,
+      "width": 1368,
+      "height": 64,
+      "background": "#ffffff",
+      "border_bottom": "1px solid (var --color-border-primary)",
+      "padding": "8px 36px",
+      "z_index": 50,
+      "sticky": true,
+      "note": "Topbar começa em x=72 (depois do community switcher)"
+    },
+    "trial_banner": {
+      "selector": "#trial-banner",
+      "x": 72,
+      "y": 64,
+      "width": 1368,
+      "height": 48,
+      "background": "rgba(245, 158, 11, 0.1)",
+      "color": "#ffffff",
+      "font": "16px / 20px / 600",
+      "padding": "12px",
+      "note": "Banner laranja-claro de upgrade. Aparece somente em trial. Some quando upgrade é feito."
+    },
+    "community_switcher": {
+      "x": 0,
+      "y": 0,
+      "width": 72,
+      "height": "100vh",
+      "background": "white-ish",
+      "items": [
+        { "y": 16, "size": 40, "type": "logo da comunidade ativa" },
+        { "y": 72, "size": 40, "type": "trocar comunidade" },
+        { "y": 128, "size": 32, "type": "ícone secundário" }
+      ],
+      "note": "Coluna fixa esquerda com logos das comunidades. Permite trocar entre comunidades. Diferente da sidebar de navegação."
+    },
+    "secondary_sidebar": {
+      "selector": ".standard-layout-v2__sidebar",
+      "x": 72,
+      "y": 112,
+      "width": 281,
+      "height_calc": "100vh - 112px",
+      "background": "#ffffff",
+      "note": "Sidebar de navegação dentro da comunidade. Lista os espaços/áreas. Não é a primária do admin (essa tem 64px)."
+    },
+    "main_content": {
+      "selector": ".standard-layout-v2__content",
+      "x": 353,
+      "y": 112,
+      "width": 1072,
+      "height_calc": "100vh - 112px",
+      "background": "#f7f9fa",
+      "note": "Área principal. width = viewport - 72 (switcher) - 281 (sidebar) - 15 (scrollbar?)"
+    }
+  },
+  "totals": {
+    "header_total_height": 112,
+    "header_only": 64,
+    "banner_only": 48,
+    "left_columns_width": "72 (switcher) + 281 (sidebar) = 353"
+  },
+  "differences_from_our_app": {
+    "topbar_height": "Estamos usando 64px no admin. Está correto. Mas no shell normal (não-admin) Circle adiciona o trial banner de 48px embaixo, totalizando 112.",
+    "primary_left_column_width": "Estamos usando 64px. Circle real: 72px (community switcher).",
+    "secondary_sidebar_width": "Estamos usando 281px no /c/* (correto) e 368px no /settings/* (pode estar errado, conferir).",
+    "background": "Main bg #f7f9fa correto."
+  }
+}

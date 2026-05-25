@@ -1,0 +1,62 @@
+{
+  "captured_from": "/settings/workflows/new",
+  "captured_at": "2026-05-25T18:07:00Z",
+  "tabs": ["Automações", "Engajamento personalizado", "Crescimento escalável"],
+  "templates": [
+    { "category": "E-mail Hub", "name": "Acompanhamento na abertura", "description": "Sequência de 2 e-mails para membros que abriram o e-mail anterior", "tag": "Engajamento" },
+    { "category": "E-mail Hub", "name": "Aplicar tag ao abrir", "description": "Aplica tag quando o membro abre um e-mail" },
+    { "category": "E-mail Hub", "name": "Ação após clique", "description": "Sequência de 2 mensagens para quem clicou em link no e-mail" },
+    { "category": "E-mail Hub", "name": "Aplicar tag ao clicar", "description": "Aplica tag quando clica em link" },
+    { "category": "E-mail Hub", "name": "Enviar e-mail para todos os membros do espaço" },
+    { "category": "Mensagem", "name": "Enviar mensagem a todos os membros do espaço" },
+    { "category": "E-mail Hub", "name": "Enviar e-mail para novos membros" },
+    { "category": "Mensagem", "name": "Enviar mensagem para novos membros" },
+    { "category": "E-mail Hub", "name": "Reunir feedback por e-mail", "description": "Onboarding feedback" },
+    { "category": "Mensagem", "name": "Coletar feedback por DM", "description": "Onboarding feedback" },
+    { "category": "E-mail Hub", "name": "Enviar e-mail para membros inativos", "description": "Re-engajamento >30 dias sem login" },
+    { "category": "Mensagem", "name": "Enviar mensagem para membros inativos" },
+    { "category": "E-mail Hub", "name": "Enviar e-mail aos participantes do evento" },
+    { "category": "Mensagem", "name": "Enviar mensagem aos participantes do evento" },
+    { "category": "E-mail Hub", "name": "Enviar e-mail para novos membros do espaço" },
+    { "category": "Mensagem", "name": "Enviar mensagem para novos membros do espaço" },
+    { "category": "E-mail Hub", "name": "Enviar e-mail após a conclusão do curso" },
+    { "category": "Mensagem", "name": "Enviar mensagem após a conclusão do curso" },
+    { "category": "E-mail Hub", "name": "Enviar e-mail quando o membro atingir um novo nível" },
+    { "category": "Tag", "name": "Marcar novos membros do espaço", "description": "Atribuir tag automaticamente" }
+  ],
+  "trigger_types_inferred": [
+    "member_joined",
+    "member_joined_space",
+    "post_published",
+    "comment_created",
+    "course_completed",
+    "level_reached",
+    "event_rsvp",
+    "event_started",
+    "email_opened",
+    "email_link_clicked",
+    "member_inactive_30_days",
+    "paywall_purchased"
+  ],
+  "action_types_inferred": [
+    "send_email",
+    "send_dm",
+    "send_email_sequence_2_steps",
+    "send_dm_sequence_2_steps",
+    "apply_tag",
+    "remove_tag",
+    "grant_space_access",
+    "revoke_space_access"
+  ],
+  "ui_pattern": {
+    "layout": "Grid de cards 2-3 colunas. Cada card mostra categoria (badge no topo), nome (h3), descrição (1-2 linhas), tags inferidas no rodapé.",
+    "card_size_estimated": "320 × 140 px"
+  },
+  "implications_for_our_clone": [
+    "Nossa implementação tem 4 triggers e 4 actions hardcoded. Circle real tem 12+ triggers e 8+ actions.",
+    "Circle não pede pro usuário escrever 'quando A então B' do zero — oferece 20+ templates pré-configurados.",
+    "Cada template tem categoria visual (E-mail Hub, Mensagem, Tag) com cor própria.",
+    "Há 3 abas no topo: Automações, Engajamento personalizado, Crescimento escalável.",
+    "Botão CTA principal: 'Crie sua primeira automação'."
+  ]
+}

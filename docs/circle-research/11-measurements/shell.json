@@ -1,0 +1,102 @@
+{
+  "captured_from": "projeto-copias-comunidade.circle.so",
+  "captured_at": "2026-05-25T18:02:00Z",
+  "viewport": "1440x900",
+  "comunidade_normal": {
+    "context": "rotas /feed, /c/*, /events, /members, /leaderboard, /courses",
+    "topbar": {
+      "selector": "#root-header-v2_1",
+      "x": 72, "y": 0, "width": 1368, "height": 64,
+      "padding": "8px 36px",
+      "background": "#ffffff",
+      "border_bottom": "1px solid var(--color-border-primary)"
+    },
+    "trial_banner_when_present": {
+      "selector": "#trial-banner",
+      "x": 72, "y": 64, "width": 1368, "height": 48,
+      "padding": "12px",
+      "background": "rgba(245, 158, 11, 0.1)"
+    },
+    "community_switcher_left_column": {
+      "x": 0, "y": 0, "width": 72, "height": "100vh",
+      "items_per_row": 1,
+      "logo_size": 40,
+      "spacing_between": 16,
+      "padding_top": 16
+    },
+    "sidebar_navigation": {
+      "selector": "aside.standard-layout-v2__sidebar",
+      "x": 72, "y": 112, "width": 281, "height_calc": "100vh - 112",
+      "background": "#ffffff"
+    },
+    "main_content": {
+      "selector": ".standard-layout-v2__content",
+      "x": 353, "y": 184, "width": 1087,
+      "background": "#f7f9fa"
+    },
+    "feed_header_h1": {
+      "x": 377, "y": 133, "width": 648, "height": 30,
+      "padding_top_from_topbar": 21
+    }
+  },
+  "admin_settings": {
+    "context": "rotas /settings/*, /audience/manage",
+    "topbar": {
+      "x": 0, "y": 0, "width": 1440, "height": 64,
+      "note": "Topbar admin ocupa o viewport todo (não tem community switcher visível ao lado)"
+    },
+    "sidebar": {
+      "selector": "aside.standard-layout-v2__sidebar",
+      "x": 0, "y": 112, "width": 368,
+      "structure": "duas colunas internas: ícones em x:11..53 (42x42) + sub-itens em x:84..340 (256xN)",
+      "icon_column": {
+        "x_start": 11,
+        "icon_size": 42,
+        "icon_spacing_y": 50,
+        "first_icon_y": 124,
+        "last_icon_y": 774,
+        "icon_count": 14
+      },
+      "text_column": {
+        "x_start": 84,
+        "text_width": 256,
+        "row_height": 32,
+        "row_spacing": 1,
+        "section_title_h5": { "y_first": 132, "height": 30 }
+      }
+    },
+    "main_content": {
+      "selector": "main.settings-app",
+      "x": 449, "y": 184, "width": 896,
+      "max_width": "896px (Tailwind max-w-4xl)",
+      "padding": "36px 48px",
+      "margin": "mx-auto"
+    }
+  },
+  "differences_from_our_clone": [
+    {
+      "where": "Admin sidebar primária",
+      "ours": "64px coluna isolada de ícones",
+      "real": "0px - ícones e texto vivem no mesmo aside de 368px",
+      "action": "Refatorar: mesclar AdminPrimarySidebar dentro de AdminSecondarySidebar, transformar em duas colunas internas"
+    },
+    {
+      "where": "Comunidade community switcher",
+      "ours": "ChatTopbar inicia em x=0",
+      "real": "Topbar começa em x=72 deixando espaço pro community switcher",
+      "action": "Adicionar coluna de 72px à esquerda da topbar"
+    },
+    {
+      "where": "Banner trial",
+      "ours": "Não temos",
+      "real": "48px abaixo do topbar quando a comunidade está em trial",
+      "action": "Opcional - implementar quando criar sistema de trial"
+    },
+    {
+      "where": "Largura main no admin",
+      "ours": "stretch full-width",
+      "real": "max-width 896px centralizado (mx-auto)",
+      "action": "Aplicar max-width 896 no .admin-page"
+    }
+  ]
+}
