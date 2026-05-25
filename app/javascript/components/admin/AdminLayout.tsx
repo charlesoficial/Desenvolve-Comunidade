@@ -23,6 +23,7 @@ import { AdminBulkActions } from "./pages/AdminBulkActions";
 import { AdminStaticPages } from "./pages/AdminStaticPages";
 import { AdminTopics } from "./pages/AdminTopics";
 import { AdminPlaceholder } from "./pages/AdminPlaceholder";
+import { AdminFeatureStub } from "./pages/AdminFeatureStub";
 
 export function AdminLayout() {
   const [pathname, setPathname] = useState(() => window.location.pathname);
@@ -240,6 +241,299 @@ function renderPage(pathname: string) {
           }}
         />
       );
+
+    /* ---------- Membros (sub-páginas faltantes) ---------- */
+    case "/settings/access_groups":
+      return (
+        <AdminFeatureStub
+          title="Grupos de acesso"
+          subtitle="Defina conjuntos de espaços e permissões que podem ser atribuídos em massa a tags ou planos."
+          cta={{ label: "Criar grupo de acesso" }}
+          bullets={[
+            "Lista de grupos com nome, descrição e contagem de membros",
+            "Cada grupo libera espaços específicos + papéis (membro, mod, admin)",
+            "Pode ser atribuído manualmente, via tag ou ao comprar paywall",
+            "Histórico de mudanças e alterações em massa",
+          ]}
+        />
+      );
+    case "/settings/segments":
+      return (
+        <AdminFeatureStub
+          title="Segmentos"
+          subtitle="Listas dinâmicas de membros baseadas em filtros (ex.: ativos nos últimos 7 dias, plano Pro, sem post)."
+          cta={{ label: "Criar segmento" }}
+          bullets={[
+            "Builder de filtros (atividade, posts, comentários, plano, tags)",
+            "Contagem em tempo real do total de membros",
+            "Exportar CSV ou usar como público de e-mail/automação",
+            "Salvar como segmento favorito pra reutilizar",
+          ]}
+        />
+      );
+    case "/settings/member_tags":
+      return (
+        <AdminFeatureStub
+          title="Tags de membros"
+          subtitle="Etiquete membros para segmentar comunicações, automações e relatórios."
+          cta={{ label: "Nova tag" }}
+          bullets={[
+            "Lista de tags com nome, cor, contagem de membros",
+            "Aplicar/remover tag em massa via segmento",
+            "Tags podem ser usadas em condições de workflows",
+          ]}
+        />
+      );
+    case "/members/onboarding":
+      return (
+        <AdminFeatureStub
+          title="Onboarding"
+          subtitle="Defina o questionário inicial que novos membros respondem ao entrar na comunidade."
+          cta={{ label: "Editar fluxo" }}
+          bullets={[
+            "Sequência de telas com campos personalizados",
+            "Coleta dados pra preencher o perfil automaticamente",
+            "Encaminha pra espaços recomendados conforme respostas",
+          ]}
+        />
+      );
+    case "/settings/gamification":
+      return (
+        <AdminFeatureStub
+          title="Gamificação"
+          subtitle="Configure níveis, pontos e recompensas para engajamento dos membros."
+          cta={{ label: "Configurar regras" }}
+          bullets={[
+            "Definição de pontos por ação (post, comentário, reação, login)",
+            "Curva de níveis customizável (níveis 1-10 com nome e ícone)",
+            "Badges por conquistas (primeiro post, 100 pontos etc)",
+            "Leaderboard semanal/mensal/all-time",
+          ]}
+        />
+      );
+    case "/members/profile_fields":
+      return (
+        <AdminFeatureStub
+          title="Campos de perfil"
+          subtitle="Adicione campos extras ao perfil de cada membro (cidade, profissão, bio etc)."
+          cta={{ label: "Novo campo" }}
+          bullets={[
+            "Tipos: texto, número, dropdown, multi-select, data",
+            "Marcar como obrigatório no onboarding",
+            "Visibilidade configurável (público, membros, admin)",
+          ]}
+        />
+      );
+    case "/members/invitation_links":
+      return (
+        <AdminFeatureStub
+          title="Links de convite"
+          subtitle="Crie URLs únicas para campanhas de convite com tracking de origem e limite de usos."
+          cta={{ label: "Novo link" }}
+          bullets={[
+            "Cada link tem código único e contagem de usos",
+            "Expirar por data ou número máximo de uses",
+            "Atribui automaticamente um plano e/ou tags ao usar",
+            "Relatório de conversão por origem",
+          ]}
+        />
+      );
+    case "/settings/members/bulk_import_tasks":
+      return (
+        <AdminFeatureStub
+          title="Importações de membros"
+          subtitle="Histórico de uploads de CSV, com status, total importado e erros."
+          bullets={[
+            "Upload de CSV com colunas e-mail, nome, tags, plano",
+            "Validação prévia antes de processar",
+            "Notificação por e-mail quando termina",
+            "Download do log de erros",
+          ]}
+        />
+      );
+    case "/settings/members/activity_logs":
+      return (
+        <AdminFeatureStub
+          title="Registros de atividades"
+          subtitle="Auditoria de ações administrativas: quem mudou o que e quando."
+          bullets={[
+            "Filtro por admin, data e tipo de ação",
+            "Inclui mudanças em planos, paywalls, configurações",
+            "Detalhe diff (antes/depois) de cada alteração",
+            "Exportável em CSV",
+          ]}
+        />
+      );
+
+    /* ---------- Paywalls (sub-páginas faltantes) ---------- */
+    case "/settings/coupons":
+      return (
+        <AdminFeatureStub
+          title="Cupons"
+          subtitle="Códigos de desconto aplicáveis a paywalls e planos."
+          cta={{ label: "Novo cupom" }}
+          bullets={[
+            "Tipos: percentual ou valor fixo",
+            "Limite de usos totais e por usuário",
+            "Validade por data e por paywalls específicos",
+            "Tracking de receita gerada por cupom",
+          ]}
+        />
+      );
+    case "/settings/paywall_groups":
+      return (
+        <AdminFeatureStub
+          title="Grupos de assinatura"
+          subtitle="Combine vários paywalls num único grupo (ex.: Mentoria + Curso = pacote)."
+          cta={{ label: "Novo grupo" }}
+          bullets={[
+            "Membro paga 1 vez e ganha acesso a vários paywalls",
+            "Preço com desconto vs comprar separado",
+            "Trial period configurável",
+          ]}
+        />
+      );
+    case "/settings/paywall_charges":
+      return (
+        <AdminFeatureStub
+          title="Transações"
+          subtitle="Histórico de cobranças do Stripe (sucesso, falha, reembolso)."
+          bullets={[
+            "Filtro por data, paywall, status",
+            "Detalhe de cada transação (cartão, valor, taxa)",
+            "Reembolsar via Stripe sem sair do painel",
+            "Total bruto/líquido por período",
+          ]}
+        />
+      );
+    case "/settings/paywall_subscriptions":
+      return (
+        <AdminFeatureStub
+          title="Assinaturas"
+          subtitle="Lista de assinantes ativos, pausados e cancelados."
+          bullets={[
+            "Status, próxima cobrança, valor mensal",
+            "Cancelar/pausar via painel (sincroniza com Stripe)",
+            "Métricas: MRR, churn, retention",
+            "Exportar CSV pra análise externa",
+          ]}
+        />
+      );
+    case "/settings/paywall_tax_settings":
+      return (
+        <AdminFeatureStub
+          title="Impostos"
+          subtitle="Configure como impostos são calculados nas vendas."
+          bullets={[
+            "Modelo: incluso no preço ou adicionado no checkout",
+            "Alíquotas por país/estado",
+            "Integração com Stripe Tax (auto-cálculo)",
+            "Notas fiscais por transação",
+          ]}
+        />
+      );
+    case "/settings/paywall_bulk_logs":
+      return (
+        <AdminFeatureStub
+          title="Registros em massa de paywalls"
+          subtitle="Logs das ações em massa em paywalls e assinaturas (cancelamentos, descontos, exports)."
+        />
+      );
+
+    /* ---------- Analytics sub-páginas ---------- */
+    case "/settings/analytics/members":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Membros"
+          subtitle="Crescimento, ativação, retenção e churn da base de membros."
+          bullets={[
+            "Novos membros por dia/semana/mês",
+            "DAU / WAU / MAU",
+            "Coorte por semana de cadastro",
+            "Top membros por engajamento",
+          ]}
+        />
+      );
+    case "/settings/analytics/website":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Site"
+          subtitle="Visitas à página pública e funil de conversão de visitante para membro."
+          bullets={["Pageviews, sessions, bounce rate", "Origens (referrer, UTM)", "Conversão visitante → cadastro"]}
+        />
+      );
+    case "/settings/analytics/spaces":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Espaços"
+          subtitle="Engajamento por espaço (posts, comentários, reações)."
+          bullets={["Top espaços por atividade", "Membros ativos por espaço", "Taxa de retorno"]}
+        />
+      );
+    case "/settings/analytics/post_comments":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Publicações & comentários"
+          subtitle="Volume e qualidade das interações em conteúdo."
+          bullets={["Top posts por reações/comentários", "Distribuição por hora/dia da semana", "Autores mais ativos"]}
+        />
+      );
+    case "/settings/analytics/messages":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Mensagens"
+          subtitle="Volume de DMs e mensagens em chat público."
+          bullets={["Mensagens por dia", "DMs vs chat público", "Pares de membros mais ativos"]}
+        />
+      );
+    case "/settings/analytics/devices":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Dispositivos"
+          subtitle="Distribuição de uso por desktop, mobile, tablet, app nativo."
+          bullets={["% por device", "Tempo médio de sessão por device", "Versão do sistema/navegador"]}
+        />
+      );
+    case "/settings/analytics/events":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Eventos"
+          subtitle="RSVP, presença, gravações assistidas."
+          bullets={["Top eventos por inscrições", "Taxa de presença vs RSVP", "Visualizações pós-evento"]}
+        />
+      );
+    case "/settings/analytics/payments":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Pagamentos"
+          subtitle="Receita, MRR, ARR, churn financeiro."
+          bullets={["MRR por mês", "Churn voluntário vs involuntário", "LTV médio por plano", "Receita por afiliado"]}
+        />
+      );
+    case "/settings/analytics/courses":
+      return (
+        <AdminFeatureStub
+          title="Analytics — Cursos"
+          subtitle="Conclusão de aulas, drop-off, certificados emitidos."
+          bullets={["Taxa de conclusão por curso", "Lições mais e menos vistas", "Tempo médio até conclusão"]}
+        />
+      );
+
+    /* ---------- AI Agents sub-páginas ---------- */
+    case "/settings/ai-agents/inbox":
+      return (
+        <AdminFeatureStub
+          title="Inbox da IA"
+          subtitle="Conversas que o agente teve com membros — útil pra revisar respostas e treinar."
+          bullets={[
+            "Lista de conversas com status (resolvida, escalada, aberta)",
+            "Avaliações dos membros (👍 / 👎)",
+            "Conversa completa em modo leitura",
+            "Botão pra marcar resposta como base de conhecimento",
+          ]}
+        />
+      );
+
     default:
       return <AdminPlaceholder route={pathname} />;
   }
