@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_25_230000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -29,6 +29,47 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
   enable_extension "supabase_vault"
   enable_extension "uuid-ossp"
 
+  create_table "access_groups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "name", null: false
+    t.text "description", default: ""
+    t.uuid "space_ids", null: false, array: true
+    t.text "default_role", default: "member", null: false
+    t.integer "members_count", default: 0, null: false
+    t.boolean "active", default: true, null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index ["community_id"], name: "index_access_groups_community"
+    t.check_constraint "default_role = ANY (ARRAY['owner'::text, 'admin'::text, 'moderator'::text, 'member'::text])", name: "access_groups_default_role_check"
+  end
+
+  create_table "affiliate_codes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "user_id", null: false
+    t.text "code", null: false
+    t.integer "commission_pct", default: 30, null: false
+    t.integer "visits_count", default: 0, null: false
+    t.integer "conversions_count", default: 0, null: false
+    t.integer "total_revenue_cents", default: 0, null: false
+    t.boolean "active", default: true, null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+
+    t.unique_constraint ["community_id", "code"], name: "affiliate_codes_community_id_code_key"
+    t.unique_constraint ["community_id", "user_id"], name: "affiliate_codes_community_id_user_id_key"
+  end
+
+  create_table "ai_knowledge_entries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "title", null: false
+    t.text "body", default: "", null: false
+    t.text "source_url"
+    t.boolean "enabled", default: true, null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index ["community_id"], name: "index_ai_knowledge_community"
+  end
+
   create_table "api_tokens", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "community_id", null: false
     t.uuid "user_id"
@@ -42,6 +83,37 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.timestamptz "updated_at", default: -> { "now()" }, null: false
     t.index ["community_id"], name: "index_api_tokens_community"
     t.index ["token_hash"], name: "index_api_tokens_token_hash", unique: true
+  end
+
+  create_table "audit_logs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "actor_id"
+    t.string "action", null: false
+    t.string "target_type"
+    t.uuid "target_id"
+    t.jsonb "metadata", default: {}, null: false
+    t.string "ip_address"
+    t.text "user_agent"
+    t.datetime "created_at", null: false
+    t.index ["actor_id"], name: "index_audit_logs_on_actor_id"
+    t.index ["community_id", "action"], name: "index_audit_logs_on_community_id_and_action"
+    t.index ["community_id", "created_at"], name: "index_audit_logs_on_community_id_and_created_at"
+    t.index ["community_id"], name: "index_audit_logs_on_community_id"
+    t.index ["target_type", "target_id"], name: "index_audit_logs_on_target_type_and_target_id"
+  end
+
+  create_table "bulk_action_runs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "user_id"
+    t.text "action", null: false
+    t.text "target", null: false
+    t.jsonb "filters", default: {}, null: false
+    t.integer "affected_count", default: 0, null: false
+    t.text "status", default: "pending", null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "finished_at"
+    t.index ["community_id", "created_at"], name: "index_bulk_action_runs_community_created", order: { created_at: :desc }
+    t.check_constraint "status = ANY (ARRAY['pending'::text, 'running'::text, 'completed'::text, 'failed'::text])", name: "bulk_action_runs_status_check"
   end
 
   create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -69,6 +141,26 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.timestamptz "updated_at", default: -> { "now()" }, null: false
 
     t.unique_constraint ["slug"], name: "communities_slug_key"
+  end
+
+  create_table "coupons", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "code", null: false
+    t.text "description", default: ""
+    t.text "discount_type", default: "percent", null: false
+    t.integer "discount_value", default: 0, null: false
+    t.integer "max_uses"
+    t.integer "used_count", default: 0, null: false
+    t.timestamptz "expires_at"
+    t.boolean "active", default: true, null: false
+    t.text "applies_to", default: "all", null: false
+    t.uuid "paywall_id"
+    t.uuid "plan_id"
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index "community_id, lower(code)", name: "index_coupons_community_code", unique: true
+    t.check_constraint "applies_to = ANY (ARRAY['all'::text, 'paywall'::text, 'plan'::text])", name: "coupons_applies_to_check"
+    t.check_constraint "discount_type = ANY (ARRAY['percent'::text, 'fixed'::text])", name: "coupons_discount_type_check"
   end
 
   create_table "courses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -118,6 +210,56 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.index ["direct_conversation_id", "created_at"], name: "index_direct_messages_on_conversation_created"
   end
 
+  create_table "email_templates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "key", null: false
+    t.text "subject", null: false
+    t.text "body", default: "", null: false
+    t.boolean "enabled", default: true, null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+
+    t.unique_constraint ["community_id", "key"], name: "email_templates_community_id_key_key"
+  end
+
+  create_table "gamification_settings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.boolean "enabled", default: true, null: false
+    t.integer "points_per_post", default: 5, null: false
+    t.integer "points_per_comment", default: 2, null: false
+    t.integer "points_per_reaction_received", default: 1, null: false
+    t.integer "points_per_login", default: 1, null: false
+    t.text "level_curve", default: "linear", null: false
+    t.integer "level_step", default: 50, null: false
+    t.jsonb "badges", default: [], null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+
+    t.check_constraint "level_curve = ANY (ARRAY['linear'::text, 'exponential'::text, 'custom'::text])", name: "gamification_settings_curve_check"
+    t.unique_constraint ["community_id"], name: "gamification_settings_community_id_key"
+  end
+
+  create_table "invitation_links", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "created_by_id"
+    t.uuid "plan_id"
+    t.string "code", null: false
+    t.string "name"
+    t.text "description"
+    t.uuid "member_tag_id"
+    t.integer "max_uses"
+    t.integer "uses_count", default: 0, null: false
+    t.datetime "expires_at"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id", "code"], name: "index_invitation_links_on_community_id_and_code", unique: true
+    t.index ["community_id"], name: "index_invitation_links_on_community_id"
+    t.index ["created_by_id"], name: "index_invitation_links_on_created_by_id"
+    t.index ["expires_at"], name: "index_invitation_links_on_expires_at"
+    t.index ["plan_id"], name: "index_invitation_links_on_plan_id"
+  end
+
   create_table "lessons", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "course_id", null: false
     t.text "title", null: false
@@ -130,6 +272,22 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.timestamptz "updated_at", default: -> { "now()" }, null: false
     t.index ["course_id", "position"], name: "index_lessons_course_position"
     t.unique_constraint ["course_id", "slug"], name: "lessons_course_id_slug_key"
+  end
+
+  create_table "live_streams", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "user_id"
+    t.text "title", null: false
+    t.text "description", default: ""
+    t.timestamptz "starts_at", null: false
+    t.timestamptz "ends_at"
+    t.text "status", default: "scheduled", null: false
+    t.text "source_url"
+    t.text "recording_url"
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index ["community_id", "starts_at"], name: "index_live_streams_community_starts", order: { starts_at: :desc }
+    t.check_constraint "status = ANY (ARRAY['scheduled'::text, 'live'::text, 'ended'::text, 'cancelled'::text])", name: "live_streams_status_check"
   end
 
   create_table "member_connections", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -145,6 +303,25 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.check_constraint "requester_id <> target_id", name: "member_connections_check"
     t.check_constraint "status = ANY (ARRAY['pending'::text, 'accepted'::text, 'rejected'::text, 'blocked'::text, 'connected'::text])", name: "member_connections_status_check"
     t.unique_constraint ["requester_id", "target_id"], name: "member_connections_requester_id_target_id_key"
+  end
+
+  create_table "member_tag_assignments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "member_tag_id", null: false
+    t.uuid "user_id", null: false
+    t.timestamptz "assigned_at", default: -> { "now()" }, null: false
+    t.index ["user_id"], name: "index_member_tag_assignments_user"
+    t.unique_constraint ["member_tag_id", "user_id"], name: "member_tag_assignments_member_tag_id_user_id_key"
+  end
+
+  create_table "member_tags", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "name", null: false
+    t.text "color", default: "#4f46e5", null: false
+    t.text "description", default: ""
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index "community_id, lower(name)", name: "index_member_tags_community_name", unique: true
   end
 
   create_table "memberships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -278,6 +455,26 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.check_constraint "status = ANY (ARRAY['draft'::text, 'published'::text, 'archived'::text])", name: "posts_status_check"
   end
 
+  create_table "profile_field_definitions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.string "key", null: false
+    t.string "label", null: false
+    t.string "field_type", default: "text", null: false
+    t.string "placeholder"
+    t.text "help_text"
+    t.boolean "required", default: false, null: false
+    t.boolean "show_in_onboarding", default: false, null: false
+    t.string "visibility", default: "members", null: false
+    t.jsonb "options", default: [], null: false
+    t.integer "position", default: 0, null: false
+    t.boolean "archived", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id", "key"], name: "index_profile_field_definitions_on_community_id_and_key", unique: true
+    t.index ["community_id", "position"], name: "index_profile_field_definitions_on_community_id_and_position"
+    t.index ["community_id"], name: "index_profile_field_definitions_on_community_id"
+  end
+
   create_table "profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.text "headline"
@@ -302,6 +499,18 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.unique_constraint ["user_id", "reactable_type", "reactable_id", "emoji"], name: "reactions_user_id_reactable_type_reactable_id_emoji_key"
   end
 
+  create_table "segments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "name", null: false
+    t.text "description", default: ""
+    t.jsonb "filters", default: {}, null: false
+    t.integer "members_count", default: 0, null: false
+    t.timestamptz "last_calculated_at"
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index ["community_id"], name: "index_segments_community"
+  end
+
   create_table "spaces", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "community_id", null: false
     t.uuid "parent_id"
@@ -320,6 +529,19 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.unique_constraint ["community_id", "slug"], name: "spaces_community_id_slug_key"
   end
 
+  create_table "static_pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "slug", null: false
+    t.text "title", null: false
+    t.text "body", default: "", null: false
+    t.boolean "published", default: true, null: false
+    t.integer "position", default: 0, null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+
+    t.unique_constraint ["community_id", "slug"], name: "static_pages_community_id_slug_key"
+  end
+
   create_table "subscriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.uuid "community_id", null: false
@@ -336,6 +558,33 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.index ["plan_id"], name: "index_subscriptions_plan_id"
     t.index ["provider_subscription_id"], name: "index_subscriptions_provider_subscription_id"
     t.index ["user_id"], name: "index_subscriptions_user_id"
+  end
+
+  create_table "topics", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "name", null: false
+    t.text "slug", null: false
+    t.text "color", default: "#4f46e5"
+    t.text "description", default: ""
+    t.integer "posts_count", default: 0, null: false
+    t.integer "position", default: 0, null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+
+    t.unique_constraint ["community_id", "slug"], name: "topics_community_id_slug_key"
+  end
+
+  create_table "uploads_catalog", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "user_id"
+    t.text "filename", null: false
+    t.text "url", null: false
+    t.text "storage_key", null: false
+    t.text "content_type"
+    t.integer "bytes", default: 0, null: false
+    t.text "backend", default: "local", null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.index ["community_id", "created_at"], name: "index_uploads_community_created", order: { created_at: :desc }
   end
 
   create_table "user_public_profiles", primary_key: "user_id", id: :uuid, default: nil, force: :cascade do |t|
@@ -369,11 +618,22 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
     t.unique_constraint ["username"], name: "users_username_key"
   end
 
+  add_foreign_key "access_groups", "communities", name: "access_groups_community_id_fkey", on_delete: :cascade
+  add_foreign_key "affiliate_codes", "communities", name: "affiliate_codes_community_id_fkey", on_delete: :cascade
+  add_foreign_key "affiliate_codes", "users", name: "affiliate_codes_user_id_fkey", on_delete: :cascade
+  add_foreign_key "ai_knowledge_entries", "communities", name: "ai_knowledge_entries_community_id_fkey", on_delete: :cascade
   add_foreign_key "api_tokens", "communities", name: "api_tokens_community_id_fkey", on_delete: :cascade
   add_foreign_key "api_tokens", "users", name: "api_tokens_user_id_fkey", on_delete: :nullify
+  add_foreign_key "audit_logs", "communities"
+  add_foreign_key "audit_logs", "users", column: "actor_id"
+  add_foreign_key "bulk_action_runs", "communities", name: "bulk_action_runs_community_id_fkey", on_delete: :cascade
+  add_foreign_key "bulk_action_runs", "users", name: "bulk_action_runs_user_id_fkey", on_delete: :nullify
   add_foreign_key "comments", "comments", column: "parent_id", name: "comments_parent_id_fkey", on_delete: :cascade
   add_foreign_key "comments", "posts", name: "comments_post_id_fkey", on_delete: :cascade
   add_foreign_key "comments", "users", name: "comments_user_id_fkey", on_delete: :cascade
+  add_foreign_key "coupons", "communities", name: "coupons_community_id_fkey", on_delete: :cascade
+  add_foreign_key "coupons", "paywalls", name: "coupons_paywall_id_fkey", on_delete: :nullify
+  add_foreign_key "coupons", "plans", name: "coupons_plan_id_fkey", on_delete: :nullify
   add_foreign_key "courses", "communities", name: "courses_community_id_fkey", on_delete: :cascade
   add_foreign_key "direct_conversation_participants", "direct_conversations", name: "direct_conversation_participants_direct_conversation_id_fkey", on_delete: :cascade
   add_foreign_key "direct_conversation_participants", "users", name: "direct_conversation_participants_user_id_fkey", on_delete: :cascade
@@ -381,9 +641,20 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
   add_foreign_key "direct_conversations", "users", column: "created_by_id", name: "direct_conversations_created_by_id_fkey", on_delete: :cascade
   add_foreign_key "direct_messages", "direct_conversations", name: "direct_messages_direct_conversation_id_fkey", on_delete: :cascade
   add_foreign_key "direct_messages", "users", column: "sender_id", name: "direct_messages_sender_id_fkey", on_delete: :cascade
+  add_foreign_key "email_templates", "communities", name: "email_templates_community_id_fkey", on_delete: :cascade
+  add_foreign_key "gamification_settings", "communities", name: "gamification_settings_community_id_fkey", on_delete: :cascade
+  add_foreign_key "invitation_links", "communities"
+  add_foreign_key "invitation_links", "plans"
+  add_foreign_key "invitation_links", "users", column: "created_by_id"
   add_foreign_key "lessons", "courses", name: "lessons_course_id_fkey", on_delete: :cascade
+  add_foreign_key "live_streams", "communities", name: "live_streams_community_id_fkey", on_delete: :cascade
+  add_foreign_key "live_streams", "users", name: "live_streams_user_id_fkey", on_delete: :nullify
   add_foreign_key "member_connections", "users", column: "requester_id", name: "member_connections_requester_id_fkey", on_delete: :cascade
   add_foreign_key "member_connections", "users", column: "target_id", name: "member_connections_target_id_fkey", on_delete: :cascade
+  add_foreign_key "member_tag_assignments", "communities", name: "member_tag_assignments_community_id_fkey", on_delete: :cascade
+  add_foreign_key "member_tag_assignments", "member_tags", name: "member_tag_assignments_member_tag_id_fkey", on_delete: :cascade
+  add_foreign_key "member_tag_assignments", "users", name: "member_tag_assignments_user_id_fkey", on_delete: :cascade
+  add_foreign_key "member_tags", "communities", name: "member_tags_community_id_fkey", on_delete: :cascade
   add_foreign_key "memberships", "communities", name: "memberships_community_id_fkey", on_delete: :cascade
   add_foreign_key "memberships", "users", name: "memberships_user_id_fkey", on_delete: :cascade
   add_foreign_key "messages", "messages", column: "parent_id", name: "messages_parent_id_fkey", on_delete: :cascade
@@ -400,12 +671,18 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
   add_foreign_key "post_views", "users", name: "post_views_user_id_fkey", on_delete: :nullify
   add_foreign_key "posts", "spaces", name: "posts_space_id_fkey", on_delete: :cascade
   add_foreign_key "posts", "users", name: "posts_user_id_fkey", on_delete: :cascade
+  add_foreign_key "profile_field_definitions", "communities"
   add_foreign_key "profiles", "users", name: "profiles_user_id_fkey", on_delete: :cascade
   add_foreign_key "reactions", "users", name: "reactions_user_id_fkey", on_delete: :cascade
+  add_foreign_key "segments", "communities", name: "segments_community_id_fkey", on_delete: :cascade
   add_foreign_key "spaces", "communities", name: "spaces_community_id_fkey", on_delete: :cascade
   add_foreign_key "spaces", "spaces", column: "parent_id", name: "spaces_parent_id_fkey", on_delete: :cascade
+  add_foreign_key "static_pages", "communities", name: "static_pages_community_id_fkey", on_delete: :cascade
   add_foreign_key "subscriptions", "communities", name: "subscriptions_community_id_fkey", on_delete: :cascade
   add_foreign_key "subscriptions", "plans", name: "subscriptions_plan_id_fkey", on_delete: :nullify
   add_foreign_key "subscriptions", "users", name: "subscriptions_user_id_fkey", on_delete: :cascade
+  add_foreign_key "topics", "communities", name: "topics_community_id_fkey", on_delete: :cascade
+  add_foreign_key "uploads_catalog", "communities", name: "uploads_catalog_community_id_fkey", on_delete: :cascade
+  add_foreign_key "uploads_catalog", "users", name: "uploads_catalog_user_id_fkey", on_delete: :nullify
   add_foreign_key "user_public_profiles", "users", name: "user_public_profiles_user_id_fkey", on_delete: :cascade
 end

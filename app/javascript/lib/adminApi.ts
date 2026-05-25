@@ -960,3 +960,40 @@ export function createAdminBulkImport(payload: { file_name: string; total_rows?:
     body: JSON.stringify(payload),
   });
 }
+
+
+// ---------- Analytics Breakdown (sub-paginas) ----------
+export type AdminAnalyticsBreakdownTotal = {
+  key: string;
+  label: string;
+  value: number;
+};
+
+export type AdminAnalyticsBreakdownPoint = {
+  date: string;
+  value: number;
+};
+
+export type AdminAnalyticsBreakdownTop = {
+  id: string;
+  name: string;
+  value: number;
+  label?: string;
+  username?: string;
+  display_name?: string;
+  last_seen_at?: string;
+};
+
+export type AdminAnalyticsBreakdown = {
+  scope: string;
+  generated_at: string;
+  totals: AdminAnalyticsBreakdownTotal[];
+  series: AdminAnalyticsBreakdownPoint[];
+  series_label?: string;
+  top: AdminAnalyticsBreakdownTop[];
+  top_label?: string;
+};
+
+export function loadAdminAnalyticsBreakdown(scope: string) {
+  return adminFetch<AdminAnalyticsBreakdown>(`/api/v1/admin/analytics/breakdown/${encodeURIComponent(scope)}`);
+}

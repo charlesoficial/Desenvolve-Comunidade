@@ -34,6 +34,7 @@ Rails.application.routes.draw do
         resource :community, controller: :community, only: [:show, :update]
         resource :dashboard, controller: :dashboard, only: [:show]
         resource :analytics, controller: :analytics, only: [:show]
+        get "analytics/breakdown/:scope", to: "analytics_breakdown#show", constraints: { scope: /[a-z_]+/ }
         resources :users, only: [:index, :show, :update]
         resources :spaces, only: [:index, :update] do
           collection do

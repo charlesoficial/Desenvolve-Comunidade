@@ -35,6 +35,7 @@ import { AdminProfileFields } from "./pages/AdminProfileFields";
 import { AdminInvitationLinks } from "./pages/AdminInvitationLinks";
 import { AdminAuditLogs } from "./pages/AdminAuditLogs";
 import { AdminBulkImports } from "./pages/AdminBulkImports";
+import { AdminAnalyticsBreakdown } from "./pages/AdminAnalyticsBreakdown";
 
 export function AdminLayout() {
   const [pathname, setPathname] = useState(() => window.location.pathname);
@@ -327,82 +328,23 @@ function renderPage(pathname: string) {
 
     /* ---------- Analytics sub-páginas ---------- */
     case "/settings/analytics/members":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Membros"
-          subtitle="Crescimento, ativação, retenção e churn da base de membros."
-          bullets={[
-            "Novos membros por dia/semana/mês",
-            "DAU / WAU / MAU",
-            "Coorte por semana de cadastro",
-            "Top membros por engajamento",
-          ]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="members" />;
     case "/settings/analytics/website":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Site"
-          subtitle="Visitas à página pública e funil de conversão de visitante para membro."
-          bullets={["Pageviews, sessions, bounce rate", "Origens (referrer, UTM)", "Conversão visitante → cadastro"]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="website" />;
     case "/settings/analytics/spaces":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Espaços"
-          subtitle="Engajamento por espaço (posts, comentários, reações)."
-          bullets={["Top espaços por atividade", "Membros ativos por espaço", "Taxa de retorno"]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="spaces" />;
     case "/settings/analytics/post_comments":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Publicações & comentários"
-          subtitle="Volume e qualidade das interações em conteúdo."
-          bullets={["Top posts por reações/comentários", "Distribuição por hora/dia da semana", "Autores mais ativos"]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="post_comments" />;
     case "/settings/analytics/messages":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Mensagens"
-          subtitle="Volume de DMs e mensagens em chat público."
-          bullets={["Mensagens por dia", "DMs vs chat público", "Pares de membros mais ativos"]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="messages" />;
     case "/settings/analytics/devices":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Dispositivos"
-          subtitle="Distribuição de uso por desktop, mobile, tablet, app nativo."
-          bullets={["% por device", "Tempo médio de sessão por device", "Versão do sistema/navegador"]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="devices" />;
     case "/settings/analytics/events":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Eventos"
-          subtitle="RSVP, presença, gravações assistidas."
-          bullets={["Top eventos por inscrições", "Taxa de presença vs RSVP", "Visualizações pós-evento"]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="events" />;
     case "/settings/analytics/payments":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Pagamentos"
-          subtitle="Receita, MRR, ARR, churn financeiro."
-          bullets={["MRR por mês", "Churn voluntário vs involuntário", "LTV médio por plano", "Receita por afiliado"]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="payments" />;
     case "/settings/analytics/courses":
-      return (
-        <AdminFeatureStub
-          title="Analytics — Cursos"
-          subtitle="Conclusão de aulas, drop-off, certificados emitidos."
-          bullets={["Taxa de conclusão por curso", "Lições mais e menos vistas", "Tempo médio até conclusão"]}
-        />
-      );
+      return <AdminAnalyticsBreakdown scope="courses" />;
 
     /* ---------- AI Agents sub-páginas ---------- */
     case "/settings/ai-agents/inbox":
