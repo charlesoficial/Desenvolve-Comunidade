@@ -1,0 +1,74 @@
+# Configuracao Fly.io para deploy do Rails+Vite+ActionCable.
+# Region gru (Sao Paulo) e a mais proxima dos usuarios brasileiros.
+# Sidekiq roda como segundo processo via [processes].
+
+app = "comunidade-com"
+primary_region = "gru"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  RAILS_ENV = "production"
+  RAILS_LOG_TO_STDOUT = "1"
+  RAILS_SERVE_STATIC_FILES = "1"
+  RACK_TIMEOUT_SERVICE_TIMEOUT = "30"
+  PORT = "3000"
+
+# Dois processos:
+#   web      -> Rails+Puma
+#   worker   -> Sidekiq
+[processes]
+  web    = "bundle exec rails server -b 0.0.0.0 -p 3000"
+  worker = "bundle exec sidekiq -C config/sidekiq.yml"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["web"]
+
+[http_service.concurrency]
+  type = "requests"
+  hard_limit = 250
+  soft_limit = 200
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 3000
+  processes = ["web"]
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+# Healthcheck simples: home publica deve responder 200.
+[[services.http_checks]]
+  interval = "30s"
+  timeout = "5s"
+  grace_period = "10s"
+  method = "GET"
+  path = "/"
+  protocol = "http"
+
+# Monta volume opcional pra Action Cable / uploads temporarios.
+[[mounts]]
+  source = "comunidade_data"
+  destination = "/data"
+  processes = ["web", "worker"]
+
+[deploy]
+  release_command = "bundle exec rails db:migrate"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "1gb"
+  cpu_kind = "shared"
+  cpus = 1

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :member_connections, only: [:index, :create, :update]
       resources :uploads, only: [:create]
       resource :billing, controller: :billing, only: [:show, :create]
+      post "billing/webhook", to: "billing_webhooks#create"
 
       namespace :admin do
         resource :community, controller: :community, only: [:show, :update]
