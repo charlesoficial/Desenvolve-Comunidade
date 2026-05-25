@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { AdminPrimarySidebar } from "./AdminPrimarySidebar";
-import { AdminSecondarySidebar, type AdminSection } from "./AdminSecondarySidebar";
+import { AdminSidebar } from "./AdminSidebar";
+import { resolveAdminSection } from "./adminSections";
 import { AdminTopbar } from "./AdminTopbar";
 import { AdminGeneral } from "./pages/AdminGeneral";
 import { AdminDashboard } from "./pages/AdminDashboard";
@@ -24,55 +24,9 @@ import { AdminStaticPages } from "./pages/AdminStaticPages";
 import { AdminTopics } from "./pages/AdminTopics";
 import { AdminPlaceholder } from "./pages/AdminPlaceholder";
 
-// Mapeia rotas /settings/* e /audience/manage para a secao da sidebar primaria.
-const routeToSection: Record<string, AdminSection> = {
-  "/settings": "general",
-  "/settings/dashboard": "dashboard",
-  "/audience/manage": "audience",
-  "/audience/invites": "audience",
-  "/audience/requests": "audience",
-  "/settings/files": "files",
-  "/settings/emails": "emails",
-  "/settings/workflows": "workflows",
-  "/settings/analytics": "analytics",
-  "/settings/ai-agents/knowledge": "ai-agents",
-  "/settings/paywalls": "paywalls",
-  "/settings/affiliates_settings": "affiliates",
-  "/settings/plans": "plans",
-  "/settings/home": "home",
-  "/settings/api": "api",
-
-  // subitems do Geral
-  "/settings/custom_domain": "general",
-  "/settings/community_ai": "general",
-  "/settings/mobile_app": "general",
-  "/settings/weekly_digest": "general",
-  "/settings/embed": "general",
-  "/settings/sso": "general",
-  "/settings/connect": "general",
-  "/settings/legal": "general",
-
-  // conteudo
-  "/settings/posts": "content",
-  "/settings/pages": "content",
-  "/settings/spaces": "content",
-  "/settings/topics": "content",
-  "/settings/moderation": "content",
-  "/settings/live_streams": "content",
-};
-
-function resolveSection(pathname: string): AdminSection {
-  return routeToSection[pathname] ?? "general";
-}
-
-function resolveSubpath(pathname: string): string {
-  return pathname;
-}
-
 export function AdminLayout() {
   const [pathname, setPathname] = useState(() => window.location.pathname);
-  const section = resolveSection(pathname);
-  const subpath = resolveSubpath(pathname);
+  const section = resolveAdminSection(pathname);
 
   useEffect(() => {
     const onPop = () => setPathname(window.location.pathname);
@@ -89,13 +43,8 @@ export function AdminLayout() {
     <div className="admin-shell">
       <AdminTopbar />
       <div className="admin-body">
-        <AdminPrimarySidebar active={section} onNavigate={navigate} />
-        <AdminSecondarySidebar
-          active={section}
-          activeSubpath={subpath}
-          onNavigate={navigate}
-        />
-        <main className="admin-main">{renderPage(subpath)}</main>
+        <AdminSidebar active={section} activeSubpath={pathname} onNavigate={navigate} />
+        <main className="admin-main">{renderPage(pathname)}</main>
       </div>
     </div>
   );

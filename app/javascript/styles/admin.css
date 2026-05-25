@@ -1,11 +1,14 @@
 /*
- * Painel administrativo — clone da Circle.
+ * Painel administrativo — réplica fiel da Circle.so v2.
  *
- * Medidas reais capturadas de projeto-copias-comunidade.circle.so:
- *   - Topbar:            altura 64px, fundo #fff
- *   - Sidebar primaria:  largura 64px (so icones)
- *   - Sidebar secundaria: largura 368px (com texto)
- *   - Main:              ocupa o restante, fundo #f7f9fa
+ * Medidas autoritativas (capturadas em 25/05/2026 de
+ * projeto-copias-comunidade.circle.so/settings):
+ *   - Topbar:        altura 64px, fundo #fff, full-width
+ *   - Sidebar única: largura 368px, com 2 colunas internas:
+ *       coluna ícones: 42×42 em x:11
+ *       coluna texto:  256px em x:84
+ *   - Main:          max-width 896px, mx-auto, padding 36×48
+ *   - Body bg:       #f7f9fa
  */
 
 .admin-shell {
@@ -24,7 +27,7 @@
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  padding: 0 24px;
+  padding: 8px 36px;
   border-bottom: 1px solid var(--color-grey-200, #e7e9ec);
   background: #fff;
   flex-shrink: 0;
@@ -71,33 +74,43 @@
   color: var(--color-text-darkest, #191b1f);
 }
 
-/* ---------- Body (sidebars + main) ---------- */
+/* ---------- Body ---------- */
 .admin-body {
   display: flex;
   flex: 1 1 auto;
   min-height: 0;
 }
 
-/* ---------- Sidebar primaria (icones) ---------- */
-.admin-primary-sidebar {
+/* ---------- Sidebar unificada (368px = 64 ícones + 304 texto) ---------- */
+.admin-sidebar {
+  display: flex;
+  width: 368px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid var(--color-grey-200, #e7e9ec);
+  overflow: hidden;
+}
+
+/* Coluna 1: ícones (largura efetiva 64, ícones de 42 em x:11) */
+.admin-sidebar-icons {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 64px;
   padding: 12px 0;
-  border-right: 1px solid var(--color-grey-200, #e7e9ec);
-  background: #fff;
-  gap: 4px;
+  gap: 8px;
+  border-right: 1px solid var(--color-grey-100, #eef0f2);
   flex-shrink: 0;
+  overflow-y: auto;
 }
 
-.admin-primary-item {
+.admin-sidebar-icon {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border: 0;
   border-radius: 8px;
   background: transparent;
@@ -106,17 +119,21 @@
   transition: background 120ms ease, color 120ms ease;
 }
 
-.admin-primary-item:hover {
+.admin-sidebar-icon:hover {
   background: var(--color-grey-100, #eef0f2);
   color: var(--color-text-darkest, #191b1f);
 }
 
-.admin-primary-item.is-active {
+.admin-sidebar-icon.is-active {
   background: var(--color-grey-100, #eef0f2);
-  color: var(--color-text-darkest, #191b1f);
+  color: #4f46e5;
 }
 
-.admin-primary-tooltip {
+.admin-sidebar-icon-back {
+  margin-bottom: 4px;
+}
+
+.admin-sidebar-tooltip {
   position: absolute;
   left: calc(100% + 8px);
   top: 50%;
@@ -133,26 +150,23 @@
   z-index: 10;
 }
 
-.admin-primary-item:hover .admin-primary-tooltip {
+.admin-sidebar-icon:hover .admin-sidebar-tooltip {
   opacity: 1;
 }
 
-/* ---------- Sidebar secundaria (texto) ---------- */
-.admin-secondary-sidebar {
+/* Coluna 2: lista textual */
+.admin-sidebar-text {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  width: 368px;
-  border-right: 1px solid var(--color-grey-200, #e7e9ec);
-  background: #fff;
-  flex-shrink: 0;
   overflow-y: auto;
 }
 
-.admin-secondary-header {
-  padding: 24px 24px 12px;
+.admin-sidebar-header {
+  padding: 28px 24px 12px;
 }
 
-.admin-secondary-header h2 {
+.admin-sidebar-header h2 {
   margin: 0;
   font-size: 22px;
   font-weight: 700;
@@ -160,28 +174,28 @@
   color: var(--color-text-darkest, #191b1f);
 }
 
-.admin-secondary-nav {
+.admin-sidebar-nav {
   display: flex;
   flex-direction: column;
   padding: 8px 12px 24px;
-  gap: 16px;
+  gap: 14px;
 }
 
-.admin-secondary-group {
+.admin-sidebar-group {
   display: flex;
   flex-direction: column;
 }
 
-.admin-secondary-group ul {
+.admin-sidebar-group ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
-.admin-secondary-group-title {
+.admin-sidebar-group-title {
   margin: 8px 12px 6px;
   color: var(--color-grey-500, #717680);
   font-size: 11px;
@@ -190,11 +204,12 @@
   text-transform: uppercase;
 }
 
-.admin-secondary-link {
+.admin-sidebar-link {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
-  height: 36px;
+  height: 32px;
   padding: 0 12px;
   border: 0;
   border-radius: 6px;
@@ -207,15 +222,28 @@
   transition: background 120ms ease, color 120ms ease;
 }
 
-.admin-secondary-link:hover {
+.admin-sidebar-link:hover {
   background: var(--color-grey-100, #eef0f2);
   color: var(--color-text-darkest, #191b1f);
 }
 
-.admin-secondary-link.is-active {
+.admin-sidebar-link.is-active {
   background: var(--color-grey-100, #eef0f2);
-  color: var(--color-text-darkest, #191b1f);
+  color: #4f46e5;
   font-weight: 600;
+}
+
+.admin-sidebar-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 /* ---------- Main ---------- */
@@ -227,9 +255,9 @@
 }
 
 .admin-page {
-  max-width: 960px;
+  max-width: 896px;
   margin: 0 auto;
-  padding: 32px 40px 48px;
+  padding: 36px 48px 64px;
 }
 
 .admin-page-header {
@@ -268,7 +296,7 @@
   gap: 24px;
 }
 
-/* ---------- Botoes ---------- */
+/* ---------- Botões ---------- */
 .admin-btn {
   display: inline-flex;
   align-items: center;
@@ -375,7 +403,7 @@
   margin-top: 4px;
 }
 
-/* ---------- Toolbar (search + filter) ---------- */
+/* ---------- Toolbar ---------- */
 .admin-toolbar {
   display: flex;
   gap: 12px;
@@ -485,7 +513,7 @@
 /* ---------- Cards / Stats ---------- */
 .admin-stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
 }
 
@@ -617,7 +645,6 @@
   margin-top: auto;
 }
 
-
 /* ---------- Pagination ---------- */
 .admin-pagination {
   display: flex;
@@ -627,8 +654,7 @@
   padding: 12px 0 0;
 }
 
-
-/* ---------- Drawer (member detail) ---------- */
+/* ---------- Drawer ---------- */
 .admin-drawer-backdrop {
   position: fixed;
   inset: 0;
