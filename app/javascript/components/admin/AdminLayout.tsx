@@ -8,6 +8,9 @@ import { AdminAudience } from "./pages/AdminAudience";
 import { AdminPaywalls } from "./pages/AdminPaywalls";
 import { AdminPlans } from "./pages/AdminPlans";
 import { AdminSpaces } from "./pages/AdminSpaces";
+import { AdminAnalytics } from "./pages/AdminAnalytics";
+import { AdminWorkflows } from "./pages/AdminWorkflows";
+import { AdminMembershipQueue } from "./pages/AdminMembershipQueue";
 import { AdminPlaceholder } from "./pages/AdminPlaceholder";
 
 // Mapeia rotas /settings/* e /audience/manage para a secao da sidebar primaria.
@@ -15,6 +18,8 @@ const routeToSection: Record<string, AdminSection> = {
   "/settings": "general",
   "/settings/dashboard": "dashboard",
   "/audience/manage": "audience",
+  "/audience/invites": "audience",
+  "/audience/requests": "audience",
   "/settings/files": "files",
   "/settings/emails": "emails",
   "/settings/workflows": "workflows",
@@ -93,12 +98,20 @@ function renderPage(pathname: string) {
       return <AdminDashboard />;
     case "/audience/manage":
       return <AdminAudience />;
+    case "/audience/invites":
+      return <AdminMembershipQueue variant="invites" />;
+    case "/audience/requests":
+      return <AdminMembershipQueue variant="requests" />;
     case "/settings/paywalls":
       return <AdminPaywalls />;
     case "/settings/plans":
       return <AdminPlans />;
     case "/settings/spaces":
       return <AdminSpaces />;
+    case "/settings/analytics":
+      return <AdminAnalytics />;
+    case "/settings/workflows":
+      return <AdminWorkflows />;
     default:
       return <AdminPlaceholder route={pathname} />;
   }

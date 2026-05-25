@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       namespace :admin do
         resource :community, controller: :community, only: [:show, :update]
         resource :dashboard, controller: :dashboard, only: [:show]
+        resource :analytics, controller: :analytics, only: [:show]
         resources :users, only: [:index, :show, :update]
         resources :spaces, only: [:index, :update] do
           collection do
@@ -37,6 +38,8 @@ Rails.application.routes.draw do
         end
         resources :plans, only: [:index, :create, :update, :destroy]
         resources :paywalls, only: [:index, :create, :update, :destroy]
+        resources :memberships, only: [:index, :update, :destroy]
+        resources :workflows, only: [:index, :create, :update, :destroy]
       end
     end
   end

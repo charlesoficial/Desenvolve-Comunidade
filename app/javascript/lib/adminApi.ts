@@ -222,3 +222,80 @@ export function deleteAdminPaywall(id: string) {
     method: "DELETE",
   });
 }
+
+
+export type AdminAnalytics = {
+  community_id: string | null;
+  generated_at: string;
+  series: Array<{ date: string; signups: number; posts: number; messages: number }>;
+  totals: { signups: number; posts: number; messages: number };
+};
+
+export type AdminMembership = {
+  id: string;
+  user_id: string;
+  state: "pending" | "active" | "blocked";
+  role: AdminUser["role"];
+  joined_at: string | null;
+  created_at: string;
+  user: {
+    username: string;
+    display_name: string;
+    email: string;
+    avatar_url: string | null;
+  } | null;
+};
+
+export type AdminWorkflow = {
+  id: string;
+  name: string;
+  trigger: string;
+  action: string;
+  enabled: boolean;
+  created_at?: string;
+};
+
+export function loadAdminAnalytics() {
+  return adminFetch<AdminAnalytics>("/api/v1/admin/analytics");
+}
+
+export function loadAdminMemberships(state: AdminMembership["state"] = "pending") {
+  return adminFetch<AdminMembership[]>(`/api/v1/admin/memberships?state=${encodeURIComponent(state)}`);
+}
+
+export function updateAdminMembership(id: string, patch: { state: AdminMembership["state"] }) {
+  return adminFetch<AdminMembership>(`/api/v1/admin/memberships/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ membership: patch }),
+  });
+}
+
+export function deleteAdminMembership(id: string) {
+  return adminFetch<void>(`/api/v1/admin/memberships/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}
+
+export function loadAdminWorkflows() {
+  return adminFetch<AdminWorkflow[]>("/api/v1/admin/workflows");
+}
+
+export function createAdminWorkflow(payload: Partial<AdminWorkflow>) {
+  return adminFetch<AdminWorkflow>("/api/v1/admin/workflows", {
+    method: "POST",
+    body: JSON.stringify({ workflow: payload }),
+  });
+}
+
+export function updateAdminWorkflow(id: string, payload: Partial<AdminWorkflow>) {
+  return adminFetch<AdminWorkflow>(`/api/v1/admin/workflows/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ workflow: payload }),
+  });
+}
+
+export function deleteAdminWorkflow(id: string) {
+  return adminFetch<void>(`/api/v1/admin/workflows/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}
