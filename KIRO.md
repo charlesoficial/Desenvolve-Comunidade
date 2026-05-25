@@ -439,7 +439,15 @@ Navegação dentro do admin usa `pushState` + `popstate`, mesmo padrao do ChatLa
 app/controllers/api/v1/admin/
 ├── base_controller.rb        ← guarda require_admin! (role owner|admin)
 ├── community_controller.rb   ← GET/PATCH /api/v1/admin/community
-└── users_controller.rb       ← GET /api/v1/admin/users (paginado, busca, filtros)
+├── dashboard_controller.rb   ← GET /api/v1/admin/dashboard (KPIs reais 30d)
+├── users_controller.rb       ← GET/PATCH /api/v1/admin/users (paginado, busca, role/status)
+├── spaces_controller.rb      ← GET/PATCH /api/v1/admin/spaces + POST /reorder
+├── plans_controller.rb       ← CRUD /api/v1/admin/plans
+└── paywalls_controller.rb    ← CRUD /api/v1/admin/paywalls
 ```
 
-Description, locale e timezone são salvos no jsonb `communities.settings` pra evitar nova migration. User de dev `vitor-araujo` foi promovido a `owner` no banco.
+Tabelas novas em 25/05/2026 (migration `20260525160000_add_plans_and_paywalls.rb`):
+- `plans` (community_id, name, description, price_cents, currency, interval, highlight, active, position)
+- `paywalls` (community_id, name, description, price_cents, currency, interval, status)
+
+Description, locale e timezone da comunidade são salvos no jsonb `communities.settings` pra evitar nova migration. User de dev `vitor-araujo` foi promovido a `owner` no banco.
