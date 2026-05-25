@@ -151,3 +151,74 @@ export function updateAdminUser(id: string, payload: Partial<Pick<AdminUser, "ro
     body: JSON.stringify({ user: payload }),
   });
 }
+
+
+export type AdminPlan = {
+  id: string;
+  name: string;
+  description: string;
+  price_cents: number;
+  currency: string;
+  interval: "month" | "year" | "one_time";
+  highlight: boolean;
+  active: boolean;
+  position: number;
+};
+
+export type AdminPaywall = {
+  id: string;
+  name: string;
+  description: string;
+  price_cents: number;
+  currency: string;
+  interval: "month" | "year" | "one_time";
+  status: "active" | "paused" | "archived";
+};
+
+export function loadAdminPlans() {
+  return adminFetch<AdminPlan[]>("/api/v1/admin/plans");
+}
+
+export function createAdminPlan(payload: Partial<AdminPlan>) {
+  return adminFetch<AdminPlan>("/api/v1/admin/plans", {
+    method: "POST",
+    body: JSON.stringify({ plan: payload }),
+  });
+}
+
+export function updateAdminPlan(id: string, payload: Partial<AdminPlan>) {
+  return adminFetch<AdminPlan>(`/api/v1/admin/plans/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ plan: payload }),
+  });
+}
+
+export function deleteAdminPlan(id: string) {
+  return adminFetch<void>(`/api/v1/admin/plans/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}
+
+export function loadAdminPaywalls() {
+  return adminFetch<AdminPaywall[]>("/api/v1/admin/paywalls");
+}
+
+export function createAdminPaywall(payload: Partial<AdminPaywall>) {
+  return adminFetch<AdminPaywall>("/api/v1/admin/paywalls", {
+    method: "POST",
+    body: JSON.stringify({ paywall: payload }),
+  });
+}
+
+export function updateAdminPaywall(id: string, payload: Partial<AdminPaywall>) {
+  return adminFetch<AdminPaywall>(`/api/v1/admin/paywalls/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ paywall: payload }),
+  });
+}
+
+export function deleteAdminPaywall(id: string) {
+  return adminFetch<void>(`/api/v1/admin/paywalls/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}

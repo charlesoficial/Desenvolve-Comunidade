@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_22_180000) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_25_160000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -173,6 +173,39 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_22_180000) do
     t.timestamptz "created_at", default: -> { "now()" }, null: false
     t.timestamptz "updated_at", default: -> { "now()" }, null: false
     t.index ["user_id", "read_at"], name: "index_notifications_user_read_at"
+  end
+
+  create_table "paywalls", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "name", null: false
+    t.text "description", default: ""
+    t.integer "price_cents", default: 0, null: false
+    t.text "currency", default: "BRL", null: false
+    t.text "interval", default: "month", null: false
+    t.text "status", default: "active", null: false
+    t.jsonb "settings", default: {}, null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index ["community_id"], name: "index_paywalls_community"
+    t.check_constraint "\"interval\" = ANY (ARRAY['month'::text, 'year'::text, 'one_time'::text])", name: "paywalls_interval_check"
+    t.check_constraint "status = ANY (ARRAY['active'::text, 'paused'::text, 'archived'::text])", name: "paywalls_status_check"
+  end
+
+  create_table "plans", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.text "name", null: false
+    t.text "description", default: ""
+    t.integer "price_cents", default: 0, null: false
+    t.text "currency", default: "BRL", null: false
+    t.text "interval", default: "month", null: false
+    t.boolean "highlight", default: false, null: false
+    t.boolean "active", default: true, null: false
+    t.integer "position", default: 0, null: false
+    t.jsonb "settings", default: {}, null: false
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index ["community_id", "position"], name: "index_plans_community_position"
+    t.check_constraint "\"interval\" = ANY (ARRAY['month'::text, 'year'::text, 'one_time'::text])", name: "plans_interval_check"
   end
 
   create_table "post_attachments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -338,6 +371,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_22_180000) do
   add_foreign_key "messages", "spaces", name: "messages_space_id_fkey", on_delete: :cascade
   add_foreign_key "messages", "users", name: "messages_user_id_fkey", on_delete: :cascade
   add_foreign_key "notifications", "users", name: "notifications_user_id_fkey", on_delete: :cascade
+  add_foreign_key "paywalls", "communities", name: "paywalls_community_id_fkey", on_delete: :cascade
+  add_foreign_key "plans", "communities", name: "plans_community_id_fkey", on_delete: :cascade
   add_foreign_key "post_attachments", "posts", name: "post_attachments_post_id_fkey", on_delete: :cascade
   add_foreign_key "post_attachments", "users", name: "post_attachments_user_id_fkey", on_delete: :cascade
   add_foreign_key "post_saves", "posts", name: "post_saves_post_id_fkey", on_delete: :cascade

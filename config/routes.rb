@@ -35,6 +35,8 @@ Rails.application.routes.draw do
             post :reorder
           end
         end
+        resources :plans, only: [:index, :create, :update, :destroy]
+        resources :paywalls, only: [:index, :create, :update, :destroy]
       end
     end
   end
