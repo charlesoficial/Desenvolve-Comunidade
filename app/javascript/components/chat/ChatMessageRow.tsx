@@ -12,7 +12,17 @@ type RenderItem =
   | { type: "divider"; id: string; label: string }
   | { type: "message"; message: ChatMessage };
 
-const quickReactions = ["ðŸ‘", "â¤ï¸", "ðŸŽ‰", "ðŸ¤£", "ðŸ˜®", "ðŸ˜°", "ðŸ™"];
+// Emojis usados no popover de reacoes rapidas, em Unicode escapes pra
+// evitar problemas de encoding em arquivos lidos com mojibake.
+const quickReactions = [
+  "\u{1F44D}", // 👍
+  "\u{2764}\u{FE0F}", // ❤️
+  "\u{1F389}", // 🎉
+  "\u{1F923}", // 🤣
+  "\u{1F62E}", // 😮
+  "\u{1F622}", // 😢
+  "\u{1F64F}", // 🙏
+];
 
 export function ChatMessageRow({ message, onOpenThread }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -84,7 +94,7 @@ function FloatingMessageActions({
   onMore: () => void;
 }) {
   return (
-    <div className="message-float-actions" aria-label="AÃ§Ãµes da mensagem">
+    <div className="message-float-actions" aria-label="Ações da mensagem">
       <button type="button" aria-label="Reagir com emoji" data-tooltip="Reagir" onClick={onReact}>
         <Smile size={16} />
       </button>
@@ -94,7 +104,7 @@ function FloatingMessageActions({
       <button type="button" aria-label="Responder em thread" data-tooltip="Responder em thread" onClick={onOpenThread}>
         <MessageCircle size={16} />
       </button>
-      <button type="button" aria-label="Mais opÃ§Ãµes da mensagem" data-tooltip="Mais" onClick={onMore}>
+      <button type="button" aria-label="Mais opções da mensagem" data-tooltip="Mais" onClick={onMore}>
         <MoreHorizontal size={16} />
       </button>
     </div>
@@ -103,7 +113,7 @@ function FloatingMessageActions({
 
 function ReactionBar({ onPick }: { onPick: (emoji: string) => void }) {
   return (
-    <div className="message-reaction-bar" role="menu" aria-label="ReaÃ§Ãµes rÃ¡pidas">
+    <div className="message-reaction-bar" role="menu" aria-label="Reações rápidas">
       {quickReactions.map((emoji) => (
         <button type="button" role="menuitem" key={emoji} onClick={() => onPick(emoji)}>{emoji}</button>
       ))}
@@ -113,7 +123,7 @@ function ReactionBar({ onPick }: { onPick: (emoji: string) => void }) {
 
 function MessageActionMenu({ onOpenThread, onCopy }: { onOpenThread: () => void; onCopy: () => void }) {
   return (
-    <div className="message-action-menu" role="menu" aria-label="Mais opÃ§Ãµes da mensagem">
+    <div className="message-action-menu" role="menu" aria-label="Mais opções da mensagem">
       <button type="button" role="menuitem" onClick={onCopy}>Copiar texto</button>
       <button type="button" role="menuitem" onClick={onOpenThread}>Responder</button>
       <button type="button" role="menuitem">Denunciar</button>
