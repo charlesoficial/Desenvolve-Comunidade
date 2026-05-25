@@ -482,3 +482,24 @@ export function updateAdminAffiliate(id: string, payload: { commission_pct?: num
 export function deleteAdminAffiliate(id: string) {
   return adminFetch<void>(`/api/v1/admin/affiliates/${encodeURIComponent(id)}`, { method: "DELETE" });
 }
+
+
+// ---------- Generic settings (sub-paginas de Geral) ----------
+export type AdminSettingsBag = Record<string, unknown>;
+
+export type AdminSettingsResponse = {
+  key: string;
+  settings: AdminSettingsBag;
+  defaults: AdminSettingsBag;
+};
+
+export function loadAdminSettings(key: string) {
+  return adminFetch<AdminSettingsResponse>(`/api/v1/admin/settings/${encodeURIComponent(key)}`);
+}
+
+export function updateAdminSettings(key: string, settings: AdminSettingsBag) {
+  return adminFetch<AdminSettingsResponse>(`/api/v1/admin/settings/${encodeURIComponent(key)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ settings }),
+  });
+}

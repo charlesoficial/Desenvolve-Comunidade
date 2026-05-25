@@ -54,6 +54,8 @@ Rails.application.routes.draw do
         resources :email_templates, only: [:index, :update]
         resources :files, only: [:index, :destroy]
         resources :affiliates, only: [:index, :create, :update, :destroy]
+        get  "settings/:key", to: "settings#show", constraints: { key: /[a-z_]+/ }
+        patch "settings/:key", to: "settings#update", constraints: { key: /[a-z_]+/ }
       end
     end
   end
