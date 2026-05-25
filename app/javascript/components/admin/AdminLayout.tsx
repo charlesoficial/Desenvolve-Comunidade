@@ -31,6 +31,10 @@ import { AdminGamification } from "./pages/AdminGamification";
 import { AdminAccessGroups } from "./pages/AdminAccessGroups";
 import { AdminCharges } from "./pages/AdminCharges";
 import { AdminSubscriptions } from "./pages/AdminSubscriptions";
+import { AdminProfileFields } from "./pages/AdminProfileFields";
+import { AdminInvitationLinks } from "./pages/AdminInvitationLinks";
+import { AdminAuditLogs } from "./pages/AdminAuditLogs";
+import { AdminBulkImports } from "./pages/AdminBulkImports";
 
 export function AdminLayout() {
   const [pathname, setPathname] = useState(() => window.location.pathname);
@@ -272,58 +276,13 @@ function renderPage(pathname: string) {
     case "/settings/gamification":
       return <AdminGamification />;
     case "/members/profile_fields":
-      return (
-        <AdminFeatureStub
-          title="Campos de perfil"
-          subtitle="Adicione campos extras ao perfil de cada membro (cidade, profissão, bio etc)."
-          cta={{ label: "Novo campo" }}
-          bullets={[
-            "Tipos: texto, número, dropdown, multi-select, data",
-            "Marcar como obrigatório no onboarding",
-            "Visibilidade configurável (público, membros, admin)",
-          ]}
-        />
-      );
+      return <AdminProfileFields />;
     case "/members/invitation_links":
-      return (
-        <AdminFeatureStub
-          title="Links de convite"
-          subtitle="Crie URLs únicas para campanhas de convite com tracking de origem e limite de usos."
-          cta={{ label: "Novo link" }}
-          bullets={[
-            "Cada link tem código único e contagem de usos",
-            "Expirar por data ou número máximo de uses",
-            "Atribui automaticamente um plano e/ou tags ao usar",
-            "Relatório de conversão por origem",
-          ]}
-        />
-      );
+      return <AdminInvitationLinks />;
     case "/settings/members/bulk_import_tasks":
-      return (
-        <AdminFeatureStub
-          title="Importações de membros"
-          subtitle="Histórico de uploads de CSV, com status, total importado e erros."
-          bullets={[
-            "Upload de CSV com colunas e-mail, nome, tags, plano",
-            "Validação prévia antes de processar",
-            "Notificação por e-mail quando termina",
-            "Download do log de erros",
-          ]}
-        />
-      );
+      return <AdminBulkImports />;
     case "/settings/members/activity_logs":
-      return (
-        <AdminFeatureStub
-          title="Registros de atividades"
-          subtitle="Auditoria de ações administrativas: quem mudou o que e quando."
-          bullets={[
-            "Filtro por admin, data e tipo de ação",
-            "Inclui mudanças em planos, paywalls, configurações",
-            "Detalhe diff (antes/depois) de cada alteração",
-            "Exportável em CSV",
-          ]}
-        />
-      );
+      return <AdminAuditLogs />;
 
     /* ---------- Paywalls (sub-páginas faltantes) ---------- */
     case "/settings/coupons":

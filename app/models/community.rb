@@ -21,6 +21,9 @@ class Community < ApplicationRecord
   has_many :segments, dependent: :destroy
   has_many :access_groups, dependent: :destroy
   has_one  :gamification_setting, dependent: :destroy
+  has_many :profile_field_definitions, dependent: :destroy
+  has_many :invitation_links, dependent: :destroy
+  has_many :audit_logs, dependent: :destroy
 
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true

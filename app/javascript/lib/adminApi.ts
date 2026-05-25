@@ -838,3 +838,125 @@ export function loadAdminCharges(opts: { page?: number } = {}) {
   params.set("page", String(opts.page ?? 1));
   return adminFetch<AdminChargesPage>(`/api/v1/admin/charges?${params.toString()}`);
 }
+
+
+// ---------- Profile Fields ----------
+export type AdminProfileField = {
+  id: string;
+  key: string;
+  label: string;
+  field_type: "text" | "number" | "dropdown" | "multi_select" | "date" | "url" | "textarea";
+  placeholder: string | null;
+  help_text: string | null;
+  required: boolean;
+  show_in_onboarding: boolean;
+  visibility: "public" | "members" | "admin";
+  options: string[];
+  position: number;
+  archived: boolean;
+};
+
+export function loadAdminProfileFields() {
+  return adminFetch<AdminProfileField[]>("/api/v1/admin/profile_fields");
+}
+export function createAdminProfileField(payload: Partial<AdminProfileField>) {
+  return adminFetch<AdminProfileField>("/api/v1/admin/profile_fields", {
+    method: "POST",
+    body: JSON.stringify({ profile_field: payload }),
+  });
+}
+export function updateAdminProfileField(id: string, payload: Partial<AdminProfileField>) {
+  return adminFetch<AdminProfileField>(`/api/v1/admin/profile_fields/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ profile_field: payload }),
+  });
+}
+export function deleteAdminProfileField(id: string) {
+  return adminFetch<void>(`/api/v1/admin/profile_fields/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Invitation Links ----------
+export type AdminInvitationLink = {
+  id: string;
+  code: string;
+  name: string | null;
+  description: string | null;
+  max_uses: number | null;
+  uses_count: number;
+  expires_at: string | null;
+  active: boolean;
+  status: "active" | "expired" | "consumed" | "inactive";
+  url: string;
+  plan: { id: string; name: string } | null;
+  member_tag_id: string | null;
+  created_by: { id: string; display_name: string } | null;
+  created_at: string;
+};
+
+export function loadAdminInvitationLinks() {
+  return adminFetch<AdminInvitationLink[]>("/api/v1/admin/invitation_links");
+}
+export function createAdminInvitationLink(payload: Partial<AdminInvitationLink>) {
+  return adminFetch<AdminInvitationLink>("/api/v1/admin/invitation_links", {
+    method: "POST",
+    body: JSON.stringify({ invitation_link: payload }),
+  });
+}
+export function updateAdminInvitationLink(id: string, payload: Partial<AdminInvitationLink>) {
+  return adminFetch<AdminInvitationLink>(`/api/v1/admin/invitation_links/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ invitation_link: payload }),
+  });
+}
+export function deleteAdminInvitationLink(id: string) {
+  return adminFetch<void>(`/api/v1/admin/invitation_links/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Audit Logs ----------
+export type AdminAuditLog = {
+  id: string;
+  action: string;
+  target_type: string | null;
+  target_id: string | null;
+  metadata: Record<string, unknown>;
+  ip_address: string | null;
+  user_agent: string | null;
+  actor: { id: string; display_name: string; username: string; email: string } | null;
+  created_at: string;
+};
+
+export type AdminAuditLogsPage = {
+  page: number;
+  total: number;
+  total_pages: number;
+  logs: AdminAuditLog[];
+};
+
+export function loadAdminAuditLogs(opts: { page?: number; action?: string } = {}) {
+  const params = new URLSearchParams();
+  params.set("page", String(opts.page ?? 1));
+  if (opts.action) params.set("action_filter", opts.action);
+  return adminFetch<AdminAuditLogsPage>(`/api/v1/admin/audit_logs?${params.toString()}`);
+}
+
+// ---------- Bulk Imports ----------
+export type AdminBulkImport = {
+  id: string;
+  action: string;
+  target: string;
+  status: "pending" | "running" | "completed" | "failed";
+  filters: Record<string, unknown>;
+  affected_count: number;
+  finished_at: string | null;
+  created_at: string;
+};
+
+export function loadAdminBulkImports() {
+  return adminFetch<AdminBulkImport[]>("/api/v1/admin/bulk_imports");
+}
+export function createAdminBulkImport(payload: { file_name: string; total_rows?: number; tags?: string[]; plan_id?: string; note?: string }) {
+  return adminFetch<AdminBulkImport>("/api/v1/admin/bulk_imports", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}

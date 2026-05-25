@@ -67,6 +67,10 @@ Rails.application.routes.draw do
         resources :topics, only: [:index, :create, :update, :destroy]
         resources :live_streams, only: [:index, :create, :update, :destroy]
         resources :bulk_actions, only: [:index, :create]
+        resources :profile_fields, only: [:index, :create, :update, :destroy]
+        resources :invitation_links, only: [:index, :create, :update, :destroy]
+        resources :audit_logs, only: [:index]
+        resources :bulk_imports, only: [:index, :create]
       end
     end
   end
