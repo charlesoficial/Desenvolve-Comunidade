@@ -18,6 +18,10 @@ import { AdminEmails } from "./pages/AdminEmails";
 import { AdminFiles } from "./pages/AdminFiles";
 import { AdminAffiliates } from "./pages/AdminAffiliates";
 import { AdminSettingsForm } from "./pages/AdminSettingsForm";
+import { AdminLiveStreams } from "./pages/AdminLiveStreams";
+import { AdminBulkActions } from "./pages/AdminBulkActions";
+import { AdminStaticPages } from "./pages/AdminStaticPages";
+import { AdminTopics } from "./pages/AdminTopics";
 import { AdminPlaceholder } from "./pages/AdminPlaceholder";
 
 // Mapeia rotas /settings/* e /audience/manage para a secao da sidebar primaria.
@@ -124,6 +128,14 @@ function renderPage(pathname: string) {
     case "/settings/posts":
     case "/settings/moderation":
       return <AdminPosts />;
+    case "/settings/pages":
+      return <AdminStaticPages />;
+    case "/settings/topics":
+      return <AdminTopics />;
+    case "/settings/live_streams":
+      return <AdminLiveStreams />;
+    case "/settings/posts/bulk_actions":
+      return <AdminBulkActions />;
     case "/settings/ai-agents/knowledge":
     case "/settings/ai-agents":
       return <AdminAiKnowledge />;

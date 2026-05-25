@@ -503,3 +503,119 @@ export function updateAdminSettings(key: string, settings: AdminSettingsBag) {
     body: JSON.stringify({ settings }),
   });
 }
+
+
+// ---------- Static Pages ----------
+export type AdminStaticPage = {
+  id: string;
+  title: string;
+  slug: string;
+  body: string;
+  published: boolean;
+  position: number;
+  updated_at: string;
+};
+
+export function loadAdminPages() {
+  return adminFetch<AdminStaticPage[]>("/api/v1/admin/pages");
+}
+export function createAdminPage(payload: Partial<AdminStaticPage>) {
+  return adminFetch<AdminStaticPage>("/api/v1/admin/pages", {
+    method: "POST",
+    body: JSON.stringify({ page: payload }),
+  });
+}
+export function updateAdminPage(id: string, payload: Partial<AdminStaticPage>) {
+  return adminFetch<AdminStaticPage>(`/api/v1/admin/pages/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ page: payload }),
+  });
+}
+export function deleteAdminPage(id: string) {
+  return adminFetch<void>(`/api/v1/admin/pages/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Topics ----------
+export type AdminTopic = {
+  id: string;
+  name: string;
+  slug: string;
+  color: string;
+  description: string;
+  posts_count: number;
+  position: number;
+};
+
+export function loadAdminTopics() {
+  return adminFetch<AdminTopic[]>("/api/v1/admin/topics");
+}
+export function createAdminTopic(payload: Partial<AdminTopic>) {
+  return adminFetch<AdminTopic>("/api/v1/admin/topics", {
+    method: "POST",
+    body: JSON.stringify({ topic: payload }),
+  });
+}
+export function updateAdminTopic(id: string, payload: Partial<AdminTopic>) {
+  return adminFetch<AdminTopic>(`/api/v1/admin/topics/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ topic: payload }),
+  });
+}
+export function deleteAdminTopic(id: string) {
+  return adminFetch<void>(`/api/v1/admin/topics/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Live Streams ----------
+export type AdminLiveStream = {
+  id: string;
+  title: string;
+  description: string;
+  starts_at: string | null;
+  ends_at: string | null;
+  status: "scheduled" | "live" | "ended" | "cancelled";
+  source_url: string | null;
+  recording_url: string | null;
+  host: { id: string; username: string; display_name: string } | null;
+};
+
+export function loadAdminLiveStreams() {
+  return adminFetch<AdminLiveStream[]>("/api/v1/admin/live_streams");
+}
+export function createAdminLiveStream(payload: Partial<AdminLiveStream>) {
+  return adminFetch<AdminLiveStream>("/api/v1/admin/live_streams", {
+    method: "POST",
+    body: JSON.stringify({ live_stream: payload }),
+  });
+}
+export function updateAdminLiveStream(id: string, payload: Partial<AdminLiveStream>) {
+  return adminFetch<AdminLiveStream>(`/api/v1/admin/live_streams/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ live_stream: payload }),
+  });
+}
+export function deleteAdminLiveStream(id: string) {
+  return adminFetch<void>(`/api/v1/admin/live_streams/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Bulk Actions ----------
+export type AdminBulkAction = {
+  id: string;
+  action: string;
+  target: string;
+  filters: Record<string, unknown>;
+  affected_count: number;
+  status: "pending" | "running" | "completed" | "failed";
+  created_at: string;
+  finished_at: string | null;
+  user: { username: string; display_name: string } | null;
+};
+
+export function loadAdminBulkActions() {
+  return adminFetch<AdminBulkAction[]>("/api/v1/admin/bulk_actions");
+}
+export function createAdminBulkAction(payload: { action: string; target?: string; filters?: Record<string, unknown>; affected_count?: number }) {
+  return adminFetch<AdminBulkAction>("/api/v1/admin/bulk_actions", {
+    method: "POST",
+    body: JSON.stringify({ bulk_action: payload }),
+  });
+}
