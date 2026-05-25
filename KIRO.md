@@ -174,11 +174,14 @@ Esperado: HTTP 200 em todos. Auth retorna user `vitor-araujo`. Spaces retorna 25
 | **B-2** | Bug fix de cor invisível em mensagens, fontWeight, line-height | 1h | ✅ Concluída |
 | **🆕 R** | **Rebrand: tirar P6/Project Six do código** | 2-3h | ✅ Concluída em 25/05/2026 |
 | **G (estrutura)** | Painel admin: layout, topbar, 2 sidebars, 6 páginas iniciais, 1 placeholder, CSS dedicado | 2h | ✅ Concluída em 25/05/2026 |
+| **G (parte 2)** | Backend admin (community + users) + frontend conectado | 1h | ✅ Concluída em 25/05/2026 |
+| **G (parte 3)** | Dashboard real, Spaces real com reorder, Drawer de membro, Plans/Paywalls CRUD | 2h | ✅ Concluída em 25/05/2026 |
+| **G (parte 4)** | Workflows, Analytics chart, Audience invites/requests | 1h | ✅ Concluída em 25/05/2026 |
+| **F** | Stripe Checkout backend (stub-friendly) + plan link em subscriptions | 1h | ✅ Concluída em 25/05/2026 |
 | **B-3** | Modais e interações (hover, reactions, thread, empty/loading) | 2-3h | ⏳ Pendente |
 | **A** | OAuth Google/Amazon no Supabase | 30 min | ⏳ Pendente |
 | **D** | Sidekiq + Redis local (Memurai ou WSL2) | 1h | ⏳ Pendente |
 | **G (continuação)** | Forms reais conectados ao backend, Spaces drag-drop, Audience com paginação real | 6-10h | ⏳ Próxima |
-| **F** | Stripe Checkout end-to-end | 3-4h | ⏳ Pendente |
 | **E** | Active Storage com Cloudflare R2 | 1-2h | ⏳ Pendente |
 | **H** | Deploy Fly.io (Dockerfile + fly.toml region gru) | 2-3h | ⏳ Pendente |
 | **C** | Modular `application.css` (13.379 linhas) | 4-6h | ⏳ Baixa prioridade |
