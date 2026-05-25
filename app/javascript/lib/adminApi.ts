@@ -82,3 +82,72 @@ export function loadAdminUsers({ page = 1, perPage = 20, q = "", status = "", ro
 
   return adminFetch<AdminUsersPage>(`/api/v1/admin/users?${params.toString()}`);
 }
+
+
+export type AdminDashboardStat = {
+  key: string;
+  label: string;
+  value: number;
+  delta_pct: number | null;
+  positive: boolean;
+};
+
+export type AdminDashboard = {
+  community_id: string | null;
+  generated_at: string;
+  stats: AdminDashboardStat[];
+  totals: { members: number; spaces: number; posts: number };
+};
+
+export type AdminSpace = {
+  id: string;
+  name: string;
+  slug: string;
+  kind: "feed" | "chat" | "members" | "progress" | "course" | "link";
+  icon: string | null;
+  position: number;
+  locked: boolean;
+  visibility: string;
+  posts_count: number;
+  messages_count: number;
+  members_count: number;
+};
+
+export type AdminUserDetail = AdminUser & {
+  posts_count: number;
+  comments_count: number;
+  connections_count: number;
+};
+
+export function loadAdminDashboard() {
+  return adminFetch<AdminDashboard>("/api/v1/admin/dashboard");
+}
+
+export function loadAdminSpaces() {
+  return adminFetch<AdminSpace[]>("/api/v1/admin/spaces");
+}
+
+export function updateAdminSpace(id: string, payload: Partial<Pick<AdminSpace, "name" | "kind" | "locked" | "position">>) {
+  return adminFetch<AdminSpace>(`/api/v1/admin/spaces/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ space: payload }),
+  });
+}
+
+export function reorderAdminSpaces(ids: string[]) {
+  return adminFetch<{ ok: boolean; count: number }>("/api/v1/admin/spaces/reorder", {
+    method: "POST",
+    body: JSON.stringify({ ids }),
+  });
+}
+
+export function loadAdminUser(id: string) {
+  return adminFetch<AdminUserDetail>(`/api/v1/admin/users/${encodeURIComponent(id)}`);
+}
+
+export function updateAdminUser(id: string, payload: Partial<Pick<AdminUser, "role" | "status" | "display_name">>) {
+  return adminFetch<AdminUserDetail>(`/api/v1/admin/users/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ user: payload }),
+  });
+}

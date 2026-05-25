@@ -1,9 +1,10 @@
 module Api
   module V1
     module Admin
-      # GET /api/v1/admin/users
+      # GET   /api/v1/admin/users
       #   ?page=1&per_page=20&q=&status=&role=
-      # Retorna paginado pro painel /audience/manage.
+      # GET   /api/v1/admin/users/:id  -> detalhe
+      # PATCH /api/v1/admin/users/:id  -> atualiza role/status
       class UsersController < BaseController
         DEFAULT_PER_PAGE = 20
         MAX_PER_PAGE = 100
@@ -39,10 +40,41 @@ module Api
           }
         end
 
+        def show
+          user = User.find_by(id: params[:id])
+          unless user
+            render json: { error: "user_not_found" }, status: :not_found
+            return
+          end
+          render json: serialize(user, detail: true)
+        end
+
+        def update
+          user = User.find_by(id: params[:id])
+          unless user
+            render json: { error: "user_not_found" }, status: :not_found
+            return
+          end
+
+          attrs = params.require(:user).permit(:role, :status, :display_name)
+          if attrs[:role].present? && !%w[owner admin moderator member].include?(attrs[:role])
+            render json: { error: "invalid_role" }, status: :unprocessable_entity
+            return
+          end
+
+          if attrs[:status].present? && !%w[online offline away].include?(attrs[:status])
+            render json: { error: "invalid_status" }, status: :unprocessable_entity
+            return
+          end
+
+          user.update!(attrs)
+          render json: serialize(user, detail: true)
+        end
+
         private
 
-        def serialize(user)
-          {
+        def serialize(user, detail: false)
+          base = {
             id: user.id,
             username: user.username,
             display_name: user.display_name,
@@ -53,6 +85,13 @@ module Api
             last_seen_at: user.last_seen_at&.iso8601,
             created_at: user.created_at.iso8601,
           }
+          return base unless detail
+
+          base.merge(
+            posts_count: user.posts.count,
+            comments_count: user.comments.count,
+            connections_count: user.requested_member_connections.count + user.received_member_connections.count,
+          )
         end
       end
     end

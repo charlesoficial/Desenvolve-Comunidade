@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
-import { loadAdminUsers, type AdminUser } from "../../../lib/adminApi";
+import { loadAdminUsers, type AdminUser, type AdminUserDetail } from "../../../lib/adminApi";
+import { AdminMemberDrawer } from "./AdminMemberDrawer";
 
 // Pagina /audience/manage — listagem real de membros com busca,
 // filtro de status e paginacao. Le do Rails em /api/v1/admin/users.
@@ -49,7 +50,8 @@ type FetchState = {
 type FetchAction =
   | { type: "start" }
   | { type: "success"; users: AdminUser[]; total: number; totalPages: number }
-  | { type: "error"; message: string };
+  | { type: "error"; message: string }
+  | { type: "patch"; user: AdminUser };
 
 const initialState: FetchState = {
   status: "loading",
@@ -73,6 +75,11 @@ function reducer(state: FetchState, action: FetchAction): FetchState {
       };
     case "error":
       return { ...state, status: "error", error: action.message };
+    case "patch":
+      return {
+        ...state,
+        users: state.users.map((u) => (u.id === action.user.id ? action.user : u)),
+      };
     default:
       return state;
   }
@@ -84,8 +91,13 @@ export function AdminAudience() {
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [status, setStatus] = useState("");
   const [fetchState, dispatch] = useReducer(reducer, initialState);
+  const [activeUserId, setActiveUserId] = useState<string | null>(null);
   const { status: fetchStatus, users, total, totalPages, error } = fetchState;
   const loading = fetchStatus === "loading";
+
+  const handleUserUpdated = (user: AdminUserDetail) => {
+    dispatch({ type: "patch", user });
+  };
 
   // Debounce simples na busca pra nao bater no Rails a cada tecla.
   useEffect(() => {
@@ -126,6 +138,7 @@ export function AdminAudience() {
   }, [page, total]);
 
   return (
+    <>
     <div className="admin-page">
       <header className="admin-page-header">
         <div>
@@ -199,7 +212,11 @@ export function AdminAudience() {
                 </tr>
               ) : (
                 users.map((user) => (
-                  <tr key={user.id}>
+                  <tr
+                    key={user.id}
+                    onClick={() => setActiveUserId(user.id)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <td>
                       <div className="admin-table-member">
                         {user.avatar_url ? (
@@ -275,5 +292,13 @@ export function AdminAudience() {
         ) : null}
       </section>
     </div>
+    {activeUserId ? (
+      <AdminMemberDrawer
+        userId={activeUserId}
+        onClose={() => setActiveUserId(null)}
+        onUpdated={handleUserUpdated}
+      />
+    ) : null}
+    </>
   );
 }

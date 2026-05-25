@@ -28,7 +28,13 @@ Rails.application.routes.draw do
 
       namespace :admin do
         resource :community, controller: :community, only: [:show, :update]
-        resources :users, only: [:index]
+        resource :dashboard, controller: :dashboard, only: [:show]
+        resources :users, only: [:index, :show, :update]
+        resources :spaces, only: [:index, :update] do
+          collection do
+            post :reorder
+          end
+        end
       end
     end
   end

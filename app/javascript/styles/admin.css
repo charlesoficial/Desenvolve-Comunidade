@@ -626,3 +626,89 @@
   justify-content: flex-end;
   padding: 12px 0 0;
 }
+
+
+/* ---------- Drawer (member detail) ---------- */
+.admin-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 18, 23, 0.32);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 100;
+}
+
+.admin-drawer {
+  width: 480px;
+  max-width: 100%;
+  height: 100%;
+  background: #fff;
+  border-left: 1px solid var(--color-grey-200, #e7e9ec);
+  box-shadow: -8px 0 32px rgba(15, 18, 23, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--color-grey-200, #e7e9ec);
+}
+
+.admin-drawer-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-darkest, #191b1f);
+}
+
+.admin-drawer-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.admin-drawer-identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-drawer-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--color-grey-200, #e7e9ec);
+  border-radius: 12px;
+  background: var(--color-grey-50, #f7f9fa);
+}
+
+.admin-drawer-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-drawer-meta dt {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-grey-500, #717680);
+}
+
+.admin-drawer-meta dd {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-darkest, #191b1f);
+}
