@@ -50,6 +50,10 @@ Rails.application.routes.draw do
             post :bulk_destroy
           end
         end
+        resources :ai_knowledge, controller: :ai_knowledge, only: [:index, :create, :update, :destroy]
+        resources :email_templates, only: [:index, :update]
+        resources :files, only: [:index, :destroy]
+        resources :affiliates, only: [:index, :create, :update, :destroy]
       end
     end
   end

@@ -13,6 +13,10 @@ import { AdminWorkflows } from "./pages/AdminWorkflows";
 import { AdminMembershipQueue } from "./pages/AdminMembershipQueue";
 import { AdminApiTokens } from "./pages/AdminApiTokens";
 import { AdminPosts } from "./pages/AdminPosts";
+import { AdminAiKnowledge } from "./pages/AdminAiKnowledge";
+import { AdminEmails } from "./pages/AdminEmails";
+import { AdminFiles } from "./pages/AdminFiles";
+import { AdminAffiliates } from "./pages/AdminAffiliates";
 import { AdminPlaceholder } from "./pages/AdminPlaceholder";
 
 // Mapeia rotas /settings/* e /audience/manage para a secao da sidebar primaria.
@@ -119,6 +123,16 @@ function renderPage(pathname: string) {
     case "/settings/posts":
     case "/settings/moderation":
       return <AdminPosts />;
+    case "/settings/ai-agents/knowledge":
+    case "/settings/ai-agents":
+      return <AdminAiKnowledge />;
+    case "/settings/emails":
+      return <AdminEmails />;
+    case "/settings/files":
+      return <AdminFiles />;
+    case "/settings/affiliates_settings":
+    case "/settings/affiliates":
+      return <AdminAffiliates />;
     default:
       return <AdminPlaceholder route={pathname} />;
   }

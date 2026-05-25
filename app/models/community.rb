@@ -7,6 +7,10 @@ class Community < ApplicationRecord
   has_many :plans, dependent: :destroy
   has_many :paywalls, dependent: :destroy
   has_many :api_tokens, dependent: :destroy
+  has_many :ai_knowledge_entries, dependent: :destroy
+  has_many :email_templates, dependent: :destroy
+  has_many :affiliate_codes, dependent: :destroy
+  has_many :upload_catalog_entries, class_name: "UploadCatalogEntry", dependent: :destroy
 
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true

@@ -34,7 +34,25 @@ module Api
           content_type: content_type,
         )
 
+        # Cataloga o upload pra aparecer em /settings/files. Quando a comunidade
+        # nao existe ainda, faz best-effort e ignora falhas pra nao quebrar o upload.
+        catalog_entry = nil
+        if defined?(UploadCatalogEntry) && Community.any?
+          community = Community.order(:created_at).first
+          catalog_entry = UploadCatalogEntry.create(
+            community: community,
+            user: current_user,
+            filename: file.original_filename,
+            url: result[:url],
+            storage_key: result[:key],
+            content_type: result[:content_type],
+            bytes: result[:bytes].to_i,
+            backend: Uploads::StorageStrategy.r2_configured? ? "r2" : "local",
+          )
+        end
+
         render json: {
+          id: catalog_entry&.id,
           url: result[:url],
           key: result[:key],
           bytes: result[:bytes],

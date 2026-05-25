@@ -368,3 +368,117 @@ export function bulkDeleteAdminPosts(ids: string[]) {
     body: JSON.stringify({ ids }),
   });
 }
+
+
+// ---------- AI Knowledge ----------
+export type AdminKnowledgeEntry = {
+  id: string;
+  title: string;
+  body: string;
+  source_url: string | null;
+  enabled: boolean;
+  created_at: string;
+  updated_at: string;
+};
+
+export function loadAdminKnowledge() {
+  return adminFetch<AdminKnowledgeEntry[]>("/api/v1/admin/ai_knowledge");
+}
+export function createAdminKnowledge(entry: Partial<AdminKnowledgeEntry>) {
+  return adminFetch<AdminKnowledgeEntry>("/api/v1/admin/ai_knowledge", {
+    method: "POST",
+    body: JSON.stringify({ entry }),
+  });
+}
+export function updateAdminKnowledge(id: string, entry: Partial<AdminKnowledgeEntry>) {
+  return adminFetch<AdminKnowledgeEntry>(`/api/v1/admin/ai_knowledge/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ entry }),
+  });
+}
+export function deleteAdminKnowledge(id: string) {
+  return adminFetch<void>(`/api/v1/admin/ai_knowledge/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Email Templates ----------
+export type AdminEmailTemplate = {
+  id: string;
+  key: string;
+  subject: string;
+  body: string;
+  enabled: boolean;
+  updated_at: string;
+};
+
+export function loadAdminEmailTemplates() {
+  return adminFetch<AdminEmailTemplate[]>("/api/v1/admin/email_templates");
+}
+export function updateAdminEmailTemplate(id: string, payload: Partial<AdminEmailTemplate>) {
+  return adminFetch<AdminEmailTemplate>(`/api/v1/admin/email_templates/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ email_template: payload }),
+  });
+}
+
+// ---------- Files / Mídia ----------
+export type AdminFile = {
+  id: string;
+  filename: string;
+  url: string;
+  storage_key: string;
+  content_type: string | null;
+  bytes: number;
+  backend: string;
+  created_at: string;
+  user: { username: string; display_name: string } | null;
+};
+
+export type AdminFilesPage = {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  files: AdminFile[];
+};
+
+export function loadAdminFiles(opts: { page?: number; perPage?: number } = {}) {
+  const params = new URLSearchParams();
+  params.set("page", String(opts.page ?? 1));
+  params.set("per_page", String(opts.perPage ?? 30));
+  return adminFetch<AdminFilesPage>(`/api/v1/admin/files?${params.toString()}`);
+}
+export function deleteAdminFile(id: string) {
+  return adminFetch<void>(`/api/v1/admin/files/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Affiliates ----------
+export type AdminAffiliate = {
+  id: string;
+  code: string;
+  commission_pct: number;
+  visits_count: number;
+  conversions_count: number;
+  total_revenue_cents: number;
+  active: boolean;
+  created_at: string;
+  user: { id: string; username: string; display_name: string; avatar_url: string | null } | null;
+};
+
+export function loadAdminAffiliates() {
+  return adminFetch<AdminAffiliate[]>("/api/v1/admin/affiliates");
+}
+export function createAdminAffiliate(payload: { user_id: string; commission_pct?: number }) {
+  return adminFetch<AdminAffiliate>("/api/v1/admin/affiliates", {
+    method: "POST",
+    body: JSON.stringify({ affiliate: payload }),
+  });
+}
+export function updateAdminAffiliate(id: string, payload: { commission_pct?: number; active?: boolean }) {
+  return adminFetch<AdminAffiliate>(`/api/v1/admin/affiliates/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ affiliate: payload }),
+  });
+}
+export function deleteAdminAffiliate(id: string) {
+  return adminFetch<void>(`/api/v1/admin/affiliates/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
