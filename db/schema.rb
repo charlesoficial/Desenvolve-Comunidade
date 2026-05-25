@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_25_160000) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_25_170000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -316,7 +316,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_160000) do
     t.jsonb "metadata", default: {}, null: false
     t.timestamptz "created_at", default: -> { "now()" }, null: false
     t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.uuid "plan_id"
     t.index ["community_id"], name: "index_subscriptions_community_id"
+    t.index ["plan_id"], name: "index_subscriptions_plan_id"
     t.index ["provider_subscription_id"], name: "index_subscriptions_provider_subscription_id"
     t.index ["user_id"], name: "index_subscriptions_user_id"
   end
@@ -386,6 +388,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_160000) do
   add_foreign_key "spaces", "communities", name: "spaces_community_id_fkey", on_delete: :cascade
   add_foreign_key "spaces", "spaces", column: "parent_id", name: "spaces_parent_id_fkey", on_delete: :cascade
   add_foreign_key "subscriptions", "communities", name: "subscriptions_community_id_fkey", on_delete: :cascade
+  add_foreign_key "subscriptions", "plans", name: "subscriptions_plan_id_fkey", on_delete: :nullify
   add_foreign_key "subscriptions", "users", name: "subscriptions_user_id_fkey", on_delete: :cascade
   add_foreign_key "user_public_profiles", "users", name: "user_public_profiles_user_id_fkey", on_delete: :cascade
 end

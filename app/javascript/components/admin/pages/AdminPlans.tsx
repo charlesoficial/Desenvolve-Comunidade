@@ -6,6 +6,7 @@ import {
   updateAdminPlan,
   type AdminPlan,
 } from "../../../lib/adminApi";
+import { createCheckoutSession } from "../../../lib/billing";
 
 // Pagina /settings/plans — CRUD de planos de assinatura.
 // Le do Postgres via /api/v1/admin/plans (controller Rails).
@@ -121,6 +122,25 @@ export function AdminPlans() {
       dispatch({ type: "patch", plan: updated });
     } catch {
       dispatch({ type: "load_error", message: "Falha ao atualizar plano." });
+    } finally {
+      setSavingId(null);
+    }
+  };
+
+  const handleCheckout = async (plan: AdminPlan) => {
+    setSavingId(plan.id);
+    try {
+      const result = await createCheckoutSession(plan.id);
+      if (result.mode === "stub") {
+        window.alert(
+          `Stripe não configurado. URL de stub gerada:\n${result.url}\n\nDefina STRIPE_SECRET_KEY no .env do Rails para abrir o Checkout real.`,
+        );
+      } else {
+        window.location.assign(result.url);
+      }
+    } catch (err) {
+      console.error(err);
+      dispatch({ type: "load_error", message: "Falha ao iniciar checkout." });
     } finally {
       setSavingId(null);
     }
@@ -246,7 +266,16 @@ export function AdminPlans() {
               <span className="admin-plan-meta">
                 {plan.active ? "Ativo" : "Pausado"} • posição {plan.position}
               </span>
-              <div style={{ display: "flex", gap: 6, marginTop: "auto" }}>
+              <div style={{ display: "flex", gap: 6, marginTop: "auto", flexWrap: "wrap" }}>
+                <button
+                  type="button"
+                  className="admin-btn admin-btn-primary"
+                  onClick={() => handleCheckout(plan)}
+                  disabled={savingId === plan.id}
+                  style={{ height: 32, fontSize: 12 }}
+                >
+                  Testar checkout
+                </button>
                 <button
                   type="button"
                   className="admin-btn admin-btn-ghost"
