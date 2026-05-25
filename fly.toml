@@ -55,7 +55,7 @@ primary_region = "gru"
   timeout = "5s"
   grace_period = "10s"
   method = "GET"
-  path = "/"
+  path = "/healthz"
   protocol = "http"
 
 # Monta volume opcional pra Action Cable / uploads temporarios.

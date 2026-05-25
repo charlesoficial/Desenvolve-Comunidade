@@ -299,3 +299,72 @@ export function deleteAdminWorkflow(id: string) {
     method: "DELETE",
   });
 }
+
+
+export type AdminApiToken = {
+  id: string;
+  name: string;
+  token_prefix: string;
+  scopes: string[];
+  last_used_at: string | null;
+  revoked_at: string | null;
+  created_at: string;
+};
+
+export type AdminApiTokenWithSecret = AdminApiToken & { token: string };
+
+export function loadAdminApiTokens() {
+  return adminFetch<AdminApiToken[]>("/api/v1/admin/api_tokens");
+}
+
+export function createAdminApiToken(payload: { name: string; scopes: string[] }) {
+  return adminFetch<AdminApiTokenWithSecret>("/api/v1/admin/api_tokens", {
+    method: "POST",
+    body: JSON.stringify({ api_token: payload }),
+  });
+}
+
+export function revokeAdminApiToken(id: string) {
+  return adminFetch<AdminApiToken>(`/api/v1/admin/api_tokens/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}
+
+export type AdminPostRow = {
+  id: string;
+  title: string;
+  body: string;
+  created_at: string;
+  published_at: string | null;
+  space: { id: string; name: string; slug: string } | null;
+  author: { id: string; username: string; display_name: string; avatar_url: string | null } | null;
+};
+
+export type AdminPostsPage = {
+  page: number;
+  per_page: number;
+  total: number;
+  total_pages: number;
+  posts: AdminPostRow[];
+};
+
+export function loadAdminPosts(opts: { page?: number; perPage?: number; q?: string } = {}) {
+  const params = new URLSearchParams();
+  params.set("page", String(opts.page ?? 1));
+  params.set("per_page", String(opts.perPage ?? 25));
+  if (opts.q) params.set("q", opts.q);
+  return adminFetch<AdminPostsPage>(`/api/v1/admin/posts?${params.toString()}`);
+}
+
+export function deleteAdminPost(id: string) {
+  return adminFetch<void>(`/api/v1/admin/posts/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}
+
+export function bulkDeleteAdminPosts(ids: string[]) {
+  return adminFetch<{ deleted: number }>("/api/v1/admin/posts/bulk_destroy", {
+    method: "POST",
+    body: JSON.stringify({ ids }),
+  });
+}

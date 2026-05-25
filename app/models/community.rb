@@ -6,6 +6,7 @@ class Community < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :plans, dependent: :destroy
   has_many :paywalls, dependent: :destroy
+  has_many :api_tokens, dependent: :destroy
 
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true

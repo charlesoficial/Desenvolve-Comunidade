@@ -11,6 +11,8 @@ import { AdminSpaces } from "./pages/AdminSpaces";
 import { AdminAnalytics } from "./pages/AdminAnalytics";
 import { AdminWorkflows } from "./pages/AdminWorkflows";
 import { AdminMembershipQueue } from "./pages/AdminMembershipQueue";
+import { AdminApiTokens } from "./pages/AdminApiTokens";
+import { AdminPosts } from "./pages/AdminPosts";
 import { AdminPlaceholder } from "./pages/AdminPlaceholder";
 
 // Mapeia rotas /settings/* e /audience/manage para a secao da sidebar primaria.
@@ -112,6 +114,11 @@ function renderPage(pathname: string) {
       return <AdminAnalytics />;
     case "/settings/workflows":
       return <AdminWorkflows />;
+    case "/settings/api":
+      return <AdminApiTokens />;
+    case "/settings/posts":
+    case "/settings/moderation":
+      return <AdminPosts />;
     default:
       return <AdminPlaceholder route={pathname} />;
   }

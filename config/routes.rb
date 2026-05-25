@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "/healthz", to: "health#show"
+  get "/up", to: "health#show"
+
   namespace :api do
     namespace :v1 do
       resource :auth, controller: :auth, only: [:show, :create, :destroy]
@@ -41,6 +44,12 @@ Rails.application.routes.draw do
         resources :paywalls, only: [:index, :create, :update, :destroy]
         resources :memberships, only: [:index, :update, :destroy]
         resources :workflows, only: [:index, :create, :update, :destroy]
+        resources :api_tokens, only: [:index, :create, :destroy]
+        resources :posts, only: [:index, :destroy] do
+          collection do
+            post :bulk_destroy
+          end
+        end
       end
     end
   end

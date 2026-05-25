@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_25_170000) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_25_180000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -28,6 +28,21 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_170000) do
   enable_extension "plpgsql"
   enable_extension "supabase_vault"
   enable_extension "uuid-ossp"
+
+  create_table "api_tokens", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "user_id"
+    t.text "name", null: false
+    t.text "token_prefix", null: false
+    t.text "token_hash", null: false
+    t.text "scopes", null: false, array: true
+    t.timestamptz "last_used_at"
+    t.timestamptz "revoked_at"
+    t.timestamptz "created_at", default: -> { "now()" }, null: false
+    t.timestamptz "updated_at", default: -> { "now()" }, null: false
+    t.index ["community_id"], name: "index_api_tokens_community"
+    t.index ["token_hash"], name: "index_api_tokens_token_hash", unique: true
+  end
 
   create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "post_id", null: false
@@ -354,6 +369,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_170000) do
     t.unique_constraint ["username"], name: "users_username_key"
   end
 
+  add_foreign_key "api_tokens", "communities", name: "api_tokens_community_id_fkey", on_delete: :cascade
+  add_foreign_key "api_tokens", "users", name: "api_tokens_user_id_fkey", on_delete: :nullify
   add_foreign_key "comments", "comments", column: "parent_id", name: "comments_parent_id_fkey", on_delete: :cascade
   add_foreign_key "comments", "posts", name: "comments_post_id_fkey", on_delete: :cascade
   add_foreign_key "comments", "users", name: "comments_user_id_fkey", on_delete: :cascade
