@@ -42,3 +42,6 @@ OBISIDIAN-CEREBRAL/
 
 # Build error logs
 build-error.txt
+
+# Uploads locais (Onda E - LocalAdapter). Em producao usa R2.
+public/uploads/

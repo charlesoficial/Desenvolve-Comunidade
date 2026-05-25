@@ -178,14 +178,14 @@ Esperado: HTTP 200 em todos. Auth retorna user `vitor-araujo`. Spaces retorna 25
 | **G (parte 3)** | Dashboard real, Spaces real com reorder, Drawer de membro, Plans/Paywalls CRUD | 2h | ✅ Concluída em 25/05/2026 |
 | **G (parte 4)** | Workflows, Analytics chart, Audience invites/requests | 1h | ✅ Concluída em 25/05/2026 |
 | **F** | Stripe Checkout backend (stub-friendly) + plan link em subscriptions | 1h | ✅ Concluída em 25/05/2026 |
+| **F (webhook)** | POST /api/v1/billing/webhook ativando subscription | 30 min | ✅ Concluída em 25/05/2026 |
+| **D** | Sidekiq + Redis local com auto-detect (fallback `:inline`) | 30 min | ✅ Concluída em 25/05/2026 |
+| **H** | Dockerfile + fly.toml + docs/deploy-fly.md (region gru) | 1h | ✅ Concluída em 25/05/2026 |
+| **A** | OAuth Google/Amazon via Supabase + consumeOAuthCallback | 30 min | ✅ Concluída em 25/05/2026 |
+| **E** | Active Storage com R2 (SigV4 sem aws-sdk) + LocalAdapter fallback | 1h | ✅ Concluída em 25/05/2026 |
 | **B-3** | Modais e interações (hover, reactions, thread, empty/loading) | 2-3h | ⏳ Pendente |
-| **A** | OAuth Google/Amazon no Supabase | 30 min | ⏳ Pendente |
-| **D** | Sidekiq + Redis local (Memurai ou WSL2) | 1h | ⏳ Pendente |
 | **G (continuação)** | Forms reais conectados ao backend, Spaces drag-drop, Audience com paginação real | 6-10h | ⏳ Próxima |
-| **E** | Active Storage com Cloudflare R2 | 1-2h | ⏳ Pendente |
-| **H** | Deploy Fly.io (Dockerfile + fly.toml region gru) | 2-3h | ⏳ Pendente |
 | **C** | Modular `application.css` (13.379 linhas) | 4-6h | ⏳ Baixa prioridade |
-
 ### Ordem sugerida pra próxima sessão
 1. **R (rebrand)** — limpar P6 do código antes de qualquer coisa
 2. **G (admin panel)** — depende do Charles criar conta Circle e dar acesso
