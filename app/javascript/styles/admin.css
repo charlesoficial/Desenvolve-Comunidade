@@ -616,3 +616,13 @@
   align-self: flex-start;
   margin-top: auto;
 }
+
+
+/* ---------- Pagination ---------- */
+.admin-pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px 0 0;
+}

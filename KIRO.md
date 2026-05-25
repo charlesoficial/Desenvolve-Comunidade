@@ -424,8 +424,22 @@ Navegação dentro do admin usa `pushState` + `popstate`, mesmo padrao do ChatLa
 
 ### Próximos passos da Onda G
 
-1. Conectar form de `/settings` a um endpoint Rails real (`PATCH /api/v1/settings`)
-2. Carregar membros reais em `/audience/manage` via `GET /api/v1/users` com paginação
+1. ~~Conectar form de `/settings` a um endpoint Rails real~~ ✅ feito (PATCH /api/v1/admin/community)
+2. ~~Carregar membros reais em `/audience/manage` via `GET /api/v1/users` com paginação~~ ✅ feito (GET /api/v1/admin/users)
 3. Implementar drag-drop em `/settings/spaces` pra reordenar
 4. Capturar e replicar mais telas Circle (Workflows, Analytics, AI Agents)
-5. Adicionar permissão por role no Rails (apenas admins acessam `/settings/*`)
+5. ~~Adicionar permissão por role no Rails (apenas admins acessam `/settings/*`)~~ ✅ feito (Api::V1::Admin::BaseController#require_admin!)
+6. Conectar Plans, Paywalls, Spaces, Dashboard a endpoints reais
+7. Detalhe de membro (modal /audience/:id) + ações (banir, mudar role)
+8. Convites pendentes + solicitações em /audience/invites e /audience/requests
+
+### Backend admin (criado em 25/05/2026)
+
+```
+app/controllers/api/v1/admin/
+├── base_controller.rb        ← guarda require_admin! (role owner|admin)
+├── community_controller.rb   ← GET/PATCH /api/v1/admin/community
+└── users_controller.rb       ← GET /api/v1/admin/users (paginado, busca, filtros)
+```
+
+Description, locale e timezone são salvos no jsonb `communities.settings` pra evitar nova migration. User de dev `vitor-araujo` foi promovido a `owner` no banco.
