@@ -997,3 +997,148 @@ export type AdminAnalyticsBreakdown = {
 export function loadAdminAnalyticsBreakdown(scope: string) {
   return adminFetch<AdminAnalyticsBreakdown>(`/api/v1/admin/analytics/breakdown/${encodeURIComponent(scope)}`);
 }
+
+
+// ---------- Paywall Groups ----------
+export type AdminPaywallGroup = {
+  id: string;
+  name: string;
+  description: string;
+  price_cents: number;
+  currency: string;
+  interval: "month" | "year" | "one_time";
+  trial_days: number;
+  paywall_ids: string[];
+  paywall_count: number;
+  paywalls: Array<{ id: string; name: string; price_cents: number }>;
+  active: boolean;
+  created_at: string;
+};
+
+export function loadAdminPaywallGroups() {
+  return adminFetch<AdminPaywallGroup[]>("/api/v1/admin/paywall_groups");
+}
+export function createAdminPaywallGroup(payload: Partial<AdminPaywallGroup>) {
+  return adminFetch<AdminPaywallGroup>("/api/v1/admin/paywall_groups", {
+    method: "POST",
+    body: JSON.stringify({ paywall_group: payload }),
+  });
+}
+export function updateAdminPaywallGroup(id: string, payload: Partial<AdminPaywallGroup>) {
+  return adminFetch<AdminPaywallGroup>(`/api/v1/admin/paywall_groups/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ paywall_group: payload }),
+  });
+}
+export function deleteAdminPaywallGroup(id: string) {
+  return adminFetch<void>(`/api/v1/admin/paywall_groups/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- Onboarding Steps ----------
+export type AdminOnboardingStep = {
+  id: string;
+  title: string;
+  description: string | null;
+  step_type: "welcome" | "form" | "video" | "redirect" | "profile_field";
+  payload: Record<string, unknown>;
+  required: boolean;
+  position: number;
+  archived: boolean;
+};
+
+export function loadAdminOnboardingSteps() {
+  return adminFetch<AdminOnboardingStep[]>("/api/v1/admin/onboarding_steps");
+}
+export function createAdminOnboardingStep(payload: Partial<AdminOnboardingStep>) {
+  return adminFetch<AdminOnboardingStep>("/api/v1/admin/onboarding_steps", {
+    method: "POST",
+    body: JSON.stringify({ onboarding_step: payload }),
+  });
+}
+export function updateAdminOnboardingStep(id: string, payload: Partial<AdminOnboardingStep>) {
+  return adminFetch<AdminOnboardingStep>(`/api/v1/admin/onboarding_steps/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ onboarding_step: payload }),
+  });
+}
+export function deleteAdminOnboardingStep(id: string) {
+  return adminFetch<void>(`/api/v1/admin/onboarding_steps/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
+// ---------- AI Conversations ----------
+export type AdminAiConversation = {
+  id: string;
+  status: "open" | "resolved" | "escalated";
+  last_question: string | null;
+  last_answer: string | null;
+  turns_count: number;
+  rating: "positive" | "negative" | null;
+  converted_to_kb: boolean;
+  created_at: string;
+  updated_at: string;
+  user: { id: string; username: string; display_name: string; email: string } | null;
+};
+
+export type AdminAiConversationsPage = {
+  conversations: AdminAiConversation[];
+  total: number;
+  total_pages: number;
+  page: number;
+};
+
+export function loadAdminAiConversations(opts: { page?: number; status?: string } = {}) {
+  const params = new URLSearchParams();
+  params.set("page", String(opts.page ?? 1));
+  if (opts.status) params.set("status", opts.status);
+  return adminFetch<AdminAiConversationsPage>(`/api/v1/admin/ai_conversations?${params.toString()}`);
+}
+export function updateAdminAiConversation(id: string, payload: Partial<Pick<AdminAiConversation, "status" | "converted_to_kb">>) {
+  return adminFetch<AdminAiConversation>(`/api/v1/admin/ai_conversations/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify({ ai_conversation: payload }),
+  });
+}
+
+// ---------- Paywall Bulk Logs ----------
+export type AdminPaywallBulkLog = {
+  id: string;
+  action: string;
+  target: string;
+  status: "pending" | "running" | "completed" | "failed";
+  filters: Record<string, unknown>;
+  affected_count: number;
+  finished_at: string | null;
+  created_at: string;
+};
+
+export function loadAdminPaywallBulkLogs() {
+  return adminFetch<AdminPaywallBulkLog[]>("/api/v1/admin/paywall_bulk_logs");
+}
+
+// ---------- Tax Settings ----------
+export type AdminTaxRate = {
+  country: string;
+  state?: string;
+  rate_pct: number;
+  label?: string;
+};
+
+export type AdminTaxSetting = {
+  id: string | null;
+  enabled: boolean;
+  model: "inclusive" | "additive";
+  auto_calculate: boolean;
+  default_country: string;
+  rates: AdminTaxRate[];
+  updated_at: string;
+};
+
+export function loadAdminTaxSetting() {
+  return adminFetch<AdminTaxSetting>("/api/v1/admin/tax_setting");
+}
+export function updateAdminTaxSetting(payload: Partial<AdminTaxSetting>) {
+  return adminFetch<AdminTaxSetting>("/api/v1/admin/tax_setting", {
+    method: "PATCH",
+    body: JSON.stringify({ tax_setting: payload }),
+  });
+}

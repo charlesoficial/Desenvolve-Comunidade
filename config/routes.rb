@@ -72,6 +72,11 @@ Rails.application.routes.draw do
         resources :invitation_links, only: [:index, :create, :update, :destroy]
         resources :audit_logs, only: [:index]
         resources :bulk_imports, only: [:index, :create]
+        resources :paywall_groups, only: [:index, :create, :update, :destroy]
+        resources :onboarding_steps, only: [:index, :create, :update, :destroy]
+        resources :ai_conversations, only: [:index, :update]
+        resources :paywall_bulk_logs, only: [:index]
+        resource  :tax_setting, controller: :tax_settings, only: [:show, :update]
       end
     end
   end

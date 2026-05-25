@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_25_230000) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_25_233000) do
   create_schema "auth"
   create_schema "extensions"
   create_schema "graphql"
@@ -57,6 +57,23 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_230000) do
 
     t.unique_constraint ["community_id", "code"], name: "affiliate_codes_community_id_code_key"
     t.unique_constraint ["community_id", "user_id"], name: "affiliate_codes_community_id_user_id_key"
+  end
+
+  create_table "ai_conversations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.uuid "user_id"
+    t.string "status", default: "open", null: false
+    t.string "last_question"
+    t.text "last_answer"
+    t.integer "turns_count", default: 0, null: false
+    t.string "rating"
+    t.boolean "converted_to_kb", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id", "created_at"], name: "index_ai_conversations_on_community_id_and_created_at"
+    t.index ["community_id", "status"], name: "index_ai_conversations_on_community_id_and_status"
+    t.index ["community_id"], name: "index_ai_conversations_on_community_id"
+    t.index ["user_id"], name: "index_ai_conversations_on_user_id"
   end
 
   create_table "ai_knowledge_entries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -367,6 +384,36 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_230000) do
     t.index ["user_id", "read_at"], name: "index_notifications_user_read_at"
   end
 
+  create_table "onboarding_steps", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.string "step_type", default: "form", null: false
+    t.jsonb "payload", default: {}, null: false
+    t.boolean "required", default: true, null: false
+    t.integer "position", default: 0, null: false
+    t.boolean "archived", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id", "position"], name: "index_onboarding_steps_on_community_id_and_position"
+    t.index ["community_id"], name: "index_onboarding_steps_on_community_id"
+  end
+
+  create_table "paywall_groups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.integer "price_cents", default: 0, null: false
+    t.string "currency", default: "BRL", null: false
+    t.string "interval", default: "month", null: false
+    t.integer "trial_days", default: 0, null: false
+    t.uuid "paywall_ids", default: [], null: false, array: true
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_paywall_groups_on_community_id"
+  end
+
   create_table "paywalls", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "community_id", null: false
     t.text "name", null: false
@@ -560,6 +607,18 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_230000) do
     t.index ["user_id"], name: "index_subscriptions_user_id"
   end
 
+  create_table "tax_settings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "community_id", null: false
+    t.string "model", default: "inclusive", null: false
+    t.boolean "enabled", default: false, null: false
+    t.boolean "auto_calculate", default: false, null: false
+    t.string "default_country", default: "BR", null: false
+    t.jsonb "rates", default: [], null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_tax_settings_on_community_id", unique: true
+  end
+
   create_table "topics", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "community_id", null: false
     t.text "name", null: false
@@ -621,6 +680,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_230000) do
   add_foreign_key "access_groups", "communities", name: "access_groups_community_id_fkey", on_delete: :cascade
   add_foreign_key "affiliate_codes", "communities", name: "affiliate_codes_community_id_fkey", on_delete: :cascade
   add_foreign_key "affiliate_codes", "users", name: "affiliate_codes_user_id_fkey", on_delete: :cascade
+  add_foreign_key "ai_conversations", "communities"
+  add_foreign_key "ai_conversations", "users"
   add_foreign_key "ai_knowledge_entries", "communities", name: "ai_knowledge_entries_community_id_fkey", on_delete: :cascade
   add_foreign_key "api_tokens", "communities", name: "api_tokens_community_id_fkey", on_delete: :cascade
   add_foreign_key "api_tokens", "users", name: "api_tokens_user_id_fkey", on_delete: :nullify
@@ -661,6 +722,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_230000) do
   add_foreign_key "messages", "spaces", name: "messages_space_id_fkey", on_delete: :cascade
   add_foreign_key "messages", "users", name: "messages_user_id_fkey", on_delete: :cascade
   add_foreign_key "notifications", "users", name: "notifications_user_id_fkey", on_delete: :cascade
+  add_foreign_key "onboarding_steps", "communities"
+  add_foreign_key "paywall_groups", "communities"
   add_foreign_key "paywalls", "communities", name: "paywalls_community_id_fkey", on_delete: :cascade
   add_foreign_key "plans", "communities", name: "plans_community_id_fkey", on_delete: :cascade
   add_foreign_key "post_attachments", "posts", name: "post_attachments_post_id_fkey", on_delete: :cascade
@@ -681,6 +744,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_25_230000) do
   add_foreign_key "subscriptions", "communities", name: "subscriptions_community_id_fkey", on_delete: :cascade
   add_foreign_key "subscriptions", "plans", name: "subscriptions_plan_id_fkey", on_delete: :nullify
   add_foreign_key "subscriptions", "users", name: "subscriptions_user_id_fkey", on_delete: :cascade
+  add_foreign_key "tax_settings", "communities"
   add_foreign_key "topics", "communities", name: "topics_community_id_fkey", on_delete: :cascade
   add_foreign_key "uploads_catalog", "communities", name: "uploads_catalog_community_id_fkey", on_delete: :cascade
   add_foreign_key "uploads_catalog", "users", name: "uploads_catalog_user_id_fkey", on_delete: :nullify

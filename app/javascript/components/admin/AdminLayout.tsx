@@ -23,7 +23,6 @@ import { AdminBulkActions } from "./pages/AdminBulkActions";
 import { AdminStaticPages } from "./pages/AdminStaticPages";
 import { AdminTopics } from "./pages/AdminTopics";
 import { AdminPlaceholder } from "./pages/AdminPlaceholder";
-import { AdminFeatureStub } from "./pages/AdminFeatureStub";
 import { AdminMemberTags } from "./pages/AdminMemberTags";
 import { AdminCoupons } from "./pages/AdminCoupons";
 import { AdminSegments } from "./pages/AdminSegments";
@@ -36,6 +35,11 @@ import { AdminInvitationLinks } from "./pages/AdminInvitationLinks";
 import { AdminAuditLogs } from "./pages/AdminAuditLogs";
 import { AdminBulkImports } from "./pages/AdminBulkImports";
 import { AdminAnalyticsBreakdown } from "./pages/AdminAnalyticsBreakdown";
+import { AdminTaxSettings } from "./pages/AdminTaxSettings";
+import { AdminPaywallGroups } from "./pages/AdminPaywallGroups";
+import { AdminPaywallBulkLogs } from "./pages/AdminPaywallBulkLogs";
+import { AdminAiInbox } from "./pages/AdminAiInbox";
+import { AdminOnboarding } from "./pages/AdminOnboarding";
 
 export function AdminLayout() {
   const [pathname, setPathname] = useState(() => window.location.pathname);
@@ -262,18 +266,7 @@ function renderPage(pathname: string) {
     case "/settings/member_tags":
       return <AdminMemberTags />;
     case "/members/onboarding":
-      return (
-        <AdminFeatureStub
-          title="Onboarding"
-          subtitle="Defina o questionário inicial que novos membros respondem ao entrar na comunidade."
-          cta={{ label: "Editar fluxo" }}
-          bullets={[
-            "Sequência de telas com campos personalizados",
-            "Coleta dados pra preencher o perfil automaticamente",
-            "Encaminha pra espaços recomendados conforme respostas",
-          ]}
-        />
-      );
+      return <AdminOnboarding />;
     case "/settings/gamification":
       return <AdminGamification />;
     case "/members/profile_fields":
@@ -289,42 +282,15 @@ function renderPage(pathname: string) {
     case "/settings/coupons":
       return <AdminCoupons />;
     case "/settings/paywall_groups":
-      return (
-        <AdminFeatureStub
-          title="Grupos de assinatura"
-          subtitle="Combine vários paywalls num único grupo (ex.: Mentoria + Curso = pacote)."
-          cta={{ label: "Novo grupo" }}
-          bullets={[
-            "Membro paga 1 vez e ganha acesso a vários paywalls",
-            "Preço com desconto vs comprar separado",
-            "Trial period configurável",
-          ]}
-        />
-      );
+      return <AdminPaywallGroups />;
     case "/settings/paywall_charges":
       return <AdminCharges />;
     case "/settings/paywall_subscriptions":
       return <AdminSubscriptions />;
     case "/settings/paywall_tax_settings":
-      return (
-        <AdminFeatureStub
-          title="Impostos"
-          subtitle="Configure como impostos são calculados nas vendas."
-          bullets={[
-            "Modelo: incluso no preço ou adicionado no checkout",
-            "Alíquotas por país/estado",
-            "Integração com Stripe Tax (auto-cálculo)",
-            "Notas fiscais por transação",
-          ]}
-        />
-      );
+      return <AdminTaxSettings />;
     case "/settings/paywall_bulk_logs":
-      return (
-        <AdminFeatureStub
-          title="Registros em massa de paywalls"
-          subtitle="Logs das ações em massa em paywalls e assinaturas (cancelamentos, descontos, exports)."
-        />
-      );
+      return <AdminPaywallBulkLogs />;
 
     /* ---------- Analytics sub-páginas ---------- */
     case "/settings/analytics/members":
@@ -348,18 +314,7 @@ function renderPage(pathname: string) {
 
     /* ---------- AI Agents sub-páginas ---------- */
     case "/settings/ai-agents/inbox":
-      return (
-        <AdminFeatureStub
-          title="Inbox da IA"
-          subtitle="Conversas que o agente teve com membros — útil pra revisar respostas e treinar."
-          bullets={[
-            "Lista de conversas com status (resolvida, escalada, aberta)",
-            "Avaliações dos membros (👍 / 👎)",
-            "Conversa completa em modo leitura",
-            "Botão pra marcar resposta como base de conhecimento",
-          ]}
-        />
-      );
+      return <AdminAiInbox />;
 
     default:
       return <AdminPlaceholder route={pathname} />;

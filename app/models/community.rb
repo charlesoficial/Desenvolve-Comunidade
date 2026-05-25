@@ -25,6 +25,10 @@ class Community < ApplicationRecord
   has_many :profile_field_definitions, dependent: :destroy
   has_many :invitation_links, dependent: :destroy
   has_many :audit_logs, dependent: :destroy
+  has_many :onboarding_steps, dependent: :destroy
+  has_many :paywall_groups, dependent: :destroy
+  has_one  :tax_setting, dependent: :destroy
+  has_many :ai_conversations, dependent: :destroy
 
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true
